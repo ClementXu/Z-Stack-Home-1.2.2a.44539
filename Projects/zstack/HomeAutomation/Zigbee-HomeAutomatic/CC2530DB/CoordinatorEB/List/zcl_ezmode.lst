@@ -1,0 +1,1854 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:14:09
+# Copyright 2004-2015 IAR Systems AB.
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Components\stack\zcl\zcl_ezmode.c
+#    Command line       =  
+#        -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Components\stack\zcl\zcl_ezmode.c" -D SECURE=1 -D
+#        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
+#        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+#        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+#        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
+#        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
+#        Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+#        -lA "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+#        --diag_suppress Pe001,Pa010 -o "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I "C:\Texas
+#        Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\Source\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\Source\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\zcl_ezmode.lst
+#    Object file        =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\Obj\zcl_ezmode.r51
+#
+###############################################################################
+
+C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zcl\zcl_ezmode.c
+      1          /**************************************************************************************************
+      2            Filename:       zcl_ezmode.c
+      3            Revised:        $Date: 2014-12-03 14:48:39 -0800 (Wed, 03 Dec 2014) $
+      4            Revision:       $Revision: 41325 $
+      5          
+      6            Description:    Zigbee Cluster Library - EZ Mode
+      7          
+      8          
+      9            Copyright 2013-2014 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          #include "ZComDef.h"
+     44          
+     45          #include "zcl.h"
+     46          #include "zcl_general.h"
+     47          #include "zcl_ezmode.h"
+     48          
+     49          #if !defined ( ZCL_STANDALONE )
+     50            #include "OSAL.h"
+     51            #include "zcl_ha.h"
+     52          #endif
+     53          
+     54          
+     55          #ifdef ZCL_EZMODE
+     56          
+     57          /*********************************************************************
+     58           * MACROS
+     59           */
+     60          
+     61          /*********************************************************************
+     62           * CONSTANTS
+     63           */
+     64          
+     65          /*********************************************************************
+     66           * TYPEDEFS
+     67           */
+     68          
+     69          /*********************************************************************
+     70           * LOCAL PROTOTYPES
+     71           */
+     72          static void zcl_SetEZModeError( uint8 errorCode );
+     73          static void zcl_SetEZModeState( zlcEZMode_State_t newState );
+     74          static void zcl_ProcessEZMode( void );
+     75          
+     76          
+     77          /*********************************************************************
+     78           * GLOBAL VARIABLES
+     79           */
+     80          
+     81          // internal EZ-Mode state machine
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     82          uint8  zclEZModeRegistered;
+   \                     zclEZModeRegistered:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     83          uint8  zclEZModeErr;
+   \                     zclEZModeErr:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     84          uint8  zclEZModeState;
+   \                     zclEZModeState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     85          uint8  zclEZModeOpener;
+   \                     zclEZModeOpener:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     86          uint8  zclEZModeMatched;              // we were matched by a remote node
+   \                     zclEZModeMatched:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     87          uint16 zclEZModeQueryRspNwkAddr;      // short address (on QueryRsp)
+   \                     zclEZModeQueryRspNwkAddr:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     88          uint8  zclEZModeQueryRspEP;           // endpoint (on QueryRsp)
+   \                     zclEZModeQueryRspEP:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     89          zclEZMode_RegisterData_t zclEZModeRegisterData; // registered once on init
+   \                     zclEZModeRegisterData:
+   \   000000                DS 10
+   \   00000A                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     90          zclEZMode_InvokeData_t   zclEZModeInvokeData; // user's configuration parameters
+   \                     zclEZModeInvokeData:
+   \   000000                DS 9
+   \   000009                REQUIRE __INIT_XDATA_Z
+     91                                                        // what endpoint, initiator, etc.
+     92          
+     93          /*********************************************************************
+     94           * GLOBAL FUNCTIONS
+     95           */
+     96          
+     97          /*********************************************************************
+     98           * @fn      zcl_RegisterEZMode
+     99           *
+    100           * @brief   Called upon task initialation, to initialize EZ-Mode.
+    101           *
+    102           * @param   pData - task ID, App Callback routine, etc..
+    103           *
+    104           * @return  none
+    105           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    106          void zcl_RegisterEZMode( zclEZMode_RegisterData_t const *pData )
+   \                     zcl_RegisterEZMode:
+    107          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 0
+    108            // make a copy of the data. Cannot fail.
+    109            zcl_memcpy( &zclEZModeRegisterData, (void *)pData,
+    110                        sizeof(zclEZMode_RegisterData_t) );
+   \   000005                ; Setup parameters for call to function osal_memcpy
+   \   000005   8A..         MOV     ?V0,R2
+   \   000007   8B..         MOV     ?V1,R3
+   \   000009   75..00       MOV     ?V2,#0x0
+   \   00000C   78..         MOV     R0,#?V0
+   \   00000E   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000011   7C0A         MOV     R4,#0xa
+   \   000013   7D00         MOV     R5,#0x0
+   \   000015   7A..         MOV     R2,#zclEZModeRegisterData & 0xff
+   \   000017   7B..         MOV     R3,#(zclEZModeRegisterData >> 8) & 0xff
+   \   000019   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   00001C   7403         MOV     A,#0x3
+   \   00001E   12....       LCALL   ?DEALLOC_XSTACK8
+    111            zclEZModeRegistered = TRUE;
+   \   000021   90....       MOV     DPTR,#zclEZModeRegistered
+   \   000024   7401         MOV     A,#0x1
+   \   000026   F0           MOVX    @DPTR,A
+    112          }
+   \   000027                REQUIRE ?Subroutine0
+   \   000027                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F03         MOV     R7,#0x3
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    113          
+    114          /*********************************************************************
+    115           * @fn      zcl_InvokeEZMode
+    116           *
+    117           * @brief   Called to invoke EZ-Mode on an endpoint. This is a toggle
+    118           *          (will cancel if EZ-Mode currently enabled). Note: there is only 1
+    119           *          state machine. EZ-Mode can only be invoked on 1 endpoint at a time.
+    120           *
+    121           * @param   none
+    122           *
+    123           * @return  none
+    124           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    125          void zcl_InvokeEZMode( zclEZMode_InvokeData_t *pData )
+   \                     zcl_InvokeEZMode:
+    126          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 0
+    127            // if not registered, do nothing
+    128            if(!zclEZModeRegistered)
+   \   000005   90....       MOV     DPTR,#zclEZModeRegistered
+   \   000008   E0           MOVX    A,@DPTR
+   \   000009   605C         JZ      ??zcl_InvokeEZMode_0
+    129            {
+    130              return;
+    131            }
+    132          
+    133            // there is only 1 EZ-Mode state machine. If already in EZ-Mode, cancel it
+    134            if(zclEZModeState != EZMODE_STATE_READY)
+   \   00000B   90....       MOV     DPTR,#zclEZModeState
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   600D         JZ      ??zcl_InvokeEZMode_1
+    135            {
+    136              zcl_SetEZModeError ( EZMODE_ERR_CANCELLED );
+   \   000011   90....       MOV     DPTR,#zclEZModeErr
+   \   000014   7402         MOV     A,#0x2
+   \   000016   F0           MOVX    @DPTR,A
+    137              // needed to shut down timers, turn off joining, etc...
+    138              zcl_SetEZModeState ( EZMODE_STATE_FINISH );
+   \   000017                ; Setup parameters for call to function zcl_SetEZModeState
+   \   000017   7963         MOV     R1,#0x63
+   \   000019   12....       LCALL   `??zcl_SetEZModeState::?relay`; Banked call to: zcl_SetEZModeState
+    139              return;
+   \   00001C   8049         SJMP    ??zcl_InvokeEZMode_0
+    140            }
+    141          
+    142            // copy the data, so we remember which endpoint, etc...
+    143            zcl_memcpy( &zclEZModeInvokeData, pData, sizeof(zclEZMode_InvokeData_t) );
+   \                     ??zcl_InvokeEZMode_1:
+   \   00001E                ; Setup parameters for call to function osal_memcpy
+   \   00001E   8A..         MOV     ?V0,R2
+   \   000020   8B..         MOV     ?V1,R3
+   \   000022   75..00       MOV     ?V2,#0x0
+   \   000025   78..         MOV     R0,#?V0
+   \   000027   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00002A   7C09         MOV     R4,#0x9
+   \   00002C   7D00         MOV     R5,#0x0
+   \   00002E   7A..         MOV     R2,#zclEZModeInvokeData & 0xff
+   \   000030   7B..         MOV     R3,#(zclEZModeInvokeData >> 8) & 0xff
+   \   000032   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   000035   7403         MOV     A,#0x3
+   \   000037   12....       LCALL   ?DEALLOC_XSTACK8
+    144          
+    145            // start with no error, and no QueryResponses in our list
+    146            zcl_SetEZModeError ( EZMODE_ERR_SUCCESS );
+   \   00003A   90....       MOV     DPTR,#zclEZModeErr
+   \   00003D   E4           CLR     A
+   \   00003E   F0           MOVX    @DPTR,A
+    147            zclEZModeOpener = zclEZModeMatched = 0;
+   \   00003F   90....       MOV     DPTR,#zclEZModeMatched
+   \   000042   F0           MOVX    @DPTR,A
+   \   000043   90....       MOV     DPTR,#zclEZModeOpener
+   \   000046   F0           MOVX    @DPTR,A
+    148          
+    149            // if already on network, just go to identify state
+    150            if ( zclEZModeInvokeData.onNetwork )
+   \   000047   90....       MOV     DPTR,#zclEZModeInvokeData + 1
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   6004         JZ      ??zcl_InvokeEZMode_2
+    151            {
+    152              zcl_SetEZModeState( EZMODE_STATE_OPENER );
+   \   00004D                ; Setup parameters for call to function zcl_SetEZModeState
+   \   00004D   7903         MOV     R1,#0x3
+   \   00004F   8002         SJMP    ??zcl_InvokeEZMode_3
+    153            }
+    154          
+    155            // not already on network, form/join a network
+    156            else
+    157            {
+    158              zcl_SetEZModeState( EZMODE_STATE_JOINER );
+   \                     ??zcl_InvokeEZMode_2:
+   \   000051                ; Setup parameters for call to function zcl_SetEZModeState
+   \   000051   7902         MOV     R1,#0x2
+   \                     ??zcl_InvokeEZMode_3:
+   \   000053   12....       LCALL   `??zcl_SetEZModeState::?relay`; Banked call to: zcl_SetEZModeState
+    159            }
+    160          
+    161            // start a total timeout for EZ_Mode (will cancel if not finished in this time)
+    162            zcl_EZModeStartTimer( *zclEZModeRegisterData.pTaskID,
+    163                               zclEZModeRegisterData.timeoutEvt, EZMODE_TIME );
+   \   000056                ; Setup parameters for call to function zcl_EZModeStartTimer
+   \   000056   90....       MOV     DPTR,#__Constant_2bf20
+   \   000059   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   00005C   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   00005F   12....       LCALL   `??zcl_EZModeStartTimer::?relay`; Banked call to: zcl_EZModeStartTimer
+   \   000062   7404         MOV     A,#0x4
+   \   000064   12....       LCALL   ?DEALLOC_XSTACK8
+    164          }
+   \                     ??zcl_InvokeEZMode_0:
+   \   000067   80..         SJMP    ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   90....       MOV     DPTR,#zclEZModeRegisterData + 4
+   \   000003                REQUIRE ??Subroutine15_0
+   \   000003                ; // Fall through to label ??Subroutine15_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine15_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   90....       MOV     DPTR,#zclEZModeRegisterData
+   \   000003   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   F9           MOV     R1,A
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8882         MOV     DPL,R0
+   \   000008   22           RET
+    165          
+    166          /*********************************************************************
+    167           * @fn      zcl_EZModeAction
+    168           *
+    169           * @brief   Called when the application needs to inform EZ-Mode of some action
+    170           *          (now on the network, identify mode query, etc...)
+    171           *
+    172           * @param   action - which action has taken place
+    173           *          pData  - the data unique to the action
+    174           *
+    175           * @return  none
+    176           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    177          void zcl_EZModeAction(zclEzMode_Action_t action, zclEZMode_ActionData_t *pData)
+   \                     zcl_EZModeAction:
+    178          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 9
+   \   000005   74F7         MOV     A,#-0x9
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+    179            ZDO_MatchDescRsp_t *pMatchDescRsp;
+    180            zAddrType_t dstAddr;
+    181          
+    182            // not in the EZ-Mode state machine, so do nothing
+    183            if( zclEZModeState == EZMODE_STATE_READY )
+   \   00000E   90....       MOV     DPTR,#zclEZModeState
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   7003         JNZ     $+5
+   \   000014   02....       LJMP    ??zcl_EZModeAction_0 & 0xFFFF
+    184              return;
+    185          
+    186            switch ( action )
+   \   000017   E9           MOV     A,R1
+   \   000018   14           DEC     A
+   \   000019   6019         JZ      ??zcl_EZModeAction_1
+   \   00001B   14           DEC     A
+   \   00001C   601C         JZ      ??zcl_EZModeAction_2
+   \   00001E   14           DEC     A
+   \   00001F   6032         JZ      ??zcl_EZModeAction_3
+   \   000021   14           DEC     A
+   \   000022   603B         JZ      ??zcl_EZModeAction_4
+   \   000024   14           DEC     A
+   \   000025   7003         JNZ     $+5
+   \   000027   02....       LJMP    ??zcl_EZModeAction_5 & 0xFFFF
+   \   00002A   24A2         ADD     A,#-0x5e
+   \   00002C   7003         JNZ     $+5
+   \   00002E   02....       LJMP    ??zcl_EZModeAction_6 & 0xFFFF
+   \   000031   02....       LJMP    ??zcl_EZModeAction_0 & 0xFFFF
+    187            {
+    188              case EZMODE_ACTION_PROCESS:
+    189                zcl_ProcessEZMode();  // process next state
+   \                     ??zcl_EZModeAction_1:
+   \   000034                ; Setup parameters for call to function zcl_ProcessEZMode
+   \   000034   12....       LCALL   `??zcl_ProcessEZMode::?relay`; Banked call to: zcl_ProcessEZMode
+    190              break;
+   \   000037   02....       LJMP    ??zcl_EZModeAction_0 & 0xFFFF
+    191          
+    192              case EZMODE_ACTION_NETWORK_STARTED:
+    193                // once on the network, time to go on to the identify state
+    194                if( zclEZModeState == EZMODE_STATE_JOINER )
+   \                     ??zcl_EZModeAction_2:
+   \   00003A   E0           MOVX    A,@DPTR
+   \   00003B   6402         XRL     A,#0x2
+   \   00003D   6003         JZ      $+5
+   \   00003F   02....       LJMP    ??zcl_EZModeAction_0 & 0xFFFF
+    195                {
+    196                  // set local permit joining on locally only for joiners (openers turn it on across the network)
+    197                  zcl_EZModePermitJoiningRequest( *zclEZModeRegisterData.pTaskID, NULL,
+    198                                                 (byte)(EZMODE_TIME / 1000) ); // in seconds
+   \   000042                ; Setup parameters for call to function zcl_EZModePermitJoiningRequest
+   \   000042   7CB4         MOV     R4,#-0x4c
+   \   000044   7A00         MOV     R2,#0x0
+   \   000046   7B00         MOV     R3,#0x0
+   \   000048   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00004B   12....       LCALL   `??zcl_EZModePermitJoiningRequest::?relay`; Banked call to: zcl_EZModePermitJoiningRequest
+    199                  zcl_SetEZModeState( EZMODE_STATE_IDENTIFYING );
+   \   00004E                ; Setup parameters for call to function zcl_SetEZModeState
+   \   00004E   7904         MOV     R1,#0x4
+   \   000050   02....       LJMP    ??zcl_EZModeAction_7 & 0xFFFF
+    200                }
+    201              break;
+    202          
+    203              // received identify query
+    204              case EZMODE_ACTION_IDENTIFY_QUERY:
+    205          
+    206                // targets just go to autoclose once they have been identified
+    207                if ( !zclEZModeInvokeData.initiator )
+   \                     ??zcl_EZModeAction_3:
+   \   000053   90....       MOV     DPTR,#zclEZModeInvokeData + 2
+   \   000056   E0           MOVX    A,@DPTR
+   \   000057   6003         JZ      $+5
+   \   000059   02....       LJMP    ??zcl_EZModeAction_0 & 0xFFFF
+   \   00005C   02....       LJMP    ??zcl_EZModeAction_8 & 0xFFFF
+    208                {
+    209                  zcl_SetEZModeState( EZMODE_STATE_AUTOCLOSE );
+    210                }
+    211              break;
+    212          
+    213              // received identify query response
+    214              case EZMODE_ACTION_IDENTIFY_QUERY_RSP:
+    215          
+    216                if ( pData->pIdentifyQueryRsp->srcAddr->addr.shortAddr
+    217                    != zcl_EZModeGetNwkAddr() )
+   \                     ??zcl_EZModeAction_4:
+   \   00005F                ; Setup parameters for call to function NLME_GetShortAddr
+   \   00005F   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+   \   000062   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000065   F583         MOV     DPH,A
+   \   000067   8882         MOV     DPL,R0
+   \   000069   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   00006C   EA           MOV     A,R2
+   \   00006D   68           XRL     A,R0
+   \   00006E   7002         JNZ     ??zcl_EZModeAction_9
+   \   000070   EB           MOV     A,R3
+   \   000071   69           XRL     A,R1
+   \                     ??zcl_EZModeAction_9:
+   \   000072   7003         JNZ     $+5
+   \   000074   02....       LJMP    ??zcl_EZModeAction_0 & 0xFFFF
+    218                {
+    219                  // remember the node we found via identify query
+    220                  zclEZModeQueryRspNwkAddr = pData->pIdentifyQueryRsp->srcAddr->addr.shortAddr;
+   \   000077   90....       MOV     DPTR,#zclEZModeQueryRspNwkAddr
+   \   00007A   E8           MOV     A,R0
+   \   00007B   F0           MOVX    @DPTR,A
+   \   00007C   A3           INC     DPTR
+   \   00007D   E9           MOV     A,R1
+   \   00007E   F0           MOVX    @DPTR,A
+    221                  zclEZModeQueryRspEP = pData->pIdentifyQueryRsp->srcAddr->endPoint;
+   \   00007F   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000082   C8           XCH     A,R0
+   \   000083   2409         ADD     A,#0x9
+   \   000085   F582         MOV     DPL,A
+   \   000087   E4           CLR     A
+   \   000088   38           ADDC    A,R0
+   \   000089   F583         MOV     DPH,A
+   \   00008B   E0           MOVX    A,@DPTR
+   \   00008C   90....       MOV     DPTR,#zclEZModeQueryRspEP
+   \   00008F   F0           MOVX    @DPTR,A
+    222          
+    223                  // initiate match descriptor request on the remote node
+    224                  dstAddr.addrMode = Addr16Bit;
+   \   000090   7408         MOV     A,#0x8
+   \   000092   12....       LCALL   ?XSTACK_DISP0_8
+   \   000095   7402         MOV     A,#0x2
+   \   000097   12....       LCALL   ?Subroutine5 & 0xFFFF
+    225                  dstAddr.addr.shortAddr = zclEZModeQueryRspNwkAddr;
+    226                  zcl_EZModeSendMatchDescReq( *zclEZModeRegisterData.pTaskID,
+    227                                    &dstAddr,
+    228                                    zclEZModeQueryRspNwkAddr,
+    229                                    zclEZModeInvokeData.numActiveOutClusters,
+    230                                    zclEZModeInvokeData.pActiveOutClusterIDs,
+    231                                    zclEZModeInvokeData.numActiveInClusters,
+    232                                    zclEZModeInvokeData.pActiveInClusterIDs );
+   \                     ??CrossCallReturnLabel_0:
+   \   00009A                ; Setup parameters for call to function zcl_EZModeSendMatchDescReq
+   \   00009A   90....       MOV     DPTR,#zclEZModeInvokeData + 4
+   \   00009D   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   0000A0   90....       MOV     DPTR,#zclEZModeInvokeData + 3
+   \   0000A3   E0           MOVX    A,@DPTR
+   \   0000A4   F5..         MOV     ?V1,A
+   \   0000A6   78..         MOV     R0,#?V1
+   \   0000A8   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000AB   90....       MOV     DPTR,#zclEZModeInvokeData + 7
+   \   0000AE   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   0000B1   90....       MOV     DPTR,#zclEZModeInvokeData + 6
+   \   0000B4   E0           MOVX    A,@DPTR
+   \   0000B5   F5..         MOV     ?V1,A
+   \   0000B7   78..         MOV     R0,#?V1
+   \   0000B9   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000BC   90....       MOV     DPTR,#zclEZModeQueryRspNwkAddr
+   \   0000BF   E0           MOVX    A,@DPTR
+   \   0000C0   FC           MOV     R4,A
+   \   0000C1   A3           INC     DPTR
+   \   0000C2   E0           MOVX    A,@DPTR
+   \   0000C3   FD           MOV     R5,A
+   \   0000C4   7406         MOV     A,#0x6
+   \   0000C6   12....       LCALL   ?XSTACK_DISP101_8
+   \   0000C9   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0000CC   12....       LCALL   `??zcl_EZModeSendMatchDescReq::?relay`; Banked call to: zcl_EZModeSendMatchDescReq
+   \   0000CF   7406         MOV     A,#0x6
+   \   0000D1   12....       LCALL   ?DEALLOC_XSTACK8
+    233                  zcl_SetEZModeState( EZMODE_STATE_WAITING_MATCHDESCRSP );
+   \   0000D4                ; Setup parameters for call to function zcl_SetEZModeState
+   \   0000D4   7906         MOV     R1,#0x6
+   \   0000D6   8076         SJMP    ??zcl_EZModeAction_7
+    234                }
+    235              break;
+    236          
+    237              // received match descriptor response, see if active clusters match
+    238              case EZMODE_ACTION_MATCH_DESC_RSP:
+    239          
+    240                pMatchDescRsp = pData->pMatchDescRsp;
+   \                     ??zcl_EZModeAction_5:
+   \   0000D8   8E82         MOV     DPL,R6
+   \   0000DA   8F83         MOV     DPH,R7
+   \   0000DC   12....       LCALL   ?Subroutine9 & 0xFFFF
+    241                if ( ( pMatchDescRsp && pMatchDescRsp->status == ZSuccess ) && ( pMatchDescRsp->cnt>0 ) )
+   \                     ??CrossCallReturnLabel_8:
+   \   0000DF   E582         MOV     A,DPL
+   \   0000E1   4583         ORL     A,DPH
+   \   0000E3   605D         JZ      ??zcl_EZModeAction_8
+   \   0000E5   E0           MOVX    A,@DPTR
+   \   0000E6   705A         JNZ     ??zcl_EZModeAction_8
+   \   0000E8   A3           INC     DPTR
+   \   0000E9   A3           INC     DPTR
+   \   0000EA   A3           INC     DPTR
+   \   0000EB   E0           MOVX    A,@DPTR
+   \   0000EC   6054         JZ      ??zcl_EZModeAction_8
+    242                {
+    243                  zclEZModeMatched = TRUE;
+   \   0000EE   90....       MOV     DPTR,#zclEZModeMatched
+   \   0000F1   7401         MOV     A,#0x1
+   \   0000F3   12....       LCALL   ?Subroutine5 & 0xFFFF
+    244          
+    245                  dstAddr.addr.shortAddr = zclEZModeQueryRspNwkAddr;
+    246                  dstAddr.addrMode = Addr16Bit;
+   \                     ??CrossCallReturnLabel_1:
+   \   0000F6   7408         MOV     A,#0x8
+   \   0000F8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000FB   7402         MOV     A,#0x2
+   \   0000FD   F0           MOVX    @DPTR,A
+    247          
+    248                  // bind each matching input cluster
+    249                  if ( zclEZModeInvokeData.numActiveInClusters )
+   \   0000FE   90....       MOV     DPTR,#zclEZModeInvokeData + 3
+   \   000101   E0           MOVX    A,@DPTR
+   \   000102   FD           MOV     R5,A
+   \   000103   601B         JZ      ??zcl_EZModeAction_10
+    250                  {
+    251                    zcl_EZModeBindAddEntry( zclEZModeInvokeData.endpoint, &dstAddr, zclEZModeQueryRspEP,
+    252                                  zclEZModeInvokeData.numActiveInClusters, zclEZModeInvokeData.pActiveInClusterIDs );
+   \   000105                ; Setup parameters for call to function zcl_EZModeBindAddEntry
+   \   000105   A3           INC     DPTR
+   \   000106   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000109   90....       MOV     DPTR,#zclEZModeQueryRspEP
+   \   00010C   E0           MOVX    A,@DPTR
+   \   00010D   FC           MOV     R4,A
+   \   00010E   7402         MOV     A,#0x2
+   \   000110   12....       LCALL   ?XSTACK_DISP101_8
+   \   000113   90....       MOV     DPTR,#zclEZModeInvokeData
+   \   000116   E0           MOVX    A,@DPTR
+   \   000117   F9           MOV     R1,A
+   \   000118   12....       LCALL   `??zcl_EZModeBindAddEntry::?relay`; Banked call to: zcl_EZModeBindAddEntry
+   \   00011B   7402         MOV     A,#0x2
+   \   00011D   12....       LCALL   ?DEALLOC_XSTACK8
+    253                  }
+    254          
+    255                  // bind each matching output cluster
+    256                  if ( zclEZModeInvokeData.numActiveOutClusters )
+   \                     ??zcl_EZModeAction_10:
+   \   000120   90....       MOV     DPTR,#zclEZModeInvokeData + 6
+   \   000123   E0           MOVX    A,@DPTR
+   \   000124   FD           MOV     R5,A
+   \   000125   601B         JZ      ??zcl_EZModeAction_8
+    257                  {
+    258                    zcl_EZModeBindAddEntry( zclEZModeInvokeData.endpoint, &dstAddr, zclEZModeQueryRspEP,
+    259                                  zclEZModeInvokeData.numActiveOutClusters, zclEZModeInvokeData.pActiveOutClusterIDs );
+   \   000127                ; Setup parameters for call to function zcl_EZModeBindAddEntry
+   \   000127   A3           INC     DPTR
+   \   000128   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   00012B   90....       MOV     DPTR,#zclEZModeQueryRspEP
+   \   00012E   E0           MOVX    A,@DPTR
+   \   00012F   FC           MOV     R4,A
+   \   000130   7402         MOV     A,#0x2
+   \   000132   12....       LCALL   ?XSTACK_DISP101_8
+   \   000135   90....       MOV     DPTR,#zclEZModeInvokeData
+   \   000138   E0           MOVX    A,@DPTR
+   \   000139   F9           MOV     R1,A
+   \   00013A   12....       LCALL   `??zcl_EZModeBindAddEntry::?relay`; Banked call to: zcl_EZModeBindAddEntry
+   \   00013D   7402         MOV     A,#0x2
+   \   00013F   12....       LCALL   ?DEALLOC_XSTACK8
+    260                  }
+    261                }
+    262          
+    263                // time to close (wait a bit before finishing, to allow for multiple initiators)
+    264                zcl_SetEZModeState( EZMODE_STATE_AUTOCLOSE );
+   \                     ??zcl_EZModeAction_8:
+   \   000142                ; Setup parameters for call to function zcl_SetEZModeState
+   \   000142   7907         MOV     R1,#0x7
+   \   000144   8008         SJMP    ??zcl_EZModeAction_7
+    265              break;
+    266          
+    267              // timed out of EZ-Mode
+    268              case EZMODE_ACTION_TIMED_OUT:
+    269                // timed out
+    270                if(zclEZModeState != EZMODE_STATE_READY)
+    271                {
+    272                  zcl_SetEZModeError( EZMODE_ERR_TIMEDOUT );
+   \                     ??zcl_EZModeAction_6:
+   \   000146   90....       MOV     DPTR,#zclEZModeErr
+   \   000149   7403         MOV     A,#0x3
+   \   00014B   F0           MOVX    @DPTR,A
+    273                  zcl_SetEZModeState( EZMODE_STATE_FINISH );
+   \   00014C                ; Setup parameters for call to function zcl_SetEZModeState
+   \   00014C   7963         MOV     R1,#0x63
+   \                     ??zcl_EZModeAction_7:
+   \   00014E   12....       LCALL   `??zcl_SetEZModeState::?relay`; Banked call to: zcl_SetEZModeState
+    274                }
+    275              break;
+    276            }   // switch ( action )
+    277          
+    278          }
+   \                     ??zcl_EZModeAction_0:
+   \   000151   7409         MOV     A,#0x9
+   \   000153   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000156                REQUIRE ?Subroutine1
+   \   000156                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F04         MOV     R7,#0x4
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   8E82         MOV     DPL,R6
+   \   000002   8F83         MOV     DPH,R7
+   \   000004   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   F8           MOV     R0,A
+   \   000009   A3           INC     DPTR
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   90....       MOV     DPTR,#zclEZModeQueryRspNwkAddr
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F8           MOV     R0,A
+   \   000006   A3           INC     DPTR
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   F9           MOV     R1,A
+   \   000009   85..82       MOV     DPL,?XSP + 0
+   \   00000C   85..83       MOV     DPH,?XSP + 1
+   \   00000F   E8           MOV     A,R0
+   \   000010   F0           MOVX    @DPTR,A
+   \   000011   A3           INC     DPTR
+   \   000012   E9           MOV     A,R1
+   \   000013   F0           MOVX    @DPTR,A
+   \   000014   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   8882         MOV     DPL,R0
+   \   000007   8983         MOV     DPH,R1
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   000003   22           RET
+    279          
+    280          /*********************************************************************
+    281           * LOCAL VARIABLES
+    282           */
+    283          
+    284          
+    285          /*********************************************************************
+    286           * LOCAL FUNCTIONS
+    287           */
+    288          
+    289          /*********************************************************************
+    290           * @fn      zcl_SetEZModeState
+    291           *
+    292           * @brief   Move on to new state after a short wait.
+    293           *
+    294           * @param   none
+    295           *
+    296           * @return  none
+    297           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    298          static void zcl_SetEZModeState( zlcEZMode_State_t newState )
+   \                     zcl_SetEZModeState:
+    299          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+    300            zclEZModeState = newState;
+   \   000006   90....       MOV     DPTR,#zclEZModeState
+   \   000009   F0           MOVX    @DPTR,A
+    301            zcl_EZModeStartTimer( *zclEZModeRegisterData.pTaskID, zclEZModeRegisterData.processEvt, 5 );
+   \   00000A                ; Setup parameters for call to function zcl_EZModeStartTimer
+   \   00000A   90....       MOV     DPTR,#__Constant_5
+   \   00000D   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   000010   90....       MOV     DPTR,#zclEZModeRegisterData + 2
+   \   000013   12....       LCALL   ??Subroutine15_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000016   12....       LCALL   `??zcl_EZModeStartTimer::?relay`; Banked call to: zcl_EZModeStartTimer
+   \   000019   02....       LJMP    ?Subroutine2 & 0xFFFF
+    302          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7404         MOV     A,#0x4
+   \   000002                REQUIRE ??Subroutine16_0
+   \   000002                ; // Fall through to label ??Subroutine16_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine16_0:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003                REQUIRE ??Subroutine17_0
+   \   000003                ; // Fall through to label ??Subroutine17_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine17_0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    303          
+    304          /*********************************************************************
+    305           * @fn      zclSampleSw_SetEZModeError
+    306           *
+    307           * @brief   Called to set error code that will be reported on finish. Starts as EZMODE_ERR_SUCCESS.
+    308           *
+    309           * @param   none
+    310           *
+    311           * @return  none
+    312           */
+    313          static void zcl_SetEZModeError( uint8 errorCode )
+    314          {
+    315            zclEZModeErr = errorCode;
+    316          }
+    317          
+    318          /*********************************************************************
+    319           * @fn      zcl_ProcessEZMode
+    320           *
+    321           * @brief   Called when EZ-Mode changes state. See EZMODE_STATE_xxxx in zcl_ezmode.h
+    322           *
+    323           * @param   none
+    324           *
+    325           * @return  status
+    326           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    327          static void zcl_ProcessEZMode( void )
+   \                     zcl_ProcessEZMode:
+    328          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 25
+   \   000005   74E7         MOV     A,#-0x19
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    329            zAddrType_t dstAddr;
+    330            afAddrType_t afDstAddr;
+    331            zclEZMode_CBData_t cbData;
+    332          
+    333            dstAddr.addr.shortAddr = 0xfffc;        // all routers (for PermitJoin) devices
+   \   00000A   7404         MOV     A,#0x4
+   \   00000C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000F   74FC         MOV     A,#-0x4
+   \   000011   F0           MOVX    @DPTR,A
+   \   000012   A3           INC     DPTR
+   \   000013   74FF         MOV     A,#-0x1
+   \   000015   F0           MOVX    @DPTR,A
+    334            dstAddr.addrMode = AddrBroadcast;
+   \   000016   740C         MOV     A,#0xc
+   \   000018   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001B   740F         MOV     A,#0xf
+   \   00001D   F0           MOVX    @DPTR,A
+    335          
+    336            afDstAddr.addr.shortAddr = 0xffff;      // all devices (for IdentifyQuery)
+   \   00001E   740D         MOV     A,#0xd
+   \   000020   12....       LCALL   ?XSTACK_DISP0_8
+   \   000023   74FF         MOV     A,#-0x1
+   \   000025   F0           MOVX    @DPTR,A
+   \   000026   A3           INC     DPTR
+   \   000027   F0           MOVX    @DPTR,A
+    337            afDstAddr.addrMode = afAddrBroadcast;
+   \   000028   7415         MOV     A,#0x15
+   \   00002A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002D   740F         MOV     A,#0xf
+   \   00002F   F0           MOVX    @DPTR,A
+    338            afDstAddr.endPoint = 0xff;
+   \   000030   7416         MOV     A,#0x16
+   \   000032   12....       LCALL   ?XSTACK_DISP0_8
+   \   000035   74FF         MOV     A,#-0x1
+   \   000037   F0           MOVX    @DPTR,A
+    339          
+    340            switch(zclEZModeState)
+   \   000038   90....       MOV     DPTR,#zclEZModeState
+   \   00003B   E0           MOVX    A,@DPTR
+   \   00003C   24FE         ADD     A,#-0x2
+   \   00003E   6031         JZ      ??zcl_ProcessEZMode_0
+   \   000040   14           DEC     A
+   \   000041   6017         JZ      ??zcl_ProcessEZMode_1
+   \   000043   14           DEC     A
+   \   000044   6038         JZ      ??zcl_ProcessEZMode_2
+   \   000046   14           DEC     A
+   \   000047   605F         JZ      ??zcl_ProcessEZMode_3
+   \   000049   24FE         ADD     A,#-0x2
+   \   00004B   7003         JNZ     $+5
+   \   00004D   02....       LJMP    ??zcl_ProcessEZMode_4 & 0xFFFF
+   \   000050   24A4         ADD     A,#-0x5c
+   \   000052   7003         JNZ     $+5
+   \   000054   02....       LJMP    ??zcl_ProcessEZMode_5 & 0xFFFF
+   \   000057   02....       LJMP    ??zcl_ProcessEZMode_6 & 0xFFFF
+    341            {
+    342              // openers will broadcast permit joining
+    343              case EZMODE_STATE_OPENER:
+    344                zclEZModeOpener = 1;
+   \                     ??zcl_ProcessEZMode_1:
+   \   00005A   90....       MOV     DPTR,#zclEZModeOpener
+   \   00005D   7401         MOV     A,#0x1
+   \   00005F   F0           MOVX    @DPTR,A
+    345          
+    346                // enable joining both locally and over-the-air
+    347                zcl_EZModePermitJoiningRequest( *zclEZModeRegisterData.pTaskID, &dstAddr,
+    348                                               (byte)(EZMODE_TIME / 1000) );
+   \   000060                ; Setup parameters for call to function zcl_EZModePermitJoiningRequest
+   \   000060   7CB4         MOV     R4,#-0x4c
+   \   000062   7404         MOV     A,#0x4
+   \   000064   12....       LCALL   ?XSTACK_DISP101_8
+   \   000067   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   00006A   12....       LCALL   `??zcl_EZModePermitJoiningRequest::?relay`; Banked call to: zcl_EZModePermitJoiningRequest
+    349          
+    350                // then go to identifying state
+    351                zcl_SetEZModeState(EZMODE_STATE_IDENTIFYING);
+   \   00006D                ; Setup parameters for call to function zcl_SetEZModeState
+   \   00006D   7904         MOV     R1,#0x4
+   \   00006F   8031         SJMP    ??zcl_ProcessEZMode_7
+    352              break;
+    353          
+    354              // joiners will try to join the network, and if success will go to identifying state
+    355              case EZMODE_STATE_JOINER:
+    356                zclEZModeOpener = 0;
+   \                     ??zcl_ProcessEZMode_0:
+   \   000071   90....       MOV     DPTR,#zclEZModeOpener
+   \   000074   E4           CLR     A
+   \   000075   F0           MOVX    @DPTR,A
+    357                zcl_EZModeStartDevice(*zclEZModeRegisterData.pTaskID, 0);   // see ZDO_STATE_CHANGE in zclSampleSw_event_loop()
+   \   000076                ; Setup parameters for call to function ZDOInitDevice
+   \   000076   FA           MOV     R2,A
+   \   000077   FB           MOV     R3,A
+   \   000078   12....       LCALL   `??ZDOInitDevice::?relay`; Banked call to: ZDOInitDevice
+    358              break;
+   \   00007B   02....       LJMP    ??zcl_ProcessEZMode_6 & 0xFFFF
+    359          
+    360              // go into identify state
+    361              case EZMODE_STATE_IDENTIFYING:
+    362          
+    363                // tell app to go into identify mode
+    364                if ( zclEZModeRegisterData.pfnNotifyCB )
+   \                     ??zcl_ProcessEZMode_2:
+   \   00007E   90....       MOV     DPTR,#zclEZModeRegisterData + 8
+   \   000081   E0           MOVX    A,@DPTR
+   \   000082   FC           MOV     R4,A
+   \   000083   A3           INC     DPTR
+   \   000084   E0           MOVX    A,@DPTR
+   \   000085   FD           MOV     R5,A
+   \   000086   EC           MOV     A,R4
+   \   000087   4D           ORL     A,R5
+   \   000088   600D         JZ      ??zcl_ProcessEZMode_8
+    365                {
+    366                  (*zclEZModeRegisterData.pfnNotifyCB)( zclEZModeState, NULL );
+   \   00008A                ; Setup parameters for indirect call
+   \   00008A   7A00         MOV     R2,#0x0
+   \   00008C   7B00         MOV     R3,#0x0
+   \   00008E   7904         MOV     R1,#0x4
+   \   000090   8C82         MOV     DPL,R4
+   \   000092   8D83         MOV     DPH,R5
+   \   000094   12....       LCALL   ?CALL_IND
+    367                }
+    368          
+    369                // initiators start looking for other nodes in identify mode
+    370                if ( zclEZModeInvokeData.initiator )
+   \                     ??zcl_ProcessEZMode_8:
+   \   000097   90....       MOV     DPTR,#zclEZModeInvokeData + 2
+   \   00009A   E0           MOVX    A,@DPTR
+   \   00009B   7003         JNZ     $+5
+   \   00009D   02....       LJMP    ??zcl_ProcessEZMode_6 & 0xFFFF
+    371                {
+    372                  zcl_SetEZModeState ( EZMODE_STATE_WAITING_IDENTIFYQUERYRSP );
+   \   0000A0                ; Setup parameters for call to function zcl_SetEZModeState
+   \   0000A0   7905         MOV     R1,#0x5
+   \                     ??zcl_ProcessEZMode_7:
+   \   0000A2   12....       LCALL   `??zcl_SetEZModeState::?relay`; Banked call to: zcl_SetEZModeState
+   \   0000A5   02....       LJMP    ??zcl_ProcessEZMode_6 & 0xFFFF
+    373                }
+    374              break;
+    375          
+    376              // timeout out with no query response, send another
+    377              case EZMODE_STATE_WAITING_IDENTIFYQUERYRSP:
+    378                // ZStatus_t zclGeneral_SendIdentifyQuery( uint8 srcEP, afAddrType_t *dstAddr, uint8 disableDefaultRsp, uint8 seqNum );
+    379                // NOTE: Ensure that Identify Cluster is enabled to use this function for EZ-Mode
+    380                zclGeneral_SendIdentifyQuery( zclEZModeInvokeData.endpoint, &afDstAddr, TRUE, (*zclEZModeRegisterData.pZclSeqNum)++ );
+   \                     ??zcl_ProcessEZMode_3:
+   \   0000A8   90....       MOV     DPTR,#zclEZModeRegisterData + 6
+   \   0000AB   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   0000AE   E0           MOVX    A,@DPTR
+   \   0000AF   F9           MOV     R1,A
+   \   0000B0   7401         MOV     A,#0x1
+   \   0000B2   29           ADD     A,R1
+   \   0000B3   F0           MOVX    @DPTR,A
+   \   0000B4                ; Setup parameters for call to function zcl_SendCommand
+   \   0000B4   E4           CLR     A
+   \   0000B5   F5..         MOV     ?V0,A
+   \   0000B7   F5..         MOV     ?V1,A
+   \   0000B9   78..         MOV     R0,#?V0
+   \   0000BB   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000BE   78..         MOV     R0,#?V0
+   \   0000C0   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000C3   E9           MOV     A,R1
+   \   0000C4   F5..         MOV     ?V0,A
+   \   0000C6   78..         MOV     R0,#?V0
+   \   0000C8   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000CB   E4           CLR     A
+   \   0000CC   F5..         MOV     ?V0,A
+   \   0000CE   78..         MOV     R0,#?V0
+   \   0000D0   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000D3   75..01       MOV     ?V0,#0x1
+   \   0000D6   78..         MOV     R0,#?V0
+   \   0000D8   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000DB   75..00       MOV     ?V0,#0x0
+   \   0000DE   78..         MOV     R0,#?V0
+   \   0000E0   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000E3   75..01       MOV     ?V0,#0x1
+   \   0000E6   78..         MOV     R0,#?V0
+   \   0000E8   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000EB   78..         MOV     R0,#?V0
+   \   0000ED   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000F0   7C03         MOV     R4,#0x3
+   \   0000F2   7D00         MOV     R5,#0x0
+   \   0000F4   7418         MOV     A,#0x18
+   \   0000F6   12....       LCALL   ?XSTACK_DISP101_8
+   \   0000F9   90....       MOV     DPTR,#zclEZModeInvokeData
+   \   0000FC   E0           MOVX    A,@DPTR
+   \   0000FD   F9           MOV     R1,A
+   \   0000FE   12....       LCALL   `??zcl_SendCommand::?relay`; Banked call to: zcl_SendCommand
+   \   000101   740B         MOV     A,#0xb
+   \   000103   12....       LCALL   ?DEALLOC_XSTACK8
+    381          
+    382                // wait some time before sending out the next IdentifyQuery, will stop when we get a response
+    383                zcl_EZModeStartTimer( *zclEZModeRegisterData.pTaskID, zclEZModeRegisterData.processEvt, EZMODE_IDQUERYTIME );
+   \   000106                ; Setup parameters for call to function zcl_EZModeStartTimer
+   \   000106   90....       MOV     DPTR,#__Constant_fa0
+   \   000109   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   00010C   90....       MOV     DPTR,#zclEZModeRegisterData + 2
+   \   00010F   12....       LCALL   ??Subroutine15_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000112   12....       LCALL   `??zcl_EZModeStartTimer::?relay`; Banked call to: zcl_EZModeStartTimer
+   \   000115   7404         MOV     A,#0x4
+   \   000117   12....       LCALL   ?DEALLOC_XSTACK8
+    384                break;
+   \   00011A   02....       LJMP    ??zcl_ProcessEZMode_6 & 0xFFFF
+    385          
+    386              // waiting for simple descriptor response
+    387              case EZMODE_STATE_WAITING_MATCHDESCRSP:
+    388              break;
+    389          
+    390              // if waiting on autoclose, then we're done. Go to success.
+    391              case EZMODE_STATE_AUTOCLOSE:
+    392          
+    393                // special case: if 2 initators, we only fail if no match from either side
+    394                if( zclEZModeInvokeData.initiator && !zclEZModeMatched )
+   \                     ??zcl_ProcessEZMode_4:
+   \   00011D   90....       MOV     DPTR,#zclEZModeInvokeData + 2
+   \   000120   E0           MOVX    A,@DPTR
+   \   000121   600C         JZ      ??zcl_ProcessEZMode_9
+   \   000123   90....       MOV     DPTR,#zclEZModeMatched
+   \   000126   E0           MOVX    A,@DPTR
+   \   000127   7006         JNZ     ??zcl_ProcessEZMode_9
+    395                {
+    396                  zcl_SetEZModeError ( EZMODE_ERR_NOMATCH );
+   \   000129   90....       MOV     DPTR,#zclEZModeErr
+   \   00012C   7404         MOV     A,#0x4
+   \   00012E   F0           MOVX    @DPTR,A
+    397                }
+    398          
+    399                // if user specified callback, call on AutoClose
+    400                if ( zclEZModeRegisterData.pfnNotifyCB )
+   \                     ??zcl_ProcessEZMode_9:
+   \   00012F   90....       MOV     DPTR,#zclEZModeRegisterData + 8
+   \   000132   E0           MOVX    A,@DPTR
+   \   000133   FC           MOV     R4,A
+   \   000134   A3           INC     DPTR
+   \   000135   E0           MOVX    A,@DPTR
+   \   000136   FD           MOV     R5,A
+   \   000137   EC           MOV     A,R4
+   \   000138   4D           ORL     A,R5
+   \   000139   6010         JZ      ??zcl_ProcessEZMode_10
+    401                {
+    402                  cbData.sAutoClose.err = zclEZModeErr;
+   \   00013B   12....       LCALL   ?Subroutine11 & 0xFFFF
+    403                  (*zclEZModeRegisterData.pfnNotifyCB)( zclEZModeState, &cbData );
+   \                     ??CrossCallReturnLabel_15:
+   \   00013E                ; Setup parameters for indirect call
+   \   00013E   AA..         MOV     R2,?XSP + 0
+   \   000140   AB..         MOV     R3,?XSP + 1
+   \   000142   7907         MOV     R1,#0x7
+   \   000144   8C82         MOV     DPL,R4
+   \   000146   8D83         MOV     DPH,R5
+   \   000148   12....       LCALL   ?CALL_IND
+    404                }
+    405          
+    406                // no longer will timeout, since cannot fail
+    407                zcl_EZModeStopTimer( *zclEZModeRegisterData.pTaskID, zclEZModeRegisterData.timeoutEvt );
+   \                     ??zcl_ProcessEZMode_10:
+   \   00014B                ; Setup parameters for call to function zcl_EZModeStopTimer
+   \   00014B   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   00014E   12....       LCALL   `??zcl_EZModeStopTimer::?relay`; Banked call to: zcl_EZModeStopTimer
+    408          
+    409                // wait a little to turn off identify mode, to give time for the other side to discover
+    410                // in case of complex devices (both target/initiator)
+    411                zcl_EZModeStartTimer( *zclEZModeRegisterData.pTaskID, zclEZModeRegisterData.processEvt, EZMODE_AUTOCLOSETIME );
+   \   000151                ; Setup parameters for call to function zcl_EZModeStartTimer
+   \   000151   90....       MOV     DPTR,#__Constant_fa0
+   \   000154   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   000157   90....       MOV     DPTR,#zclEZModeRegisterData + 2
+   \   00015A   12....       LCALL   ??Subroutine15_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   00015D   12....       LCALL   `??zcl_EZModeStartTimer::?relay`; Banked call to: zcl_EZModeStartTimer
+   \   000160   7404         MOV     A,#0x4
+   \   000162   12....       LCALL   ?DEALLOC_XSTACK8
+    412          
+    413                // go to finish state after autoclose. Don't use zcl_SetEZModeState() because we don't want it to happen immediately
+    414                zclEZModeState = EZMODE_STATE_FINISH;
+   \   000165   90....       MOV     DPTR,#zclEZModeState
+   \   000168   7463         MOV     A,#0x63
+   \   00016A   805C         SJMP    ??zcl_ProcessEZMode_11
+    415              break;
+    416          
+    417              case EZMODE_STATE_FINISH:
+    418          
+    419                // no longer will timeout, since we're done
+    420                zcl_EZModeStopTimer( *zclEZModeRegisterData.pTaskID, zclEZModeRegisterData.timeoutEvt );
+   \                     ??zcl_ProcessEZMode_5:
+   \   00016C                ; Setup parameters for call to function zcl_EZModeStopTimer
+   \   00016C   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   00016F   12....       LCALL   `??zcl_EZModeStopTimer::?relay`; Banked call to: zcl_EZModeStopTimer
+    421          
+    422                // if we opened the network, close it now (turn off joining)
+    423                if ( zclEZModeOpener )
+   \   000172   90....       MOV     DPTR,#zclEZModeOpener
+   \   000175   E0           MOVX    A,@DPTR
+   \   000176   600D         JZ      ??zcl_ProcessEZMode_12
+    424                {
+    425                  zcl_EZModePermitJoiningRequest( *zclEZModeRegisterData.pTaskID, &dstAddr, 0 );
+   \   000178                ; Setup parameters for call to function zcl_EZModePermitJoiningRequest
+   \   000178   7C00         MOV     R4,#0x0
+   \   00017A   7404         MOV     A,#0x4
+   \   00017C   12....       LCALL   ?XSTACK_DISP101_8
+   \   00017F   12....       LCALL   ?Subroutine7 & 0xFFFF
+    426                }
+   \                     ??CrossCallReturnLabel_5:
+   \   000182   12....       LCALL   `??zcl_EZModePermitJoiningRequest::?relay`; Banked call to: zcl_EZModePermitJoiningRequest
+    427          
+    428                // if user callback, inform them of the finish, which will also turn off identify
+    429                if ( zclEZModeRegisterData.pfnNotifyCB )
+   \                     ??zcl_ProcessEZMode_12:
+   \   000185   90....       MOV     DPTR,#zclEZModeRegisterData + 8
+   \   000188   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   00018B   E8           MOV     A,R0
+   \   00018C   FC           MOV     R4,A
+   \   00018D   E9           MOV     A,R1
+   \   00018E   FD           MOV     R5,A
+   \   00018F   EC           MOV     A,R4
+   \   000190   4D           ORL     A,R5
+   \   000191   6031         JZ      ??zcl_ProcessEZMode_13
+    430                {
+    431                  cbData.sFinish.err = zclEZModeErr;
+   \   000193   12....       LCALL   ?Subroutine11 & 0xFFFF
+    432                  cbData.sFinish.ep = zclEZModeQueryRspEP;
+   \                     ??CrossCallReturnLabel_16:
+   \   000196   90....       MOV     DPTR,#zclEZModeQueryRspEP
+   \   000199   E0           MOVX    A,@DPTR
+   \   00019A   C0E0         PUSH    A
+   \   00019C   7401         MOV     A,#0x1
+   \   00019E   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001A1   D0E0         POP     A
+   \   0001A3   F0           MOVX    @DPTR,A
+    433                  cbData.sFinish.nwkaddr = zclEZModeQueryRspNwkAddr;
+   \   0001A4   90....       MOV     DPTR,#zclEZModeQueryRspNwkAddr
+   \   0001A7   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   0001AA   7402         MOV     A,#0x2
+   \   0001AC   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001AF   E8           MOV     A,R0
+   \   0001B0   F0           MOVX    @DPTR,A
+   \   0001B1   A3           INC     DPTR
+   \   0001B2   E9           MOV     A,R1
+   \   0001B3   F0           MOVX    @DPTR,A
+    434                  (*zclEZModeRegisterData.pfnNotifyCB)( zclEZModeState, &cbData );
+   \   0001B4                ; Setup parameters for indirect call
+   \   0001B4   AA..         MOV     R2,?XSP + 0
+   \   0001B6   AB..         MOV     R3,?XSP + 1
+   \   0001B8   90....       MOV     DPTR,#zclEZModeState
+   \   0001BB   E0           MOVX    A,@DPTR
+   \   0001BC   F9           MOV     R1,A
+   \   0001BD   8C82         MOV     DPL,R4
+   \   0001BF   8D83         MOV     DPH,R5
+   \   0001C1   12....       LCALL   ?CALL_IND
+    435                }
+    436          
+    437                // done, back to ready state
+    438                zclEZModeState = EZMODE_STATE_READY;
+   \                     ??zcl_ProcessEZMode_13:
+   \   0001C4   90....       MOV     DPTR,#zclEZModeState
+   \   0001C7   E4           CLR     A
+   \                     ??zcl_ProcessEZMode_11:
+   \   0001C8   F0           MOVX    @DPTR,A
+    439              break;
+    440            }
+    441          }
+   \                     ??zcl_ProcessEZMode_6:
+   \   0001C9   7419         MOV     A,#0x19
+   \   0001CB                REQUIRE ?Subroutine3
+   \   0001CB                ; // Fall through to label ?Subroutine3
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003   7F02         MOV     R7,#0x2
+   \   000005   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   90....       MOV     DPTR,#zclEZModeErr
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   85..82       MOV     DPL,?XSP + 0
+   \   000007   85..83       MOV     DPH,?XSP + 1
+   \   00000A   F0           MOVX    @DPTR,A
+   \   00000B   22           RET
+    442          
+    443          #if !defined ( ZCL_STANDALONE )
+    444          /*********************************************************************
+    445           * @fn      zcl_EZModeSendMatchDescReq
+    446           *
+    447           * @brief   Call to send a ZDP Match Descriptor Request
+    448           *
+    449           * @param   srcID - source task ID sending,
+    450           *          for ZCL_STANDALONE, use source endpoint
+    451           * @param   dstAddr - destination address
+    452           * @param   nwkAddr - network address of interest
+    453           * @param   NumInClusters - number of input clusters
+    454           * @param   InClusterList - input cluster ID list
+    455           * @param   NumOutClusters - number of output clusters
+    456           * @param   OutClusterList - output cluster ID list
+    457           *
+    458           * @return  afStatus_t
+    459           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    460          afStatus_t zcl_EZModeSendMatchDescReq( uint8 srcID,
+   \                     zcl_EZModeSendMatchDescReq:
+    461                                                 zAddrType_t *dstAddr,
+    462                                                 uint16 nwkAddr,
+    463                                                 uint8  NumInClusters,
+    464                                                 uint16 *InClusterList,
+    465                                                 uint8  NumOutClusters,
+    466                                                 uint16 *OutClusterList )
+    467          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    468            (void)srcID;
+    469            return ZDP_MatchDescReq( dstAddr,
+    470                                     nwkAddr,
+    471                                     ZCL_HA_PROFILE_ID,
+    472                                     NumInClusters,
+    473                                     InClusterList,
+    474                                     NumOutClusters,
+    475                                     OutClusterList,
+    476                                     FALSE );
+   \   000005                ; Setup parameters for call to function ZDP_MatchDescReq
+   \   000005   75..00       MOV     ?V0,#0x0
+   \   000008   78..         MOV     R0,#?V0
+   \   00000A   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00000D   740F         MOV     A,#0xf
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000015   7410         MOV     A,#0x10
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   F5..         MOV     ?V0,A
+   \   00001D   78..         MOV     R0,#?V0
+   \   00001F   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000022   740F         MOV     A,#0xf
+   \   000024   12....       LCALL   ?XSTACK_DISP0_8
+   \   000027   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   00002A   75..04       MOV     ?V0,#0x4
+   \   00002D   75..01       MOV     ?V1,#0x1
+   \   000030   78..         MOV     R0,#?V0
+   \   000032   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000035   7412         MOV     A,#0x12
+   \   000037   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003A   E0           MOVX    A,@DPTR
+   \   00003B   F9           MOV     R1,A
+   \   00003C   12....       LCALL   `??ZDP_MatchDescReq::?relay`; Banked call to: ZDP_MatchDescReq
+   \   00003F   7408         MOV     A,#0x8
+   \   000041   80..         SJMP    ?Subroutine3
+    477          }
+    478          
+    479          /*********************************************************************
+    480           * @fn      zcl_EZModeStartTimer
+    481           *
+    482           * @brief   This function is called to start a timer to expire in n mSecs.
+    483           *          When the timer expires, call zcl_EZModeAction().
+    484           *
+    485           * @param   uint8 taskID - task id to set timer for
+    486           * @param   uint16 event_id - event to be notified with
+    487           * @param   uint32 timeout_value - in milliseconds.
+    488           *
+    489           * @return  SUCCESS, or NO_TIMER_AVAIL.
+    490           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    491          afStatus_t zcl_EZModeStartTimer( uint8 task_id, uint16 event_id,
+   \                     zcl_EZModeStartTimer:
+    492                                            uint32 timeout_value )
+    493          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    494            return osal_start_timerEx( task_id, event_id, timeout_value );
+   \   000005                ; Setup parameters for call to function osal_start_timerEx
+   \   000005   7409         MOV     A,#0x9
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   00000D   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   000010   80..         SJMP    ?Subroutine2
+    495          }
+    496          
+    497          /*********************************************************************
+    498           * @fn      zcl_EZModeStopTimer
+    499           *
+    500           * @brief   This function is called to cancel a timer.
+    501           *
+    502           * @param   uint8 taskID - task id to set timer for
+    503           * @param   uint16 event_id - event to be notified with
+    504           *
+    505           * @return  SUCCESS, or NO_TIMER_AVAIL.
+    506           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    507          afStatus_t zcl_EZModeStopTimer( uint8 task_id, uint16 event_id )
+   \                     zcl_EZModeStopTimer:
+    508          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    509            return osal_stop_timerEx( task_id, event_id );
+   \   000005                ; Setup parameters for call to function osal_stop_timerEx
+   \   000005   12....       LCALL   `??osal_stop_timerEx::?relay`; Banked call to: osal_stop_timerEx
+   \   000008   80..         SJMP    ??Subroutine17_0
+    510          }
+    511          
+    512          /*********************************************************************
+    513           * @fn      zcl_EZModePermitJoiningRequest
+    514           *
+    515           * @brief   Call to set the permit joining for device and network.
+    516           *
+    517           * @param   srcID - source task ID sending,
+    518           *          for ZCL_STANDALONE, use source endpoint
+    519           * @param   dstAddr - destination address of the message (short addr only),
+    520           *                    NULL to send to local device only.
+    521           * @param   duration - Permit duration
+    522           *
+    523           * @return  none
+    524           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    525          void zcl_EZModePermitJoiningRequest( uint8 srcID, zAddrType_t *dstAddr,
+   \                     zcl_EZModePermitJoiningRequest:
+    526                                              uint8 duration )
+    527          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 9
+   \   000005   74F7         MOV     A,#-0x9
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EC           MOV     A,R4
+   \   00000B   FE           MOV     R6,A
+    528            zAddrType_t tmpAddr;
+    529          
+    530            (void)srcID;
+    531          
+    532            tmpAddr.addrMode = Addr16Bit;
+   \   00000C   7408         MOV     A,#0x8
+   \   00000E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000011   7402         MOV     A,#0x2
+   \   000013   F0           MOVX    @DPTR,A
+    533          
+    534            if ( dstAddr == NULL )
+   \   000014   EA           MOV     A,R2
+   \   000015   4B           ORL     A,R3
+   \   000016   700F         JNZ     ??zcl_EZModePermitJoiningRequest_0
+    535            {
+    536              tmpAddr.addr.shortAddr = NLME_GetShortAddr();
+   \   000018                ; Setup parameters for call to function NLME_GetShortAddr
+   \   000018   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+   \   00001B   85..82       MOV     DPL,?XSP + 0
+   \   00001E   85..83       MOV     DPH,?XSP + 1
+   \   000021   EA           MOV     A,R2
+   \   000022   F0           MOVX    @DPTR,A
+   \   000023   A3           INC     DPTR
+   \   000024   EB           MOV     A,R3
+   \   000025   8011         SJMP    ??zcl_EZModePermitJoiningRequest_1
+    537            }
+    538            else
+    539            {
+    540              tmpAddr.addr.shortAddr = dstAddr->addr.shortAddr;
+   \                     ??zcl_EZModePermitJoiningRequest_0:
+   \   000027   8A82         MOV     DPL,R2
+   \   000029   8B83         MOV     DPH,R3
+   \   00002B   12....       LCALL   ?Subroutine10 & 0xFFFF
+    541            }
+   \                     ??CrossCallReturnLabel_13:
+   \   00002E   85..82       MOV     DPL,?XSP + 0
+   \   000031   85..83       MOV     DPH,?XSP + 1
+   \   000034   E8           MOV     A,R0
+   \   000035   F0           MOVX    @DPTR,A
+   \   000036   A3           INC     DPTR
+   \   000037   E9           MOV     A,R1
+   \                     ??zcl_EZModePermitJoiningRequest_1:
+   \   000038   F0           MOVX    @DPTR,A
+    542          
+    543            // Trust Center significance is always true
+    544            ZDP_MgmtPermitJoinReq( &tmpAddr, duration, TRUE, FALSE );
+   \   000039                ; Setup parameters for call to function ZDP_MgmtPermitJoinReq
+   \   000039   7D00         MOV     R5,#0x0
+   \   00003B   7C01         MOV     R4,#0x1
+   \   00003D   EE           MOV     A,R6
+   \   00003E   F9           MOV     R1,A
+   \   00003F   AA..         MOV     R2,?XSP + 0
+   \   000041   AB..         MOV     R3,?XSP + 1
+   \   000043   12....       LCALL   `??ZDP_MgmtPermitJoinReq::?relay`; Banked call to: ZDP_MgmtPermitJoinReq
+    545          }
+   \   000046   7409         MOV     A,#0x9
+   \   000048   80..         SJMP    ??Subroutine16_0
+    546          
+    547          /*********************************************************************
+    548           * @fn      zcl_EZModeStartDevice
+    549           *
+    550           * @brief   Call to start a device joining.
+    551           *
+    552           * @param   srcID - source task ID sending,
+    553           *          for ZCL_STANDALONE, use source endpoint
+    554           * @param   startDelay - timeDelay to start device (in milliseconds)
+    555           *
+    556           * @return      none
+    557           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    558          void zcl_EZModeStartDevice( uint8 srcID, uint16 startDelay )
+   \                     zcl_EZModeStartDevice:
+    559          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    560            (void)srcID;
+    561            ZDOInitDevice( startDelay );
+   \   000004                ; Setup parameters for call to function ZDOInitDevice
+   \   000004   12....       LCALL   `??ZDOInitDevice::?relay`; Banked call to: ZDOInitDevice
+    562          }
+   \   000007                REQUIRE ?Subroutine4
+   \   000007                ; // Fall through to label ?Subroutine4
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    563          
+    564          /*********************************************************************
+    565           * @fn      zcl_EZModeBindAddEntry()
+    566           *
+    567           * @brief   This function is used to Add an entry to the binding table
+    568           *
+    569           * @param   srcEpInt - source endpoint
+    570           * @param   dstAddr - destination Address
+    571           * @param   dstEpInt - destination endpoint
+    572           * @param   numClusterIds - number of cluster Ids in the list
+    573           * @param   clusterIds - pointer to the Object ID list
+    574           *
+    575           * @return  pointer to binding table entry, NULL if not added
+    576           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    577          void zcl_EZModeBindAddEntry( uint8 srcEpInt,
+   \                     zcl_EZModeBindAddEntry:
+    578                                       zAddrType_t *dstAddr, uint8 dstEpInt,
+    579                                       uint8 numClusterIds, uint16 *clusterIds )
+    580          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0,R1
+    581            if ( pbindAddEntry )
+   \   000007   90....       MOV     DPTR,#pbindAddEntry
+   \   00000A   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   00000D   E8           MOV     A,R0
+   \   00000E   49           ORL     A,R1
+   \   00000F   6022         JZ      ??zcl_EZModeBindAddEntry_0
+    582            {
+    583              if ( pbindAddEntry( srcEpInt, dstAddr, dstEpInt, numClusterIds, clusterIds ) )
+   \   000011                ; Setup parameters for indirect call
+   \   000011   740C         MOV     A,#0xc
+   \   000013   12....       LCALL   ?XSTACK_DISP0_8
+   \   000016   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000019   A9..         MOV     R1,?V0
+   \   00001B   90....       MOV     DPTR,#pbindAddEntry
+   \   00001E   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000021   12....       LCALL   ?CALL_IND
+   \   000024   7402         MOV     A,#0x2
+   \   000026   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000029   8B..         MOV     ?V3,R3
+   \   00002B   EA           MOV     A,R2
+   \   00002C   45..         ORL     A,?V3
+   \   00002E   6003         JZ      ??zcl_EZModeBindAddEntry_0
+    584              {
+    585                ZDApp_NVUpdate();
+   \   000030                ; Setup parameters for call to function ZDApp_NVUpdate
+   \   000030   12....       LCALL   `??ZDApp_NVUpdate::?relay`; Banked call to: ZDApp_NVUpdate
+    586              }
+    587            }
+    588          }
+   \                     ??zcl_EZModeBindAddEntry_0:
+   \   000033   02....       LJMP    ?Subroutine1 & 0xFFFF
+    589          
+    590          /*********************************************************************
+    591           * @fn      zcl_EZModeGetNwkAddr()
+    592           *
+    593           * @brief   This function is used to Add an entry to the binding table
+    594           *
+    595           *   NOTE: Do not call this function outside of zcl_ezmode.c.
+    596           *   NOTE2:  For ZCL_STANDALONE, this function needs to be implemented
+    597           *           elsewhere.
+    598           *
+    599           * @param       none
+    600           *
+    601           * @return  16 bit network address
+    602           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    603          uint16 zcl_EZModeGetNwkAddr( void )
+   \                     zcl_EZModeGetNwkAddr:
+    604          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    605            return ( NLME_GetShortAddr() );
+   \   000004                ; Setup parameters for call to function NLME_GetShortAddr
+   \   000004   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+   \   000007   80..         SJMP    ?Subroutine4
+    606          }
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_2bf20:
+   \   000000   20BF0200     DD 180000
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_5:
+   \   000000   05000000     DD 5
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_fa0:
+   \   000000   A00F0000     DD 4000
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_RegisterEZMode::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_RegisterEZMode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_InvokeEZMode::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_InvokeEZMode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModeAction::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModeAction
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_SetEZModeState::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_SetEZModeState
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_ProcessEZMode::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_ProcessEZMode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModeSendMatchDescReq::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModeSendMatchDescReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModeStartTimer::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModeStartTimer
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModeStopTimer::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModeStopTimer
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModePermitJoiningRequest::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModePermitJoiningRequest
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModeStartDevice::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModeStartDevice
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModeBindAddEntry::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModeBindAddEntry
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_EZModeGetNwkAddr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_EZModeGetNwkAddr
+    607          #endif // !ZCL_STANDALONE
+    608          
+    609          #endif // ZCL_EZMODE
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     27   zcl_EZModeAction
+        0     21   -> NLME_GetShortAddr
+        0     23   -> zcl_EZModeBindAddEntry
+        0     21   -> zcl_EZModePermitJoiningRequest
+        0     27   -> zcl_EZModeSendMatchDescReq
+        0     21   -> zcl_ProcessEZMode
+        0     21   -> zcl_SetEZModeState
+      0     37   zcl_EZModeBindAddEntry
+        0     12   -> ZDApp_NVUpdate
+      2      0   zcl_EZModeGetNwkAddr
+        2      0   -> NLME_GetShortAddr
+      0     53   zcl_EZModePermitJoiningRequest
+        0     18   -> NLME_GetShortAddr
+        0     18   -> ZDP_MgmtPermitJoinReq
+      0     45   zcl_EZModeSendMatchDescReq
+        0     18   -> ZDP_MatchDescReq
+      2      0   zcl_EZModeStartDevice
+        2      0   -> ZDOInitDevice
+      0     52   zcl_EZModeStartTimer
+        0     13   -> osal_start_timerEx
+      0     44   zcl_EZModeStopTimer
+        0      9   -> osal_stop_timerEx
+      0     15   zcl_InvokeEZMode
+        0     14   -> osal_memcpy
+        0     15   -> zcl_EZModeStartTimer
+        0     11   -> zcl_SetEZModeState
+      1     67   zcl_ProcessEZMode
+        0     35   -> ZDOInitDevice
+        0     35   -> zcl_EZModePermitJoiningRequest
+        0     39   -> zcl_EZModeStartTimer
+        0     35   -> zcl_EZModeStopTimer
+        0     46   -> zcl_SendCommand
+        0     35   -> zcl_SetEZModeState
+      0     14   zcl_RegisterEZMode
+        0     14   -> osal_memcpy
+      0     48   zcl_SetEZModeState
+        0     13   -> zcl_EZModeStartTimer
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       9  ??Subroutine15_0
+       3  ??Subroutine16_0
+       5  ??Subroutine17_0
+       5  ?Subroutine0
+       5  ?Subroutine1
+       6  ?Subroutine10
+      12  ?Subroutine11
+       9  ?Subroutine12
+       4  ?Subroutine13
+       9  ?Subroutine14
+       2  ?Subroutine2
+       8  ?Subroutine3
+       7  ?Subroutine4
+      21  ?Subroutine5
+       3  ?Subroutine6
+       4  ?Subroutine7
+      12  ?Subroutine8
+      10  ?Subroutine9
+       4  __Constant_2bf20
+       4  __Constant_5
+       4  __Constant_fa0
+       1  zclEZModeErr
+       9  zclEZModeInvokeData
+       1  zclEZModeMatched
+       1  zclEZModeOpener
+       1  zclEZModeQueryRspEP
+       2  zclEZModeQueryRspNwkAddr
+      10  zclEZModeRegisterData
+       1  zclEZModeRegistered
+       1  zclEZModeState
+     342  zcl_EZModeAction
+       6  zcl_EZModeAction::?relay
+      54  zcl_EZModeBindAddEntry
+       6  zcl_EZModeBindAddEntry::?relay
+       9  zcl_EZModeGetNwkAddr
+       6  zcl_EZModeGetNwkAddr::?relay
+      74  zcl_EZModePermitJoiningRequest
+       6  zcl_EZModePermitJoiningRequest::?relay
+      67  zcl_EZModeSendMatchDescReq
+       6  zcl_EZModeSendMatchDescReq::?relay
+       7  zcl_EZModeStartDevice
+       6  zcl_EZModeStartDevice::?relay
+      18  zcl_EZModeStartTimer
+       6  zcl_EZModeStartTimer::?relay
+      10  zcl_EZModeStopTimer
+       6  zcl_EZModeStopTimer::?relay
+     105  zcl_InvokeEZMode
+       6  zcl_InvokeEZMode::?relay
+     459  zcl_ProcessEZMode
+       6  zcl_ProcessEZMode::?relay
+      39  zcl_RegisterEZMode
+       6  zcl_RegisterEZMode::?relay
+      28  zcl_SetEZModeState
+       6  zcl_SetEZModeState::?relay
+
+ 
+ 1 346 bytes in segment BANKED_CODE
+    72 bytes in segment BANK_RELAYS
+    12 bytes in segment XDATA_ROM_C
+    27 bytes in segment XDATA_Z
+ 
+ 1 418 bytes of CODE  memory
+     0 bytes of CONST memory (+ 12 bytes shared)
+    27 bytes of XDATA memory
+
+Errors: none
+Warnings: none

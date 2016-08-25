@@ -1,0 +1,1305 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:46:09
+# Copyright 2004-2015 IAR Systems AB.
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\Source\zha_project_data.c
+#    Command line       =  
+#        -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\Source\zha_project_data.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC
+#        "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+#        -lA "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+#        --diag_suppress Pe001,Pa010 -o "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I "C:\Texas
+#        Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\Source\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\Source\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\zha_project_data.lst
+#    Object file        =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\Obj\zha_project_data.r51
+#
+###############################################################################
+
+C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\Source\zha_project_data.c
+      1          /**************************************************************************************************
+      2            Filename:       zha_project_data.c
+      3            Revised:        $Date: 2014-05-12 13:14:02 -0700 (Mon, 12 May 2014) $
+      4            Revision:       $Revision: 38502 $
+      5          
+      6          
+      7            Description:    Zigbee Cluster Library - sample device application.
+      8          
+      9          
+     10            Copyright 2006-2014 Texas Instruments Incorporated. All rights reserved.
+     11          
+     12            IMPORTANT: Your use of this Software is limited to those specific rights
+     13            granted under the terms of a software license agreement between the user
+     14            who downloaded the software, his/her employer (which must be your employer)
+     15            and Texas Instruments Incorporated (the "License").  You may not use this
+     16            Software unless you agree to abide by the terms of the License. The License
+     17            limits your use, and you acknowledge, that the Software may not be modified,
+     18            copied or distributed unless embedded on a Texas Instruments microcontroller
+     19            or used solely and exclusively in conjunction with a Texas Instruments radio
+     20            frequency transceiver, which is integrated into your product.  Other than for
+     21            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     22            works of, modify, distribute, perform, display or sell this Software and/or
+     23            its documentation for any purpose.
+     24          
+     25            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     26            PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     27            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     28            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     29            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     30            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     31            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     32            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     33            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     34            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     35            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     36          
+     37            Should you have any questions regarding your right to use this Software,
+     38            contact Texas Instruments Incorporated at www.TI.com.
+     39          **************************************************************************************************/
+     40          
+     41          /*********************************************************************
+     42           * INCLUDES
+     43           */
+     44          #include "ZComDef.h"
+     45          #include "OSAL.h"
+     46          #include "AF.h"
+     47          #include "ZDConfig.h"
+     48          
+     49          #include "zcl.h"
+     50          #include "zcl_general.h"
+     51          #include "zcl_ha.h"
+     52          #include "zcl_ezmode.h"
+     53          #include "zcl_poll_control.h"
+     54          #include "zcl_electrical_measurement.h"
+     55          #include "zcl_diagnostic.h"
+     56          #include "zcl_meter_identification.h"
+     57          #include "zcl_appliance_identification.h"
+     58          #include "zcl_appliance_events_alerts.h"
+     59          #include "zcl_power_profile.h"
+     60          #include "zcl_appliance_control.h"
+     61          #include "zcl_appliance_statistics.h"
+     62          #include "zcl_hvac.h"
+     63          
+     64          #include "zha_project.h"
+     65          
+     66          /*********************************************************************
+     67           * CONSTANTS
+     68           */
+     69          
+     70          #define SAMPLELIGHT_DEVICE_VERSION     0
+     71          #define SAMPLELIGHT_FLAGS              0
+     72          
+     73          #define SAMPLELIGHT_HWVERSION          1
+     74          #define SAMPLELIGHT_ZCLVERSION         1
+     75          
+     76          /*********************************************************************
+     77           * TYPEDEFS
+     78           */
+     79          
+     80          /*********************************************************************
+     81           * MACROS
+     82           */
+     83          
+     84          /*********************************************************************
+     85           * GLOBAL VARIABLES
+     86           */
+     87          
+     88          // Basic Cluster
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     89          const uint8 zha_project_HWRevision = SAMPLELIGHT_HWVERSION;
+   \                     zha_project_HWRevision:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     90          const uint8 zha_project_ZCLVersion = SAMPLELIGHT_ZCLVERSION;
+   \                     zha_project_ZCLVersion:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     91          const uint8 zha_project_ManufacturerName[] = { 16, 'T','e','x','a','s','I','n','s','t','r','u','m','e','n','t','s' };
+   \                     zha_project_ManufacturerName:
+   \   000000   10           DB 16
+   \   000001   54           DB 84
+   \   000002   65           DB 101
+   \   000003   78           DB 120
+   \   000004   61           DB 97
+   \   000005   73           DB 115
+   \   000006   49           DB 73
+   \   000007   6E           DB 110
+   \   000008   73           DB 115
+   \   000009   74           DB 116
+   \   00000A   72           DB 114
+   \   00000B   75           DB 117
+   \   00000C   6D           DB 109
+   \   00000D   65           DB 101
+   \   00000E   6E           DB 110
+   \   00000F   74           DB 116
+   \   000010   73           DB 115
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     92          const uint8 zha_project_ModelId[] = { 16, 'T','I','0','0','0','1',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
+   \                     zha_project_ModelId:
+   \   000000   10           DB 16
+   \   000001   54           DB 84
+   \   000002   49           DB 73
+   \   000003   30           DB 48
+   \   000004   30           DB 48
+   \   000005   30           DB 48
+   \   000006   31           DB 49
+   \   000007   20           DB 32
+   \   000008   20           DB 32
+   \   000009   20           DB 32
+   \   00000A   20           DB 32
+   \   00000B   20           DB 32
+   \   00000C   20           DB 32
+   \   00000D   20           DB 32
+   \   00000E   20           DB 32
+   \   00000F   20           DB 32
+   \   000010   20           DB 32
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     93          const uint8 zha_project_DateCode[] = { 16, '2','0','0','6','0','8','3','1',' ',' ',' ',' ',' ',' ',' ',' ' };
+   \                     zha_project_DateCode:
+   \   000000   10           DB 16
+   \   000001   32           DB 50
+   \   000002   30           DB 48
+   \   000003   30           DB 48
+   \   000004   36           DB 54
+   \   000005   30           DB 48
+   \   000006   38           DB 56
+   \   000007   33           DB 51
+   \   000008   31           DB 49
+   \   000009   20           DB 32
+   \   00000A   20           DB 32
+   \   00000B   20           DB 32
+   \   00000C   20           DB 32
+   \   00000D   20           DB 32
+   \   00000E   20           DB 32
+   \   00000F   20           DB 32
+   \   000010   20           DB 32
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     94          const uint8 zha_project_PowerSource = POWER_SOURCE_MAINS_1_PHASE;
+   \                     zha_project_PowerSource:
+   \   000000   01           DB 1
+     95          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     96          uint8 zha_project_LocationDescription[17] = { 16, ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
+   \                     zha_project_LocationDescription:
+   \   000000                DS 17
+   \   000011                REQUIRE `?<Initializer for zha_project_LocationDescript`
+   \   000011                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     97          uint8 zha_project_PhysicalEnvironment = 0;
+   \                     zha_project_PhysicalEnvironment:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     98          uint8 zha_project_DeviceEnable = DEVICE_ENABLED;
+   \                     zha_project_DeviceEnable:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for zha_project_DeviceEnable>`
+   \   000001                REQUIRE __INIT_XDATA_I
+     99          
+    100          // Identify Cluster
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    101          uint16 zha_project_IdentifyTime = 0;
+   \                     zha_project_IdentifyTime:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    102          #ifdef ZCL_EZMODE
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    103          uint8  zha_project_IdentifyCommissionState;
+   \                     zha_project_IdentifyCommissionState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    104          #endif
+    105          
+    106          // On/Off Cluster
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    107          uint8  zha_project_OnOff = LIGHT_OFF;
+   \                     zha_project_OnOff:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    108          
+    109          // Level Control Cluster
+    110          #ifdef ZCL_LEVEL_CTRL
+    111          uint8  zha_project_LevelCurrentLevel = ATTR_LEVEL_MIN_LEVEL;
+    112          uint16 zha_project_LevelRemainingTime;
+    113          uint16 zha_project_LevelOnOffTransitionTime = 20;
+    114          uint8  zha_project_LevelOnLevel = ATTR_LEVEL_MID_LEVEL;
+    115          uint16 zha_project_LevelOnTransitionTime = 20;
+    116          uint16 zha_project_LevelOffTransitionTime = 20;
+    117          uint8  zha_project_LevelDefaultMoveRate = 0;   // as fast as possible
+    118          #endif
+    119          
+    120          #if ZCL_DISCOVER
+    121          CONST zclCommandRec_t zha_project_Cmds[] =
+    122          {
+    123            {
+    124              ZCL_CLUSTER_ID_GEN_BASIC,
+    125              COMMAND_BASIC_RESET_FACT_DEFAULT,
+    126              CMD_DIR_SERVER_RECEIVED
+    127            },
+    128            {
+    129              ZCL_CLUSTER_ID_GEN_ON_OFF,
+    130              COMMAND_OFF,
+    131              CMD_DIR_SERVER_RECEIVED
+    132            },
+    133            {
+    134              ZCL_CLUSTER_ID_GEN_ON_OFF,
+    135              COMMAND_ON,
+    136              CMD_DIR_SERVER_RECEIVED
+    137            },
+    138            {
+    139              ZCL_CLUSTER_ID_GEN_ON_OFF,
+    140              COMMAND_TOGGLE,
+    141              CMD_DIR_SERVER_RECEIVED
+    142            },
+    143          #ifdef ZCL_LEVEL_CONTROL
+    144            ,{
+    145              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    146              COMMAND_LEVEL_MOVE_TO_LEVEL,
+    147              CMD_DIR_SERVER_RECEIVED
+    148            },
+    149            {
+    150              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    151              COMMAND_LEVEL_MOVE,
+    152              CMD_DIR_SERVER_RECEIVED
+    153            },
+    154            {
+    155              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    156              COMMAND_LEVEL_STEP,
+    157              CMD_DIR_SERVER_RECEIVED
+    158            },
+    159            {
+    160              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    161              COMMAND_LEVEL_STOP,
+    162              CMD_DIR_SERVER_RECEIVED
+    163            },
+    164            {
+    165              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    166              COMMAND_LEVEL_MOVE_TO_LEVEL_WITH_ON_OFF,
+    167              CMD_DIR_SERVER_RECEIVED
+    168            },
+    169            {
+    170              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    171              COMMAND_LEVEL_MOVE_WITH_ON_OFF,
+    172              CMD_DIR_SERVER_RECEIVED
+    173            },
+    174            {
+    175              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    176              COMMAND_LEVEL_STEP_WITH_ON_OFF,
+    177              CMD_DIR_SERVER_RECEIVED
+    178            },
+    179            {
+    180              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    181              COMMAND_LEVEL_STOP_WITH_ON_OFF,
+    182              CMD_DIR_SERVER_RECEIVED
+    183            }
+    184          #endif // ZCL_LEVEL_CONTROL
+    185          };
+    186          
+    187          CONST uint8 zclCmdsArraySize = ( sizeof(zha_project_Cmds) / sizeof(zha_project_Cmds[0]) );
+    188          #endif // ZCL_DISCOVER
+    189          
+    190          /*********************************************************************
+    191           * ATTRIBUTE DEFINITIONS - Uses REAL cluster IDs
+    192           */
+
+   \                                 In  segment CODE_C, align 1
+    193          CONST zclAttrRec_t zha_project_Attrs[] =
+   \                     zha_project_Attrs:
+   \   000000   0000         DW 0
+   \   000002   0300         DW 3
+   \   000004   20           DB 32
+   \   000005   01           DB 1
+   \   000006   ....         DW zha_project_HWRevision
+   \   000008   0000         DW 0
+   \   00000A   0000         DW 0
+   \   00000C   20           DB 32
+   \   00000D   01           DB 1
+   \   00000E   ....         DW zha_project_ZCLVersion
+   \   000010   0000         DW 0
+   \   000012   0400         DW 4
+   \   000014   42           DB 66
+   \   000015   01           DB 1
+   \   000016   ....         DW zha_project_ManufacturerName
+   \   000018   0000         DW 0
+   \   00001A   0500         DW 5
+   \   00001C   42           DB 66
+   \   00001D   01           DB 1
+   \   00001E   ....         DW zha_project_ModelId
+   \   000020   0000         DW 0
+   \   000022   0600         DW 6
+   \   000024   42           DB 66
+   \   000025   01           DB 1
+   \   000026   ....         DW zha_project_DateCode
+   \   000028   0000         DW 0
+   \   00002A   0700         DW 7
+   \   00002C   20           DB 32
+   \   00002D   01           DB 1
+   \   00002E   ....         DW zha_project_PowerSource
+   \   000030   0000         DW 0
+   \   000032   1000         DW 16
+   \   000034   42           DB 66
+   \   000035   03           DB 3
+   \   000036   ....         DW zha_project_LocationDescription
+   \   000038   0000         DW 0
+   \   00003A   1100         DW 17
+   \   00003C   20           DB 32
+   \   00003D   03           DB 3
+   \   00003E   ....         DW zha_project_PhysicalEnvironment
+   \   000040   0000         DW 0
+   \   000042   1200         DW 18
+   \   000044   10           DB 16
+   \   000045   03           DB 3
+   \   000046   ....         DW zha_project_DeviceEnable
+   \   000048   0300         DW 3
+   \   00004A   0000         DW 0
+   \   00004C   21           DB 33
+   \   00004D   03           DB 3
+   \   00004E   ....         DW zha_project_IdentifyTime
+   \   000050   0300         DW 3
+   \   000052   0100         DW 1
+   \   000054   20           DB 32
+   \   000055   01           DB 1
+   \   000056   ....         DW zha_project_IdentifyCommissionState
+   \   000058   0600         DW 6
+   \   00005A   0000         DW 0
+   \   00005C   10           DB 16
+   \   00005D   01           DB 1
+   \   00005E   ....         DW zha_project_OnOff
+   \   000060   050B         DW 2821
+   \   000062   0000         DW 0
+   \   000064   21           DB 33
+   \   000065   01           DB 1
+   \   000066   0000         DW 0H
+   \   000068   050B         DW 2821
+   \   00006A   0100         DW 1
+   \   00006C   21           DB 33
+   \   00006D   01           DB 1
+   \   00006E   0000         DW 0H
+   \   000070   050B         DW 2821
+   \   000072   0001         DW 256
+   \   000074   23           DB 35
+   \   000075   01           DB 1
+   \   000076   0000         DW 0H
+   \   000078   050B         DW 2821
+   \   00007A   0101         DW 257
+   \   00007C   23           DB 35
+   \   00007D   01           DB 1
+   \   00007E   0000         DW 0H
+   \   000080   050B         DW 2821
+   \   000082   0201         DW 258
+   \   000084   23           DB 35
+   \   000085   01           DB 1
+   \   000086   0000         DW 0H
+   \   000088   050B         DW 2821
+   \   00008A   0301         DW 259
+   \   00008C   23           DB 35
+   \   00008D   01           DB 1
+   \   00008E   0000         DW 0H
+   \   000090   050B         DW 2821
+   \   000092   0401         DW 260
+   \   000094   21           DB 33
+   \   000095   01           DB 1
+   \   000096   0000         DW 0H
+   \   000098   050B         DW 2821
+   \   00009A   0501         DW 261
+   \   00009C   21           DB 33
+   \   00009D   01           DB 1
+   \   00009E   0000         DW 0H
+   \   0000A0   050B         DW 2821
+   \   0000A2   0601         DW 262
+   \   0000A4   21           DB 33
+   \   0000A5   01           DB 1
+   \   0000A6   0000         DW 0H
+   \   0000A8   050B         DW 2821
+   \   0000AA   0701         DW 263
+   \   0000AC   21           DB 33
+   \   0000AD   01           DB 1
+   \   0000AE   0000         DW 0H
+   \   0000B0   050B         DW 2821
+   \   0000B2   0801         DW 264
+   \   0000B4   21           DB 33
+   \   0000B5   01           DB 1
+   \   0000B6   0000         DW 0H
+   \   0000B8   050B         DW 2821
+   \   0000BA   0901         DW 265
+   \   0000BC   21           DB 33
+   \   0000BD   01           DB 1
+   \   0000BE   0000         DW 0H
+   \   0000C0   050B         DW 2821
+   \   0000C2   0A01         DW 266
+   \   0000C4   21           DB 33
+   \   0000C5   01           DB 1
+   \   0000C6   0000         DW 0H
+   \   0000C8   050B         DW 2821
+   \   0000CA   0B01         DW 267
+   \   0000CC   21           DB 33
+   \   0000CD   01           DB 1
+   \   0000CE   0000         DW 0H
+   \   0000D0   050B         DW 2821
+   \   0000D2   0C01         DW 268
+   \   0000D4   21           DB 33
+   \   0000D5   01           DB 1
+   \   0000D6   0000         DW 0H
+   \   0000D8   050B         DW 2821
+   \   0000DA   0D01         DW 269
+   \   0000DC   21           DB 33
+   \   0000DD   01           DB 1
+   \   0000DE   0000         DW 0H
+   \   0000E0   050B         DW 2821
+   \   0000E2   0E01         DW 270
+   \   0000E4   21           DB 33
+   \   0000E5   01           DB 1
+   \   0000E6   0000         DW 0H
+   \   0000E8   050B         DW 2821
+   \   0000EA   0F01         DW 271
+   \   0000EC   21           DB 33
+   \   0000ED   01           DB 1
+   \   0000EE   0000         DW 0H
+   \   0000F0   050B         DW 2821
+   \   0000F2   1001         DW 272
+   \   0000F4   21           DB 33
+   \   0000F5   01           DB 1
+   \   0000F6   0000         DW 0H
+   \   0000F8   050B         DW 2821
+   \   0000FA   1101         DW 273
+   \   0000FC   21           DB 33
+   \   0000FD   01           DB 1
+   \   0000FE   0000         DW 0H
+   \   000100   050B         DW 2821
+   \   000102   1201         DW 274
+   \   000104   21           DB 33
+   \   000105   01           DB 1
+   \   000106   0000         DW 0H
+   \   000108   050B         DW 2821
+   \   00010A   1301         DW 275
+   \   00010C   21           DB 33
+   \   00010D   01           DB 1
+   \   00010E   0000         DW 0H
+   \   000110   050B         DW 2821
+   \   000112   1401         DW 276
+   \   000114   21           DB 33
+   \   000115   01           DB 1
+   \   000116   0000         DW 0H
+   \   000118   050B         DW 2821
+   \   00011A   1501         DW 277
+   \   00011C   21           DB 33
+   \   00011D   01           DB 1
+   \   00011E   0000         DW 0H
+   \   000120   050B         DW 2821
+   \   000122   1601         DW 278
+   \   000124   21           DB 33
+   \   000125   01           DB 1
+   \   000126   0000         DW 0H
+   \   000128   050B         DW 2821
+   \   00012A   1701         DW 279
+   \   00012C   21           DB 33
+   \   00012D   01           DB 1
+   \   00012E   0000         DW 0H
+   \   000130   050B         DW 2821
+   \   000132   1801         DW 280
+   \   000134   21           DB 33
+   \   000135   01           DB 1
+   \   000136   0000         DW 0H
+   \   000138   050B         DW 2821
+   \   00013A   1901         DW 281
+   \   00013C   21           DB 33
+   \   00013D   01           DB 1
+   \   00013E   0000         DW 0H
+   \   000140   050B         DW 2821
+   \   000142   1A01         DW 282
+   \   000144   21           DB 33
+   \   000145   01           DB 1
+   \   000146   0000         DW 0H
+   \   000148   050B         DW 2821
+   \   00014A   1B01         DW 283
+   \   00014C   21           DB 33
+   \   00014D   01           DB 1
+   \   00014E   0000         DW 0H
+   \   000150   050B         DW 2821
+   \   000152   1C01         DW 284
+   \   000154   20           DB 32
+   \   000155   01           DB 1
+   \   000156   0000         DW 0H
+   \   000158   050B         DW 2821
+   \   00015A   1D01         DW 285
+   \   00015C   28           DB 40
+   \   00015D   01           DB 1
+   \   00015E   0000         DW 0H
+    194          {
+    195            // *** General Basic Cluster Attributes ***
+    196            {
+    197              ZCL_CLUSTER_ID_GEN_BASIC,             // Cluster IDs - defined in the foundation (ie. zcl.h)
+    198              {  // Attribute record
+    199                ATTRID_BASIC_HW_VERSION,            // Attribute ID - Found in Cluster Library header (ie. zcl_general.h)
+    200                ZCL_DATATYPE_UINT8,                 // Data Type - found in zcl.h
+    201                ACCESS_CONTROL_READ,                // Variable access control - found in zcl.h
+    202                (void *)&zha_project_HWRevision  // Pointer to attribute variable
+    203              }
+    204            },
+    205            {
+    206              ZCL_CLUSTER_ID_GEN_BASIC,
+    207              { // Attribute record
+    208                ATTRID_BASIC_ZCL_VERSION,
+    209                ZCL_DATATYPE_UINT8,
+    210                ACCESS_CONTROL_READ,
+    211                (void *)&zha_project_ZCLVersion
+    212              }
+    213            },
+    214            {
+    215              ZCL_CLUSTER_ID_GEN_BASIC,
+    216              { // Attribute record
+    217                ATTRID_BASIC_MANUFACTURER_NAME,
+    218                ZCL_DATATYPE_CHAR_STR,
+    219                ACCESS_CONTROL_READ,
+    220                (void *)zha_project_ManufacturerName
+    221              }
+    222            },
+    223            {
+    224              ZCL_CLUSTER_ID_GEN_BASIC,
+    225              { // Attribute record
+    226                ATTRID_BASIC_MODEL_ID,
+    227                ZCL_DATATYPE_CHAR_STR,
+    228                ACCESS_CONTROL_READ,
+    229                (void *)zha_project_ModelId
+    230              }
+    231            },
+    232            {
+    233              ZCL_CLUSTER_ID_GEN_BASIC,
+    234              { // Attribute record
+    235                ATTRID_BASIC_DATE_CODE,
+    236                ZCL_DATATYPE_CHAR_STR,
+    237                ACCESS_CONTROL_READ,
+    238                (void *)zha_project_DateCode
+    239              }
+    240            },
+    241            {
+    242              ZCL_CLUSTER_ID_GEN_BASIC,
+    243              { // Attribute record
+    244                ATTRID_BASIC_POWER_SOURCE,
+    245                ZCL_DATATYPE_UINT8,
+    246                ACCESS_CONTROL_READ,
+    247                (void *)&zha_project_PowerSource
+    248              }
+    249            },
+    250            {
+    251              ZCL_CLUSTER_ID_GEN_BASIC,
+    252              { // Attribute record
+    253                ATTRID_BASIC_LOCATION_DESC,
+    254                ZCL_DATATYPE_CHAR_STR,
+    255                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    256                (void *)zha_project_LocationDescription
+    257              }
+    258            },
+    259            {
+    260              ZCL_CLUSTER_ID_GEN_BASIC,
+    261              { // Attribute record
+    262                ATTRID_BASIC_PHYSICAL_ENV,
+    263                ZCL_DATATYPE_UINT8,
+    264                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    265                (void *)&zha_project_PhysicalEnvironment
+    266              }
+    267            },
+    268            {
+    269              ZCL_CLUSTER_ID_GEN_BASIC,
+    270              { // Attribute record
+    271                ATTRID_BASIC_DEVICE_ENABLED,
+    272                ZCL_DATATYPE_BOOLEAN,
+    273                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    274                (void *)&zha_project_DeviceEnable
+    275              }
+    276            },
+    277          
+    278          #ifdef ZCL_IDENTIFY
+    279            // *** Identify Cluster Attribute ***
+    280            {
+    281              ZCL_CLUSTER_ID_GEN_IDENTIFY,
+    282              { // Attribute record
+    283                ATTRID_IDENTIFY_TIME,
+    284                ZCL_DATATYPE_UINT16,
+    285                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    286                (void *)&zha_project_IdentifyTime
+    287              }
+    288            },
+    289           #ifdef ZCL_EZMODE
+    290            // *** Identify Cluster Attribute ***
+    291            {
+    292              ZCL_CLUSTER_ID_GEN_IDENTIFY,
+    293              { // Attribute record
+    294                ATTRID_IDENTIFY_COMMISSION_STATE,
+    295                ZCL_DATATYPE_UINT8,
+    296                (ACCESS_CONTROL_READ),
+    297                (void *)&zha_project_IdentifyCommissionState
+    298              }
+    299            },
+    300           #endif // ZCL_EZMODE
+    301          #endif
+    302          
+    303            // *** On/Off Cluster Attributes ***
+    304            {
+    305              ZCL_CLUSTER_ID_GEN_ON_OFF,
+    306              { // Attribute record
+    307                ATTRID_ON_OFF,
+    308                ZCL_DATATYPE_BOOLEAN,
+    309                ACCESS_CONTROL_READ,
+    310                (void *)&zha_project_OnOff
+    311              }
+    312            }
+    313          
+    314          #ifdef ZCL_LEVEL_CTRL
+    315            , {
+    316              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    317              { // Attribute record
+    318                ATTRID_LEVEL_CURRENT_LEVEL,
+    319                ZCL_DATATYPE_UINT8,
+    320                ACCESS_CONTROL_READ,
+    321                (void *)&zha_project_LevelCurrentLevel
+    322              }
+    323            },
+    324            {
+    325              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    326              { // Attribute record
+    327                ATTRID_LEVEL_REMAINING_TIME,
+    328                ZCL_DATATYPE_UINT16,
+    329                ACCESS_CONTROL_READ,
+    330                (void *)&zha_project_LevelRemainingTime
+    331              }
+    332            },
+    333            {
+    334              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    335              { // Attribute record
+    336                ATTRID_LEVEL_ON_OFF_TRANSITION_TIME,
+    337                ZCL_DATATYPE_UINT16,
+    338                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE,
+    339                (void *)&zha_project_LevelOnOffTransitionTime
+    340              }
+    341            },
+    342            {
+    343              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    344              { // Attribute record
+    345                ATTRID_LEVEL_ON_LEVEL,
+    346                ZCL_DATATYPE_UINT8,
+    347                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE,
+    348                (void *)&zha_project_LevelOnLevel
+    349              }
+    350            },
+    351            {
+    352              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    353              { // Attribute record
+    354                ATTRID_LEVEL_ON_TRANSITION_TIME,
+    355                ZCL_DATATYPE_UINT16,
+    356                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE,
+    357                (void *)&zha_project_LevelOnTransitionTime
+    358              }
+    359            },
+    360            {
+    361              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    362              { // Attribute record
+    363                ATTRID_LEVEL_OFF_TRANSITION_TIME,
+    364                ZCL_DATATYPE_UINT16,
+    365                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE,
+    366                (void *)&zha_project_LevelOffTransitionTime
+    367              }
+    368            },
+    369            {
+    370              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    371              { // Attribute record
+    372                ATTRID_LEVEL_DEFAULT_MOVE_RATE,
+    373                ZCL_DATATYPE_UINT8,
+    374                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE,
+    375                (void *)&zha_project_LevelDefaultMoveRate
+    376              }
+    377            }
+    378          #endif
+    379           #ifdef ZCL_DIAGNOSTIC
+    380            , {
+    381              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    382              {  // Attribute record
+    383                ATTRID_DIAGNOSTIC_NUMBER_OF_RESETS,
+    384                ZCL_DATATYPE_UINT16,
+    385                ACCESS_CONTROL_READ,
+    386                NULL // Use application's callback to Read this attribute
+    387              }
+    388            },
+    389            {
+    390              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    391              {  // Attribute record
+    392                ATTRID_DIAGNOSTIC_PERSISTENT_MEMORY_WRITES,
+    393                ZCL_DATATYPE_UINT16,
+    394                ACCESS_CONTROL_READ,
+    395                NULL // Use application's callback to Read this attribute
+    396              }
+    397            },
+    398            {
+    399              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    400              {  // Attribute record
+    401                ATTRID_DIAGNOSTIC_MAC_RX_BCAST,
+    402                ZCL_DATATYPE_UINT32,
+    403                ACCESS_CONTROL_READ,
+    404                NULL // Use application's callback to Read this attribute
+    405              }
+    406            },
+    407            {
+    408              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    409              {  // Attribute record
+    410                ATTRID_DIAGNOSTIC_MAC_TX_BCAST,
+    411                ZCL_DATATYPE_UINT32,
+    412                ACCESS_CONTROL_READ,
+    413                NULL // Use application's callback to Read this attribute
+    414              }
+    415            },
+    416            {
+    417              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    418              {  // Attribute record
+    419                ATTRID_DIAGNOSTIC_MAC_RX_UCAST,
+    420                ZCL_DATATYPE_UINT32,
+    421                ACCESS_CONTROL_READ,
+    422                NULL // Use application's callback to Read this attribute
+    423              }
+    424            },
+    425            {
+    426              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    427              {  // Attribute record
+    428                ATTRID_DIAGNOSTIC_MAC_TX_UCAST,
+    429                ZCL_DATATYPE_UINT32,
+    430                ACCESS_CONTROL_READ,
+    431                NULL // Use application's callback to Read this attribute
+    432              }
+    433            },
+    434            {
+    435              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    436              {  // Attribute record
+    437                ATTRID_DIAGNOSTIC_MAC_TX_UCAST_RETRY,
+    438                ZCL_DATATYPE_UINT16,
+    439                ACCESS_CONTROL_READ,
+    440                NULL // Use application's callback to Read this attribute
+    441              }
+    442            },
+    443            {
+    444              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    445              {  // Attribute record
+    446                ATTRID_DIAGNOSTIC_MAC_TX_UCAST_FAIL,
+    447                ZCL_DATATYPE_UINT16,
+    448                ACCESS_CONTROL_READ,
+    449                NULL // Use application's callback to Read this attribute
+    450              }
+    451            },
+    452            {
+    453              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    454              {  // Attribute record
+    455                ATTRID_DIAGNOSTIC_APS_RX_BCAST,
+    456                ZCL_DATATYPE_UINT16,
+    457                ACCESS_CONTROL_READ,
+    458                NULL // Use application's callback to Read this attribute
+    459              }
+    460            },
+    461            {
+    462              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    463              {  // Attribute record
+    464                ATTRID_DIAGNOSTIC_APS_TX_BCAST,
+    465                ZCL_DATATYPE_UINT16,
+    466                ACCESS_CONTROL_READ,
+    467                NULL // Use application's callback to Read this attribute
+    468              }
+    469            },
+    470            {
+    471              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    472              {  // Attribute record
+    473                ATTRID_DIAGNOSTIC_APS_RX_UCAST,
+    474                ZCL_DATATYPE_UINT16,
+    475                ACCESS_CONTROL_READ,
+    476                NULL // Use application's callback to Read this attribute
+    477              }
+    478            },
+    479            {
+    480              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    481              {  // Attribute record
+    482                ATTRID_DIAGNOSTIC_APS_TX_UCAST_SUCCESS,
+    483                ZCL_DATATYPE_UINT16,
+    484                ACCESS_CONTROL_READ,
+    485                NULL // Use application's callback to Read this attribute
+    486              }
+    487            },
+    488            {
+    489              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    490              {  // Attribute record
+    491                ATTRID_DIAGNOSTIC_APS_TX_UCAST_RETRY,
+    492                ZCL_DATATYPE_UINT16,
+    493                ACCESS_CONTROL_READ,
+    494                NULL // Use application's callback to Read this attribute
+    495              }
+    496            },
+    497            {
+    498              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    499              {  // Attribute record
+    500                ATTRID_DIAGNOSTIC_APS_TX_UCAST_FAIL,
+    501                ZCL_DATATYPE_UINT16,
+    502                ACCESS_CONTROL_READ,
+    503                NULL // Use application's callback to Read this attribute
+    504              }
+    505            },
+    506            {
+    507              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    508              {  // Attribute record
+    509                ATTRID_DIAGNOSTIC_ROUTE_DISC_INITIATED,
+    510                ZCL_DATATYPE_UINT16,
+    511                ACCESS_CONTROL_READ,
+    512                NULL // Use application's callback to Read this attribute
+    513              }
+    514            },
+    515            {
+    516              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    517              {  // Attribute record
+    518                ATTRID_DIAGNOSTIC_NEIGHBOR_ADDED,
+    519                ZCL_DATATYPE_UINT16,
+    520                ACCESS_CONTROL_READ,
+    521                NULL // Use application's callback to Read this attribute
+    522              }
+    523            },
+    524            {
+    525              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    526              {  // Attribute record
+    527                ATTRID_DIAGNOSTIC_NEIGHBOR_REMOVED,
+    528                ZCL_DATATYPE_UINT16,
+    529                ACCESS_CONTROL_READ,
+    530                NULL // Use application's callback to Read this attribute
+    531              }
+    532            },
+    533            {
+    534              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    535              {  // Attribute record
+    536                ATTRID_DIAGNOSTIC_NEIGHBOR_STALE,
+    537                ZCL_DATATYPE_UINT16,
+    538                ACCESS_CONTROL_READ,
+    539                NULL // Use application's callback to Read this attribute
+    540              }
+    541            },
+    542            {
+    543              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    544              {  // Attribute record
+    545                ATTRID_DIAGNOSTIC_JOIN_INDICATION,
+    546                ZCL_DATATYPE_UINT16,
+    547                ACCESS_CONTROL_READ,
+    548                NULL // Use application's callback to Read this attribute
+    549              }
+    550            },
+    551            {
+    552              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    553              {  // Attribute record
+    554                ATTRID_DIAGNOSTIC_CHILD_MOVED,
+    555                ZCL_DATATYPE_UINT16,
+    556                ACCESS_CONTROL_READ,
+    557                NULL // Use application's callback to Read this attribute
+    558              }
+    559            },
+    560            {
+    561              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    562              {  // Attribute record
+    563                ATTRID_DIAGNOSTIC_NWK_FC_FAILURE,
+    564                ZCL_DATATYPE_UINT16,
+    565                ACCESS_CONTROL_READ,
+    566                NULL // Use application's callback to Read this attribute
+    567              }
+    568            },
+    569            {
+    570              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    571              {  // Attribute record
+    572                ATTRID_DIAGNOSTIC_APS_FC_FAILURE,
+    573                ZCL_DATATYPE_UINT16,
+    574                ACCESS_CONTROL_READ,
+    575                NULL // Use application's callback to Read this attribute
+    576              }
+    577            },
+    578            {
+    579              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    580              {  // Attribute record
+    581                ATTRID_DIAGNOSTIC_APS_UNAUTHORIZED_KEY,
+    582                ZCL_DATATYPE_UINT16,
+    583                ACCESS_CONTROL_READ,
+    584                NULL // Use application's callback to Read this attribute
+    585              }
+    586            },
+    587            {
+    588              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    589              {  // Attribute record
+    590                ATTRID_DIAGNOSTIC_NWK_DECRYPT_FAILURES,
+    591                ZCL_DATATYPE_UINT16,
+    592                ACCESS_CONTROL_READ,
+    593                NULL // Use application's callback to Read this attribute
+    594              }
+    595            },
+    596            {
+    597              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    598              {  // Attribute record
+    599                ATTRID_DIAGNOSTIC_APS_DECRYPT_FAILURES,
+    600                ZCL_DATATYPE_UINT16,
+    601                ACCESS_CONTROL_READ,
+    602                NULL // Use application's callback to Read this attribute
+    603              }
+    604            },
+    605            {
+    606              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    607              {  // Attribute record
+    608                ATTRID_DIAGNOSTIC_PACKET_BUFFER_ALLOCATE_FAILURES,
+    609                ZCL_DATATYPE_UINT16,
+    610                ACCESS_CONTROL_READ,
+    611                NULL // Use application's callback to Read this attribute
+    612              }
+    613            },
+    614            {
+    615              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    616              {  // Attribute record
+    617                ATTRID_DIAGNOSTIC_RELAYED_UCAST,
+    618                ZCL_DATATYPE_UINT16,
+    619                ACCESS_CONTROL_READ,
+    620                NULL // Use application's callback to Read this attribute
+    621              }
+    622            },
+    623            {
+    624              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    625              {  // Attribute record
+    626                ATTRID_DIAGNOSTIC_PHY_TO_MAC_QUEUE_LIMIT_REACHED,
+    627                ZCL_DATATYPE_UINT16,
+    628                ACCESS_CONTROL_READ,
+    629                NULL // Use application's callback to Read this attribute
+    630              }
+    631            },
+    632            {
+    633              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    634              {  // Attribute record
+    635                ATTRID_DIAGNOSTIC_PACKET_VALIDATE_DROP_COUNT,
+    636                ZCL_DATATYPE_UINT16,
+    637                ACCESS_CONTROL_READ,
+    638                NULL // Use application's callback to Read this attribute
+    639              }
+    640            },
+    641            {
+    642              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    643              {  // Attribute record
+    644                ATTRID_DIAGNOSTIC_AVERAGE_MAC_RETRY_PER_APS_MESSAGE_SENT,
+    645                ZCL_DATATYPE_UINT16,
+    646                ACCESS_CONTROL_READ,
+    647                NULL // Use application's callback to Read this attribute
+    648              }
+    649            },
+    650            {
+    651              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    652              {  // Attribute record
+    653                ATTRID_DIAGNOSTIC_LAST_MESSAGE_LQI,
+    654                ZCL_DATATYPE_UINT8,
+    655                ACCESS_CONTROL_READ,
+    656                NULL // Use application's callback to Read this attribute
+    657              }
+    658            },
+    659            {
+    660              ZCL_CLUSTER_ID_HA_DIAGNOSTIC,
+    661              {  // Attribute record
+    662                ATTRID_DIAGNOSTIC_LAST_MESSAGE_RSSI,
+    663                ZCL_DATATYPE_INT8,
+    664                ACCESS_CONTROL_READ,
+    665                NULL // Use application's callback to Read this attribute
+    666              }
+    667            },
+    668          #endif // ZCL_DIAGNOSTIC
+    669          };
+    670          
+
+   \                                 In  segment CODE_C, align 1
+    671          uint8 CONST zha_project_NumAttributes = ( sizeof(zha_project_Attrs) / sizeof(zha_project_Attrs[0]) );
+   \                     zha_project_NumAttributes:
+   \   000000   2C           DB 44
+    672          
+    673          /*********************************************************************
+    674           * SIMPLE DESCRIPTOR
+    675           */
+    676          // This is the Cluster ID List and should be filled with Application
+    677          // specific cluster IDs.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    678          const cId_t zha_project_InClusterList[] =
+   \                     zha_project_InClusterList:
+   \   000000   0000         DW 0
+   \   000002   0500         DW 5
+   \   000004   0400         DW 4
+   \   000006   0600         DW 6
+   \   000008   0005         DW 1280
+   \   00000A   0204         DW 1026
+   \   00000C   0504         DW 1029
+   \   00000E   0004         DW 1024
+   \   000010   0205         DW 1282
+   \   000012   0003         DW 768
+   \   000014   0300         DW 3
+   \   000016   0400         DW 4
+    679          {
+    680            ZCL_CLUSTER_ID_GEN_BASIC,
+    681            ZCL_CLUSTER_ID_GEN_SCENES,
+    682            ZCL_CLUSTER_ID_GEN_GROUPS,
+    683            ZCL_CLUSTER_ID_GEN_ON_OFF,
+    684            ZCL_CLUSTER_ID_SS_IAS_ZONE,
+    685            ZCL_CLUSTER_ID_MS_TEMPERATURE_MEASUREMENT,
+    686            ZCL_CLUSTER_ID_MS_RELATIVE_HUMIDITY,
+    687            ZCL_CLUSTER_ID_MS_ILLUMINANCE_MEASUREMENT,
+    688            ZCL_CLUSTER_ID_SS_IAS_WD,
+    689            ZCL_CLUSTER_ID_LIGHTING_COLOR_CONTROL,
+    690            ZCL_CLUSTER_ID_GEN_IDENTIFY,
+    691            ZCL_CLUSTER_ID_GEN_GROUPS,
+    692          #ifdef ZCL_LEVEL_CTRL
+    693            , ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL
+    694          #endif
+    695          };
+    696          // work-around for compiler bug... IAR can't calculate size of array with #if options.
+    697          #ifdef ZCL_LEVEL_CTRL
+    698           #define ZCLSAMPLELIGHT_MAX_INCLUSTERS   6
+    699          #else
+    700           #define ZCLSAMPLELIGHT_MAX_INCLUSTERS   5
+    701          #endif
+    702          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    703          const cId_t zha_project_OutClusterList[] =
+   \                     zha_project_OutClusterList:
+   \   000000   0000         DW 0
+   \   000002   0500         DW 5
+   \   000004   0400         DW 4
+   \   000006   0600         DW 6
+   \   000008   0800         DW 8
+   \   00000A   0005         DW 1280
+   \   00000C   0204         DW 1026
+   \   00000E   0504         DW 1029
+   \   000010   0004         DW 1024
+   \   000012   0205         DW 1282
+   \   000014   0003         DW 768
+   \   000016   0300         DW 3
+   \   000018   0400         DW 4
+    704          {
+    705            ZCL_CLUSTER_ID_GEN_BASIC,
+    706            ZCL_CLUSTER_ID_GEN_SCENES,
+    707            ZCL_CLUSTER_ID_GEN_GROUPS,
+    708            ZCL_CLUSTER_ID_GEN_ON_OFF,
+    709            ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    710            ZCL_CLUSTER_ID_SS_IAS_ZONE,
+    711            ZCL_CLUSTER_ID_MS_TEMPERATURE_MEASUREMENT,
+    712            ZCL_CLUSTER_ID_MS_RELATIVE_HUMIDITY,
+    713            ZCL_CLUSTER_ID_MS_ILLUMINANCE_MEASUREMENT,
+    714            ZCL_CLUSTER_ID_SS_IAS_WD,
+    715            ZCL_CLUSTER_ID_LIGHTING_COLOR_CONTROL,
+    716            ZCL_CLUSTER_ID_GEN_IDENTIFY,
+    717            ZCL_CLUSTER_ID_GEN_GROUPS,
+    718          };
+    719          #define ZCLSAMPLELIGHT_MAX_OUTCLUSTERS  (sizeof(zha_project_OutClusterList) / sizeof(zha_project_OutClusterList[0]))
+    720          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    721          SimpleDescriptionFormat_t zha_project_SimpleDesc =
+   \                     zha_project_SimpleDesc:
+   \   000000                DS 12
+   \   00000C                REQUIRE `?<Initializer for zha_project_SimpleDesc>`
+   \   00000C                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zha_project_LocationDescript`:
+   \   000000   10           DB 16
+   \   000001   20           DB 32
+   \   000002   20           DB 32
+   \   000003   20           DB 32
+   \   000004   20           DB 32
+   \   000005   20           DB 32
+   \   000006   20           DB 32
+   \   000007   20           DB 32
+   \   000008   20           DB 32
+   \   000009   20           DB 32
+   \   00000A   20           DB 32
+   \   00000B   20           DB 32
+   \   00000C   20           DB 32
+   \   00000D   20           DB 32
+   \   00000E   20           DB 32
+   \   00000F   20           DB 32
+   \   000010   20           DB 32
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zha_project_DeviceEnable>`:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zha_project_SimpleDesc>`:
+   \   000000   01           DB 1
+   \   000001   0401         DW 260
+   \   000003   0001         DW 256
+   \   000005   00           DB 0
+   \   000006   05           DB 5
+   \   000007   ....         DW zha_project_InClusterList
+   \   000009   0D           DB 13
+   \   00000A   ....         DW zha_project_OutClusterList
+    722          {
+    723            SAMPLELIGHT_ENDPOINT,                  //  int Endpoint;
+    724            ZCL_HA_PROFILE_ID,                     //  uint16 AppProfId;
+    725          #ifdef ZCL_LEVEL_CTRL
+    726            ZCL_HA_DEVICEID_DIMMABLE_LIGHT,        //  uint16 AppDeviceId;
+    727          #else
+    728            ZCL_HA_DEVICEID_ON_OFF_LIGHT,          //  uint16 AppDeviceId;
+    729          #endif
+    730            SAMPLELIGHT_DEVICE_VERSION,            //  int   AppDevVer:4;
+    731            SAMPLELIGHT_FLAGS,                     //  int   AppFlags:4;
+    732            ZCLSAMPLELIGHT_MAX_INCLUSTERS,         //  byte  AppNumInClusters;
+    733            (cId_t *)zha_project_InClusterList, //  byte *pAppInClusterList;
+    734            ZCLSAMPLELIGHT_MAX_OUTCLUSTERS,        //  byte  AppNumInClusters;
+    735            (cId_t *)zha_project_OutClusterList //  byte *pAppInClusterList;
+    736          };
+    737          
+    738          /*********************************************************************
+    739           * GLOBAL FUNCTIONS
+    740           */
+    741          
+    742          /*********************************************************************
+    743           * LOCAL FUNCTIONS
+    744           */
+    745          
+    746          /****************************************************************************
+    747          ****************************************************************************/
+    748          
+    749          
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ?<Initializer for zha_project_DeviceEnable>
+      17  ?<Initializer for zha_project_LocationDescript
+      12  ?<Initializer for zha_project_SimpleDesc>
+     352  zha_project_Attrs
+      17  zha_project_DateCode
+       1  zha_project_DeviceEnable
+       1  zha_project_HWRevision
+       1  zha_project_IdentifyCommissionState
+       2  zha_project_IdentifyTime
+      24  zha_project_InClusterList
+      17  zha_project_LocationDescription
+      17  zha_project_ManufacturerName
+      17  zha_project_ModelId
+       1  zha_project_NumAttributes
+       1  zha_project_OnOff
+      26  zha_project_OutClusterList
+       1  zha_project_PhysicalEnvironment
+       1  zha_project_PowerSource
+      12  zha_project_SimpleDesc
+       1  zha_project_ZCLVersion
+
+ 
+ 353 bytes in segment CODE_C
+  30 bytes in segment XDATA_I
+  30 bytes in segment XDATA_ID
+ 104 bytes in segment XDATA_ROM_C
+   5 bytes in segment XDATA_Z
+ 
+ 383 bytes of CODE  memory
+ 104 bytes of CONST memory
+  35 bytes of XDATA memory
+
+Errors: none
+Warnings: none

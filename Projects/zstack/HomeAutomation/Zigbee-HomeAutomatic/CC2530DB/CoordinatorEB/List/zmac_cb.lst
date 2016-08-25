@@ -1,0 +1,1741 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:14:26
+# Copyright 2004-2015 IAR Systems AB.
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Components\zmac\f8w\zmac_cb.c
+#    Command line       =  
+#        -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Components\zmac\f8w\zmac_cb.c" -D SECURE=1 -D
+#        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
+#        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+#        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+#        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
+#        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
+#        Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+#        -lA "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+#        --diag_suppress Pe001,Pa010 -o "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I "C:\Texas
+#        Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\Source\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\Source\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\zmac_cb.lst
+#    Object file        =  
+#        C:\Texas Instruments\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\Obj\zmac_cb.r51
+#
+###############################################################################
+
+C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\zmac\f8w\zmac_cb.c
+      1          /**************************************************************************************************
+      2            Filename:       zmac_cb.c
+      3            Revised:        $Date: 2014-12-03 16:04:46 -0800 (Wed, 03 Dec 2014) $
+      4            Revision:       $Revision: 41329 $
+      5          
+      6            Description:    This file contains the NWK functions that the ZMAC calls
+      7          
+      8          
+      9            Copyright 2005-2014 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /********************************************************************************************************
+     41           *                                               INCLUDES
+     42           ********************************************************************************************************/
+     43          
+     44          #include "ZComDef.h"
+     45          #include "OSAL.h"
+     46          #include "ZMAC.h"
+     47          #include "MT_MAC.h"
+     48          #include "hal_mcu.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     49          
+     50          #if !defined NONWK
+     51          #include "nwk.h"
+     52          #include "nwk_bufs.h"
+     53          #include "ZGlobals.h"
+     54          #endif
+     55          
+     56          #if defined( MACSIM )
+     57            #include "mac_sim.h"
+     58          #endif
+     59          
+     60          #include "mac_security.h"
+     61          
+     62          #include "mac_main.h"
+     63          #ifdef FEATURE_DUAL_MAC
+     64          #include "dmmgr.h"
+     65          #endif /* FEATURE_DUAL_MAC */
+     66          extern void *ZMac_ScanBuf;
+     67          
+     68          /********************************************************************************************************
+     69           *                                               CONSTANTS
+     70           ********************************************************************************************************/
+     71          
+     72          #if !defined NONWK
+     73          /* Lookup table for size of structures. Must match with the order of MAC callback events */
+
+   \                                 In  segment CODE_C, align 1
+     74          const uint8 CODE zmacCBSizeTable [] = {
+   \                     zmacCBSizeTable:
+   \   000000   00           DB 0
+   \   000001   16           DB 22
+   \   000002   0F           DB 15
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   0B           DB 11
+   \   000006   15           DB 21
+   \   000007   0B           DB 11
+   \   000008   02           DB 2
+   \   000009   00           DB 0
+   \   00000A   02           DB 2
+   \   00000B   22           DB 34
+   \   00000C   0F           DB 15
+   \   00000D   33           DB 51
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   \   000010   0E           DB 14
+     75            0,
+     76            sizeof(ZMacAssociateInd_t),       // MAC_MLME_ASSOCIATE_IND      1   Associate indication
+     77            sizeof(ZMacAssociateCnf_t),       // MAC_MLME_ASSOCIATE_CNF      2   Associate confirm
+     78            0,                                // MAC_MLME_DISASSOCIATE_IND   3   Disassociate indication
+     79            0,                                // MAC_MLME_DISASSOCIATE_CNF   4   Disassociate confirm
+     80            sizeof(macMlmeBeaconNotifyInd_t), // MAC_MLME_BEACON_NOTIFY_IND  5   con notify indication
+     81            sizeof(ZMacOrphanInd_t),          // MAC_MLME_ORPHAN_IND         6   Orphan indication
+     82            sizeof(ZMacScanCnf_t),            // MAC_MLME_SCAN_CNF           7   Scan confirm
+     83            sizeof(ZMacStartCnf_t),           // MAC_MLME_START_CNF          8   Start confirm
+     84            0,                                // MAC_MLME_SYNC_LOSS_IND      9   Sync loss indication
+     85            sizeof(ZMacPollCnf_t),            // MAC_MLME_POLL_CNF           10  Poll confirm
+     86            sizeof(ZMacCommStatusInd_t),      // MAC_MLME_COMM_STATUS_IND    11  Comm status indication
+     87            sizeof(ZMacDataCnf_t),            // MAC_MCPS_DATA_CNF           12  Data confirm
+     88            sizeof(macMcpsDataInd_t),         // MAC_MCPS_DATA_IND           13  Data indication
+     89            0,                                // MAC_MCPS_PURGE_CNF          14  Purge confirm
+     90            0,                                // MAC_PWR_ON_CNF              15  Power on confirm
+     91            sizeof(ZMacPollInd_t)             // MAC_MLME_POLL_IND           16  Poll indication
+     92          };
+     93          #endif /* !defined NONWK */
+     94          
+     95          /********************************************************************************************************
+     96           *                                               LOCALS
+     97           ********************************************************************************************************/
+     98          
+     99          /* LQI Adjustment Mode */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    100          static ZMacLqiAdjust_t lqiAdjMode = LQI_ADJ_OFF;
+   \                     lqiAdjMode:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    101          
+    102          #if !defined NONWK
+    103          /* LQI Adjustment Function */
+    104          static void ZMacLqiAdjust( uint8 corr, uint8* lqi );
+    105          #endif
+    106          
+    107          /*********************************************************************
+    108           * ZMAC Function Pointers
+    109           */
+    110          
+    111          /*
+    112           * ZMac Application callback function. This function will be called
+    113           * for every MAC message that is received over-the-air or generated
+    114           * locally by MAC for the application.
+    115           *
+    116           * The callback function should return TRUE if it has handled the
+    117           * MAC message and no further action should be taken with it. It
+    118           * should return FALSE if it has not handled the MAC message and
+    119           * normal processing should take place.
+    120           *
+    121           * NOTE: The processing in this function should be kept to the
+    122           *       minimum.
+    123           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    124          uint8 (*pZMac_AppCallback)( uint8 *msgPtr ) = (void*)NULL;
+   \                     pZMac_AppCallback:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    125          
+    126          
+    127          /*********************************************************************
+    128           * ZMAC Functions
+    129           */
+    130          
+    131          /**************************************************************************************************
+    132           * @fn       MAC_CbackEvent()
+    133           *
+    134           * @brief    convert MAC data confirm and indication to ZMac and send to NWK
+    135           *
+    136           * @param    pData - pointer to macCbackEvent_t
+    137           *
+    138           * @return   none
+    139           *************************************************************************************************/
+    140          #ifdef FEATURE_DUAL_MAC
+    141          void ZMacCbackEventHdlr(macCbackEvent_t *pData)
+    142          #else
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    143          void MAC_CbackEvent(macCbackEvent_t *pData)
+   \                     MAC_CbackEvent:
+    144          #endif /* FEATURE_DUAL_MAC */
+    145          #ifndef MT_MAC_CB_FUNC
+    146          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000                REQUIRE ?V8
+   \   000000                REQUIRE ?V9
+   \   000000                REQUIRE ?V10
+   \   000000                REQUIRE ?V11
+   \   000000                REQUIRE ?V12
+   \   000000                REQUIRE ?V13
+   \   000000   74EA         MOV     A,#-0x16
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 22
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV     A,#-0x4
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV     DPL,?XSP + 0
+   \   00000D   85..83       MOV     DPH,?XSP + 1
+   \   000010   EA           MOV     A,R2
+   \   000011   F0           MOVX    @DPTR,A
+   \   000012   A3           INC     DPTR
+   \   000013   EB           MOV     A,R3
+   \   000014   F0           MOVX    @DPTR,A
+    147          #if !defined NONWK
+    148            uint8 event = pData->hdr.event;
+   \   000015   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   000018   E0           MOVX    A,@DPTR
+   \   000019   F5..         MOV     ?V2,A
+    149            uint16 tmp = zmacCBSizeTable[event];
+   \   00001B   F8           MOV     R0,A
+   \   00001C   74..         MOV     A,#zmacCBSizeTable & 0xff
+   \   00001E   28           ADD     A,R0
+   \   00001F   F582         MOV     DPL,A
+   \   000021   E4           CLR     A
+   \   000022   34..         ADDC    A,#(zmacCBSizeTable >> 8) & 0xff
+   \   000024   F583         MOV     DPH,A
+   \   000026   E4           CLR     A
+   \   000027   93           MOVC    A,@A+DPTR
+   \   000028   F5..         MOV     ?V0,A
+   \   00002A   7402         MOV     A,#0x2
+   \   00002C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002F   E5..         MOV     A,?V0
+   \   000031   F0           MOVX    @DPTR,A
+   \   000032   A3           INC     DPTR
+   \   000033   E4           CLR     A
+   \   000034   F0           MOVX    @DPTR,A
+    150            macCbackEvent_t *msgPtr;
+    151          
+    152            /* If the Network layer will handle a new MAC callback, a non-zero value must be entered in the
+    153             * corresponding location in the zmacCBSizeTable[] - thus the table acts as "should handle"?
+    154             */
+    155            if (tmp == 0)
+   \   000035   7402         MOV     A,#0x2
+   \   000037   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003A   E0           MOVX    A,@DPTR
+   \   00003B   7003         JNZ     $+5
+   \   00003D   02....       LJMP    ??MAC_CbackEvent_0 & 0xFFFF
+    156            {
+    157              return;
+    158            }
+    159          
+    160            // MAC_MCPS_DATA_IND is very special - it is the only event where the MAC does not free *pData.
+    161            if ( event == MAC_MCPS_DATA_IND )
+   \   000040   740D         MOV     A,#0xd
+   \   000042   65..         XRL     A,?V2
+   \   000044   7046         JNZ     ??MAC_CbackEvent_1
+    162            {
+    163          #if defined ( ZMAC_MAX_DATA_IND ) && ( ZMAC_MAX_DATA_IND >= 1 )
+    164              // This feature limits the number of unprocessed MAC Data Indications that can be queued
+    165              // into the Network Task's OSAL message queue. To enable ZMAC_MAX_DATA_IND filtering, the
+    166              // command-line option specifies the threshold setting where MAC_MCPS_DATD_IND callback
+    167              // messages will be dropped. For example, adding ZMAC_MAX_DATA_IND=5 to the commnad-line
+    168              // options allows up to five messages to be passed up and queued in the NWK layer buffer.
+    169              uint8 diCount = osal_msg_count( NWK_TaskID, MAC_MCPS_DATA_IND );
+    170          #endif // ZMAC_MAX_DATA_IND
+    171              MAC_MlmeGetReq( MAC_SHORT_ADDRESS, &tmp );
+   \   000046                ; Setup parameters for call to function MAC_MlmeGetReq
+   \   000046   7402         MOV     A,#0x2
+   \   000048   12....       LCALL   ?XSTACK_DISP101_8
+   \   00004B   7953         MOV     R1,#0x53
+   \   00004D   12....       LCALL   `??MAC_MlmeGetReq::?relay`; Banked call to: MAC_MlmeGetReq
+    172              if ( (tmp == INVALID_NODE_ADDR) ||
+    173                   (tmp == NWK_BROADCAST_SHORTADDR_DEVALL) ||
+    174          #if defined ( ZMAC_MAX_DATA_IND ) && ( ZMAC_MAX_DATA_IND >= 1 )
+    175                   (diCount > ZMAC_MAX_DATA_IND) ||
+    176          #endif // ZMAC_MAX_DATA_IND
+    177                   (pData->dataInd.msdu.len == 0) )
+   \   000050   7402         MOV     A,#0x2
+   \   000052   12....       LCALL   ?XSTACK_DISP0_8
+   \   000055   E0           MOVX    A,@DPTR
+   \   000056   64FE         XRL     A,#0xfe
+   \   000058   7003         JNZ     ??MAC_CbackEvent_2
+   \   00005A   A3           INC     DPTR
+   \   00005B   E0           MOVX    A,@DPTR
+   \   00005C   F4           CPL     A
+   \                     ??MAC_CbackEvent_2:
+   \   00005D   7003         JNZ     $+5
+   \   00005F   02....       LJMP    ??MAC_CbackEvent_3 & 0xFFFF
+   \   000062   7402         MOV     A,#0x2
+   \   000064   12....       LCALL   ?XSTACK_DISP0_8
+   \   000067   E0           MOVX    A,@DPTR
+   \   000068   F4           CPL     A
+   \   000069   7003         JNZ     ??MAC_CbackEvent_4
+   \   00006B   A3           INC     DPTR
+   \   00006C   E0           MOVX    A,@DPTR
+   \   00006D   F4           CPL     A
+   \                     ??MAC_CbackEvent_4:
+   \   00006E   7003         JNZ     $+5
+   \   000070   02....       LJMP    ??MAC_CbackEvent_3 & 0xFFFF
+   \   000073   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000076   A3           INC     DPTR
+   \   000077   A3           INC     DPTR
+   \   000078   E0           MOVX    A,@DPTR
+   \   000079   7003         JNZ     $+5
+   \   00007B   02....       LJMP    ??MAC_CbackEvent_3 & 0xFFFF
+    178              {
+    179                mac_msg_deallocate( (uint8 **)&pData );
+    180                return;
+    181              }
+    182              msgPtr = pData;
+   \   00007E   85..82       MOV     DPL,?XSP + 0
+   \   000081   85..83       MOV     DPH,?XSP + 1
+   \   000084   E0           MOVX    A,@DPTR
+   \   000085   FE           MOV     R6,A
+   \   000086   A3           INC     DPTR
+   \   000087   E0           MOVX    A,@DPTR
+   \   000088   FF           MOV     R7,A
+   \   000089   02....       LJMP    ??MAC_CbackEvent_5 & 0xFFFF
+    183            }
+    184            else
+    185            {
+    186              if (event == MAC_MLME_BEACON_NOTIFY_IND )
+   \                     ??MAC_CbackEvent_1:
+   \   00008C   7405         MOV     A,#0x5
+   \   00008E   65..         XRL     A,?V2
+   \   000090   7015         JNZ     ??MAC_CbackEvent_6
+    187              {
+    188                tmp += sizeof(macPanDesc_t) + pData->beaconNotifyInd.sduLength;
+   \   000092   85..82       MOV     DPL,?XSP + 0
+   \   000095   85..83       MOV     DPH,?XSP + 1
+   \   000098   E0           MOVX    A,@DPTR
+   \   000099   F8           MOV     R0,A
+   \   00009A   12....       LCALL   ?Subroutine4 & 0xFFFF
+    189              }
+   \                     ??CrossCallReturnLabel_7:
+   \   00009D   7900         MOV     R1,#0x0
+   \   00009F   2421         ADD     A,#0x21
+   \   0000A1   F8           MOV     R0,A
+   \   0000A2   502E         JNC     ??MAC_CbackEvent_7
+   \   0000A4   09           INC     R1
+   \   0000A5   802B         SJMP    ??MAC_CbackEvent_7
+    190              else if (event == MAC_MLME_SCAN_CNF)
+   \                     ??MAC_CbackEvent_6:
+   \   0000A7   7407         MOV     A,#0x7
+   \   0000A9   65..         XRL     A,?V2
+   \   0000AB   7031         JNZ     ??MAC_CbackEvent_8
+    191              {
+    192                if (pData->scanCnf.scanType == ZMAC_ED_SCAN)
+   \   0000AD   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   0000B0   E0           MOVX    A,@DPTR
+   \   0000B1   700F         JNZ     ??MAC_CbackEvent_9
+    193                {
+    194                  tmp += ZMAC_ED_SCAN_MAXCHANNELS;
+   \   0000B3   7402         MOV     A,#0x2
+   \   0000B5   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B8   E0           MOVX    A,@DPTR
+   \   0000B9   241B         ADD     A,#0x1b
+   \   0000BB   F0           MOVX    @DPTR,A
+   \   0000BC   A3           INC     DPTR
+   \   0000BD   E0           MOVX    A,@DPTR
+   \   0000BE   3400         ADDC    A,#0x0
+   \   0000C0   801B         SJMP    ??MAC_CbackEvent_10
+    195                }
+    196                else
+    197                {
+    198                  tmp += sizeof( ZMacPanDesc_t ) * pData->scanCnf.resultListSize;
+   \                     ??MAC_CbackEvent_9:
+   \   0000C2   85..82       MOV     DPL,?XSP + 0
+   \   0000C5   85..83       MOV     DPH,?XSP + 1
+   \   0000C8   12....       LCALL   ?Subroutine4 & 0xFFFF
+    199                }
+    200              }
+   \                     ??CrossCallReturnLabel_8:
+   \   0000CB   75F021       MOV     B,#0x21
+   \   0000CE   A4           MUL     AB
+   \   0000CF   F8           MOV     R0,A
+   \   0000D0   A9F0         MOV     R1,B
+   \                     ??MAC_CbackEvent_7:
+   \   0000D2   7402         MOV     A,#0x2
+   \   0000D4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000D7   E0           MOVX    A,@DPTR
+   \   0000D8   28           ADD     A,R0
+   \   0000D9   F0           MOVX    @DPTR,A
+   \   0000DA   A3           INC     DPTR
+   \   0000DB   E0           MOVX    A,@DPTR
+   \   0000DC   39           ADDC    A,R1
+   \                     ??MAC_CbackEvent_10:
+   \   0000DD   F0           MOVX    @DPTR,A
+    201          
+    202              if ( !(msgPtr = (macCbackEvent_t *)osal_msg_allocate(tmp)) )
+   \                     ??MAC_CbackEvent_8:
+   \   0000DE                ; Setup parameters for call to function osal_msg_allocate
+   \   0000DE   7402         MOV     A,#0x2
+   \   0000E0   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000E3   E0           MOVX    A,@DPTR
+   \   0000E4   FA           MOV     R2,A
+   \   0000E5   A3           INC     DPTR
+   \   0000E6   E0           MOVX    A,@DPTR
+   \   0000E7   FB           MOV     R3,A
+   \   0000E8   12....       LCALL   `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+   \   0000EB   8A..         MOV     ?V4,R2
+   \   0000ED   8B..         MOV     ?V5,R3
+   \   0000EF   AE..         MOV     R6,?V4
+   \   0000F1   AF..         MOV     R7,?V5
+   \   0000F3   EE           MOV     A,R6
+   \   0000F4   4F           ORL     A,R7
+   \   0000F5   7044         JNZ     ??MAC_CbackEvent_11
+    203              {
+    204                // Not enough memory. If data confirm - try again
+    205                if ((event == MAC_MCPS_DATA_CNF) && (pData->dataCnf.pDataReq != NULL))
+   \   0000F7   740C         MOV     A,#0xc
+   \   0000F9   65..         XRL     A,?V2
+   \   0000FB   6003         JZ      $+5
+   \   0000FD   02....       LJMP    ??MAC_CbackEvent_0 & 0xFFFF
+   \   000100   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000103   7003         JNZ     $+5
+   \   000105   02....       LJMP    ??MAC_CbackEvent_0 & 0xFFFF
+    206                {
+    207                  halIntState_t intState;
+    208          
+    209                  // This is not normally deallocated here because the pZMac_AppCallback()
+    210                  // application may need it.
+    211                  HAL_ENTER_CRITICAL_SECTION( intState );  // Hold off interrupts.
+   \   000108   A2AF         MOV     C,0xa8.7
+   \   00010A   E4           CLR     A
+   \   00010B   33           RLC     A
+   \   00010C   F5..         MOV     ?V4,A
+   \   00010E   C2AF         CLR     0xa8.7
+    212          
+    213                  mac_msg_deallocate( (uint8**)&(pData->dataCnf.pDataReq) );
+   \   000110                ; Setup parameters for call to function mac_msg_deallocate
+   \   000110   12....       LCALL   `??mac_msg_deallocate::?relay`; Banked call to: mac_msg_deallocate
+    214                  if ( !(msgPtr = (macCbackEvent_t *)osal_msg_allocate(tmp)) )
+   \   000113                ; Setup parameters for call to function osal_msg_allocate
+   \   000113   7402         MOV     A,#0x2
+   \   000115   12....       LCALL   ?XSTACK_DISP0_8
+   \   000118   E0           MOVX    A,@DPTR
+   \   000119   FA           MOV     R2,A
+   \   00011A   A3           INC     DPTR
+   \   00011B   E0           MOVX    A,@DPTR
+   \   00011C   FB           MOV     R3,A
+   \   00011D   12....       LCALL   `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+   \   000120   8A..         MOV     ?V6,R2
+   \   000122   8B..         MOV     ?V7,R3
+   \   000124   AE..         MOV     R6,?V6
+   \   000126   AF..         MOV     R7,?V7
+   \   000128   EE           MOV     A,R6
+   \   000129   4F           ORL     A,R7
+   \   00012A   7009         JNZ     ??MAC_CbackEvent_12
+    215                  {
+    216                    // Still no allocation, something is wrong
+    217                    HAL_EXIT_CRITICAL_SECTION( intState );   // Re-enable interrupts.
+   \   00012C   E5..         MOV     A,?V4
+   \   00012E   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000130   92AF         MOV     0xa8.7,C
+    218                    return;
+   \   000132   02....       LJMP    ??MAC_CbackEvent_0 & 0xFFFF
+    219                  }
+    220                  HAL_EXIT_CRITICAL_SECTION( intState );   // Re-enable interrupts.
+   \                     ??MAC_CbackEvent_12:
+   \   000135   E5..         MOV     A,?V4
+   \   000137   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000139   92AF         MOV     0xa8.7,C
+    221                }
+    222                else
+    223                {
+    224                  // This message is dropped
+    225                  return;
+    226                }
+    227              }
+    228              osal_memcpy(msgPtr, pData, zmacCBSizeTable[event]);
+   \                     ??MAC_CbackEvent_11:
+   \   00013B                ; Setup parameters for call to function osal_memcpy
+   \   00013B   85..82       MOV     DPL,?XSP + 0
+   \   00013E   85..83       MOV     DPH,?XSP + 1
+   \   000141   E0           MOVX    A,@DPTR
+   \   000142   F5..         MOV     ?V4,A
+   \   000144   A3           INC     DPTR
+   \   000145   E0           MOVX    A,@DPTR
+   \   000146   F5..         MOV     ?V5,A
+   \   000148   75..00       MOV     ?V6,#0x0
+   \   00014B   78..         MOV     R0,#?V4
+   \   00014D   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000150   AC..         MOV     R4,?V0
+   \   000152   7D00         MOV     R5,#0x0
+   \   000154   EE           MOV     A,R6
+   \   000155   FA           MOV     R2,A
+   \   000156   EF           MOV     A,R7
+   \   000157   FB           MOV     R3,A
+   \   000158   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   00015B   7403         MOV     A,#0x3
+   \   00015D   12....       LCALL   ?DEALLOC_XSTACK8
+    229            }
+    230          
+    231            if ( event == MAC_MLME_BEACON_NOTIFY_IND )
+   \   000160   EE           MOV     A,R6
+   \   000161   2409         ADD     A,#0x9
+   \   000163   F5..         MOV     ?V8,A
+   \   000165   E4           CLR     A
+   \   000166   3F           ADDC    A,R7
+   \   000167   F5..         MOV     ?V9,A
+   \   000169   EE           MOV     A,R6
+   \   00016A   2408         ADD     A,#0x8
+   \   00016C   F5..         MOV     ?V12,A
+   \   00016E   E4           CLR     A
+   \   00016F   3F           ADDC    A,R7
+   \   000170   F5..         MOV     ?V13,A
+   \   000172   7405         MOV     A,#0x5
+   \   000174   65..         XRL     A,?V2
+   \   000176   7077         JNZ     ??MAC_CbackEvent_13
+    232            {
+    233              macMlmeBeaconNotifyInd_t *pBeacon = (macMlmeBeaconNotifyInd_t*)msgPtr;
+    234          
+    235              osal_memcpy(pBeacon+1, pBeacon->pPanDesc, sizeof(macPanDesc_t));
+   \   000178   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   00017B   EE           MOV     A,R6
+   \   00017C   2403         ADD     A,#0x3
+   \   00017E   F5..         MOV     ?V10,A
+   \   000180   E4           CLR     A
+   \   000181   3F           ADDC    A,R7
+   \   000182   F5..         MOV     ?V11,A
+   \   000184                ; Setup parameters for call to function osal_memcpy
+   \   000184   85..82       MOV     DPL,?V10
+   \   000187   F583         MOV     DPH,A
+   \   000189   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   00018C   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00018F   7C21         MOV     R4,#0x21
+   \   000191   7D00         MOV     R5,#0x0
+   \   000193   AA..         MOV     R2,?V0
+   \   000195   AB..         MOV     R3,?V1
+   \   000197   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   00019A   7403         MOV     A,#0x3
+   \   00019C   12....       LCALL   ?DEALLOC_XSTACK8
+    236              pBeacon->pPanDesc = (macPanDesc_t *)(pBeacon+1);
+   \   00019F   85..82       MOV     DPL,?V10
+   \   0001A2   85..83       MOV     DPH,?V11
+   \   0001A5   E5..         MOV     A,?V0
+   \   0001A7   F0           MOVX    @DPTR,A
+   \   0001A8   A3           INC     DPTR
+   \   0001A9   E5..         MOV     A,?V1
+   \   0001AB   F0           MOVX    @DPTR,A
+    237              osal_memcpy(pBeacon->pPanDesc+1, pBeacon->pSdu, pBeacon->sduLength);
+   \   0001AC                ; Setup parameters for call to function osal_memcpy
+   \   0001AC   85..82       MOV     DPL,?V8
+   \   0001AF   85..83       MOV     DPH,?V9
+   \   0001B2   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   0001B5   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0001B8   85..82       MOV     DPL,?V12
+   \   0001BB   85..83       MOV     DPH,?V13
+   \   0001BE   E0           MOVX    A,@DPTR
+   \   0001BF   FC           MOV     R4,A
+   \   0001C0   7D00         MOV     R5,#0x0
+   \   0001C2   E5..         MOV     A,?V0
+   \   0001C4   2421         ADD     A,#0x21
+   \   0001C6   FA           MOV     R2,A
+   \   0001C7   E4           CLR     A
+   \   0001C8   35..         ADDC    A,?V1
+   \   0001CA   FB           MOV     R3,A
+   \   0001CB   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   0001CE   7403         MOV     A,#0x3
+   \   0001D0   12....       LCALL   ?DEALLOC_XSTACK8
+    238              pBeacon->pSdu = (uint8 *)(pBeacon->pPanDesc+1);
+   \   0001D3   85..82       MOV     DPL,?V10
+   \   0001D6   85..83       MOV     DPH,?V11
+   \   0001D9   E0           MOVX    A,@DPTR
+   \   0001DA   2421         ADD     A,#0x21
+   \   0001DC   F8           MOV     R0,A
+   \   0001DD   A3           INC     DPTR
+   \   0001DE   E0           MOVX    A,@DPTR
+   \   0001DF   3400         ADDC    A,#0x0
+   \   0001E1   F9           MOV     R1,A
+   \   0001E2   85..82       MOV     DPL,?V8
+   \   0001E5   85..83       MOV     DPH,?V9
+   \   0001E8   E8           MOV     A,R0
+   \   0001E9   F0           MOVX    @DPTR,A
+   \   0001EA   A3           INC     DPTR
+   \   0001EB   E9           MOV     A,R1
+   \   0001EC   F0           MOVX    @DPTR,A
+   \   0001ED   8074         SJMP    ??MAC_CbackEvent_5
+    239            }
+    240            else if (event == MAC_MLME_SCAN_CNF)
+   \                     ??MAC_CbackEvent_13:
+   \   0001EF   7407         MOV     A,#0x7
+   \   0001F1   65..         XRL     A,?V2
+   \   0001F3   706E         JNZ     ??MAC_CbackEvent_5
+    241            {
+    242              macMlmeScanCnf_t *pScan = (macMlmeScanCnf_t*)msgPtr;
+    243          
+    244              if (ZMac_ScanBuf != NULL)
+   \   0001F5   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   0001F8   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0001FB   6066         JZ      ??MAC_CbackEvent_5
+    245              {
+    246                void *pTmp = ZMac_ScanBuf;
+   \   0001FD   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   000200   E0           MOVX    A,@DPTR
+   \   000201   F5..         MOV     ?V10,A
+   \   000203   A3           INC     DPTR
+   \   000204   E0           MOVX    A,@DPTR
+   \   000205   F5..         MOV     ?V11,A
+    247                ZMac_ScanBuf = NULL;
+   \   000207   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   00020A   E4           CLR     A
+   \   00020B   F0           MOVX    @DPTR,A
+   \   00020C   A3           INC     DPTR
+   \   00020D   F0           MOVX    @DPTR,A
+    248          
+    249                if (pScan->scanType == ZMAC_ED_SCAN)
+   \   00020E   88..         MOV     ?V4,R0
+   \   000210   89..         MOV     ?V5,R1
+   \   000212   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000215   8E82         MOV     DPL,R6
+   \   000217   8F83         MOV     DPH,R7
+   \   000219   A3           INC     DPTR
+   \   00021A   A3           INC     DPTR
+   \   00021B   E0           MOVX    A,@DPTR
+   \   00021C   85..82       MOV     DPL,?V8
+   \   00021F   85..83       MOV     DPH,?V9
+   \   000222   7012         JNZ     ??MAC_CbackEvent_14
+    250                {
+    251                  pScan->result.pEnergyDetect = (uint8*) (pScan + 1);
+   \   000224   E5..         MOV     A,?V0
+   \   000226   F0           MOVX    @DPTR,A
+   \   000227   A3           INC     DPTR
+   \   000228   E5..         MOV     A,?V1
+   \   00022A   F0           MOVX    @DPTR,A
+    252                  osal_memcpy(pScan->result.pEnergyDetect, pTmp, ZMAC_ED_SCAN_MAXCHANNELS);
+   \   00022B                ; Setup parameters for call to function osal_memcpy
+   \   00022B   78..         MOV     R0,#?V4
+   \   00022D   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000230   7C1B         MOV     R4,#0x1b
+   \   000232   7D00         MOV     R5,#0x0
+   \   000234   801A         SJMP    ??MAC_CbackEvent_15
+    253                }
+    254                else
+    255                {
+    256                  pScan->result.pPanDescriptor = (macPanDesc_t*) (pScan + 1);
+   \                     ??MAC_CbackEvent_14:
+   \   000236   E5..         MOV     A,?V0
+   \   000238   F0           MOVX    @DPTR,A
+   \   000239   A3           INC     DPTR
+   \   00023A   E5..         MOV     A,?V1
+   \   00023C   F0           MOVX    @DPTR,A
+    257                  osal_memcpy(pScan + 1, pTmp, sizeof( ZMacPanDesc_t ) * pScan->resultListSize);
+   \   00023D                ; Setup parameters for call to function osal_memcpy
+   \   00023D   78..         MOV     R0,#?V4
+   \   00023F   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000242   85..82       MOV     DPL,?V12
+   \   000245   85..83       MOV     DPH,?V13
+   \   000248   E0           MOVX    A,@DPTR
+   \   000249   75F021       MOV     B,#0x21
+   \   00024C   A4           MUL     AB
+   \   00024D   FC           MOV     R4,A
+   \   00024E   ADF0         MOV     R5,B
+   \                     ??MAC_CbackEvent_15:
+   \   000250   AA..         MOV     R2,?V0
+   \   000252   AB..         MOV     R3,?V1
+   \   000254   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   000257   7403         MOV     A,#0x3
+   \   000259   12....       LCALL   ?DEALLOC_XSTACK8
+    258                }
+    259          
+    260                osal_mem_free(pTmp);
+   \   00025C                ; Setup parameters for call to function osal_mem_free
+   \   00025C   AA..         MOV     R2,?V10
+   \   00025E   AB..         MOV     R3,?V11
+   \   000260   12....       LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+    261              }
+    262            }
+    263          
+    264            if ( ( pZMac_AppCallback == NULL ) || ( pZMac_AppCallback( (uint8 *)msgPtr ) == FALSE ) )
+   \                     ??MAC_CbackEvent_5:
+   \   000263   90....       MOV     DPTR,#pZMac_AppCallback
+   \   000266   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000269   6012         JZ      ??MAC_CbackEvent_16
+   \   00026B                ; Setup parameters for indirect call
+   \   00026B   EE           MOV     A,R6
+   \   00026C   FA           MOV     R2,A
+   \   00026D   EF           MOV     A,R7
+   \   00026E   FB           MOV     R3,A
+   \   00026F   E0           MOVX    A,@DPTR
+   \   000270   F583         MOV     DPH,A
+   \   000272   8882         MOV     DPL,R0
+   \   000274   12....       LCALL   ?CALL_IND
+   \   000277   E9           MOV     A,R1
+   \   000278   6003         JZ      $+5
+   \   00027A   02....       LJMP    ??MAC_CbackEvent_17 & 0xFFFF
+    265            {
+    266              // Filter out non-zigbee packets
+    267              if ( event == MAC_MCPS_DATA_IND )
+   \                     ??MAC_CbackEvent_16:
+   \   00027D   740D         MOV     A,#0xd
+   \   00027F   65..         XRL     A,?V2
+   \   000281   6003         JZ      $+5
+   \   000283   02....       LJMP    ??MAC_CbackEvent_18 & 0xFFFF
+    268              {
+    269                uint8 fcFrameType = (pData->dataInd.msdu.p[0] & 0x03);
+    270                uint8 fcProtoVer = ((pData->dataInd.msdu.p[0] >> 2) & 0x0F);
+    271                uint8 fcReserve = (pData->dataInd.msdu.p[1] & 0xC0);
+   \   000286   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000289   F9           MOV     R1,A
+   \   00028A   8882         MOV     DPL,R0
+   \   00028C   8983         MOV     DPH,R1
+   \   00028E   A3           INC     DPTR
+   \   00028F   E0           MOVX    A,@DPTR
+   \   000290   54C0         ANL     A,#0xc0
+   \   000292   FA           MOV     R2,A
+    272                if ( (fcFrameType > 0x01) || (fcProtoVer != _NIB.nwkProtocolVersion) || (fcReserve != 0)
+    273                    || (pData->dataInd.mac.srcAddr.addrMode != SADDR_MODE_SHORT) )
+   \   000293   8882         MOV     DPL,R0
+   \   000295   8983         MOV     DPH,R1
+   \   000297   E0           MOVX    A,@DPTR
+   \   000298   F8           MOV     R0,A
+   \   000299   7403         MOV     A,#0x3
+   \   00029B   58           ANL     A,R0
+   \   00029C   C3           CLR     C
+   \   00029D   9402         SUBB    A,#0x2
+   \   00029F   5023         JNC     ??MAC_CbackEvent_3
+   \   0002A1   E8           MOV     A,R0
+   \   0002A2   13           RRC     A
+   \   0002A3   13           RRC     A
+   \   0002A4   543F         ANL     A,#0x3f
+   \   0002A6   540F         ANL     A,#0xf
+   \   0002A8   F8           MOV     R0,A
+   \   0002A9   90....       MOV     DPTR,#_NIB + 17
+   \   0002AC   E0           MOVX    A,@DPTR
+   \   0002AD   68           XRL     A,R0
+   \   0002AE   7014         JNZ     ??MAC_CbackEvent_3
+   \   0002B0   EA           MOV     A,R2
+   \   0002B1   7011         JNZ     ??MAC_CbackEvent_3
+   \   0002B3   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   0002B6   C8           XCH     A,R0
+   \   0002B7   241B         ADD     A,#0x1b
+   \   0002B9   F582         MOV     DPL,A
+   \   0002BB   E4           CLR     A
+   \   0002BC   38           ADDC    A,R0
+   \   0002BD   F583         MOV     DPH,A
+   \   0002BF   E0           MOVX    A,@DPTR
+   \   0002C0   6402         XRL     A,#0x2
+   \   0002C2   6007         JZ      ??MAC_CbackEvent_19
+    274                {
+    275                  // Drop the message
+    276                  mac_msg_deallocate( (uint8 **)&pData );
+   \                     ??MAC_CbackEvent_3:
+   \   0002C4                ; Setup parameters for call to function mac_msg_deallocate
+   \   0002C4   AA..         MOV     R2,?XSP + 0
+   \   0002C6   AB..         MOV     R3,?XSP + 1
+   \   0002C8   02....       LJMP    ??MAC_CbackEvent_20 & 0xFFFF
+    277                  return;
+    278                }
+    279                else
+    280                {
+    281                  macDataInd_t *pInd = &msgPtr->dataInd.mac;
+   \                     ??MAC_CbackEvent_19:
+   \   0002CB   EE           MOV     A,R6
+   \   0002CC   2413         ADD     A,#0x13
+   \   0002CE   F8           MOV     R0,A
+   \   0002CF   E4           CLR     A
+   \   0002D0   3F           ADDC    A,R7
+   \   0002D1   F9           MOV     R1,A
+    282                  // See if LQI needs adjustment due to frame correlation
+    283                  ZMacLqiAdjust( pInd->correlation, &pInd->mpduLinkQuality );
+   \   0002D2                ; Setup parameters for call to function ZMacLqiAdjust
+   \   0002D2   E8           MOV     A,R0
+   \   0002D3   241C         ADD     A,#0x1c
+   \   0002D5   FA           MOV     R2,A
+   \   0002D6   E4           CLR     A
+   \   0002D7   39           ADDC    A,R1
+   \   0002D8   FB           MOV     R3,A
+   \   0002D9   E8           MOV     A,R0
+   \   0002DA   241D         ADD     A,#0x1d
+   \   0002DC   F582         MOV     DPL,A
+   \   0002DE   E4           CLR     A
+   \   0002DF   39           ADDC    A,R1
+   \   0002E0   F583         MOV     DPH,A
+   \   0002E2   E0           MOVX    A,@DPTR
+   \   0002E3   F9           MOV     R1,A
+   \   0002E4   12....       LCALL   `??ZMacLqiAdjust::?relay`; Banked call to: ZMacLqiAdjust
+    284          
+    285                  // Look for broadcast message that has a radius of greater 1
+    286                  if ( (pData->dataInd.mac.dstAddr.addr.shortAddr == 0xFFFF)
+    287                         && (pData->dataInd.msdu.p[6] > 1) )
+   \   0002E7   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   0002EA   C8           XCH     A,R0
+   \   0002EB   241C         ADD     A,#0x1c
+   \   0002ED   F582         MOV     DPL,A
+   \   0002EF   E4           CLR     A
+   \   0002F0   38           ADDC    A,R0
+   \   0002F1   F583         MOV     DPH,A
+   \   0002F3   E0           MOVX    A,@DPTR
+   \   0002F4   F4           CPL     A
+   \   0002F5   7003         JNZ     ??MAC_CbackEvent_21
+   \   0002F7   A3           INC     DPTR
+   \   0002F8   E0           MOVX    A,@DPTR
+   \   0002F9   F4           CPL     A
+   \                     ??MAC_CbackEvent_21:
+   \   0002FA   7063         JNZ     ??MAC_CbackEvent_22
+   \   0002FC   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0002FF   C8           XCH     A,R0
+   \   000300   2406         ADD     A,#0x6
+   \   000302   F582         MOV     DPL,A
+   \   000304   E4           CLR     A
+   \   000305   38           ADDC    A,R0
+   \   000306   F583         MOV     DPH,A
+   \   000308   E0           MOVX    A,@DPTR
+   \   000309   C3           CLR     C
+   \   00030A   9402         SUBB    A,#0x2
+   \   00030C   4051         JC      ??MAC_CbackEvent_22
+    288                  {
+    289                    // Send the messsage to a special broadcast queue
+    290                    if ( nwk_broadcastSend( (uint8 *)msgPtr ) != SUCCESS )
+   \   00030E                ; Setup parameters for call to function nwk_broadcastSend
+   \   00030E   EE           MOV     A,R6
+   \   00030F   FA           MOV     R2,A
+   \   000310   EF           MOV     A,R7
+   \   000311   FB           MOV     R3,A
+   \   000312   12....       LCALL   `??nwk_broadcastSend::?relay`; Banked call to: nwk_broadcastSend
+   \   000315   E9           MOV     A,R1
+   \   000316   6061         JZ      ??MAC_CbackEvent_0
+    291                    {
+    292                      // Drop the message, too many broadcast messages to process
+    293                      mac_msg_deallocate( (uint8 **)&pData );
+   \   000318                ; Setup parameters for call to function mac_msg_deallocate
+   \   000318   AA..         MOV     R2,?XSP + 0
+   \   00031A   AB..         MOV     R3,?XSP + 1
+   \   00031C   12....       LCALL   `??mac_msg_deallocate::?relay`; Banked call to: mac_msg_deallocate
+    294                    }
+    295                    return;
+   \                     ??MAC_CbackEvent_23:
+   \   00031F   8058         SJMP    ??MAC_CbackEvent_0
+    296                  }
+    297                }
+    298              }
+    299              else if ((event == MAC_MCPS_DATA_CNF) && (pData->hdr.status != MAC_NO_RESOURCES))
+   \                     ??MAC_CbackEvent_18:
+   \   000321   740C         MOV     A,#0xc
+   \   000323   65..         XRL     A,?V2
+   \   000325   7038         JNZ     ??MAC_CbackEvent_22
+   \   000327   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   00032A   A3           INC     DPTR
+   \   00032B   E0           MOVX    A,@DPTR
+   \   00032C   641A         XRL     A,#0x1a
+   \   00032E   602F         JZ      ??MAC_CbackEvent_22
+    300              {
+    301                macMcpsDataCnf_t *pCnf = &msgPtr->dataCnf;
+    302          
+    303                if ( pCnf->pDataReq && (pCnf->pDataReq->internal.txOptions & MAC_TXOPTION_ACK) )
+   \   000330   8E82         MOV     DPL,R6
+   \   000332   8F83         MOV     DPH,R7
+   \   000334   A3           INC     DPTR
+   \   000335   A3           INC     DPTR
+   \   000336   A3           INC     DPTR
+   \   000337   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   00033A   6023         JZ      ??MAC_CbackEvent_22
+   \   00033C   E8           MOV     A,R0
+   \   00033D   240E         ADD     A,#0xe
+   \   00033F   F582         MOV     DPL,A
+   \   000341   E4           CLR     A
+   \   000342   39           ADDC    A,R1
+   \   000343   F583         MOV     DPH,A
+   \   000345   E0           MOVX    A,@DPTR
+   \   000346   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000348   5015         JNC     ??MAC_CbackEvent_22
+    304                {
+    305                  // See if LQI needs adjustment due to frame correlation
+    306                  ZMacLqiAdjust( pCnf->correlation, &pCnf->mpduLinkQuality );
+   \   00034A                ; Setup parameters for call to function ZMacLqiAdjust
+   \   00034A   EE           MOV     A,R6
+   \   00034B   240C         ADD     A,#0xc
+   \   00034D   FA           MOV     R2,A
+   \   00034E   E4           CLR     A
+   \   00034F   3F           ADDC    A,R7
+   \   000350   FB           MOV     R3,A
+   \   000351   EE           MOV     A,R6
+   \   000352   240D         ADD     A,#0xd
+   \   000354   F582         MOV     DPL,A
+   \   000356   E4           CLR     A
+   \   000357   3F           ADDC    A,R7
+   \   000358   F583         MOV     DPH,A
+   \   00035A   E0           MOVX    A,@DPTR
+   \   00035B   F9           MOV     R1,A
+   \   00035C   12....       LCALL   `??ZMacLqiAdjust::?relay`; Banked call to: ZMacLqiAdjust
+    307                }
+    308              }
+    309          
+    310              // Application hasn't already processed this message. Send it to NWK task.
+    311              osal_msg_send( NWK_TaskID, (uint8 *)msgPtr );
+   \                     ??MAC_CbackEvent_22:
+   \   00035F                ; Setup parameters for call to function osal_msg_send
+   \   00035F   EE           MOV     A,R6
+   \   000360   FA           MOV     R2,A
+   \   000361   EF           MOV     A,R7
+   \   000362   FB           MOV     R3,A
+   \   000363   90....       MOV     DPTR,#NWK_TaskID
+   \   000366   E0           MOVX    A,@DPTR
+   \   000367   F9           MOV     R1,A
+   \   000368   12....       LCALL   `??osal_msg_send::?relay`; Banked call to: osal_msg_send
+    312            }
+    313          
+    314            if ((event == MAC_MCPS_DATA_CNF) && (pData->dataCnf.pDataReq != NULL))
+   \                     ??MAC_CbackEvent_17:
+   \   00036B   740C         MOV     A,#0xc
+   \   00036D   65..         XRL     A,?V2
+   \   00036F   7008         JNZ     ??MAC_CbackEvent_0
+   \   000371   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000374   6003         JZ      ??MAC_CbackEvent_0
+    315            {
+    316              // If the application needs 'pDataReq' then we cannot free it here.
+    317              // The application must free it after using it. Note that 'pDataReq'
+    318              // is of macMcpsDataReq_t (and not ZMacDataReq_t) type.
+    319          
+    320              mac_msg_deallocate( (uint8**)&(pData->dataCnf.pDataReq) );
+   \   000376                ; Setup parameters for call to function mac_msg_deallocate
+   \                     ??MAC_CbackEvent_20:
+   \   000376   12....       LCALL   `??mac_msg_deallocate::?relay`; Banked call to: mac_msg_deallocate
+    321            }
+    322          #endif
+    323          }
+   \                     ??MAC_CbackEvent_0:
+   \   000379   7404         MOV     A,#0x4
+   \   00037B   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00037E   7F0E         MOV     R7,#0xe
+   \   000380   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000383                REQUIRE _A_IEN0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   EE           MOV     A,R6
+   \   000001   240B         ADD     A,#0xb
+   \   000003   F5..         MOV     ?V0,A
+   \   000005   E4           CLR     A
+   \   000006   3F           ADDC    A,R7
+   \   000007   F5..         MOV     ?V1,A
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   000003   F583         MOV     DPH,A
+   \   000005   8882         MOV     DPL,R0
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V4,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V5,A
+   \   000007   78..         MOV     R0,#?V4
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   F8           MOV     R0,A
+   \   000008   A3           INC     DPTR
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   F583         MOV     DPH,A
+   \   00000C   8882         MOV     DPL,R0
+   \   00000E   A3           INC     DPTR
+   \   00000F   A3           INC     DPTR
+   \   000010   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   A3           INC     DPTR
+   \   000001   E0           MOVX    A,@DPTR
+   \   000002   C8           XCH     A,R0
+   \   000003   2408         ADD     A,#0x8
+   \   000005   F582         MOV     DPL,A
+   \   000007   E4           CLR     A
+   \   000008   38           ADDC    A,R0
+   \   000009   F583         MOV     DPH,A
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ??Subroutine11_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000003   F9           MOV     R1,A
+   \   000004   E8           MOV     A,R0
+   \   000005   49           ORL     A,R1
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000003   12....       LCALL   ??Subroutine11_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   2403         ADD     A,#0x3
+   \   000009   FA           MOV     R2,A
+   \   00000A   A3           INC     DPTR
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   3400         ADDC    A,#0x0
+   \   00000E   FB           MOV     R3,A
+   \   00000F   8A82         MOV     DPL,R2
+   \   000011   8B83         MOV     DPH,R3
+   \   000013   12....       LCALL   ??Subroutine11_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000016   F9           MOV     R1,A
+   \   000017   E8           MOV     A,R0
+   \   000018   49           ORL     A,R1
+   \   000019   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006                REQUIRE ??Subroutine11_0
+   \   000006                ; // Fall through to label ??Subroutine11_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine11_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   22           RET
+    324          #else  // ifdef MT_MAC_CB_FUNC
+    325          {
+    326            /* Check if MT has subscribed for this callback If so, pass it as an event to MonitorTest */
+    327            switch (pData->hdr.event)
+    328            {
+    329              case MAC_MLME_ASSOCIATE_IND:
+    330                if ( _macCallbackSub & CB_ID_NWK_ASSOCIATE_IND )
+    331                  nwk_MTCallbackSubNwkAssociateInd ( (ZMacAssociateInd_t *)pData );
+    332                break;
+    333          
+    334              case MAC_MLME_ASSOCIATE_CNF:
+    335                if ( _macCallbackSub & CB_ID_NWK_ASSOCIATE_CNF )
+    336                {
+    337                  nwk_MTCallbackSubNwkAssociateCnf ( (ZMacAssociateCnf_t *)pData );
+    338          #ifdef FEATURE_DUAL_MAC
+    339                  DMMGR_ResetActivityFlag( ASSOC_ACTIVITY );
+    340          #endif /* FEATURE_DUAL_MAC */
+    341                }
+    342                break;
+    343          
+    344              case MAC_MLME_DISASSOCIATE_IND:
+    345                if ( _macCallbackSub & CB_ID_NWK_DISASSOCIATE_IND )
+    346                  nwk_MTCallbackSubNwkDisassociateInd ( (ZMacDisassociateInd_t *)pData );
+    347                break;
+    348          
+    349              case MAC_MLME_DISASSOCIATE_CNF:
+    350                if ( _macCallbackSub & CB_ID_NWK_DISASSOCIATE_CNF )
+    351                {
+    352                  nwk_MTCallbackSubNwkDisassociateCnf ( (ZMacDisassociateCnf_t *)pData );
+    353          #ifdef FEATURE_DUAL_MAC
+    354                  DMMGR_ResetActivityFlag( DISASSOC_ACTIVITY );
+    355          #endif /* FEATURE_DUAL_MAC */
+    356                }
+    357                break;
+    358          
+    359              case MAC_MLME_BEACON_NOTIFY_IND:
+    360                if ( _macCallbackSub & CB_ID_NWK_BEACON_NOTIFY_IND )
+    361                  nwk_MTCallbackSubNwkBeaconNotifyInd( (ZMacBeaconNotifyInd_t *)pData );
+    362                break;
+    363          
+    364              case MAC_MLME_ORPHAN_IND:
+    365                if ( _macCallbackSub & CB_ID_NWK_ORPHAN_IND )
+    366                  nwk_MTCallbackSubNwkOrphanInd( (ZMacOrphanInd_t *) pData );
+    367                break;
+    368          
+    369              case MAC_MLME_SCAN_CNF:
+    370                if ( _macCallbackSub & CB_ID_NWK_SCAN_CNF )
+    371                {
+    372                  pData->scanCnf.result.pEnergyDetect = ZMac_ScanBuf;
+    373                  nwk_MTCallbackSubNwkScanCnf ( (ZMacScanCnf_t *) pData );
+    374          #ifdef FEATURE_DUAL_MAC
+    375                  DMMGR_ResetActivityFlag( SCAN_ACTIVITY );
+    376          #endif /* FEATURE_DUAL_MAC */
+    377                }
+    378          
+    379                if (ZMac_ScanBuf != NULL)
+    380                {
+    381                  void *pTmp = ZMac_ScanBuf;
+    382                  ZMac_ScanBuf = NULL;
+    383                  osal_mem_free(pTmp);
+    384                }
+    385                break;
+    386          
+    387              case MAC_MLME_START_CNF:
+    388                if ( _macCallbackSub & CB_ID_NWK_START_CNF )
+    389                {
+    390                  nwk_MTCallbackSubNwkStartCnf ( pData->hdr.status );
+    391          #ifdef FEATURE_DUAL_MAC
+    392                  DMMGR_ResetActivityFlag( START_ACTIVITY );
+    393          #endif /* FEATURE_DUAL_MAC */
+    394                }
+    395                break;
+    396          
+    397              case MAC_MLME_SYNC_LOSS_IND:
+    398                if ( _macCallbackSub & CB_ID_NWK_SYNC_LOSS_IND )
+    399                 nwk_MTCallbackSubNwkSyncLossInd( (ZMacSyncLossInd_t *) pData );
+    400                break;
+    401          
+    402              case MAC_MLME_POLL_CNF:
+    403                if ( _macCallbackSub & CB_ID_NWK_POLL_CNF )
+    404                {
+    405                  nwk_MTCallbackSubNwkPollCnf( pData->hdr.status );
+    406          #ifdef FEATURE_DUAL_MAC
+    407                  DMMGR_ResetActivityFlag( DATA_POLL_ACTIVITY );
+    408          #endif /* FEATURE_DUAL_MAC */
+    409                }
+    410                break;
+    411          
+    412              case MAC_MLME_COMM_STATUS_IND:
+    413                if ( _macCallbackSub & CB_ID_NWK_COMM_STATUS_IND )
+    414                {
+    415                  nwk_MTCallbackSubCommStatusInd ( (ZMacCommStatusInd_t *) pData );
+    416          #ifdef FEATURE_DUAL_MAC
+    417                  /**
+    418                   * Reset the activity flags if we receive the comm status 
+    419                   * indication. The association response and orphan response msg 
+    420                   * receives the comm-status indication message as a response. 
+    421                   */
+    422                  switch ( ((ZMacCommStatusInd_t *) pData)->hdr.Status )
+    423                  {
+    424                    case ZMAC_SUCCESS:
+    425                    case ZMAC_TRANSACTION_OVERFLOW:
+    426                    case ZMAC_TRANSACTION_EXPIRED:
+    427                    case ZMAC_CHANNEL_ACCESS_FAILURE:
+    428                    case ZMAC_NO_RESOURCES:          
+    429                    case ZMAC_NO_ACK:
+    430                    case ZMAC_COUNTER_ERROR:    
+    431                    case ZMAC_INVALID_PARAMETER:
+    432                      DMMGR_ResetActivityFlag( ALL_ACTIVITY );
+    433                      break;
+    434                    default:
+    435                      /**
+    436                       * If the activity flag is not reset, we need to re-evaluate the
+    437                       * and add more case statement above. Note, MAC security is not
+    438                       * used by zstack and not supported by dual mac.
+    439                       */
+    440                      break;
+    441                  }
+    442          #endif /* FEATURE_DUAL_MAC */
+    443                }
+    444                break;
+    445          
+    446              case MAC_MCPS_DATA_CNF:
+    447              {
+    448          #ifdef FEATURE_DUAL_MAC
+    449                if ( pData->dataCnf.pDataReq != NULL )
+    450                {
+    451                  if ( DMMGR_IsDefaultMac() )
+    452                  {
+    453                    DMMGR_ProcessMacDataCnf((macMcpsDataCnf_t *)pData);
+    454                  }
+    455                  
+    456                  mac_msg_deallocate((uint8 **)&pData->dataCnf.pDataReq); 
+    457                }
+    458                
+    459                if ( _macCallbackSub & CB_ID_NWK_DATA_CNF )
+    460                {
+    461                  nwk_MTCallbackSubNwkDataCnf( (ZMacDataCnf_t *) pData );
+    462                }
+    463          
+    464                DMMGR_ResetActivityFlag( DATA_ACTIVITY );
+    465          #else
+    466                if (pData->dataCnf.pDataReq != NULL)
+    467                {
+    468                  mac_msg_deallocate((uint8**)&pData->dataCnf.pDataReq);
+    469                }
+    470          
+    471                if ( _macCallbackSub & CB_ID_NWK_DATA_CNF )
+    472                {
+    473                  nwk_MTCallbackSubNwkDataCnf( (ZMacDataCnf_t *) pData );
+    474                }
+    475          
+    476          #endif /* FEATURE_DUAL_MAC */
+    477              }
+    478              break;
+    479          
+    480              case MAC_MCPS_DATA_IND:
+    481                {
+    482                  /*
+    483                     Data Ind is unconventional: to save an alloc/copy, reuse the MAC
+    484                     buffer and re-organize the contents into ZMAC format.
+    485                  */
+    486                  ZMacDataInd_t *pDataInd = (ZMacDataInd_t *) pData;
+    487                  uint8 event, status, len, *msdu;
+    488          
+    489                  /* Store parameters */
+    490                  event = pData->hdr.event;
+    491                  status = pData->hdr.status;
+    492                  len = pData->dataInd.msdu.len;
+    493                  msdu = pData->dataInd.msdu.p;
+    494          
+    495                  /* Copy security fields */
+    496                  osal_memcpy(&pDataInd->Sec, &pData->dataInd.sec, sizeof(ZMacSec_t));
+    497          
+    498                  /* Copy mac fields one by one since the two buffers overlap. */
+    499                  osal_memcpy(&pDataInd->SrcAddr, &pData->dataInd.mac.srcAddr, sizeof(zAddrType_t));
+    500                  osal_memcpy(&pDataInd->DstAddr, &pData->dataInd.mac.dstAddr, sizeof(zAddrType_t));
+    501                  pDataInd->Timestamp = pData->dataInd.mac.timestamp;
+    502                  pDataInd->Timestamp2 = pData->dataInd.mac.timestamp2;
+    503                  pDataInd->SrcPANId = pData->dataInd.mac.srcPanId;
+    504                  pDataInd->DstPANId = pData->dataInd.mac.dstPanId;
+    505                  pDataInd->mpduLinkQuality = pData->dataInd.mac.mpduLinkQuality;
+    506                  pDataInd->Correlation = pData->dataInd.mac.correlation;
+    507                  pDataInd->Rssi = pData->dataInd.mac.rssi;
+    508                  pDataInd->Dsn = pData->dataInd.mac.dsn;
+    509          
+    510                  /* Restore parameters */
+    511                  pDataInd->hdr.Status = status;
+    512                  pDataInd->hdr.Event = event;
+    513                  pDataInd->msduLength = len;
+    514          
+    515                  if (len)
+    516                    pDataInd->msdu = msdu;
+    517                  else
+    518                    pDataInd->msdu = NULL;
+    519          
+    520                  if ( _macCallbackSub & CB_ID_NWK_DATA_IND )
+    521                    nwk_MTCallbackSubNwkDataInd ( pDataInd );
+    522                }
+    523          
+    524                /* free buffer */
+    525                mac_msg_deallocate( (uint8 **)&pData );
+    526                break;
+    527          
+    528              case MAC_MCPS_PURGE_CNF:
+    529                if ( _macCallbackSub & CB_ID_NWK_PURGE_CNF )
+    530                {
+    531                  nwk_MTCallbackSubNwkPurgeCnf( (ZMacPurgeCnf_t *) pData);
+    532          #ifdef FEATURE_DUAL_MAC
+    533                  DMMGR_ResetActivityFlag( DATA_PURGE_ACTIVITY );
+    534          #endif /* FEATURE_DUAL_MAC */
+    535          
+    536                }
+    537                break;
+    538          
+    539              case MAC_MLME_POLL_IND:
+    540                  if ( _macCallbackSub & CB_ID_NWK_ASSOCIATE_IND )
+    541                  {
+    542                    nwk_MTCallbackSubNwkPollInd( (ZMacPollInd_t *)pData );
+    543                  }
+    544                break;
+    545          
+    546              default:
+    547                break;
+    548            }
+    549          }
+    550          #endif
+    551          
+    552          /********************************************************************************************************
+    553           * @fn      MAC_CbackCheckPending
+    554           *
+    555           * @brief   Return number of pending indirect msg
+    556           *
+    557           * @param   None
+    558           *
+    559           * @return  Number of indirect msg holding
+    560           ********************************************************************************************************/
+    561          #ifdef FEATURE_DUAL_MAC
+    562          uint8 ZMacCbackCheckPending(void)
+    563          #else
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    564          uint8 MAC_CbackCheckPending(void)
+   \                     MAC_CbackCheckPending:
+    565          #endif 
+    566          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    567          #if !defined (NONWK)
+    568            if ( ZSTACK_ROUTER_BUILD )
+    569            {
+    570              return (nwkDB_ReturnIndirectHoldingCnt());
+   \   000004                ; Setup parameters for call to function nwkDB_ReturnIndirectHoldingCnt
+   \   000004   12....       LCALL   `??nwkDB_ReturnIndirectHoldingCnt::?relay`; Banked call to: nwkDB_ReturnIndirectHoldingCnt
+   \   000007                REQUIRE ?Subroutine0
+   \   000007                ; // Fall through to label ?Subroutine0
+    571            }
+    572            else
+    573            {
+    574              return (0);
+    575            }
+    576          #else
+    577            return (0);
+    578          #endif
+    579          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    580          
+    581          /**************************************************************************************************
+    582           * @fn          MAC_CbackQueryRetransmit
+    583           *
+    584           * @brief       This function callback function returns whether or not to continue MAC
+    585           *              retransmission.
+    586           *              A return value '0x00' will indicate no continuation of retry and a return value
+    587           *              '0x01' will indicate to continue retransmission. This callback function shall be
+    588           *              used to stop continuing retransmission for RF4CE.
+    589           *              MAC shall call this callback function whenever it finishes transmitting a packet
+    590           *              for macMaxFrameRetries times.
+    591           *
+    592           * input parameters
+    593           *
+    594           * None.
+    595           *
+    596           * output parameters
+    597           *
+    598           * None.
+    599           *
+    600           * @return      0x00 to stop retransmission, 0x01 to continue retransmission.
+    601           **************************************************************************************************
+    602          */
+    603          #ifdef FEATURE_DUAL_MAC
+    604          uint8 ZMacCbackQueryRetransmit(void)
+    605          #else
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    606          uint8 MAC_CbackQueryRetransmit(void)
+   \                     MAC_CbackQueryRetransmit:
+    607          #endif /* FEATURE_DUAL_MAC */
+    608          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    609            return(0);
+   \   000000   7900         MOV     R1,#0x0
+   \   000002   02....       LJMP    ?BRET
+    610          }
+    611          
+    612          /********************************************************************************************************
+    613           * @fn      ZMacLqiAdjustMode
+    614           *
+    615           * @brief   Sets/return LQI adjust mode
+    616           *
+    617           * @param   mode - LQI_ADJ_GET = return current mode only
+    618           *                 LQI_ADJ_OFF = disable LQI adjusts
+    619           *                 LQI_ADJ_MODEx = set to LQI adjust MODEx
+    620           *
+    621           * @return  current LQI adjust mode
+    622           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    623          ZMacLqiAdjust_t ZMacLqiAdjustMode( ZMacLqiAdjust_t mode )
+   \                     ZMacLqiAdjustMode:
+    624          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   \   000004   E9           MOV     A,R1
+   \   000005   F8           MOV     R0,A
+    625            if ( mode != LQI_ADJ_GET )
+   \   000006   74FF         MOV     A,#-0x1
+   \   000008   68           XRL     A,R0
+   \   000009   6005         JZ      ??ZMacLqiAdjustMode_0
+    626            {
+    627              lqiAdjMode = mode;
+   \   00000B   E8           MOV     A,R0
+   \   00000C   90....       MOV     DPTR,#lqiAdjMode
+   \   00000F   F0           MOVX    @DPTR,A
+    628            }
+    629            return ( lqiAdjMode );
+   \                     ??ZMacLqiAdjustMode_0:
+   \   000010   90....       MOV     DPTR,#lqiAdjMode
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   F9           MOV     R1,A
+   \   000015   80..         SJMP    ?Subroutine0
+    630          }
+    631          
+    632          #if !defined NONWK
+    633          /********************************************************************************************************
+    634           * @fn      ZMacLqiAdjust
+    635           *
+    636           * @brief   Adjust LQI according to correlation value
+    637           *
+    638           * @notes - the IEEE 802.15.4 specification provides some general statements on
+    639           *          the subject of LQI. Section 6.7.8: "The minimum and maximum LQI values
+    640           *          (0x00 and 0xFF) should be associated with the lowest and highest IEEE
+    641           *          802.15.4 signals detectable by the receiver, and LQ values should be
+    642           *          uniformly distributed between these two limits." Section E.2.3: "The
+    643           *          LQI (see 6.7.8) measures the received energy and/or SNR for each
+    644           *          received packet. When energy level and SNR information are combined,
+    645           *          they can indicate whether a corrupt packet resulted from low signal
+    646           *          strength or from high signal strength plus interference."
+    647           *        - LQI Adjustment Mode1 provided below is a simple algorithm to use the
+    648           *          packet correlation value (related to SNR) to scale incoming LQI value
+    649           *          (related to signal strength) to 'derate' noisy packets.
+    650           *        - LQI Adjustment Mode2 provided below is a location for a developer to
+    651           *          implement their own proprietary LQI adjustment algorithm.
+    652           *
+    653           * @param   corr - packet correlation value
+    654           * @param   lqi  - ptr to link quality (scaled rssi)
+    655           *
+    656           * @return  *lqi - adjusted link quality
+    657           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    658          static void ZMacLqiAdjust( uint8 corr, uint8 *lqi )
+   \                     ZMacLqiAdjust:
+    659          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+   \   000007   EA           MOV     A,R2
+   \   000008   FC           MOV     R4,A
+   \   000009   EB           MOV     A,R3
+   \   00000A   FD           MOV     R5,A
+    660            if ( lqiAdjMode != LQI_ADJ_OFF )
+   \   00000B   90....       MOV     DPTR,#lqiAdjMode
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   6051         JZ      ??ZMacLqiAdjust_0
+    661            {
+    662              uint16 adjLqi = *lqi;
+   \   000011   8C82         MOV     DPL,R4
+   \   000013   8D83         MOV     DPH,R5
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   F8           MOV     R0,A
+   \   000017   7900         MOV     R1,#0x0
+    663          
+    664              // Keep correlation within theoretical limits
+    665              if ( corr < LQI_CORR_MIN )
+   \   000019   EE           MOV     A,R6
+   \   00001A   C3           CLR     C
+   \   00001B   9432         SUBB    A,#0x32
+   \   00001D   5004         JNC     ??ZMacLqiAdjust_1
+    666              {
+    667                 corr = LQI_CORR_MIN;
+   \   00001F   7E32         MOV     R6,#0x32
+   \   000021   8008         SJMP    ??ZMacLqiAdjust_2
+    668              }
+    669              else if ( corr > LQI_CORR_MAX )
+   \                     ??ZMacLqiAdjust_1:
+   \   000023   EE           MOV     A,R6
+   \   000024   C3           CLR     C
+   \   000025   946F         SUBB    A,#0x6f
+   \   000027   4002         JC      ??ZMacLqiAdjust_2
+    670              {
+    671                 corr = LQI_CORR_MAX;
+   \   000029   7E6E         MOV     R6,#0x6e
+    672              }
+    673          
+    674              if ( lqiAdjMode == LQI_ADJ_MODE1 )
+   \                     ??ZMacLqiAdjust_2:
+   \   00002B   90....       MOV     DPTR,#lqiAdjMode
+   \   00002E   E0           MOVX    A,@DPTR
+   \   00002F   6401         XRL     A,#0x1
+   \   000031   701F         JNZ     ??ZMacLqiAdjust_3
+    675              {
+    676                /* MODE1 - linear scaling of incoming LQI with a "correlation percentage"
+    677                           which is computed from the incoming correlation value between
+    678                           theorectical minimum/maximum values. This is a very simple way
+    679                           of 'derating' the incoming LQI as correlation value drops. */
+    680                adjLqi = (adjLqi * (corr - LQI_CORR_MIN)) / (LQI_CORR_MAX - LQI_CORR_MIN);
+   \   000033   EE           MOV     A,R6
+   \   000034   24CE         ADD     A,#-0x32
+   \   000036   F5..         MOV     ?V0,A
+   \   000038   E4           CLR     A
+   \   000039   34FF         ADDC    A,#-0x1
+   \   00003B   F5..         MOV     ?V1,A
+   \   00003D   E8           MOV     A,R0
+   \   00003E   85..F0       MOV     B,?V0
+   \   000041   A4           MUL     AB
+   \   000042   C8           XCH     A,R0
+   \   000043   AAF0         MOV     R2,B
+   \   000045   85..F0       MOV     B,?V1
+   \   000048   A4           MUL     AB
+   \   000049   2A           ADD     A,R2
+   \   00004A   F9           MOV     R1,A
+   \   00004B   7A3C         MOV     R2,#0x3c
+   \   00004D   7B00         MOV     R3,#0x0
+   \   00004F   12....       LCALL   ?US_DIV_MOD
+    681              }
+    682              else if ( lqiAdjMode == LQI_ADJ_MODE2 )
+    683              {
+    684                /* MODE2 - location for developer to implement a proprietary algorithm */
+    685              }
+    686          
+    687              // Replace incoming LQI with scaled value
+    688              *lqi = (adjLqi > 255) ? 255 : (uint8)adjLqi;
+   \                     ??ZMacLqiAdjust_3:
+   \   000052   C3           CLR     C
+   \   000053   E9           MOV     A,R1
+   \   000054   9401         SUBB    A,#0x1
+   \   000056   4004         JC      ??ZMacLqiAdjust_4
+   \   000058   74FF         MOV     A,#-0x1
+   \   00005A   8001         SJMP    ??ZMacLqiAdjust_5
+   \                     ??ZMacLqiAdjust_4:
+   \   00005C   E8           MOV     A,R0
+   \                     ??ZMacLqiAdjust_5:
+   \   00005D   8C82         MOV     DPL,R4
+   \   00005F   8D83         MOV     DPH,R5
+   \   000061   F0           MOVX    @DPTR,A
+    689            }
+    690          }
+   \                     ??ZMacLqiAdjust_0:
+   \   000062   7F02         MOV     R7,#0x2
+   \   000064   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_CbackEvent::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_CbackEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_CbackCheckPending::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_CbackCheckPending
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_CbackQueryRetransmit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_CbackQueryRetransmit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ZMacLqiAdjustMode::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacLqiAdjustMode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ZMacLqiAdjust::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacLqiAdjust
+    691          #endif
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   MAC_CbackCheckPending
+        2      0   -> nwkDB_ReturnIndirectHoldingCnt
+      0     29   MAC_CbackEvent
+        0     26   -> MAC_MlmeGetReq
+        0     26   -> ZMacLqiAdjust
+        0     26   -> mac_msg_deallocate
+        0     26   -> nwk_broadcastSend
+        0     26   -> osal_mem_free
+        0     29   -> osal_memcpy
+        0     26   -> osal_msg_allocate
+        0     26   -> osal_msg_send
+      0      0   MAC_CbackQueryRetransmit
+      1     36   ZMacLqiAdjust
+      2      0   ZMacLqiAdjustMode
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       5  ??Subroutine11_0
+       7  ?Subroutine0
+      26  ?Subroutine1
+       6  ?Subroutine10
+       7  ?Subroutine2
+       7  ?Subroutine3
+      13  ?Subroutine4
+       4  ?Subroutine5
+      10  ?Subroutine6
+       8  ?Subroutine7
+      10  ?Subroutine8
+      17  ?Subroutine9
+       7  MAC_CbackCheckPending
+       6  MAC_CbackCheckPending::?relay
+     899  MAC_CbackEvent
+       6  MAC_CbackEvent::?relay
+       5  MAC_CbackQueryRetransmit
+       6  MAC_CbackQueryRetransmit::?relay
+     103  ZMacLqiAdjust
+       6  ZMacLqiAdjust::?relay
+      23  ZMacLqiAdjustMode
+       6  ZMacLqiAdjustMode::?relay
+       1  _A_IEN0
+       1  lqiAdjMode
+       2  pZMac_AppCallback
+      17  zmacCBSizeTable
+
+ 
+ 1 157 bytes in segment BANKED_CODE
+    30 bytes in segment BANK_RELAYS
+    17 bytes in segment CODE_C
+     1 byte  in segment SFR_AN
+     3 bytes in segment XDATA_Z
+ 
+ 1 204 bytes of CODE  memory
+     0 bytes of DATA  memory (+ 1 byte shared)
+     3 bytes of XDATA memory
+
+Errors: none
+Warnings: none

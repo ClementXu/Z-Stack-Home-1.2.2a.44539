@@ -1,0 +1,2421 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:08
+// Copyright 2004-2015 IAR Systems AB.
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Components\stack\zcl\zcl_diagnostic.c
+//    Command line       =  
+//        -f "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DZDO_COORDINATOR -DRTR_NWK) -f "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+//        -f "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Components\stack\zcl\zcl_diagnostic.c" -D SECURE=1 -D
+//        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
+//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
+//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
+//        Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+//        -lA "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
+//        --diag_suppress Pe001,Pa010 -o "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\Obj"
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -I "C:\Texas
+//        Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\Source\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\Source\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\ZMain\TI2530DB\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\include\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\include\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\mt\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\osal\include\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\af\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
+//        -I "C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes
+//    List file          =  
+//        C:\Texas Instruments\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\zcl_diagnostic.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME zcl_diagnostic
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V6
+        EXTERN ?V7
+        EXTERN ?V8
+        EXTERN ?V9
+        EXTERN ?V10
+        EXTERN ?V11
+        EXTERN ?V12
+        EXTERN ?V13
+        EXTERN ?V14
+        EXTERN ?V15
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?L_ADD
+        EXTERN ?L_MOV_TO_X
+        EXTERN ?L_MOV_X
+        EXTERN ?L_SHL
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?UL_DIV_MOD
+        EXTERN ?UL_GT_X
+        EXTERN ?UL_SHR
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN ?XSTACK_DISP102_8
+        EXTERN ?XSTORE_R0123
+
+        PUBLIC `??zclDiagnostic_ClearStats::?relay`
+        FUNCTION `??zclDiagnostic_ClearStats::?relay`,0203H
+        FUNCTION `??zclDiagnostic_GetAttribData::?relay`,0203H
+        PUBLIC `??zclDiagnostic_GetStatsAttr::?relay`
+        FUNCTION `??zclDiagnostic_GetStatsAttr::?relay`,0203H
+        PUBLIC `??zclDiagnostic_InitStats::?relay`
+        FUNCTION `??zclDiagnostic_InitStats::?relay`,0203H
+        PUBLIC `??zclDiagnostic_ReadWriteAttrCB::?relay`
+        FUNCTION `??zclDiagnostic_ReadWriteAttrCB::?relay`,0203H
+        PUBLIC `??zclDiagnostic_RestoreStatsFromNV::?relay`
+        FUNCTION `??zclDiagnostic_RestoreStatsFromNV::?relay`,0203H
+        PUBLIC `??zclDiagnostic_SaveStatsToNV::?relay`
+        FUNCTION `??zclDiagnostic_SaveStatsToNV::?relay`,0203H
+        PUBWEAK __Constant_10000
+        PUBLIC zclDiagnostic_ClearStats
+        FUNCTION zclDiagnostic_ClearStats,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        FUNCTION zclDiagnostic_GetAttribData,0a1203H
+        ARGFRAME XSTACK, 30, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC zclDiagnostic_GetStatsAttr
+        FUNCTION zclDiagnostic_GetStatsAttr,0a1203H
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 30, STACK
+        PUBLIC zclDiagnostic_InitStats
+        FUNCTION zclDiagnostic_InitStats,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC zclDiagnostic_ReadWriteAttrCB
+        FUNCTION zclDiagnostic_ReadWriteAttrCB,0a1203H
+        ARGFRAME XSTACK, 4, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 28, STACK
+        PUBLIC zclDiagnostic_RestoreStatsFromNV
+        FUNCTION zclDiagnostic_RestoreStatsFromNV,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC zclDiagnostic_SaveStatsToNV
+        FUNCTION zclDiagnostic_SaveStatsToNV,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC zclDiagsAttrTable
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+ZDiagsClearStats    SYMBOL "ZDiagsClearStats"
+`??ZDiagsClearStats::?relay` SYMBOL "?relay", ZDiagsClearStats
+ZDiagsGetStatsAttr  SYMBOL "ZDiagsGetStatsAttr"
+`??ZDiagsGetStatsAttr::?relay` SYMBOL "?relay", ZDiagsGetStatsAttr
+ZDiagsInitStats     SYMBOL "ZDiagsInitStats"
+`??ZDiagsInitStats::?relay` SYMBOL "?relay", ZDiagsInitStats
+ZDiagsRestoreStatsFromNV SYMBOL "ZDiagsRestoreStatsFromNV"
+`??ZDiagsRestoreStatsFromNV::?relay` SYMBOL "?relay", ZDiagsRestoreStatsFromNV
+ZDiagsSaveStatsToNV SYMBOL "ZDiagsSaveStatsToNV"
+`??ZDiagsSaveStatsToNV::?relay` SYMBOL "?relay", ZDiagsSaveStatsToNV
+zclGetDataTypeLength SYMBOL "zclGetDataTypeLength"
+`??zclGetDataTypeLength::?relay` SYMBOL "?relay", zclGetDataTypeLength
+zcl_getRawAFMsg     SYMBOL "zcl_getRawAFMsg"
+`??zcl_getRawAFMsg::?relay` SYMBOL "?relay", zcl_getRawAFMsg
+zclDiagnostic_ClearStats SYMBOL "zclDiagnostic_ClearStats"
+`??zclDiagnostic_ClearStats::?relay` SYMBOL "?relay", zclDiagnostic_ClearStats
+zclDiagnostic_GetStatsAttr SYMBOL "zclDiagnostic_GetStatsAttr"
+`??zclDiagnostic_GetStatsAttr::?relay` SYMBOL "?relay", zclDiagnostic_GetStatsAttr
+zclDiagnostic_InitStats SYMBOL "zclDiagnostic_InitStats"
+`??zclDiagnostic_InitStats::?relay` SYMBOL "?relay", zclDiagnostic_InitStats
+zclDiagnostic_ReadWriteAttrCB SYMBOL "zclDiagnostic_ReadWriteAttrCB"
+`??zclDiagnostic_ReadWriteAttrCB::?relay` SYMBOL "?relay", zclDiagnostic_ReadWriteAttrCB
+zclDiagnostic_RestoreStatsFromNV SYMBOL "zclDiagnostic_RestoreStatsFromNV"
+`??zclDiagnostic_RestoreStatsFromNV::?relay` SYMBOL "?relay", zclDiagnostic_RestoreStatsFromNV
+zclDiagnostic_SaveStatsToNV SYMBOL "zclDiagnostic_SaveStatsToNV"
+`??zclDiagnostic_SaveStatsToNV::?relay` SYMBOL "?relay", zclDiagnostic_SaveStatsToNV
+
+        EXTERN `??ZDiagsClearStats::?relay`
+        FUNCTION `??ZDiagsClearStats::?relay`,00H
+        EXTERN `??ZDiagsGetStatsAttr::?relay`
+        FUNCTION `??ZDiagsGetStatsAttr::?relay`,00H
+        EXTERN `??ZDiagsInitStats::?relay`
+        FUNCTION `??ZDiagsInitStats::?relay`,00H
+        EXTERN `??ZDiagsRestoreStatsFromNV::?relay`
+        FUNCTION `??ZDiagsRestoreStatsFromNV::?relay`,00H
+        EXTERN `??ZDiagsSaveStatsToNV::?relay`
+        FUNCTION `??ZDiagsSaveStatsToNV::?relay`,00H
+        EXTERN `??zclGetDataTypeLength::?relay`
+        FUNCTION `??zclGetDataTypeLength::?relay`,00H
+        EXTERN `??zcl_getRawAFMsg::?relay`
+        FUNCTION `??zcl_getRawAFMsg::?relay`,00H
+        EXTERN ZDiagsClearStats
+        FUNCTION ZDiagsClearStats,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDiagsGetStatsAttr
+        FUNCTION ZDiagsGetStatsAttr,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDiagsInitStats
+        FUNCTION ZDiagsInitStats,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDiagsRestoreStatsFromNV
+        FUNCTION ZDiagsRestoreStatsFromNV,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDiagsSaveStatsToNV
+        FUNCTION ZDiagsSaveStatsToNV,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zclGetDataTypeLength
+        FUNCTION zclGetDataTypeLength,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zcl_getRawAFMsg
+        FUNCTION zcl_getRawAFMsg,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 26, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zcl\zcl_diagnostic.c
+//    1 /**************************************************************************************************
+//    2   Filename:       zcl_diagnostic.c
+//    3   Revised:        $Date: 2014-03-13 15:57:20 -0700 (Thu, 13 Mar 2014) $
+//    4   Revision:       $Revision: 37682 $
+//    5 
+//    6   Description:    Zigbee Cluster Library - Diagnostics.
+//    7 
+//    8 
+//    9   Copyright 2014 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 #ifdef ZCL_DIAGNOSTIC
+//   41 
+//   42 /*********************************************************************
+//   43  * INCLUDES
+//   44  */
+//   45 #include "zcl_diagnostic.h"
+//   46 #include "ZDiags.h"
+//   47 
+//   48 #if !defined ( FEATURE_SYSTEM_STATS )
+//   49 #error "ERROR: FEATURE_SYSTEM_STATS shall be defined if ZCL_DIAGNOSTICS is defined."
+//   50 #endif
+//   51 
+//   52 /*********************************************************************
+//   53  * MACROS
+//   54  */
+//   55 
+//   56 /*********************************************************************
+//   57  * CONSTANTS
+//   58  */
+//   59 
+//   60 /*********************************************************************
+//   61  * TYPEDEFS
+//   62  */
+//   63 // Attribute record
+//   64 typedef struct
+//   65 {
+//   66   uint16  zclAttrId;        // Attribute ID as defined by ZCL Diagnostics Cluster
+//   67   uint8   dataType;         // Data Type - defined in AF.h
+//   68   uint16  ZDiagsAttrId;     // Attribute ID as defined by ZDiags module
+//   69 } zclDiagnosticAttr_t;
+//   70 
+//   71 
+//   72 
+//   73 /*********************************************************************
+//   74  * GLOBAL VARIABLES
+//   75  */
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//   76 CONST zclDiagnosticAttr_t zclDiagsAttrTable[] =
+zclDiagsAttrTable:
+        DATA16
+        DW 0
+        DATA8
+        DB 33
+        DATA16
+        DW 1
+        DW 1
+        DATA8
+        DB 33
+        DATA16
+        DW 2
+        DW 256
+        DATA8
+        DB 35
+        DATA16
+        DW 102
+        DW 257
+        DATA8
+        DB 35
+        DATA16
+        DW 103
+        DW 258
+        DATA8
+        DB 35
+        DATA16
+        DW 104
+        DW 259
+        DATA8
+        DB 35
+        DATA16
+        DW 105
+        DW 260
+        DATA8
+        DB 33
+        DATA16
+        DW 106
+        DW 261
+        DATA8
+        DB 33
+        DATA16
+        DW 107
+        DW 262
+        DATA8
+        DB 33
+        DATA16
+        DW 300
+        DW 263
+        DATA8
+        DB 33
+        DATA16
+        DW 301
+        DW 264
+        DATA8
+        DB 33
+        DATA16
+        DW 302
+        DW 265
+        DATA8
+        DB 33
+        DATA16
+        DW 303
+        DW 266
+        DATA8
+        DB 33
+        DATA16
+        DW 304
+        DW 267
+        DATA8
+        DB 33
+        DATA16
+        DW 305
+        DW 268
+        DATA8
+        DB 33
+        DATA16
+        DW 200
+        DW 269
+        DATA8
+        DB 33
+        DATA16
+        DW 201
+        DW 270
+        DATA8
+        DB 33
+        DATA16
+        DW 202
+        DW 271
+        DATA8
+        DB 33
+        DATA16
+        DW 203
+        DW 272
+        DATA8
+        DB 33
+        DATA16
+        DW 204
+        DW 273
+        DATA8
+        DB 33
+        DATA16
+        DW 205
+        DW 274
+        DATA8
+        DB 33
+        DATA16
+        DW 206
+        DW 275
+        DATA8
+        DB 33
+        DATA16
+        DW 306
+        DW 276
+        DATA8
+        DB 33
+        DATA16
+        DW 307
+        DW 277
+        DATA8
+        DB 33
+        DATA16
+        DW 207
+        DW 278
+        DATA8
+        DB 33
+        DATA16
+        DW 308
+        DW 279
+        DATA8
+        DB 33
+        DATA16
+        DW 208
+        DW 280
+        DATA8
+        DB 33
+        DATA16
+        DW 209
+        DW 281
+        DATA8
+        DB 33
+        DATA16
+        DW 210
+        DW 282
+        DATA8
+        DB 33
+        DATA16
+        DW 211
+//   77 {
+//   78   {
+//   79     ATTRID_DIAGNOSTIC_NUMBER_OF_RESETS,
+//   80     ZCL_DATATYPE_UINT16,
+//   81     ZDIAGS_NUMBER_OF_RESETS
+//   82   },
+//   83   {
+//   84     ATTRID_DIAGNOSTIC_PERSISTENT_MEMORY_WRITES,
+//   85     ZCL_DATATYPE_UINT16,
+//   86     ZDIAGS_PERSISTENT_MEMORY_WRITES
+//   87   },
+//   88   {
+//   89     ATTRID_DIAGNOSTIC_MAC_RX_BCAST,
+//   90     ZCL_DATATYPE_UINT32,
+//   91     ZDIAGS_MAC_RX_BCAST
+//   92   },
+//   93   {
+//   94     ATTRID_DIAGNOSTIC_MAC_TX_BCAST,
+//   95     ZCL_DATATYPE_UINT32,
+//   96     ZDIAGS_MAC_TX_BCAST
+//   97   },
+//   98   {
+//   99     ATTRID_DIAGNOSTIC_MAC_RX_UCAST,
+//  100     ZCL_DATATYPE_UINT32,
+//  101     ZDIAGS_MAC_RX_UCAST
+//  102   },
+//  103   {
+//  104     ATTRID_DIAGNOSTIC_MAC_TX_UCAST,
+//  105     ZCL_DATATYPE_UINT32,
+//  106     ZDIAGS_MAC_TX_UCAST
+//  107   },
+//  108   {
+//  109     ATTRID_DIAGNOSTIC_MAC_TX_UCAST_RETRY,
+//  110     ZCL_DATATYPE_UINT16,
+//  111     ZDIAGS_MAC_TX_UCAST_RETRY
+//  112   },
+//  113   {
+//  114     ATTRID_DIAGNOSTIC_MAC_TX_UCAST_FAIL,
+//  115     ZCL_DATATYPE_UINT16,
+//  116     ZDIAGS_MAC_TX_UCAST_FAIL
+//  117   },
+//  118   {
+//  119     ATTRID_DIAGNOSTIC_APS_RX_BCAST,
+//  120     ZCL_DATATYPE_UINT16,
+//  121     ZDIAGS_APS_RX_BCAST
+//  122   },
+//  123   {
+//  124     ATTRID_DIAGNOSTIC_APS_TX_BCAST,
+//  125     ZCL_DATATYPE_UINT16,
+//  126     ZDIAGS_APS_TX_BCAST
+//  127   },
+//  128   {
+//  129     ATTRID_DIAGNOSTIC_APS_RX_UCAST,
+//  130     ZCL_DATATYPE_UINT16,
+//  131     ZDIAGS_APS_RX_UCAST
+//  132   },
+//  133   {
+//  134     ATTRID_DIAGNOSTIC_APS_TX_UCAST_SUCCESS,
+//  135     ZCL_DATATYPE_UINT16,
+//  136     ZDIAGS_APS_TX_UCAST_SUCCESS
+//  137   },
+//  138   {
+//  139     ATTRID_DIAGNOSTIC_APS_TX_UCAST_RETRY,
+//  140     ZCL_DATATYPE_UINT16,
+//  141     ZDIAGS_APS_TX_UCAST_RETRY
+//  142   },
+//  143   {
+//  144     ATTRID_DIAGNOSTIC_APS_TX_UCAST_FAIL,
+//  145     ZCL_DATATYPE_UINT16,
+//  146     ZDIAGS_APS_TX_UCAST_FAIL
+//  147   },
+//  148   {
+//  149     ATTRID_DIAGNOSTIC_ROUTE_DISC_INITIATED,
+//  150     ZCL_DATATYPE_UINT16,
+//  151     ZDIAGS_ROUTE_DISC_INITIATED
+//  152   },
+//  153   {
+//  154     ATTRID_DIAGNOSTIC_NEIGHBOR_ADDED,
+//  155     ZCL_DATATYPE_UINT16,
+//  156     ZDIAGS_NEIGHBOR_ADDED
+//  157   },
+//  158   {
+//  159     ATTRID_DIAGNOSTIC_NEIGHBOR_REMOVED,
+//  160     ZCL_DATATYPE_UINT16,
+//  161     ZDIAGS_NEIGHBOR_REMOVED
+//  162   },
+//  163   {
+//  164     ATTRID_DIAGNOSTIC_NEIGHBOR_STALE,
+//  165     ZCL_DATATYPE_UINT16,
+//  166     ZDIAGS_NEIGHBOR_STALE
+//  167   },
+//  168   {
+//  169     ATTRID_DIAGNOSTIC_JOIN_INDICATION,
+//  170     ZCL_DATATYPE_UINT16,
+//  171     ZDIAGS_JOIN_INDICATION
+//  172   },
+//  173   {
+//  174     ATTRID_DIAGNOSTIC_CHILD_MOVED,
+//  175     ZCL_DATATYPE_UINT16,
+//  176     ZDIAGS_CHILD_MOVED
+//  177   },
+//  178   {
+//  179     ATTRID_DIAGNOSTIC_NWK_FC_FAILURE,
+//  180     ZCL_DATATYPE_UINT16,
+//  181     ZDIAGS_NWK_FC_FAILURE
+//  182   },
+//  183   {
+//  184     ATTRID_DIAGNOSTIC_APS_FC_FAILURE,
+//  185     ZCL_DATATYPE_UINT16,
+//  186     ZDIAGS_APS_FC_FAILURE
+//  187   },
+//  188   {
+//  189     ATTRID_DIAGNOSTIC_APS_UNAUTHORIZED_KEY,
+//  190     ZCL_DATATYPE_UINT16,
+//  191     ZDIAGS_APS_UNAUTHORIZED_KEY
+//  192   },
+//  193   {
+//  194     ATTRID_DIAGNOSTIC_NWK_DECRYPT_FAILURES,
+//  195     ZCL_DATATYPE_UINT16,
+//  196     ZDIAGS_NWK_DECRYPT_FAILURES
+//  197   },
+//  198   {
+//  199     ATTRID_DIAGNOSTIC_APS_DECRYPT_FAILURES,
+//  200     ZCL_DATATYPE_UINT16,
+//  201     ZDIAGS_APS_DECRYPT_FAILURES
+//  202   },
+//  203   {
+//  204     ATTRID_DIAGNOSTIC_PACKET_BUFFER_ALLOCATE_FAILURES,
+//  205     ZCL_DATATYPE_UINT16,
+//  206     ZDIAGS_PACKET_BUFFER_ALLOCATE_FAILURES
+//  207   },
+//  208   {
+//  209     ATTRID_DIAGNOSTIC_RELAYED_UCAST,
+//  210     ZCL_DATATYPE_UINT16,
+//  211     ZDIAGS_RELAYED_UCAST
+//  212   },
+//  213   {
+//  214     ATTRID_DIAGNOSTIC_PHY_TO_MAC_QUEUE_LIMIT_REACHED,
+//  215     ZCL_DATATYPE_UINT16,
+//  216     ZDIAGS_PHY_TO_MAC_QUEUE_LIMIT_REACHED
+//  217   },
+//  218   {
+//  219     ATTRID_DIAGNOSTIC_PACKET_VALIDATE_DROP_COUNT,
+//  220     ZCL_DATATYPE_UINT16,
+//  221     ZDIAGS_PACKET_VALIDATE_DROP_COUNT
+//  222   },
+//  223 };
+//  224 
+//  225 /*********************************************************************
+//  226  * LOCAL VARIABLES
+//  227  */
+//  228 
+//  229 /*********************************************************************
+//  230  * LOCAL FUNCTIONS
+//  231  */
+//  232 static ZStatus_t zclDiagnostic_GetAttribData( uint16 zclAttrId, uint16 *zdiagsAttrId, uint16 *dataLen );
+//  233 
+//  234 /****************************************************************************
+//  235  * @fn          zclDiagnostic_GetAttribData()
+//  236  *
+//  237  * @brief       Gets the Z-Stack attribute data for a specific ZCL Diagnostics
+//  238  *              AttributeID.
+//  239  *
+//  240  * @param       none.
+//  241  *
+//  242  * @return      none.
+//  243  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  244 static ZStatus_t zclDiagnostic_GetAttribData( uint16 zclAttrId, uint16 *zdiagsAttrId, uint16 *dataLen )
+zclDiagnostic_GetAttribData:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function zclDiagnostic_GetAttribData
+        CODE
+//  245 {
+        FUNCALL zclDiagnostic_GetAttribData, zclGetDataTypeLength
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  246   uint8 i;
+//  247   uint8 attrTableSize = sizeof(zclDiagsAttrTable);
+//  248 
+//  249   for ( i = 0; i < attrTableSize; i++ )
+        MOV     ?V0,#0x0
+//  250   {
+//  251     if ( zclDiagsAttrTable[i].zclAttrId == zclAttrId )
+??zclDiagnostic_GetAttribData_0:
+        MOV     A,?V0
+        MOV     B,#0x5
+        MUL     AB
+        MOV     R0,A
+        MOV     R1,B
+        MOV     A,#zclDiagsAttrTable & 0xff
+        ADD     A,R0
+        MOV     R0,A
+        MOV     A,#(zclDiagsAttrTable >> 8) & 0xff
+        ADDC    A,R1
+        MOV     R1,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     R6,A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     R7,A
+        MOV     A,R2
+        XRL     A,R6
+        JNZ     ??zclDiagnostic_GetAttribData_1
+        MOV     A,R3
+        XRL     A,R7
+??zclDiagnostic_GetAttribData_1:
+        JNZ     ??zclDiagnostic_GetAttribData_2
+//  252     {
+//  253       *zdiagsAttrId = zclDiagsAttrTable[i].ZDiagsAttrId;
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     R2,A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     R3,A
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  254       *dataLen = (uint16)zclGetDataTypeLength( zclDiagsAttrTable[i].dataType );
+        ; Setup parameters for call to function zclGetDataTypeLength
+        MOV     DPL,R0
+        MOV     DPH,R1
+        INC     DPTR
+        INC     DPTR
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     R1,A
+        LCALL   `??zclGetDataTypeLength::?relay`; Banked call to: zclGetDataTypeLength
+        MOV     A,R1
+        MOV     R0,A
+        MOV     A,#0x9
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R2
+        MOV     A,R0
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  255 
+//  256       return ( ZSuccess );
+        MOV     R1,A
+        SJMP    ??zclDiagnostic_GetAttribData_3
+//  257     }
+//  258   }
+??zclDiagnostic_GetAttribData_2:
+        INC     ?V0
+        MOV     A,?V0
+        CLR     C
+        SUBB    A,#-0x6f
+        JC      ??zclDiagnostic_GetAttribData_0
+//  259 
+//  260   return ( ZFailure );
+        MOV     R1,#0x1
+??zclDiagnostic_GetAttribData_3:
+          CFI EndBlock cfiBlock0
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+//  261 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock1
+//  262 
+//  263 /****************************************************************************
+//  264  * @fn          zclDiagnostic_InitStats()
+//  265  *
+//  266  * @brief       Initialize the statistics table.
+//  267  *
+//  268  * @param       none.
+//  269  *
+//  270  * @return      ZSuccess - if NV data was initialized successfully.
+//  271  *              ZFailure - Otherwise
+//  272  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  273 uint8 zclDiagnostic_InitStats( void )
+zclDiagnostic_InitStats:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function zclDiagnostic_InitStats
+        CODE
+//  274 {
+        FUNCALL zclDiagnostic_InitStats, ZDiagsInitStats
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  275   // Initialize the Diagnostics table in the Lower layer
+//  276   return ( ZDiagsInitStats() );
+        ; Setup parameters for call to function ZDiagsInitStats
+        LCALL   `??ZDiagsInitStats::?relay`; Banked call to: ZDiagsInitStats
+          CFI EndBlock cfiBlock2
+        REQUIRE ?Subroutine1
+        ; // Fall through to label ?Subroutine1
+//  277 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP     DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock3
+//  278 
+//  279 /****************************************************************************
+//  280  * @fn          zclDiagnostic_ClearStats
+//  281  *
+//  282  * @brief       Clears the statistics table in RAM and NV if option flag set.
+//  283  *
+//  284  * @param       clearNV   - Option flag to clear NV data.
+//  285  *
+//  286  * @return      System Clock.
+//  287  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  288 uint32 zclDiagnostic_ClearStats( bool clearNV )
+zclDiagnostic_ClearStats:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function zclDiagnostic_ClearStats
+        CODE
+//  289 {
+        FUNCALL zclDiagnostic_ClearStats, ZDiagsClearStats
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  290   // calls the diagnostics function to clear statistics and returns the system clock
+//  291   return ZDiagsClearStats( clearNV );
+        ; Setup parameters for call to function ZDiagsClearStats
+        LCALL   `??ZDiagsClearStats::?relay`; Banked call to: ZDiagsClearStats
+        SJMP    ?Subroutine0
+//  292 }
+          CFI EndBlock cfiBlock4
+//  293 
+//  294 /****************************************************************************
+//  295  * @fn          zclDiagnostic_GetStatsAttr
+//  296  *
+//  297  * @brief       Reads Diagnostic values based on specific ZCL Diagnostics
+//  298  *              attribute ID
+//  299  *
+//  300  * @param       attributeId  input  - ZCL identifier for the required attribute
+//  301  * @param       value       output - value of the specific item
+//  302  *
+//  303  * NOTE:  the user of this function will have to cast the value
+//  304  *        based on the type of the attributeId, the returned value
+//  305  *        will allways be uint32
+//  306  *
+//  307  * @return      ZStatus_t
+//  308  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  309 ZStatus_t zclDiagnostic_GetStatsAttr( uint16 attributeId, uint32 *attrValue, uint16 *dataLen )
+zclDiagnostic_GetStatsAttr:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function zclDiagnostic_GetStatsAttr
+        CODE
+//  310 {
+        FUNCALL zclDiagnostic_GetStatsAttr, ZDiagsGetStatsAttr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclDiagnostic_GetStatsAttr, ZDiagsGetStatsAttr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclDiagnostic_GetStatsAttr, ZDiagsGetStatsAttr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclDiagnostic_GetStatsAttr, zclDiagnostic_GetAttribData
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 30, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 30, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclDiagnostic_GetStatsAttr, ZDiagsGetStatsAttr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        REQUIRE ?V7
+        REQUIRE ?V8
+        REQUIRE ?V9
+        REQUIRE ?V10
+        REQUIRE ?V11
+        REQUIRE ?V12
+        REQUIRE ?V13
+        REQUIRE ?V14
+        REQUIRE ?V15
+        MOV     A,#-0x18
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V15 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V14 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V13 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V12 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-21)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-22)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-23)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-24)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 24)
+        ; Saved register size: 24
+        ; Auto size: 4
+        MOV     A,#-0x4
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 28)
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,R4
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R5
+        MOVX    @DPTR,A
+//  311   uint8 status = ZSuccess;
+        MOV     R6,#0x0
+        MOV     A,#0x1c
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V1,A
+//  312   uint16 ZDiagsAttrId;
+//  313 
+//  314   // this atribute is a calculated value
+//  315   if ( attributeId == ATTRID_DIAGNOSTIC_AVERAGE_MAC_RETRY_PER_APS_MESSAGE_SENT )
+        MOV     A,#0x1b
+        XRL     A,R2
+        JNZ     ??zclDiagnostic_GetStatsAttr_0
+        MOV     A,#0x1
+        XRL     A,R3
+??zclDiagnostic_GetStatsAttr_0:
+        JZ      $+5
+        LJMP    ??zclDiagnostic_GetStatsAttr_1 & 0xFFFF
+//  316   {
+//  317     uint32 macRetriesPerApsTx;
+//  318     uint32 apsTxUcastSuccess;
+//  319     uint32 apsTxUcastFailure;
+//  320 
+//  321     // retrieve each attribute to calculate the requested value
+//  322     macRetriesPerApsTx = ZDiagsGetStatsAttr( ZDIAGS_MAC_RETRIES_PER_APS_TX_SUCCESS );
+        ; Setup parameters for call to function ZDiagsGetStatsAttr
+        MOV     R2,#0x36
+        MOV     R3,#0x1
+        LCALL   `??ZDiagsGetStatsAttr::?relay`; Banked call to: ZDiagsGetStatsAttr
+        MOV     ?V12,R2
+        MOV     ?V13,R3
+        MOV     ?V14,R4
+        MOV     ?V15,R5
+//  323 
+//  324     apsTxUcastSuccess = ZDiagsGetStatsAttr( ZDIAGS_APS_TX_UCAST_SUCCESS );
+        ; Setup parameters for call to function ZDiagsGetStatsAttr
+        MOV     R2,#0x2f
+        MOV     R3,#0x1
+        LCALL   `??ZDiagsGetStatsAttr::?relay`; Banked call to: ZDiagsGetStatsAttr
+        MOV     ?V4,R2
+        MOV     ?V5,R3
+        MOV     ?V6,R4
+        MOV     ?V7,R5
+//  325 
+//  326     apsTxUcastFailure = ZDiagsGetStatsAttr( ZDIAGS_APS_TX_UCAST_FAIL );
+        ; Setup parameters for call to function ZDiagsGetStatsAttr
+        MOV     R2,#0x31
+        MOV     R3,#0x1
+        LCALL   `??ZDiagsGetStatsAttr::?relay`; Banked call to: ZDiagsGetStatsAttr
+        MOV     ?V8,R2
+        MOV     ?V9,R3
+        MOV     ?V10,R4
+        MOV     ?V11,R5
+//  327 
+//  328     *dataLen = 2;  // this is the lenght of ATTRID_DIAGNOSTIC_AVERAGE_MAC_RETRY_PER_APS_MESSAGE_SENT
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOV     A,#0x2
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  329 
+//  330     if ( ( apsTxUcastSuccess != 0 ) || ( apsTxUcastFailure != 0 ) )
+        MOV     A,?V4
+        ORL     A,?V5
+        ORL     A,?V6
+        ORL     A,?V7
+        JNZ     ??zclDiagnostic_GetStatsAttr_2
+        MOV     A,R2
+        ORL     A,?V9
+        ORL     A,?V10
+        ORL     A,?V11
+        JZ      ??zclDiagnostic_GetStatsAttr_3
+//  331     {
+//  332       // This formula considers the total MAC Failures per APS transmitted packet.
+//  333       // If MAC PIB element maxFrameRetries is changed from the default value 3, this formula
+//  334       // shall be updated and replace 4 with (MAC PIB maxFrameRetries+1) value
+//  335       *attrValue = ( macRetriesPerApsTx + ( apsTxUcastFailure * 4 ) ) / ( apsTxUcastSuccess + apsTxUcastFailure );
+??zclDiagnostic_GetStatsAttr_2:
+        MOV     ?V0,R2
+        MOV     ?V1,R3
+        MOV     ?V2,R4
+        MOV     ?V3,R5
+        MOV     A,#0x2
+        MOV     R0,#?V0
+        LCALL   ?L_SHL
+        MOV     R0,#?V12
+        MOV     R1,#?V0
+        LCALL   ?L_ADD
+        MOV     R0,#?V4
+        MOV     R1,#?V8
+        LCALL   ?L_ADD
+        MOV     R0,#?V12
+        MOV     R1,#?V4
+        LCALL   ?UL_DIV_MOD
+        LCALL   ?Subroutine3 & 0xFFFF
+//  336     }
+??CrossCallReturnLabel_0:
+        MOV     R0,#?V12
+        LCALL   ?L_MOV_TO_X
+        SJMP    ??zclDiagnostic_GetStatsAttr_4
+//  337     else
+//  338     {
+//  339       *attrValue = 0;
+??zclDiagnostic_GetStatsAttr_3:
+        LCALL   ?Subroutine3 & 0xFFFF
+//  340     }
+//  341   }
+??CrossCallReturnLabel_1:
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+        SJMP    ??zclDiagnostic_GetStatsAttr_4
+//  342   // look-up for ZDiags attribute ID, based on the ZCL Diagnostics cluster attribute ID
+//  343   else if ( zclDiagnostic_GetAttribData( attributeId, &ZDiagsAttrId, dataLen ) == ZSuccess )
+??zclDiagnostic_GetStatsAttr_1:
+        ; Setup parameters for call to function zclDiagnostic_GetAttribData
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 30)
+        MOV     A,#0x4
+        LCALL   ?XSTACK_DISP102_8
+        LCALL   `??zclDiagnostic_GetAttribData::?relay`; Banked call to: zclDiagnostic_GetAttribData
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 28)
+        MOV     A,R1
+        JNZ     ??zclDiagnostic_GetStatsAttr_5
+//  344   {
+//  345     *attrValue = ZDiagsGetStatsAttr( ZDiagsAttrId );
+        ; Setup parameters for call to function ZDiagsGetStatsAttr
+        MOV     A,#0x2
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        LCALL   `??ZDiagsGetStatsAttr::?relay`; Banked call to: ZDiagsGetStatsAttr
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+        MOV     A,R4
+        MOV     R2,A
+        MOV     A,R5
+        MOV     R3,A
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        MOV     R4,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R4
+        LCALL   ?XSTORE_R0123
+        SJMP    ??zclDiagnostic_GetStatsAttr_4
+//  346   }
+//  347   else
+//  348   {
+//  349     status = ZFailure;
+??zclDiagnostic_GetStatsAttr_5:
+        MOV     R6,#0x1
+//  350   }
+//  351 
+//  352   return ( status );
+??zclDiagnostic_GetStatsAttr_4:
+        MOV     A,R6
+        MOV     R1,A
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 24)
+        MOV     R7,#0x10
+        LJMP    ?BANKED_LEAVE_XDATA
+//  353 }
+          CFI EndBlock cfiBlock5
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI Function zclDiagnostic_GetStatsAttr
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-24)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-23)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-22)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-21)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V12 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V13 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V14 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V15 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 28)
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function zclDiagnostic_GetStatsAttr
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond7) R6 load(1, XDATA, add(CFA_XSP16, literal(-24)))
+          CFI (cfiCond7) VB load(1, XDATA, add(CFA_XSP16, literal(-23)))
+          CFI (cfiCond7) V0 load(1, XDATA, add(CFA_XSP16, literal(-22)))
+          CFI (cfiCond7) V1 load(1, XDATA, add(CFA_XSP16, literal(-21)))
+          CFI (cfiCond7) V2 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI (cfiCond7) V3 load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI (cfiCond7) V4 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond7) V5 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond7) V6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond7) V7 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond7) V8 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond7) V9 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond7) V10 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond7) V11 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond7) V12 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond7) V13 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond7) V14 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond7) V15 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond7) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond7) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond7) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond7) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond7) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond7) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond7) CFA_SP SP+-2
+          CFI (cfiCond7) CFA_XSP16 add(XSP16, 28)
+          CFI Block cfiPicker8 Using cfiCommon1
+          CFI (cfiPicker8) NoFunction
+          CFI (cfiPicker8) Picker
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        RET
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiPicker8
+//  354 
+//  355 /*********************************************************************
+//  356  * @fn      zclDiagnostic_ReadWriteAttrCB
+//  357  *
+//  358  * @brief   Handle Diagnostics attributes.
+//  359  *
+//  360  * @param   clusterId - cluster that attribute belongs to
+//  361  * @param   attrId - attribute to be read or written
+//  362  * @param   oper - ZCL_OPER_LEN, ZCL_OPER_READ, or ZCL_OPER_WRITE
+//  363  * @param   pValue - pointer to attribute value, OTA endian
+//  364  * @param   pLen - length of attribute value read, native endian
+//  365  *
+//  366  * @return  status
+//  367  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  368 ZStatus_t zclDiagnostic_ReadWriteAttrCB( uint16 clusterId, uint16 attrId, uint8 oper,
+zclDiagnostic_ReadWriteAttrCB:
+          CFI Block cfiBlock9 Using cfiCommon0
+          CFI Function zclDiagnostic_ReadWriteAttrCB
+        CODE
+//  369                                          uint8 *pValue, uint16 *pLen )
+//  370 {
+        FUNCALL zclDiagnostic_ReadWriteAttrCB, zcl_getRawAFMsg
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 26, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 26, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclDiagnostic_ReadWriteAttrCB, zclDiagnostic_GetAttribData
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclDiagnostic_ReadWriteAttrCB, zclDiagnostic_GetStatsAttr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V8
+        REQUIRE ?V9
+        REQUIRE ?V10
+        REQUIRE ?V11
+        MOV     A,#-0x14
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 20)
+        ; Saved register size: 20
+        ; Auto size: 6
+        MOV     A,#-0x6
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 26)
+        MOV     ?V2,R4
+        MOV     ?V3,R5
+        MOV     ?V5,R1
+//  371   ZStatus_t status = ZSuccess;
+        MOV     ?V4,#0x0
+//  372   uint16 tempAttr;
+//  373   uint32 attrValue;
+//  374   afIncomingMSGPacket_t *origPkt;
+//  375 
+//  376   origPkt = zcl_getRawAFMsg();
+        ; Setup parameters for call to function zcl_getRawAFMsg
+        LCALL   `??zcl_getRawAFMsg::?relay`; Banked call to: zcl_getRawAFMsg
+        MOV     ?V0,R2
+        MOV     ?V1,R3
+        MOV     R0,?V0
+        MOV     R1,?V1
+        MOV     A,#0x1c
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V1,A
+//  377 
+//  378   switch ( oper )
+        MOV     A,?V5
+        JZ      ??zclDiagnostic_ReadWriteAttrCB_0
+        DEC     A
+        JZ      ??zclDiagnostic_ReadWriteAttrCB_1
+        DEC     A
+        JNZ     $+5
+        LJMP    ??zclDiagnostic_ReadWriteAttrCB_2 & 0xFFFF
+        LJMP    ??zclDiagnostic_ReadWriteAttrCB_3 & 0xFFFF
+//  379   {
+//  380     case ZCL_OPER_LEN:
+//  381       if ( ( attrId == ATTRID_DIAGNOSTIC_LAST_MESSAGE_LQI ) ||
+//  382            ( attrId == ATTRID_DIAGNOSTIC_LAST_MESSAGE_RSSI ) )
+??zclDiagnostic_ReadWriteAttrCB_0:
+        MOV     A,#0x1c
+        XRL     A,?V2
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_4
+        MOV     A,#0x1
+        XRL     A,?V3
+??zclDiagnostic_ReadWriteAttrCB_4:
+        JZ      ??zclDiagnostic_ReadWriteAttrCB_5
+        MOV     A,#0x1d
+        XRL     A,?V2
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_6
+        MOV     A,#0x1
+        XRL     A,?V3
+??zclDiagnostic_ReadWriteAttrCB_6:
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_7
+//  383       {
+//  384         *pLen = 1;
+??zclDiagnostic_ReadWriteAttrCB_5:
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOV     A,#0x1
+        SJMP    ??zclDiagnostic_ReadWriteAttrCB_8
+//  385       }
+//  386       else if ( attrId == ATTRID_DIAGNOSTIC_AVERAGE_MAC_RETRY_PER_APS_MESSAGE_SENT )
+??zclDiagnostic_ReadWriteAttrCB_7:
+        MOV     A,#0x1b
+        XRL     A,?V2
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_9
+        MOV     A,#0x1
+        XRL     A,?V3
+??zclDiagnostic_ReadWriteAttrCB_9:
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_10
+//  387       {
+//  388         *pLen = 2;
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOV     A,#0x2
+??zclDiagnostic_ReadWriteAttrCB_8:
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        LJMP    ??zclDiagnostic_ReadWriteAttrCB_11 & 0xFFFF
+//  389       }
+//  390       // The next function call only returns the length for attributes that are defined
+//  391       // in lower layers
+//  392       else if ( zclDiagnostic_GetAttribData( attrId, &tempAttr, pLen ) != ZSuccess )
+??zclDiagnostic_ReadWriteAttrCB_10:
+        ; Setup parameters for call to function zclDiagnostic_GetAttribData
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 28)
+        MOV     A,#0x6
+        LCALL   ?XSTACK_DISP102_8
+        MOV     R2,?V2
+        MOV     R3,?V3
+        LCALL   `??zclDiagnostic_GetAttribData::?relay`; Banked call to: zclDiagnostic_GetAttribData
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 26)
+        MOV     A,R1
+        JNZ     $+5
+        LJMP    ??zclDiagnostic_ReadWriteAttrCB_3 & 0xFFFF
+//  393       {
+//  394         *pLen = 0;
+//  395         status = ZFailure;  // invalid length
+//  396       }
+//  397       break;
+//  398 
+//  399     case ZCL_OPER_READ:
+//  400       // Identify if incoming msg is LQI or RSSI attribute
+//  401       // and return the LQI and RSSI of the incoming values
+//  402       if ( attrId == ATTRID_DIAGNOSTIC_LAST_MESSAGE_LQI )
+//  403       {
+//  404         *pLen = 1;
+//  405         attrValue = origPkt->LinkQuality;
+//  406       }
+//  407       else if ( attrId == ATTRID_DIAGNOSTIC_LAST_MESSAGE_RSSI )
+//  408       {
+//  409         //origPkt = zcl_getRawAFMsg();
+//  410         *pLen = 1;
+//  411         attrValue = origPkt->rssi;
+//  412       }
+//  413       else if ( zclDiagnostic_GetStatsAttr( attrId, &attrValue, pLen ) == ZSuccess )
+//  414       {
+//  415         if ( ( attrId == ATTRID_DIAGNOSTIC_MAC_TX_UCAST_RETRY ) ||
+//  416              ( attrId == ATTRID_DIAGNOSTIC_MAC_TX_UCAST_FAIL  ) )
+//  417         {
+//  418           // The lower layer counter is a 32 bit counter, report the higher 16 bit value
+//  419           // util the lower layer counter wraps-up
+//  420           if ( attrValue > 0x0000FFFF )
+//  421           {
+//  422             attrValue = 0x0000FFFF;
+//  423           }
+//  424         }
+//  425       }
+//  426       else
+//  427       {
+//  428         *pLen = 0;
+??zclDiagnostic_ReadWriteAttrCB_12:
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  429         status = ZFailure;  // invalid attribute
+        LJMP    ??zclDiagnostic_ReadWriteAttrCB_2 & 0xFFFF
+//  430       }
+??zclDiagnostic_ReadWriteAttrCB_1:
+        MOV     A,#0x1a
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     R6,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R7,A
+        MOV     A,#0x1c
+        XRL     A,?V2
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_13
+        MOV     A,#0x1
+        XRL     A,?V3
+??zclDiagnostic_ReadWriteAttrCB_13:
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_14
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+        MOV     A,R0
+        ADD     A,#0x16
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R1
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        SJMP    ??zclDiagnostic_ReadWriteAttrCB_15
+??zclDiagnostic_ReadWriteAttrCB_14:
+        MOV     A,#0x1d
+        XRL     A,?V2
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_16
+        MOV     A,#0x1
+        XRL     A,?V3
+??zclDiagnostic_ReadWriteAttrCB_16:
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_17
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+        MOV     A,R0
+        ADD     A,#0x18
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,R1
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        MOV     R2,A
+        RLC     A
+        SUBB    A,0xE0 /* A   */
+        MOV     R3,A
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+??zclDiagnostic_ReadWriteAttrCB_15:
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+        SJMP    ??zclDiagnostic_ReadWriteAttrCB_18
+??zclDiagnostic_ReadWriteAttrCB_17:
+        ; Setup parameters for call to function zclDiagnostic_GetStatsAttr
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 28)
+        MOV     A,#0x2
+        LCALL   ?XSTACK_DISP102_8
+        MOV     R2,?V2
+        MOV     R3,?V3
+        LCALL   `??zclDiagnostic_GetStatsAttr::?relay`; Banked call to: zclDiagnostic_GetStatsAttr
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 26)
+        MOV     A,R1
+        JZ      $+5
+        LJMP    ??zclDiagnostic_ReadWriteAttrCB_12 & 0xFFFF
+        MOV     A,#0x4
+        XRL     A,?V2
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_19
+        MOV     A,#0x1
+        XRL     A,?V3
+??zclDiagnostic_ReadWriteAttrCB_19:
+        JZ      ??zclDiagnostic_ReadWriteAttrCB_20
+        MOV     A,#0x5
+        XRL     A,?V2
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_21
+        MOV     A,#0x1
+        XRL     A,?V3
+??zclDiagnostic_ReadWriteAttrCB_21:
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_22
+??zclDiagnostic_ReadWriteAttrCB_20:
+        MOV     DPTR,#__Constant_10000
+        MOV     R0,#?V8
+        LCALL   ?L_MOV_X
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     R0,#?V8
+        LCALL   ?UL_GT_X
+        JC      ??zclDiagnostic_ReadWriteAttrCB_22
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#-0x1
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  431 
+//  432       if ( *pLen == 1 )
+??zclDiagnostic_ReadWriteAttrCB_22:
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     A,#0x1
+        XRL     A,R0
+        ORL     A,R1
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_23
+//  433       {
+//  434         pValue[0] = BREAK_UINT32( attrValue, 0 );
+??zclDiagnostic_ReadWriteAttrCB_18:
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     R0,#?V0
+        LCALL   ?L_MOV_X
+        MOV     DPL,R6
+        MOV     DPH,R7
+        SJMP    ??zclDiagnostic_ReadWriteAttrCB_24
+//  435       }
+//  436       else if ( *pLen == 2 )
+??zclDiagnostic_ReadWriteAttrCB_23:
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        MOV     R2,DPL
+        MOV     R3,DPH
+        MOV     A,#0x2
+        XRL     A,R0
+        ORL     A,R1
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_25
+//  437       {
+//  438         pValue[0] = LO_UINT16( attrValue );
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     R0,#?V0
+        LCALL   ?L_MOV_X
+        LCALL   ?Subroutine2 & 0xFFFF
+//  439         pValue[1] = HI_UINT16( attrValue );
+//  440       }
+??CrossCallReturnLabel_2:
+        LCALL   ?L_MOV_X
+        MOV     A,?V1
+        MOV     DPL,R2
+        MOV     DPH,R3
+        SJMP    ??zclDiagnostic_ReadWriteAttrCB_11
+//  441       else if ( *pLen == 4 )
+??zclDiagnostic_ReadWriteAttrCB_25:
+        MOV     A,#0x4
+        XRL     A,R0
+        ORL     A,R1
+        JNZ     ??zclDiagnostic_ReadWriteAttrCB_3
+//  442       {
+//  443         pValue[0] = BREAK_UINT32( attrValue, 0 );
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     R0,#?V0
+        LCALL   ?L_MOV_X
+        LCALL   ?Subroutine2 & 0xFFFF
+//  444         pValue[1] = BREAK_UINT32( attrValue, 1 );
+//  445         pValue[2] = BREAK_UINT32( attrValue, 2 );
+//  446         pValue[3] = BREAK_UINT32( attrValue, 3 );
+//  447       }
+??CrossCallReturnLabel_3:
+        LCALL   ?L_MOV_X
+        MOV     A,?V1
+        MOV     DPL,R2
+        MOV     DPH,R3
+        LCALL   ??Subroutine5_0 & 0xFFFF
+??CrossCallReturnLabel_5:
+        LCALL   ?L_MOV_X
+        MOV     A,#0x10
+        MOV     R0,#?V0
+        LCALL   ?UL_SHR
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        LCALL   ??Subroutine4_0 & 0xFFFF
+??CrossCallReturnLabel_4:
+        LCALL   ?L_MOV_X
+        MOV     A,#0x18
+        MOV     R0,#?V0
+        LCALL   ?UL_SHR
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+??zclDiagnostic_ReadWriteAttrCB_24:
+        MOV     A,?V0
+??zclDiagnostic_ReadWriteAttrCB_11:
+        MOVX    @DPTR,A
+        SJMP    ??zclDiagnostic_ReadWriteAttrCB_3
+//  448 
+//  449       break;
+//  450 
+//  451     case ZCL_OPER_WRITE:
+//  452       status = ZFailure;  // All attributes in Diagnostics cluster are READ ONLY
+??zclDiagnostic_ReadWriteAttrCB_2:
+        MOV     ?V4,#0x1
+//  453       break;
+//  454   }
+//  455 
+//  456   return ( status );
+??zclDiagnostic_ReadWriteAttrCB_3:
+        MOV     R1,?V4
+        MOV     A,#0x6
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 20)
+        MOV     R7,#0xc
+        LJMP    ?BANKED_LEAVE_XDATA
+//  457 }
+          CFI EndBlock cfiBlock9
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI Function zclDiagnostic_ReadWriteAttrCB
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI (cfiCond11) Function zclDiagnostic_ReadWriteAttrCB
+          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond11) V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond11) V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond11) V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond11) V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond11) V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond11) V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond11) V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond11) V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond11) V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond11) V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond11) V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond11) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond11) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond11) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond11) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond11) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond11) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond11) CFA_SP SP+-2
+          CFI (cfiCond11) CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiPicker12 Using cfiCommon1
+          CFI (cfiPicker12) NoFunction
+          CFI (cfiPicker12) Picker
+        MOV     DPL,R6
+        MOV     DPH,R7
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiPicker12
+        REQUIRE ??Subroutine4_0
+        ; // Fall through to label ??Subroutine4_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine4_0:
+          CFI Block cfiCond13 Using cfiCommon0
+          CFI Function zclDiagnostic_ReadWriteAttrCB
+          CFI Conditional ??CrossCallReturnLabel_4
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI (cfiCond14) Function zclDiagnostic_ReadWriteAttrCB
+          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond14) R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI (cfiCond14) VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI (cfiCond14) V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond14) V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond14) V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond14) V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond14) V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond14) V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond14) V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond14) V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond14) V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond14) V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond14) V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond14) V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond14) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond14) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond14) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond14) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond14) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond14) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond14) CFA_SP SP+-2
+          CFI (cfiCond14) CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function zclDiagnostic_ReadWriteAttrCB
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond15) R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI (cfiCond15) VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI (cfiCond15) V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond15) V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond15) V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond15) V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond15) V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond15) V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond15) V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond15) V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond15) V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond15) V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond15) V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond15) V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond15) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond15) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond15) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond15) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond15) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond15) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond15) CFA_SP SP+-2
+          CFI (cfiCond15) CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiPicker16 Using cfiCommon1
+          CFI (cfiPicker16) NoFunction
+          CFI (cfiPicker16) Picker
+        MOV     A,?V0
+          CFI EndBlock cfiCond13
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiPicker16
+        REQUIRE ??Subroutine5_0
+        ; // Fall through to label ??Subroutine5_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine5_0:
+          CFI Block cfiCond17 Using cfiCommon0
+          CFI Function zclDiagnostic_ReadWriteAttrCB
+          CFI Conditional ??CrossCallReturnLabel_5
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiCond18 Using cfiCommon0
+          CFI (cfiCond18) Function zclDiagnostic_ReadWriteAttrCB
+          CFI (cfiCond18) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond18) R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI (cfiCond18) VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI (cfiCond18) V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond18) V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond18) V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond18) V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond18) V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond18) V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond18) V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond18) V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond18) V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond18) V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond18) V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond18) V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond18) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond18) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond18) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond18) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond18) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond18) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond18) CFA_SP SP+-2
+          CFI (cfiCond18) CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiCond19 Using cfiCommon0
+          CFI (cfiCond19) Function zclDiagnostic_ReadWriteAttrCB
+          CFI (cfiCond19) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond19) R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI (cfiCond19) VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI (cfiCond19) V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond19) V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond19) V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond19) V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond19) V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond19) V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond19) V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond19) V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond19) V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond19) V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond19) V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond19) V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond19) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond19) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond19) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond19) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond19) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond19) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond19) CFA_SP SP+-2
+          CFI (cfiCond19) CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiCond20 Using cfiCommon0
+          CFI (cfiCond20) Function zclDiagnostic_ReadWriteAttrCB
+          CFI (cfiCond20) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond20) R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI (cfiCond20) VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI (cfiCond20) V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond20) V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond20) V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond20) V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond20) V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond20) V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond20) V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond20) V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond20) V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond20) V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond20) V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond20) V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond20) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond20) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond20) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond20) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond20) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond20) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond20) CFA_SP SP+-2
+          CFI (cfiCond20) CFA_XSP16 add(XSP16, 26)
+          CFI Block cfiPicker21 Using cfiCommon1
+          CFI (cfiPicker21) NoFunction
+          CFI (cfiPicker21) Picker
+        MOVX    @DPTR,A
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     R0,#?V0
+        RET
+          CFI EndBlock cfiCond17
+          CFI EndBlock cfiCond18
+          CFI EndBlock cfiCond19
+          CFI EndBlock cfiCond20
+          CFI EndBlock cfiPicker21
+//  458 
+//  459 /****************************************************************************
+//  460  * @fn          zclDiagnostic_RestoreStatsFromNV
+//  461  *
+//  462  * @brief       Restores the statistics table from NV into the RAM table.
+//  463  *
+//  464  * @param       none.
+//  465  *
+//  466  * @return      ZSuccess - if NV data was restored from NV.
+//  467  *              ZFailure - Otherwise, NV_OPER_FAILED for failure.
+//  468  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  469 uint8 zclDiagnostic_RestoreStatsFromNV( void )
+zclDiagnostic_RestoreStatsFromNV:
+          CFI Block cfiBlock22 Using cfiCommon0
+          CFI Function zclDiagnostic_RestoreStatsFromNV
+        CODE
+//  470 {
+        FUNCALL zclDiagnostic_RestoreStatsFromNV, ZDiagsRestoreStatsFromNV
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  471   return ( ZDiagsRestoreStatsFromNV() );
+        ; Setup parameters for call to function ZDiagsRestoreStatsFromNV
+        LCALL   `??ZDiagsRestoreStatsFromNV::?relay`; Banked call to: ZDiagsRestoreStatsFromNV
+        LJMP    ?Subroutine1 & 0xFFFF
+//  472 }
+          CFI EndBlock cfiBlock22
+//  473 
+//  474    /****************************************************************************
+//  475  * @fn          zclDiagnostic_SaveStatsToNV
+//  476  *
+//  477  * @brief       Saves the statistics table from RAM to NV.
+//  478  *
+//  479  * @param       none.
+//  480  *
+//  481  * @return      System Time.
+//  482  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  483 uint32 zclDiagnostic_SaveStatsToNV( void )
+zclDiagnostic_SaveStatsToNV:
+          CFI Block cfiBlock23 Using cfiCommon0
+          CFI Function zclDiagnostic_SaveStatsToNV
+        CODE
+//  484 {
+        FUNCALL zclDiagnostic_SaveStatsToNV, ZDiagsSaveStatsToNV
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  485    return( ZDiagsSaveStatsToNV() );
+        ; Setup parameters for call to function ZDiagsSaveStatsToNV
+        LCALL   `??ZDiagsSaveStatsToNV::?relay`; Banked call to: ZDiagsSaveStatsToNV
+        LJMP    ?Subroutine1 & 0xFFFF
+//  486 }
+          CFI EndBlock cfiBlock23
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_10000:
+        DD 65536
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclDiagnostic_GetAttribData::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclDiagnostic_GetAttribData
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclDiagnostic_InitStats::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclDiagnostic_InitStats
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclDiagnostic_ClearStats::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclDiagnostic_ClearStats
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclDiagnostic_GetStatsAttr::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclDiagnostic_GetStatsAttr
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclDiagnostic_ReadWriteAttrCB::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclDiagnostic_ReadWriteAttrCB
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclDiagnostic_RestoreStatsFromNV::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclDiagnostic_RestoreStatsFromNV
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclDiagnostic_SaveStatsToNV::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclDiagnostic_SaveStatsToNV
+
+        END
+//  487 
+//  488 
+//  489 #endif // ZCL_DIAGNOSTIC
+//  490 /********************************************************************************************
+//  491 *********************************************************************************************/
+//  492 
+// 
+// 968 bytes in segment BANKED_CODE
+//  42 bytes in segment BANK_RELAYS
+// 145 bytes in segment CODE_C
+//   4 bytes in segment XDATA_ROM_C
+// 
+// 1 155 bytes of CODE  memory
+//     0 bytes of CONST memory (+ 4 bytes shared)
+//
+//Errors: none
+//Warnings: none
