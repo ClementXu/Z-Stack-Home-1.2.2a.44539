@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:13:56
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                28/Aug/2016  10:30:45
 # Copyright 2004-2015 IAR Systems AB.
 #
 #    Core               =  plain
@@ -38,12 +38,12 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 #        "C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c" -D
 #        SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D
-#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
-#        -D MT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D
-#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D
-#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
-#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC
-#        "C:\Texas Instruments\Z-Stack Home
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D xMT_TASK -D xMT_APP_FUNC -D
+#        xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+#        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D
+#        ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+#        FEATURE_SYSTEM_STATS -lC "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 #        -lA "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -246,12 +246,11 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c
     135           **************************************************************************************************/
     136          
 
-   \                                 In  segment XDATA_I, align 1, keep-with-next
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
     137          mtProcessMsg_t mtProcessIncoming[] =
    \                     mtProcessIncoming:
    \   000000                DS 44
-   \   00002C                REQUIRE `?<Initializer for mtProcessIncoming>`
-   \   00002C                REQUIRE __INIT_XDATA_I
+   \   00002C                REQUIRE __INIT_XDATA_Z
     138          {
     139            NULL,                               // MT_RPC_SYS_RES0
     140          
@@ -422,17 +421,15 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c
     280          
     281          #if defined (MT_ZDO_FUNC)
     282            MT_ZdoInit();
-   \   000013                ; Setup parameters for call to function MT_ZdoInit
-   \   000013   12....       LCALL   `??MT_ZdoInit::?relay`; Banked call to: MT_ZdoInit
     283          #endif
     284          #ifndef ZBIT
     285            MT_SysResetInd();
-   \   000016                ; Setup parameters for call to function MT_SysResetInd
-   \   000016   12....       LCALL   `??MT_SysResetInd::?relay`; Banked call to: MT_SysResetInd
+   \   000013                ; Setup parameters for call to function MT_SysResetInd
+   \   000013   12....       LCALL   `??MT_SysResetInd::?relay`; Banked call to: MT_SysResetInd
     286          #endif /* !ZBIT */
     287          }
-   \   000019                REQUIRE ?Subroutine0
-   \   000019                ; // Fall through to label ?Subroutine0
+   \   000016                REQUIRE ?Subroutine0
+   \   000016                ; // Fall through to label ?Subroutine0
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine0:
@@ -1510,31 +1507,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c
    \   00000A   C8           XCH     A,R0
    \   00000B   22           RET
 
-   \                                 In  segment XDATA_ID, align 1, keep-with-next
-   \                     `?<Initializer for mtProcessIncoming>`:
-   \   000000   0000         DW 0H
-   \   000002   ....         DW `??MT_SysCommandProcessing::?relay`
-   \   000004   0000         DW 0H
-   \   000006   0000         DW 0H
-   \   000008   0000         DW 0H
-   \   00000A   ....         DW `??MT_ZdoCommandProcessing::?relay`
-   \   00000C   0000         DW 0H
-   \   00000E   0000         DW 0H
-   \   000010   0000         DW 0H
-   \   000012   ....         DW `??MT_AppCommandProcessing::?relay`
-   \   000014   0000         DW 0H
-   \   000016   0000         DW 0H
-   \   000018   0000         DW 0H
-   \   00001A   0000         DW 0H
-   \   00001C   0000         DW 0H
-   \   00001E   0000         DW 0H
-   \   000020   0000         DW 0H
-   \   000022   0000         DW 0H
-   \   000024   0000         DW 0H
-   \   000026   0000         DW 0H
-   \   000028   0000         DW 0H
-   \   00002A   0000         DW 0H
-
    \                                 In  segment BANK_RELAYS, align 1
    \                     `??MT_Init::?relay`:
    \   000000   12....       LCALL   ?BDISPATCH
@@ -1589,7 +1561,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c
         0     14   -> osal_mem_free
       0      9   MT_Init
         0      9   -> MT_SysResetInd
-        0      9   -> MT_ZdoInit
       3      3   MT_ProcessIncoming
         2      3   -> MT_BuildAndSendZToolResponse
       1     11   MT_ReverseBytes
@@ -1600,7 +1571,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c
 
    Bytes  Function/Label
    -----  --------------
-      44  ?<Initializer for mtProcessIncoming>
        6  ??Subroutine14_0
        5  ??Subroutine15_0
        5  ?Subroutine0
@@ -1623,7 +1593,7 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c
        6  MT_BuildAndSendZToolResponse::?relay
      431  MT_BuildEndpointDesc
        6  MT_BuildEndpointDesc::?relay
-      25  MT_Init
+      22  MT_Init
        6  MT_Init::?relay
      158  MT_ProcessIncoming
        6  MT_ProcessIncoming::?relay
@@ -1636,13 +1606,11 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c
       44  mtProcessIncoming
 
  
- 1 075 bytes in segment BANKED_CODE
+ 1 072 bytes in segment BANKED_CODE
     42 bytes in segment BANK_RELAYS
-    44 bytes in segment XDATA_I
-    44 bytes in segment XDATA_ID
-     2 bytes in segment XDATA_Z
+    46 bytes in segment XDATA_Z
  
- 1 161 bytes of CODE  memory
+ 1 114 bytes of CODE  memory
     46 bytes of XDATA memory
 
 Errors: none

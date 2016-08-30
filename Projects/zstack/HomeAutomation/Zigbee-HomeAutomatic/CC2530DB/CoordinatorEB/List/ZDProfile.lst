@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:14:20
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                28/Aug/2016  20:48:48
 # Copyright 2004-2015 IAR Systems AB.
 #
 #    Core               =  plain
@@ -39,13 +39,14 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 #        "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Components\stack\zdo\ZDProfile.c" -D SECURE=1 -D
-#        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-#        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-#        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-#        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-#        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-#        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-#        Instruments\Z-Stack Home
+#        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+#        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+#        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+#        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+#        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D
+#        ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+#        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+#        -lC "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 #        -lA "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 #        -I "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-#        -Ohz --require_prototypes
+#        -Ohz
 #    List file          =  
 #        C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\ZDProfile.lst
@@ -339,14 +340,10 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zdo\ZDProfile.c
    \   000022   ....         DW `??ZDO_ProcessActiveEPReq::?relay`
    \   000024   0600         DW 6
    \   000026   ....         DW `??ZDO_ProcessMatchDescReq::?relay`
-   \   000028   1100         DW 17
-   \   00002A   ....         DW `??ZDO_ProcessUserDescReq::?relay`
-   \   00002C   1400         DW 20
-   \   00002E   ....         DW `??ZDO_ProcessUserDescSet::?relay`
-   \   000030   1500         DW 21
-   \   000032   ....         DW `??ZDO_ProcessServerDiscReq::?relay`
-   \   000034   FFFF         DW 65535
-   \   000036   0000         DW 0H
+   \   000028   3600         DW 54
+   \   00002A   ....         DW `??ZDO_ProcessMgmtPermitJoinReq::?relay`
+   \   00002C   FFFF         DW 65535
+   \   00002E   0000         DW 0H
     176          {
     177          #if ( RFD_RCVC_ALWAYS_ON==TRUE ) || ( ZG_BUILD_RTR_TYPE )
     178            // These aren't processed by sleeping end devices.
@@ -2135,7 +2132,7 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zdo\ZDProfile.c
     663            if ( inMsg->clusterID == NWK_addr_req )
    \   000052   EA           MOV     A,R2
    \   000053   4B           ORL     A,R3
-   \   000054   704E         JNZ     ??zdpProcessAddrReq_2
+   \   000054   705B         JNZ     ??zdpProcessAddrReq_2
     664          
     665            {
     666              ieee = inMsg->asdu;
@@ -2167,40 +2164,47 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zdo\ZDProfile.c
     674                && (((pAssoc = AssocGetWithExt( ieee )) != NULL)
     675                       && (pAssoc->nodeRelation == CHILD_RFD)) )
    \                     ??zdpProcessAddrReq_3:
-   \   000071                ; Setup parameters for call to function AssocGetWithExt
-   \   000071   EE           MOV     A,R6
-   \   000072   FA           MOV     R2,A
-   \   000073   EF           MOV     A,R7
-   \   000074   FB           MOV     R3,A
-   \   000075   12....       LCALL   `??AssocGetWithExt::?relay`; Banked call to: AssocGetWithExt
-   \   000078   8A..         MOV     ?V4,R2
-   \   00007A   8B..         MOV     ?V5,R3
-   \   00007C   A8..         MOV     R0,?V4
-   \   00007E   A9..         MOV     R1,?V5
-   \   000080   E8           MOV     A,R0
-   \   000081   49           ORL     A,R1
-   \   000082   7003         JNZ     $+5
-   \   000084   02....       LJMP    ??zdpProcessAddrReq_5 & 0xFFFF
-   \   000087   8882         MOV     DPL,R0
-   \   000089   8983         MOV     DPH,R1
-   \   00008B   A3           INC     DPTR
-   \   00008C   A3           INC     DPTR
-   \   00008D   A3           INC     DPTR
-   \   00008E   A3           INC     DPTR
-   \   00008F   E0           MOVX    A,@DPTR
-   \   000090   6401         XRL     A,#0x1
-   \   000092   6003         JZ      $+5
-   \   000094   02....       LJMP    ??zdpProcessAddrReq_5 & 0xFFFF
+   \   000071   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   000074   E0           MOVX    A,@DPTR
+   \   000075   6007         JZ      ??zdpProcessAddrReq_5
+   \   000077   6401         XRL     A,#0x1
+   \   000079   6003         JZ      $+5
+   \   00007B   02....       LJMP    ??zdpProcessAddrReq_6 & 0xFFFF
+   \                     ??zdpProcessAddrReq_5:
+   \   00007E                ; Setup parameters for call to function AssocGetWithExt
+   \   00007E   EE           MOV     A,R6
+   \   00007F   FA           MOV     R2,A
+   \   000080   EF           MOV     A,R7
+   \   000081   FB           MOV     R3,A
+   \   000082   12....       LCALL   `??AssocGetWithExt::?relay`; Banked call to: AssocGetWithExt
+   \   000085   8A..         MOV     ?V4,R2
+   \   000087   8B..         MOV     ?V5,R3
+   \   000089   A8..         MOV     R0,?V4
+   \   00008B   A9..         MOV     R1,?V5
+   \   00008D   E8           MOV     A,R0
+   \   00008E   49           ORL     A,R1
+   \   00008F   7003         JNZ     $+5
+   \   000091   02....       LJMP    ??zdpProcessAddrReq_6 & 0xFFFF
+   \   000094   8882         MOV     DPL,R0
+   \   000096   8983         MOV     DPH,R1
+   \   000098   A3           INC     DPTR
+   \   000099   A3           INC     DPTR
+   \   00009A   A3           INC     DPTR
+   \   00009B   A3           INC     DPTR
+   \   00009C   E0           MOVX    A,@DPTR
+   \   00009D   6401         XRL     A,#0x1
+   \   00009F   6003         JZ      $+5
+   \   0000A1   02....       LJMP    ??zdpProcessAddrReq_6 & 0xFFFF
     676              {
     677                aoi = pAssoc->shortAddr;
-   \   000097   8882         MOV     DPL,R0
-   \   000099   8983         MOV     DPH,R1
-   \   00009B   12....       LCALL   ??Subroutine101_0 & 0xFFFF
+   \   0000A4   8882         MOV     DPL,R0
+   \   0000A6   8983         MOV     DPH,R1
+   \   0000A8   12....       LCALL   ??Subroutine101_0 & 0xFFFF
     678                if ( reqType != ZDP_ADDR_REQTYPE_SINGLE )
    \                     ??CrossCallReturnLabel_166:
-   \   00009E   E5..         MOV     A,?V3
-   \   0000A0   7072         JNZ     ??zdpProcessAddrReq_6
-   \   0000A2   8073         SJMP    ??zdpProcessAddrReq_4
+   \   0000AB   E5..         MOV     A,?V3
+   \   0000AD   707C         JNZ     ??zdpProcessAddrReq_7
+   \   0000AF   807D         SJMP    ??zdpProcessAddrReq_4
     679                  reqType = 0xFF; // Force Invalid
     680              }
     681            }
@@ -2208,456 +2212,469 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zdo\ZDProfile.c
     683            {
     684              aoi = BUILD_UINT16( inMsg->asdu[0], inMsg->asdu[1] );
    \                     ??zdpProcessAddrReq_2:
-   \   0000A4   8882         MOV     DPL,R0
-   \   0000A6   8983         MOV     DPH,R1
-   \   0000A8   E0           MOVX    A,@DPTR
-   \   0000A9   FA           MOV     R2,A
-   \   0000AA   A3           INC     DPTR
-   \   0000AB   E0           MOVX    A,@DPTR
-   \   0000AC   F9           MOV     R1,A
-   \   0000AD   EA           MOV     A,R2
-   \   0000AE   2E           ADD     A,R6
-   \   0000AF   F5..         MOV     ?V0,A
-   \   0000B1   E4           CLR     A
-   \   0000B2   39           ADDC    A,R1
-   \   0000B3   F5..         MOV     ?V1,A
+   \   0000B1   8882         MOV     DPL,R0
+   \   0000B3   8983         MOV     DPH,R1
+   \   0000B5   E0           MOVX    A,@DPTR
+   \   0000B6   FA           MOV     R2,A
+   \   0000B7   A3           INC     DPTR
+   \   0000B8   E0           MOVX    A,@DPTR
+   \   0000B9   F9           MOV     R1,A
+   \   0000BA   EA           MOV     A,R2
+   \   0000BB   2E           ADD     A,R6
+   \   0000BC   F5..         MOV     ?V0,A
+   \   0000BE   E4           CLR     A
+   \   0000BF   39           ADDC    A,R1
+   \   0000C0   F5..         MOV     ?V1,A
     685          
     686              if ( aoi == ZDAppNwkAddr.addr.shortAddr )
-   \   0000B5   90....       MOV     DPTR,#ZDAppNwkAddr
-   \   0000B8   E0           MOVX    A,@DPTR
-   \   0000B9   65..         XRL     A,?V0
-   \   0000BB   7004         JNZ     ??zdpProcessAddrReq_7
-   \   0000BD   A3           INC     DPTR
-   \   0000BE   E0           MOVX    A,@DPTR
-   \   0000BF   65..         XRL     A,?V1
-   \                     ??zdpProcessAddrReq_7:
-   \   0000C1   7006         JNZ     ??zdpProcessAddrReq_8
+   \   0000C2   90....       MOV     DPTR,#ZDAppNwkAddr
+   \   0000C5   E0           MOVX    A,@DPTR
+   \   0000C6   65..         XRL     A,?V0
+   \   0000C8   7004         JNZ     ??zdpProcessAddrReq_8
+   \   0000CA   A3           INC     DPTR
+   \   0000CB   E0           MOVX    A,@DPTR
+   \   0000CC   65..         XRL     A,?V1
+   \                     ??zdpProcessAddrReq_8:
+   \   0000CE   7006         JNZ     ??zdpProcessAddrReq_9
     687              {
     688                ieee = saveExtAddr;
-   \   0000C3   7E..         MOV     R6,#saveExtAddr & 0xff
-   \   0000C5   7F..         MOV     R7,#(saveExtAddr >> 8) & 0xff
-   \   0000C7   804E         SJMP    ??zdpProcessAddrReq_4
+   \   0000D0   7E..         MOV     R6,#saveExtAddr & 0xff
+   \   0000D2   7F..         MOV     R7,#(saveExtAddr >> 8) & 0xff
+   \   0000D4   8058         SJMP    ??zdpProcessAddrReq_4
     689              }
     690              else if ( (ZSTACK_ROUTER_BUILD)
     691                && (((pAssoc = AssocGetWithShort( aoi )) != NULL)
     692                       && (pAssoc->nodeRelation == CHILD_RFD)) )
-   \                     ??zdpProcessAddrReq_8:
-   \   0000C9                ; Setup parameters for call to function AssocGetWithShort
-   \   0000C9   AB..         MOV     R3,?V1
-   \   0000CB   12....       LCALL   `??AssocGetWithShort::?relay`; Banked call to: AssocGetWithShort
-   \   0000CE   8A..         MOV     ?V4,R2
-   \   0000D0   8B..         MOV     ?V5,R3
-   \   0000D2   A8..         MOV     R0,?V4
-   \   0000D4   A9..         MOV     R1,?V5
-   \   0000D6   E8           MOV     A,R0
-   \   0000D7   49           ORL     A,R1
-   \   0000D8   604D         JZ      ??zdpProcessAddrReq_5
-   \   0000DA   8882         MOV     DPL,R0
-   \   0000DC   8983         MOV     DPH,R1
-   \   0000DE   A3           INC     DPTR
-   \   0000DF   A3           INC     DPTR
-   \   0000E0   A3           INC     DPTR
-   \   0000E1   A3           INC     DPTR
-   \   0000E2   E0           MOVX    A,@DPTR
-   \   0000E3   6401         XRL     A,#0x1
-   \   0000E5   7040         JNZ     ??zdpProcessAddrReq_5
+   \                     ??zdpProcessAddrReq_9:
+   \   0000D6   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   0000D9   E0           MOVX    A,@DPTR
+   \   0000DA   6004         JZ      ??zdpProcessAddrReq_10
+   \   0000DC   6401         XRL     A,#0x1
+   \   0000DE   705E         JNZ     ??zdpProcessAddrReq_6
+   \                     ??zdpProcessAddrReq_10:
+   \   0000E0                ; Setup parameters for call to function AssocGetWithShort
+   \   0000E0   AB..         MOV     R3,?V1
+   \   0000E2   12....       LCALL   `??AssocGetWithShort::?relay`; Banked call to: AssocGetWithShort
+   \   0000E5   8A..         MOV     ?V4,R2
+   \   0000E7   8B..         MOV     ?V5,R3
+   \   0000E9   A8..         MOV     R0,?V4
+   \   0000EB   A9..         MOV     R1,?V5
+   \   0000ED   E8           MOV     A,R0
+   \   0000EE   49           ORL     A,R1
+   \   0000EF   604D         JZ      ??zdpProcessAddrReq_6
+   \   0000F1   8882         MOV     DPL,R0
+   \   0000F3   8983         MOV     DPH,R1
+   \   0000F5   A3           INC     DPTR
+   \   0000F6   A3           INC     DPTR
+   \   0000F7   A3           INC     DPTR
+   \   0000F8   A3           INC     DPTR
+   \   0000F9   E0           MOVX    A,@DPTR
+   \   0000FA   6401         XRL     A,#0x1
+   \   0000FC   7040         JNZ     ??zdpProcessAddrReq_6
     693              {
     694                AddrMgrEntry_t addrEntry;
     695                addrEntry.user = ADDRMGR_USER_DEFAULT;
-   \   0000E7   7401         MOV     A,#0x1
-   \   0000E9   12....       LCALL   ?XSTACK_DISP0_8
-   \   0000EC   E4           CLR     A
-   \   0000ED   12....       LCALL   ?Subroutine39 & 0xFFFF
+   \   0000FE   7401         MOV     A,#0x1
+   \   000100   12....       LCALL   ?XSTACK_DISP0_8
+   \   000103   E4           CLR     A
+   \   000104   12....       LCALL   ?Subroutine39 & 0xFFFF
     696                addrEntry.index = pAssoc->addrIdx;
    \                     ??CrossCallReturnLabel_60:
-   \   0000F0   F8           MOV     R0,A
-   \   0000F1   A3           INC     DPTR
-   \   0000F2   E0           MOVX    A,@DPTR
-   \   0000F3   F9           MOV     R1,A
-   \   0000F4   740C         MOV     A,#0xc
-   \   0000F6   12....       LCALL   ?XSTACK_DISP0_8
-   \   0000F9   12....       LCALL   ?Subroutine29 & 0xFFFF
+   \   000107   F8           MOV     R0,A
+   \   000108   A3           INC     DPTR
+   \   000109   E0           MOVX    A,@DPTR
+   \   00010A   F9           MOV     R1,A
+   \   00010B   740C         MOV     A,#0xc
+   \   00010D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000110   12....       LCALL   ?Subroutine29 & 0xFFFF
     697                if ( AddrMgrEntryGet( &addrEntry ) )
    \                     ??CrossCallReturnLabel_43:
-   \   0000FC                ; Setup parameters for call to function AddrMgrEntryGet
-   \   0000FC   7401         MOV     A,#0x1
-   \   0000FE   12....       LCALL   ?XSTACK_DISP101_8
-   \   000101   12....       LCALL   `??AddrMgrEntryGet::?relay`; Banked call to: AddrMgrEntryGet
-   \   000104   E9           MOV     A,R1
-   \   000105   6009         JZ      ??zdpProcessAddrReq_9
+   \   000113                ; Setup parameters for call to function AddrMgrEntryGet
+   \   000113   7401         MOV     A,#0x1
+   \   000115   12....       LCALL   ?XSTACK_DISP101_8
+   \   000118   12....       LCALL   `??AddrMgrEntryGet::?relay`; Banked call to: AddrMgrEntryGet
+   \   00011B   E9           MOV     A,R1
+   \   00011C   6009         JZ      ??zdpProcessAddrReq_11
     698                {
     699                  ieee = addrEntry.extAddr;
-   \   000107   7404         MOV     A,#0x4
-   \   000109   12....       LCALL   ?XSTACK_DISP0_8
-   \   00010C   AE82         MOV     R6,DPL
-   \   00010E   AF83         MOV     R7,DPH
+   \   00011E   7404         MOV     A,#0x4
+   \   000120   12....       LCALL   ?XSTACK_DISP0_8
+   \   000123   AE82         MOV     R6,DPL
+   \   000125   AF83         MOV     R7,DPH
     700                }
     701          
     702                if ( reqType != ZDP_ADDR_REQTYPE_SINGLE )
-   \                     ??zdpProcessAddrReq_9:
-   \   000110   E5..         MOV     A,?V3
-   \   000112   6003         JZ      ??zdpProcessAddrReq_4
+   \                     ??zdpProcessAddrReq_11:
+   \   000127   E5..         MOV     A,?V3
+   \   000129   6003         JZ      ??zdpProcessAddrReq_4
     703                  reqType = 0xFF; // Force Invalid
-   \                     ??zdpProcessAddrReq_6:
-   \   000114   75..FF       MOV     ?V3,#-0x1
+   \                     ??zdpProcessAddrReq_7:
+   \   00012B   75..FF       MOV     ?V3,#-0x1
     704              }
     705            }
     706          
     707            if ( ((aoi != INVALID_NODE_ADDR) && (ieee != NULL)) || (inMsg->wasBroadcast == FALSE) )
    \                     ??zdpProcessAddrReq_4:
-   \   000117   74FE         MOV     A,#-0x2
-   \   000119   65..         XRL     A,?V0
-   \   00011B   7004         JNZ     ??zdpProcessAddrReq_10
-   \   00011D   74FF         MOV     A,#-0x1
-   \   00011F   65..         XRL     A,?V1
-   \                     ??zdpProcessAddrReq_10:
-   \   000121   6004         JZ      ??zdpProcessAddrReq_5
-   \   000123   EE           MOV     A,R6
-   \   000124   4F           ORL     A,R7
-   \   000125   7011         JNZ     ??zdpProcessAddrReq_11
-   \                     ??zdpProcessAddrReq_5:
-   \   000127   E5..         MOV     A,?V6
-   \   000129   240B         ADD     A,#0xb
-   \   00012B   F582         MOV     DPL,A
-   \   00012D   E4           CLR     A
-   \   00012E   35..         ADDC    A,?V7
-   \   000130   F583         MOV     DPH,A
-   \   000132   E0           MOVX    A,@DPTR
-   \   000133   6003         JZ      $+5
-   \   000135   02....       LJMP    ??zdpProcessAddrReq_12 & 0xFFFF
+   \   00012E   74FE         MOV     A,#-0x2
+   \   000130   65..         XRL     A,?V0
+   \   000132   7004         JNZ     ??zdpProcessAddrReq_12
+   \   000134   74FF         MOV     A,#-0x1
+   \   000136   65..         XRL     A,?V1
+   \                     ??zdpProcessAddrReq_12:
+   \   000138   6004         JZ      ??zdpProcessAddrReq_6
+   \   00013A   EE           MOV     A,R6
+   \   00013B   4F           ORL     A,R7
+   \   00013C   7011         JNZ     ??zdpProcessAddrReq_13
+   \                     ??zdpProcessAddrReq_6:
+   \   00013E   E5..         MOV     A,?V6
+   \   000140   240B         ADD     A,#0xb
+   \   000142   F582         MOV     DPL,A
+   \   000144   E4           CLR     A
+   \   000145   35..         ADDC    A,?V7
+   \   000147   F583         MOV     DPH,A
+   \   000149   E0           MOVX    A,@DPTR
+   \   00014A   6003         JZ      $+5
+   \   00014C   02....       LJMP    ??zdpProcessAddrReq_14 & 0xFFFF
     708            {
     709              uint8 stat;
     710              uint8 *pBuf = ZDP_TmpBuf;
-   \                     ??zdpProcessAddrReq_11:
-   \   000138   12....       LCALL   ??Subroutine119_0 & 0xFFFF
+   \                     ??zdpProcessAddrReq_13:
+   \   00014F   12....       LCALL   ??Subroutine119_0 & 0xFFFF
     711              // Status + IEEE-Addr + Nwk-Addr.
     712              uint8 len = 1 + Z_EXTADDR_LEN + 2;
    \                     ??CrossCallReturnLabel_236:
-   \   00013B   75..0B       MOV     ?V2,#0xb
+   \   000152   75..0B       MOV     ?V2,#0xb
     713          
     714              // If aoi and iee are both setup, we found results
     715              if ( (aoi != INVALID_NODE_ADDR) && (ieee != NULL) )
-   \   00013E   74FE         MOV     A,#-0x2
-   \   000140   65..         XRL     A,?V0
-   \   000142   7004         JNZ     ??zdpProcessAddrReq_13
-   \   000144   74FF         MOV     A,#-0x1
-   \   000146   65..         XRL     A,?V1
-   \                     ??zdpProcessAddrReq_13:
-   \   000148   6018         JZ      ??zdpProcessAddrReq_14
-   \   00014A   EE           MOV     A,R6
-   \   00014B   4F           ORL     A,R7
-   \   00014C   6014         JZ      ??zdpProcessAddrReq_14
+   \   000155   74FE         MOV     A,#-0x2
+   \   000157   65..         XRL     A,?V0
+   \   000159   7004         JNZ     ??zdpProcessAddrReq_15
+   \   00015B   74FF         MOV     A,#-0x1
+   \   00015D   65..         XRL     A,?V1
+   \                     ??zdpProcessAddrReq_15:
+   \   00015F   6018         JZ      ??zdpProcessAddrReq_16
+   \   000161   EE           MOV     A,R6
+   \   000162   4F           ORL     A,R7
+   \   000163   6014         JZ      ??zdpProcessAddrReq_16
     716              {
     717                stat = ((reqType == ZDP_ADDR_REQTYPE_SINGLE) || (reqType == ZDP_ADDR_REQTYPE_EXTENDED))
     718                              ? ZDP_SUCCESS : ZDP_INVALID_REQTYPE;
-   \   00014E   E5..         MOV     A,?V3
-   \   000150   6006         JZ      ??zdpProcessAddrReq_15
-   \   000152   7401         MOV     A,#0x1
-   \   000154   65..         XRL     A,?V3
-   \   000156   7005         JNZ     ??zdpProcessAddrReq_16
-   \                     ??zdpProcessAddrReq_15:
-   \   000158   75..00       MOV     ?V4,#0x0
-   \   00015B   8019         SJMP    ??zdpProcessAddrReq_17
-   \                     ??zdpProcessAddrReq_16:
-   \   00015D   75..80       MOV     ?V4,#-0x80
-   \   000160   8014         SJMP    ??zdpProcessAddrReq_17
+   \   000165   E5..         MOV     A,?V3
+   \   000167   6006         JZ      ??zdpProcessAddrReq_17
+   \   000169   7401         MOV     A,#0x1
+   \   00016B   65..         XRL     A,?V3
+   \   00016D   7005         JNZ     ??zdpProcessAddrReq_18
+   \                     ??zdpProcessAddrReq_17:
+   \   00016F   75..00       MOV     ?V4,#0x0
+   \   000172   8019         SJMP    ??zdpProcessAddrReq_19
+   \                     ??zdpProcessAddrReq_18:
+   \   000174   75..80       MOV     ?V4,#-0x80
+   \   000177   8014         SJMP    ??zdpProcessAddrReq_19
     719              }
     720              else
     721              {
     722                // not found and the req was unicast to this device
     723                stat = ZDP_DEVICE_NOT_FOUND;
-   \                     ??zdpProcessAddrReq_14:
-   \   000162   75..81       MOV     ?V4,#-0x7f
+   \                     ??zdpProcessAddrReq_16:
+   \   000179   75..81       MOV     ?V4,#-0x7f
     724          
     725                // Fill in the missing field with this device's address
     726                if ( inMsg->clusterID == NWK_addr_req )
-   \   000165   12....       LCALL   ?Subroutine54 & 0xFFFF
+   \   00017C   12....       LCALL   ?Subroutine54 & 0xFFFF
    \                     ??CrossCallReturnLabel_174:
-   \   000168   7008         JNZ     ??zdpProcessAddrReq_18
+   \   00017F   7008         JNZ     ??zdpProcessAddrReq_20
     727                {
     728                  aoi = ZDAppNwkAddr.addr.shortAddr;
-   \   00016A   90....       MOV     DPTR,#ZDAppNwkAddr
-   \   00016D   12....       LCALL   ??Subroutine101_0 & 0xFFFF
+   \   000181   90....       MOV     DPTR,#ZDAppNwkAddr
+   \   000184   12....       LCALL   ??Subroutine101_0 & 0xFFFF
     729                }
    \                     ??CrossCallReturnLabel_167:
-   \   000170   8004         SJMP    ??zdpProcessAddrReq_17
+   \   000187   8004         SJMP    ??zdpProcessAddrReq_19
     730                else
     731                {
     732                  ieee = saveExtAddr;
-   \                     ??zdpProcessAddrReq_18:
-   \   000172   7E..         MOV     R6,#saveExtAddr & 0xff
-   \   000174   7F..         MOV     R7,#(saveExtAddr >> 8) & 0xff
+   \                     ??zdpProcessAddrReq_20:
+   \   000189   7E..         MOV     R6,#saveExtAddr & 0xff
+   \   00018B   7F..         MOV     R7,#(saveExtAddr >> 8) & 0xff
     733                }
     734              }
     735          
     736              *pBuf++ = stat;
-   \                     ??zdpProcessAddrReq_17:
-   \   000176   8A82         MOV     DPL,R2
-   \   000178   8B83         MOV     DPH,R3
-   \   00017A   E5..         MOV     A,?V4
-   \   00017C   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??zdpProcessAddrReq_19:
+   \   00018D   8A82         MOV     DPL,R2
+   \   00018F   8B83         MOV     DPH,R3
+   \   000191   E5..         MOV     A,?V4
+   \   000193   12....       LCALL   ?Subroutine23 & 0xFFFF
     737          
     738              pBuf = osal_cpyExtAddr( pBuf, ieee );
    \                     ??CrossCallReturnLabel_27:
-   \   00017F                ; Setup parameters for call to function sAddrExtCpy
-   \   00017F   EE           MOV     A,R6
-   \   000180   FC           MOV     R4,A
-   \   000181   EF           MOV     A,R7
-   \   000182   FD           MOV     R5,A
-   \   000183   12....       LCALL   `??sAddrExtCpy::?relay`; Banked call to: sAddrExtCpy
-   \   000186   8A..         MOV     ?V10,R2
-   \   000188   8B..         MOV     ?V11,R3
-   \   00018A   AE..         MOV     R6,?V10
-   \   00018C   AF..         MOV     R7,?V11
+   \   000196                ; Setup parameters for call to function sAddrExtCpy
+   \   000196   EE           MOV     A,R6
+   \   000197   FC           MOV     R4,A
+   \   000198   EF           MOV     A,R7
+   \   000199   FD           MOV     R5,A
+   \   00019A   12....       LCALL   `??sAddrExtCpy::?relay`; Banked call to: sAddrExtCpy
+   \   00019D   8A..         MOV     ?V10,R2
+   \   00019F   8B..         MOV     ?V11,R3
+   \   0001A1   AE..         MOV     R6,?V10
+   \   0001A3   AF..         MOV     R7,?V11
     739          
     740              *pBuf++ = LO_UINT16( aoi );
-   \   00018E   8E82         MOV     DPL,R6
-   \   000190   8F83         MOV     DPH,R7
-   \   000192   E5..         MOV     A,?V0
-   \   000194   F0           MOVX    @DPTR,A
+   \   0001A5   8E82         MOV     DPL,R6
+   \   0001A7   8F83         MOV     DPH,R7
+   \   0001A9   E5..         MOV     A,?V0
+   \   0001AB   F0           MOVX    @DPTR,A
     741              *pBuf++ = HI_UINT16( aoi );
-   \   000195   A3           INC     DPTR
-   \   000196   E5..         MOV     A,?V1
-   \   000198   F0           MOVX    @DPTR,A
+   \   0001AC   A3           INC     DPTR
+   \   0001AD   E5..         MOV     A,?V1
+   \   0001AF   F0           MOVX    @DPTR,A
     742          
     743              if ( ZSTACK_ROUTER_BUILD )
+   \   0001B0   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   0001B3   E0           MOVX    A,@DPTR
+   \   0001B4   6007         JZ      ??zdpProcessAddrReq_21
+   \   0001B6   6401         XRL     A,#0x1
+   \   0001B8   6003         JZ      $+5
+   \   0001BA   02....       LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
     744              {
     745                if ( (reqType == ZDP_ADDR_REQTYPE_EXTENDED) && (aoi == ZDAppNwkAddr.addr.shortAddr)
     746                     && (stat == ZDP_SUCCESS) )
-   \   000199   7401         MOV     A,#0x1
-   \   00019B   65..         XRL     A,?V3
-   \   00019D   6003         JZ      $+5
-   \   00019F   02....       LJMP    ??zdpProcessAddrReq_19 & 0xFFFF
-   \   0001A2   90....       MOV     DPTR,#ZDAppNwkAddr
-   \   0001A5   E0           MOVX    A,@DPTR
-   \   0001A6   65..         XRL     A,?V0
-   \   0001A8   7004         JNZ     ??zdpProcessAddrReq_20
-   \   0001AA   A3           INC     DPTR
-   \   0001AB   E0           MOVX    A,@DPTR
-   \   0001AC   65..         XRL     A,?V1
-   \                     ??zdpProcessAddrReq_20:
-   \   0001AE   6003         JZ      $+5
-   \   0001B0   02....       LJMP    ??zdpProcessAddrReq_19 & 0xFFFF
-   \   0001B3   E5..         MOV     A,?V4
-   \   0001B5   6003         JZ      $+5
-   \   0001B7   02....       LJMP    ??zdpProcessAddrReq_19 & 0xFFFF
+   \                     ??zdpProcessAddrReq_21:
+   \   0001BD   7401         MOV     A,#0x1
+   \   0001BF   65..         XRL     A,?V3
+   \   0001C1   6003         JZ      $+5
+   \   0001C3   02....       LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
+   \   0001C6   90....       MOV     DPTR,#ZDAppNwkAddr
+   \   0001C9   E0           MOVX    A,@DPTR
+   \   0001CA   65..         XRL     A,?V0
+   \   0001CC   7004         JNZ     ??zdpProcessAddrReq_23
+   \   0001CE   A3           INC     DPTR
+   \   0001CF   E0           MOVX    A,@DPTR
+   \   0001D0   65..         XRL     A,?V1
+   \                     ??zdpProcessAddrReq_23:
+   \   0001D2   6003         JZ      $+5
+   \   0001D4   02....       LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
+   \   0001D7   E5..         MOV     A,?V4
+   \   0001D9   6003         JZ      $+5
+   \   0001DB   02....       LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
     747                {
     748                  uint8  cnt = 0;
-   \   0001BA   85..82       MOV     DPL,?XSP + 0
-   \   0001BD   85..83       MOV     DPH,?XSP + 1
-   \   0001C0   E4           CLR     A
-   \   0001C1   F0           MOVX    @DPTR,A
+   \   0001DE   85..82       MOV     DPL,?XSP + 0
+   \   0001E1   85..83       MOV     DPH,?XSP + 1
+   \   0001E4   E4           CLR     A
+   \   0001E5   F0           MOVX    @DPTR,A
     749                  uint16 *list = AssocMakeList( &cnt );
-   \   0001C2                ; Setup parameters for call to function AssocMakeList
-   \   0001C2   AA..         MOV     R2,?XSP + 0
-   \   0001C4   AB..         MOV     R3,?XSP + 1
-   \   0001C6   12....       LCALL   `??AssocMakeList::?relay`; Banked call to: AssocMakeList
-   \   0001C9   8A..         MOV     ?V0,R2
-   \   0001CB   8B..         MOV     ?V1,R3
-   \   0001CD   AC..         MOV     R4,?V0
-   \   0001CF   AD..         MOV     R5,?V1
+   \   0001E6                ; Setup parameters for call to function AssocMakeList
+   \   0001E6   AA..         MOV     R2,?XSP + 0
+   \   0001E8   AB..         MOV     R3,?XSP + 1
+   \   0001EA   12....       LCALL   `??AssocMakeList::?relay`; Banked call to: AssocMakeList
+   \   0001ED   8A..         MOV     ?V0,R2
+   \   0001EF   8B..         MOV     ?V1,R3
+   \   0001F1   AC..         MOV     R4,?V0
+   \   0001F3   AD..         MOV     R5,?V1
     750          
     751                  if ( list != NULL )
-   \   0001D1   EE           MOV     A,R6
-   \   0001D2   2402         ADD     A,#0x2
-   \   0001D4   F8           MOV     R0,A
-   \   0001D5   E4           CLR     A
-   \   0001D6   3F           ADDC    A,R7
-   \   0001D7   F9           MOV     R1,A
-   \   0001D8   E8           MOV     A,R0
-   \   0001D9   FA           MOV     R2,A
-   \   0001DA   E9           MOV     A,R1
-   \   0001DB   FB           MOV     R3,A
-   \   0001DC   EC           MOV     A,R4
-   \   0001DD   4D           ORL     A,R5
-   \   0001DE   7003         JNZ     $+5
-   \   0001E0   02....       LJMP    ??zdpProcessAddrReq_21 & 0xFFFF
+   \   0001F5   EE           MOV     A,R6
+   \   0001F6   2402         ADD     A,#0x2
+   \   0001F8   F8           MOV     R0,A
+   \   0001F9   E4           CLR     A
+   \   0001FA   3F           ADDC    A,R7
+   \   0001FB   F9           MOV     R1,A
+   \   0001FC   E8           MOV     A,R0
+   \   0001FD   FA           MOV     R2,A
+   \   0001FE   E9           MOV     A,R1
+   \   0001FF   FB           MOV     R3,A
+   \   000200   EC           MOV     A,R4
+   \   000201   4D           ORL     A,R5
+   \   000202   7003         JNZ     $+5
+   \   000204   02....       LJMP    ??zdpProcessAddrReq_24 & 0xFFFF
     752                  {
     753                    byte idx = inMsg->asdu[(((inMsg->clusterID == NWK_addr_req) ? Z_EXTADDR_LEN : sizeof( uint16 )) + 1)];
-   \   0001E3   12....       LCALL   ?Subroutine54 & 0xFFFF
+   \   000207   12....       LCALL   ?Subroutine54 & 0xFFFF
    \                     ??CrossCallReturnLabel_175:
-   \   0001E6   7004         JNZ     ??zdpProcessAddrReq_22
-   \   0001E8   7808         MOV     R0,#0x8
-   \   0001EA   8002         SJMP    ??zdpProcessAddrReq_23
-   \                     ??zdpProcessAddrReq_22:
-   \   0001EC   7802         MOV     R0,#0x2
-   \                     ??zdpProcessAddrReq_23:
-   \   0001EE   85..82       MOV     DPL,?V12
-   \   0001F1   85..83       MOV     DPH,?V13
-   \   0001F4   E0           MOVX    A,@DPTR
-   \   0001F5   28           ADD     A,R0
-   \   0001F6   F5..         MOV     ?V0,A
-   \   0001F8   A3           INC     DPTR
-   \   0001F9   E0           MOVX    A,@DPTR
-   \   0001FA   3400         ADDC    A,#0x0
-   \   0001FC   85..82       MOV     DPL,?V0
-   \   0001FF   F583         MOV     DPH,A
-   \   000201   A3           INC     DPTR
-   \   000202   E0           MOVX    A,@DPTR
-   \   000203   F5..         MOV     ?V0,A
+   \   00020A   7004         JNZ     ??zdpProcessAddrReq_25
+   \   00020C   7808         MOV     R0,#0x8
+   \   00020E   8002         SJMP    ??zdpProcessAddrReq_26
+   \                     ??zdpProcessAddrReq_25:
+   \   000210   7802         MOV     R0,#0x2
+   \                     ??zdpProcessAddrReq_26:
+   \   000212   85..82       MOV     DPL,?V12
+   \   000215   85..83       MOV     DPH,?V13
+   \   000218   E0           MOVX    A,@DPTR
+   \   000219   28           ADD     A,R0
+   \   00021A   F5..         MOV     ?V0,A
+   \   00021C   A3           INC     DPTR
+   \   00021D   E0           MOVX    A,@DPTR
+   \   00021E   3400         ADDC    A,#0x0
+   \   000220   85..82       MOV     DPL,?V0
+   \   000223   F583         MOV     DPH,A
+   \   000225   A3           INC     DPTR
+   \   000226   E0           MOVX    A,@DPTR
+   \   000227   F5..         MOV     ?V0,A
     754                    uint16 *pList = list + idx;
-   \   000205   12....       LCALL   ??Subroutine112_0 & 0xFFFF
+   \   000229   12....       LCALL   ??Subroutine112_0 & 0xFFFF
    \                     ??CrossCallReturnLabel_195:
-   \   000208   EC           MOV     A,R4
-   \   000209   28           ADD     A,R0
-   \   00020A   F8           MOV     R0,A
-   \   00020B   ED           MOV     A,R5
-   \   00020C   39           ADDC    A,R1
-   \   00020D   F9           MOV     R1,A
+   \   00022C   EC           MOV     A,R4
+   \   00022D   28           ADD     A,R0
+   \   00022E   F8           MOV     R0,A
+   \   00022F   ED           MOV     A,R5
+   \   000230   39           ADDC    A,R1
+   \   000231   F9           MOV     R1,A
     755          
     756                    // NumAssocDev field is only present on success.
     757                    if ( cnt > idx )
-   \   00020E   85..82       MOV     DPL,?XSP + 0
-   \   000211   85..83       MOV     DPH,?XSP + 1
-   \   000214   E0           MOVX    A,@DPTR
-   \   000215   F5..         MOV     ?V1,A
-   \   000217   E5..         MOV     A,?V0
-   \   000219   C3           CLR     C
-   \   00021A   95..         SUBB    A,?V1
-   \   00021C   500D         JNC     ??zdpProcessAddrReq_24
+   \   000232   85..82       MOV     DPL,?XSP + 0
+   \   000235   85..83       MOV     DPH,?XSP + 1
+   \   000238   E0           MOVX    A,@DPTR
+   \   000239   F5..         MOV     ?V1,A
+   \   00023B   E5..         MOV     A,?V0
+   \   00023D   C3           CLR     C
+   \   00023E   95..         SUBB    A,?V1
+   \   000240   500D         JNC     ??zdpProcessAddrReq_27
     758                    {
     759                      cnt -= idx;
-   \   00021E   E0           MOVX    A,@DPTR
-   \   00021F   C3           CLR     C
-   \   000220   95..         SUBB    A,?V0
-   \   000222   F0           MOVX    @DPTR,A
+   \   000242   E0           MOVX    A,@DPTR
+   \   000243   C3           CLR     C
+   \   000244   95..         SUBB    A,?V0
+   \   000246   F0           MOVX    @DPTR,A
     760                      len += (cnt * sizeof( uint16 ));
-   \   000223   C3           CLR     C
-   \   000224   33           RLC     A
-   \   000225   240B         ADD     A,#0xb
-   \   000227   F5..         MOV     ?V2,A
-   \   000229   8002         SJMP    ??zdpProcessAddrReq_25
+   \   000247   C3           CLR     C
+   \   000248   33           RLC     A
+   \   000249   240B         ADD     A,#0xb
+   \   00024B   F5..         MOV     ?V2,A
+   \   00024D   8002         SJMP    ??zdpProcessAddrReq_28
     761                    }
     762                    else
     763                    {
     764                      cnt = 0;
-   \                     ??zdpProcessAddrReq_24:
-   \   00022B   E4           CLR     A
-   \   00022C   F0           MOVX    @DPTR,A
+   \                     ??zdpProcessAddrReq_27:
+   \   00024F   E4           CLR     A
+   \   000250   F0           MOVX    @DPTR,A
     765                    }
     766                    *pBuf++ = cnt;
-   \                     ??zdpProcessAddrReq_25:
-   \   00022D   12....       LCALL   ??Subroutine118_0 & 0xFFFF
+   \                     ??zdpProcessAddrReq_28:
+   \   000251   12....       LCALL   ??Subroutine118_0 & 0xFFFF
    \                     ??CrossCallReturnLabel_223:
-   \   000230   12....       LCALL   ?Subroutine38 & 0xFFFF
+   \   000254   12....       LCALL   ?Subroutine38 & 0xFFFF
     767                    len++;
     768          
     769                    // StartIndex field is only present if NumAssocDev field is non-zero.
     770                    *pBuf++ = idx;
    \                     ??CrossCallReturnLabel_58:
-   \   000233   E5..         MOV     A,?V0
-   \   000235   F0           MOVX    @DPTR,A
-   \   000236   EE           MOV     A,R6
-   \   000237   2404         ADD     A,#0x4
-   \   000239   FA           MOV     R2,A
-   \   00023A   E4           CLR     A
-   \   00023B   3F           ADDC    A,R7
-   \   00023C   FB           MOV     R3,A
+   \   000257   E5..         MOV     A,?V0
+   \   000259   F0           MOVX    @DPTR,A
+   \   00025A   EE           MOV     A,R6
+   \   00025B   2404         ADD     A,#0x4
+   \   00025D   FA           MOV     R2,A
+   \   00025E   E4           CLR     A
+   \   00025F   3F           ADDC    A,R7
+   \   000260   FB           MOV     R3,A
     771                    len++;
-   \   00023D   05..         INC     ?V2
-   \   00023F   05..         INC     ?V2
-   \   000241   801E         SJMP    ??zdpProcessAddrReq_26
+   \   000261   05..         INC     ?V2
+   \   000263   05..         INC     ?V2
+   \   000265   801E         SJMP    ??zdpProcessAddrReq_29
     772          
     773                    while ( cnt != 0 )
     774                    {
     775                      *pBuf++ = LO_UINT16( *pList );
-   \                     ??zdpProcessAddrReq_27:
-   \   000243   12....       LCALL   ?Subroutine68 & 0xFFFF
+   \                     ??zdpProcessAddrReq_30:
+   \   000267   12....       LCALL   ?Subroutine68 & 0xFFFF
    \                     ??CrossCallReturnLabel_227:
-   \   000246   12....       LCALL   ?Subroutine25 & 0xFFFF
+   \   00026A   12....       LCALL   ?Subroutine25 & 0xFFFF
     776                      *pBuf++ = HI_UINT16( *pList );
    \                     ??CrossCallReturnLabel_32:
-   \   000249   F0           MOVX    @DPTR,A
-   \   00024A   EA           MOV     A,R2
-   \   00024B   2402         ADD     A,#0x2
-   \   00024D   FA           MOV     R2,A
-   \   00024E   5001         JNC     ??zdpProcessAddrReq_28
-   \   000250   0B           INC     R3
+   \   00026D   F0           MOVX    @DPTR,A
+   \   00026E   EA           MOV     A,R2
+   \   00026F   2402         ADD     A,#0x2
+   \   000271   FA           MOV     R2,A
+   \   000272   5001         JNC     ??zdpProcessAddrReq_31
+   \   000274   0B           INC     R3
     777                      pList++;
-   \                     ??zdpProcessAddrReq_28:
-   \   000251   E8           MOV     A,R0
-   \   000252   2402         ADD     A,#0x2
-   \   000254   F8           MOV     R0,A
-   \   000255   5001         JNC     ??zdpProcessAddrReq_29
-   \   000257   09           INC     R1
+   \                     ??zdpProcessAddrReq_31:
+   \   000275   E8           MOV     A,R0
+   \   000276   2402         ADD     A,#0x2
+   \   000278   F8           MOV     R0,A
+   \   000279   5001         JNC     ??zdpProcessAddrReq_32
+   \   00027B   09           INC     R1
     778                      cnt--;
-   \                     ??zdpProcessAddrReq_29:
-   \   000258   85..82       MOV     DPL,?XSP + 0
-   \   00025B   85..83       MOV     DPH,?XSP + 1
-   \   00025E   E0           MOVX    A,@DPTR
-   \   00025F   14           DEC     A
-   \   000260   F0           MOVX    @DPTR,A
+   \                     ??zdpProcessAddrReq_32:
+   \   00027C   85..82       MOV     DPL,?XSP + 0
+   \   00027F   85..83       MOV     DPH,?XSP + 1
+   \   000282   E0           MOVX    A,@DPTR
+   \   000283   14           DEC     A
+   \   000284   F0           MOVX    @DPTR,A
     779                    }
-   \                     ??zdpProcessAddrReq_26:
-   \   000261   85..82       MOV     DPL,?XSP + 0
-   \   000264   85..83       MOV     DPH,?XSP + 1
-   \   000267   E0           MOVX    A,@DPTR
-   \   000268   70D9         JNZ     ??zdpProcessAddrReq_27
+   \                     ??zdpProcessAddrReq_29:
+   \   000285   85..82       MOV     DPL,?XSP + 0
+   \   000288   85..83       MOV     DPH,?XSP + 1
+   \   00028B   E0           MOVX    A,@DPTR
+   \   00028C   70D9         JNZ     ??zdpProcessAddrReq_30
     780          
     781                    osal_mem_free( (uint8 *)list );
-   \   00026A                ; Setup parameters for call to function osal_mem_free
-   \   00026A   EC           MOV     A,R4
-   \   00026B   FA           MOV     R2,A
-   \   00026C   ED           MOV     A,R5
-   \   00026D   FB           MOV     R3,A
-   \   00026E   12....       LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
-   \   000271   8009         SJMP    ??zdpProcessAddrReq_19
+   \   00028E                ; Setup parameters for call to function osal_mem_free
+   \   00028E   EC           MOV     A,R4
+   \   00028F   FA           MOV     R2,A
+   \   000290   ED           MOV     A,R5
+   \   000291   FB           MOV     R3,A
+   \   000292   12....       LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+   \   000295   8009         SJMP    ??zdpProcessAddrReq_22
     782                  }
     783                  else
     784                  {
     785                    // NumAssocDev field is only present on success.
     786                    *pBuf++ = 0;
-   \                     ??zdpProcessAddrReq_21:
-   \   000273   8A82         MOV     DPL,R2
-   \   000275   8B83         MOV     DPH,R3
-   \   000277   E4           CLR     A
-   \   000278   F0           MOVX    @DPTR,A
+   \                     ??zdpProcessAddrReq_24:
+   \   000297   8A82         MOV     DPL,R2
+   \   000299   8B83         MOV     DPH,R3
+   \   00029B   E4           CLR     A
+   \   00029C   F0           MOVX    @DPTR,A
     787                    len++;
-   \   000279   75..0C       MOV     ?V2,#0xc
+   \   00029D   75..0C       MOV     ?V2,#0xc
     788                  }
     789                }
     790              }
     791          
     792              ZDP_TxOptions = AF_MSG_ACK_REQUEST;
-   \                     ??zdpProcessAddrReq_19:
-   \   00027C   90....       MOV     DPTR,#ZDP_TxOptions
-   \   00027F   7410         MOV     A,#0x10
-   \   000281   12....       LCALL   ?Subroutine27 & 0xFFFF
+   \                     ??zdpProcessAddrReq_22:
+   \   0002A0   90....       MOV     DPTR,#ZDP_TxOptions
+   \   0002A3   7410         MOV     A,#0x10
+   \   0002A5   12....       LCALL   ?Subroutine27 & 0xFFFF
     793              fillAndSend( &(inMsg->TransSeq), &(inMsg->srcAddr), (cId_t)(inMsg->clusterID | ZDO_RESPONSE_BIT), len );
    \                     ??CrossCallReturnLabel_37:
-   \   000284   E0           MOVX    A,@DPTR
-   \   000285   F5..         MOV     ?V0,A
-   \   000287   A3           INC     DPTR
-   \   000288   E0           MOVX    A,@DPTR
-   \   000289   4480         ORL     A,#0x80
-   \   00028B   F5..         MOV     ?V1,A
-   \   00028D   78..         MOV     R0,#?V0
-   \   00028F   12....       LCALL   ?PUSH_XSTACK_I_TWO
-   \   000292   A9..         MOV     R1,?V2
-   \   000294   E5..         MOV     A,?V6
-   \   000296   2402         ADD     A,#0x2
-   \   000298   FC           MOV     R4,A
-   \   000299   E4           CLR     A
-   \   00029A   35..         ADDC    A,?V7
-   \   00029C   FD           MOV     R5,A
-   \   00029D   E5..         MOV     A,?V6
-   \   00029F   240F         ADD     A,#0xf
-   \   0002A1   FA           MOV     R2,A
-   \   0002A2   E4           CLR     A
-   \   0002A3   35..         ADDC    A,?V7
-   \   0002A5   FB           MOV     R3,A
-   \   0002A6   12....       LCALL   `??fillAndSend::?relay`; Banked call to: fillAndSend
-   \   0002A9   7402         MOV     A,#0x2
-   \   0002AB   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0002A8   E0           MOVX    A,@DPTR
+   \   0002A9   F5..         MOV     ?V0,A
+   \   0002AB   A3           INC     DPTR
+   \   0002AC   E0           MOVX    A,@DPTR
+   \   0002AD   4480         ORL     A,#0x80
+   \   0002AF   F5..         MOV     ?V1,A
+   \   0002B1   78..         MOV     R0,#?V0
+   \   0002B3   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0002B6   A9..         MOV     R1,?V2
+   \   0002B8   E5..         MOV     A,?V6
+   \   0002BA   2402         ADD     A,#0x2
+   \   0002BC   FC           MOV     R4,A
+   \   0002BD   E4           CLR     A
+   \   0002BE   35..         ADDC    A,?V7
+   \   0002C0   FD           MOV     R5,A
+   \   0002C1   E5..         MOV     A,?V6
+   \   0002C3   240F         ADD     A,#0xf
+   \   0002C5   FA           MOV     R2,A
+   \   0002C6   E4           CLR     A
+   \   0002C7   35..         ADDC    A,?V7
+   \   0002C9   FB           MOV     R3,A
+   \   0002CA   12....       LCALL   `??fillAndSend::?relay`; Banked call to: fillAndSend
+   \   0002CD   7402         MOV     A,#0x2
+   \   0002CF   12....       LCALL   ?DEALLOC_XSTACK8
     794              ZDP_TxOptions = AF_TX_OPTIONS_NONE;
-   \   0002AE   90....       MOV     DPTR,#ZDP_TxOptions
-   \   0002B1   E4           CLR     A
-   \   0002B2   F0           MOVX    @DPTR,A
+   \   0002D2   90....       MOV     DPTR,#ZDP_TxOptions
+   \   0002D5   E4           CLR     A
+   \   0002D6   F0           MOVX    @DPTR,A
     795            }
     796          }
-   \                     ??zdpProcessAddrReq_12:
-   \   0002B3   740E         MOV     A,#0xe
-   \   0002B5   02....       LJMP    ??Subroutine121_0 & 0xFFFF
+   \                     ??zdpProcessAddrReq_14:
+   \   0002D7   740E         MOV     A,#0xe
+   \   0002D9   02....       LJMP    ??Subroutine121_0 & 0xFFFF
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine54:
@@ -8059,19 +8076,19 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zdo\ZDProfile.c
      160  fillAndSend
        6  fillAndSend::?relay
        2  zdoMsgCBs
-      56  zdpMsgProcs
-     696  zdpProcessAddrReq
+      48  zdpMsgProcs
+     732  zdpProcessAddrReq
        6  zdpProcessAddrReq::?relay
 
  
- 7 266 bytes in segment BANKED_CODE
+ 7 302 bytes in segment BANKED_CODE
    210 bytes in segment BANK_RELAYS
-    57 bytes in segment CODE_C
+    49 bytes in segment CODE_C
      2 bytes in segment XDATA_I
      2 bytes in segment XDATA_ID
     84 bytes in segment XDATA_Z
  
- 7 535 bytes of CODE  memory
+ 7 563 bytes of CODE  memory
     86 bytes of XDATA memory
 
 Errors: none

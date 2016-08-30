@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:46:08
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                28/Aug/2016  22:57:23
 # Copyright 2004-2015 IAR Systems AB.
 #
 #    Core               =  plain
@@ -39,13 +39,15 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 #        "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\Source\OSAL_zha_project.c"
-#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D
-#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
-#        -D MT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D
-#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D
-#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
-#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC
-#        "C:\Texas Instruments\Z-Stack Home
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        HOLD_AUTO_START -D BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D
+#        xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+#        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+#        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
+#        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR -lC "C:\Texas
+#        Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 #        -lA "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +102,7 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 #        -I "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-#        -Ohz --require_prototypes
+#        -Ohz
 #    List file          =  
 #        C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\OSAL_zha_project.lst
@@ -189,13 +191,12 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zi
    \   000000   ....         DW `??macEventLoop::?relay`
    \   000002   ....         DW `??nwk_event_loop::?relay`
    \   000004   ....         DW `??Hal_ProcessEvent::?relay`
-   \   000006   ....         DW `??MT_ProcessEvent::?relay`
-   \   000008   ....         DW `??APS_event_loop::?relay`
-   \   00000A   ....         DW `??APSF_ProcessEvent::?relay`
-   \   00000C   ....         DW `??ZDApp_event_loop::?relay`
-   \   00000E   ....         DW `??ZDNwkMgr_event_loop::?relay`
-   \   000010   ....         DW `??zcl_event_loop::?relay`
-   \   000012   ....         DW `??zha_project_event_loop::?relay`
+   \   000006   ....         DW `??APS_event_loop::?relay`
+   \   000008   ....         DW `??APSF_ProcessEvent::?relay`
+   \   00000A   ....         DW `??ZDApp_event_loop::?relay`
+   \   00000C   ....         DW `??ZDNwkMgr_event_loop::?relay`
+   \   00000E   ....         DW `??zcl_event_loop::?relay`
+   \   000010   ....         DW `??zha_project_event_loop::?relay`
      73            macEventLoop,
      74            nwk_event_loop,
      75            Hal_ProcessEvent,
@@ -218,7 +219,7 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zi
    \                                 In  segment XDATA_ROM_C, align 1
      91          const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
    \                     tasksCnt:
-   \   000000   0A           DB 10
+   \   000000   09           DB 9
 
    \                                 In  segment XDATA_Z, align 1, keep-with-next
      92          uint16 *tasksEvents;
@@ -252,7 +253,7 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zi
     110          
     111            tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
    \   000004                ; Setup parameters for call to function osal_mem_alloc
-   \   000004   7A14         MOV     R2,#0x14
+   \   000004   7A12         MOV     R2,#0x12
    \   000006   7B00         MOV     R3,#0x0
    \   000008   12....       LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
    \   00000B   90....       MOV     DPTR,#tasksEvents
@@ -263,7 +264,7 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zi
    \   000012   F0           MOVX    @DPTR,A
     112            osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
    \   000013                ; Setup parameters for call to function osal_memset
-   \   000013   7C14         MOV     R4,#0x14
+   \   000013   7C12         MOV     R4,#0x12
    \   000015   7D00         MOV     R5,#0x0
    \   000017   7900         MOV     R1,#0x0
    \   000019   12....       LCALL   `??osal_memset::?relay`; Banked call to: osal_memset
@@ -282,42 +283,39 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zi
    \   000028   12....       LCALL   `??Hal_Init::?relay` ; Banked call to: Hal_Init
     117          #if defined( MT_TASK )
     118            MT_TaskInit( taskID++ );
-   \   00002B                ; Setup parameters for call to function MT_TaskInit
-   \   00002B   7903         MOV     R1,#0x3
-   \   00002D   12....       LCALL   `??MT_TaskInit::?relay`; Banked call to: MT_TaskInit
     119          #endif
     120            APS_Init( taskID++ );
-   \   000030                ; Setup parameters for call to function APS_Init
-   \   000030   7904         MOV     R1,#0x4
-   \   000032   12....       LCALL   `??APS_Init::?relay` ; Banked call to: APS_Init
+   \   00002B                ; Setup parameters for call to function APS_Init
+   \   00002B   7903         MOV     R1,#0x3
+   \   00002D   12....       LCALL   `??APS_Init::?relay` ; Banked call to: APS_Init
     121          #if defined ( ZIGBEE_FRAGMENTATION )
     122            APSF_Init( taskID++ );
-   \   000035                ; Setup parameters for call to function APSF_Init
-   \   000035   7905         MOV     R1,#0x5
-   \   000037   12....       LCALL   `??APSF_Init::?relay`; Banked call to: APSF_Init
+   \   000030                ; Setup parameters for call to function APSF_Init
+   \   000030   7904         MOV     R1,#0x4
+   \   000032   12....       LCALL   `??APSF_Init::?relay`; Banked call to: APSF_Init
     123          #endif
     124            ZDApp_Init( taskID++ );
-   \   00003A                ; Setup parameters for call to function ZDApp_Init
-   \   00003A   7906         MOV     R1,#0x6
-   \   00003C   12....       LCALL   `??ZDApp_Init::?relay`; Banked call to: ZDApp_Init
+   \   000035                ; Setup parameters for call to function ZDApp_Init
+   \   000035   7905         MOV     R1,#0x5
+   \   000037   12....       LCALL   `??ZDApp_Init::?relay`; Banked call to: ZDApp_Init
     125          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
     126            ZDNwkMgr_Init( taskID++ );
-   \   00003F                ; Setup parameters for call to function ZDNwkMgr_Init
-   \   00003F   7907         MOV     R1,#0x7
-   \   000041   12....       LCALL   `??ZDNwkMgr_Init::?relay`; Banked call to: ZDNwkMgr_Init
+   \   00003A                ; Setup parameters for call to function ZDNwkMgr_Init
+   \   00003A   7906         MOV     R1,#0x6
+   \   00003C   12....       LCALL   `??ZDNwkMgr_Init::?relay`; Banked call to: ZDNwkMgr_Init
     127          #endif
     128            zcl_Init( taskID++ );
-   \   000044                ; Setup parameters for call to function zcl_Init
-   \   000044   7908         MOV     R1,#0x8
-   \   000046   12....       LCALL   `??zcl_Init::?relay` ; Banked call to: zcl_Init
+   \   00003F                ; Setup parameters for call to function zcl_Init
+   \   00003F   7907         MOV     R1,#0x7
+   \   000041   12....       LCALL   `??zcl_Init::?relay` ; Banked call to: zcl_Init
     129            zha_project_Init( taskID );
-   \   000049                ; Setup parameters for call to function zha_project_Init
-   \   000049   7909         MOV     R1,#0x9
-   \   00004B   12....       LCALL   `??zha_project_Init::?relay`; Banked call to: zha_project_Init
+   \   000044                ; Setup parameters for call to function zha_project_Init
+   \   000044   7908         MOV     R1,#0x8
+   \   000046   12....       LCALL   `??zha_project_Init::?relay`; Banked call to: zha_project_Init
     130          }
-   \   00004E   D083         POP     DPH
-   \   000050   D082         POP     DPL
-   \   000052   02....       LJMP    ?BRET
+   \   000049   D083         POP     DPH
+   \   00004B   D082         POP     DPL
+   \   00004D   02....       LJMP    ?BRET
 
    \                                 In  segment BANK_RELAYS, align 1
    \                     `??osalInitTasks::?relay`:
@@ -335,7 +333,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zi
         2   -> APSF_Init
         2   -> APS_Init
         2   -> Hal_Init
-        2   -> MT_TaskInit
         2   -> ZDApp_Init
         2   -> ZDNwkMgr_Init
         2   -> macTaskInit
@@ -350,20 +347,20 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\Zi
 
    Bytes  Function/Label
    -----  --------------
-      85  osalInitTasks
+      80  osalInitTasks
        6  osalInitTasks::?relay
-      20  tasksArr
+      18  tasksArr
        1  tasksCnt
        2  tasksEvents
 
  
- 85 bytes in segment BANKED_CODE
+ 80 bytes in segment BANKED_CODE
   6 bytes in segment BANK_RELAYS
- 21 bytes in segment XDATA_ROM_C
+ 19 bytes in segment XDATA_ROM_C
   2 bytes in segment XDATA_Z
  
- 91 bytes of CODE  memory
- 21 bytes of CONST memory
+ 86 bytes of CODE  memory
+ 19 bytes of CONST memory
   2 bytes of XDATA memory
 
 Errors: none

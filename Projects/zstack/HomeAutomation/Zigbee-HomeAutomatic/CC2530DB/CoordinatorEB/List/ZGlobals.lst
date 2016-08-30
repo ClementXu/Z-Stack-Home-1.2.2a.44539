@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:14:24
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                28/Aug/2016  20:48:55
 # Copyright 2004-2015 IAR Systems AB.
 #
 #    Core               =  plain
@@ -39,13 +39,14 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 #        "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Components\stack\sys\ZGlobals.c" -D SECURE=1 -D
-#        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-#        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-#        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-#        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-#        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-#        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-#        Instruments\Z-Stack Home
+#        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+#        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+#        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+#        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+#        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D
+#        ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+#        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+#        -lC "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 #        -lA "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 #        -I "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-#        -Ohz --require_prototypes
+#        -Ohz
 #    List file          =  
 #        C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\ZGlobals.lst
@@ -439,15 +440,14 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\sys\ZGlobals.c
     158          // End device built with Child Table Aging support both methods, the method is
     159          // determined by the parent and communicated at run-time.
     160          #if ( ZG_BUILD_ENDDEVICE_TYPE )
-    161          uint8 zgNwkParentInformation = NWK_PARENT_INFO_UNDEFINED;
-    162          #else
 
-   \                                 In  segment XDATA_I, align 1, keep-with-next
-    163          uint8 zgNwkParentInformation = NWK_PARENT_INFO_ORPHAN_NOTIFICATION;
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    161          uint8 zgNwkParentInformation = NWK_PARENT_INFO_UNDEFINED;
    \                     zgNwkParentInformation:
    \   000000                DS 1
-   \   000001                REQUIRE `?<Initializer for zgNwkParentInformation>`
-   \   000001                REQUIRE __INIT_XDATA_I
+   \   000001                REQUIRE __INIT_XDATA_Z
+    162          #else
+    163          uint8 zgNwkParentInformation = NWK_PARENT_INFO_ORPHAN_NOTIFICATION;
     164          #endif
     165          
     166          // This is an index into table Requested Timeout Enumerated Values.
@@ -709,7 +709,12 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\sys\ZGlobals.c
     282          
     283          #if !defined MT_TASK
     284          // Flag to use verbose (i.e. "cc2480-style") direct MT callbacks in ZDProfile.c, ZDP_IncomingData().
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
     285          uint8 zgZdoDirectCB = FALSE;
+   \                     zgZdoDirectCB:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
     286          #endif
     287          
     288          // Min number of attempted transmissions for Channel Interference detection
@@ -758,171 +763,174 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\sys\ZGlobals.c
    \                                 In  segment CODE_C, align 1
     312          static CONST zgItem_t zgItemTable[] =
    \                     zgItemTable:
-   \   000000   8700         DW 135
+   \   000000   8F00         DW 143
    \   000002   0100         DW 1
-   \   000004   ....         DW zgDeviceLogicalType
-   \   000006   8A00         DW 138
+   \   000004   ....         DW zgZdoDirectCB
+   \   000006   8700         DW 135
    \   000008   0100         DW 1
-   \   00000A   ....         DW zgDeviceType
-   \   00000C   3500         DW 53
-   \   00000E   0400         DW 4
-   \   000010   ....         DW zgPollRate
-   \   000012   2500         DW 37
-   \   000014   0200         DW 2
-   \   000016   ....         DW zgQueuedPollRate
-   \   000018   2600         DW 38
+   \   00000A   ....         DW zgDeviceLogicalType
+   \   00000C   8A00         DW 138
+   \   00000E   0100         DW 1
+   \   000010   ....         DW zgDeviceType
+   \   000012   3500         DW 53
+   \   000014   0400         DW 4
+   \   000016   ....         DW zgPollRate
+   \   000018   2500         DW 37
    \   00001A   0200         DW 2
-   \   00001C   ....         DW zgResponsePollRate
-   \   00001E   2700         DW 39
+   \   00001C   ....         DW zgQueuedPollRate
+   \   00001E   2600         DW 38
    \   000020   0200         DW 2
-   \   000022   ....         DW zgRejoinPollRate
-   \   000024   2800         DW 40
-   \   000026   0100         DW 1
-   \   000028   ....         DW zgMaxDataRetries
-   \   00002A   2900         DW 41
+   \   000022   ....         DW zgResponsePollRate
+   \   000024   2700         DW 39
+   \   000026   0200         DW 2
+   \   000028   ....         DW zgRejoinPollRate
+   \   00002A   2800         DW 40
    \   00002C   0100         DW 1
-   \   00002E   ....         DW zgMaxPollFailureRetries
-   \   000030   8400         DW 132
-   \   000032   0400         DW 4
-   \   000034   ....         DW zgDefaultChannelList
-   \   000036   8600         DW 134
-   \   000038   0100         DW 1
-   \   00003A   ....         DW zgDefaultStartingScanDuration
-   \   00003C   2A00         DW 42
+   \   00002E   ....         DW zgMaxDataRetries
+   \   000030   2900         DW 41
+   \   000032   0100         DW 1
+   \   000034   ....         DW zgMaxPollFailureRetries
+   \   000036   8400         DW 132
+   \   000038   0400         DW 4
+   \   00003A   ....         DW zgDefaultChannelList
+   \   00003C   8600         DW 134
    \   00003E   0100         DW 1
-   \   000040   ....         DW zgStackProfile
-   \   000042   2B00         DW 43
+   \   000040   ....         DW zgDefaultStartingScanDuration
+   \   000042   2A00         DW 42
    \   000044   0100         DW 1
-   \   000046   ....         DW zgIndirectMsgTimeout
-   \   000048   2C00         DW 44
+   \   000046   ....         DW zgStackProfile
+   \   000048   2B00         DW 43
    \   00004A   0100         DW 1
-   \   00004C   ....         DW zgRouteExpiryTime
-   \   00004E   2D00         DW 45
-   \   000050   0800         DW 8
-   \   000052   ....         DW zgExtendedPANID
-   \   000054   2E00         DW 46
-   \   000056   0100         DW 1
-   \   000058   ....         DW zgMaxBcastRetires
-   \   00005A   2F00         DW 47
+   \   00004C   ....         DW zgIndirectMsgTimeout
+   \   00004E   2C00         DW 44
+   \   000050   0100         DW 1
+   \   000052   ....         DW zgRouteExpiryTime
+   \   000054   2D00         DW 45
+   \   000056   0800         DW 8
+   \   000058   ....         DW zgExtendedPANID
+   \   00005A   2E00         DW 46
    \   00005C   0100         DW 1
-   \   00005E   ....         DW zgPassiveAckTimeout
-   \   000060   3000         DW 48
+   \   00005E   ....         DW zgMaxBcastRetires
+   \   000060   2F00         DW 47
    \   000062   0100         DW 1
-   \   000064   ....         DW zgBcastDeliveryTime
-   \   000066   3100         DW 49
+   \   000064   ....         DW zgPassiveAckTimeout
+   \   000066   3000         DW 48
    \   000068   0100         DW 1
-   \   00006A   ....         DW zgNwkMode
-   \   00006C   3200         DW 50
+   \   00006A   ....         DW zgBcastDeliveryTime
+   \   00006C   3100         DW 49
    \   00006E   0100         DW 1
-   \   000070   ....         DW zgConcentratorEnable
-   \   000072   3300         DW 51
+   \   000070   ....         DW zgNwkMode
+   \   000072   3200         DW 50
    \   000074   0100         DW 1
-   \   000076   ....         DW zgConcentratorDiscoveryTime
-   \   000078   3400         DW 52
+   \   000076   ....         DW zgConcentratorEnable
+   \   000078   3300         DW 51
    \   00007A   0100         DW 1
-   \   00007C   ....         DW zgConcentratorRadius
-   \   00007E   3600         DW 54
+   \   00007C   ....         DW zgConcentratorDiscoveryTime
+   \   00007E   3400         DW 52
    \   000080   0100         DW 1
-   \   000082   ....         DW zgConcentratorRC
-   \   000084   3800         DW 56
+   \   000082   ....         DW zgConcentratorRadius
+   \   000084   3600         DW 54
    \   000086   0100         DW 1
-   \   000088   ....         DW zgNwkSrcRtgExpiryTime
-   \   00008A   3900         DW 57
+   \   000088   ....         DW zgConcentratorRC
+   \   00008A   3800         DW 56
    \   00008C   0100         DW 1
-   \   00008E   ....         DW zgRouteDiscoveryTime
-   \   000090   8300         DW 131
-   \   000092   0200         DW 2
-   \   000094   ....         DW zgConfigPANID
-   \   000096   6300         DW 99
-   \   000098   0100         DW 1
-   \   00009A   ....         DW zgPreConfigKeys
-   \   00009C   6400         DW 100
+   \   00008E   ....         DW zgNwkSrcRtgExpiryTime
+   \   000090   3900         DW 57
+   \   000092   0100         DW 1
+   \   000094   ....         DW zgRouteDiscoveryTime
+   \   000096   8300         DW 131
+   \   000098   0200         DW 2
+   \   00009A   ....         DW zgConfigPANID
+   \   00009C   6300         DW 99
    \   00009E   0100         DW 1
-   \   0000A0   ....         DW zgSecurityMode
-   \   0000A2   6500         DW 101
+   \   0000A0   ....         DW zgPreConfigKeys
+   \   0000A2   6400         DW 100
    \   0000A4   0100         DW 1
-   \   0000A6   ....         DW zgSecurePermitJoin
-   \   0000A8   6D00         DW 109
+   \   0000A6   ....         DW zgSecurityMode
+   \   0000A8   6500         DW 101
    \   0000AA   0100         DW 1
-   \   0000AC   ....         DW zgUseDefaultTCLK
-   \   0000AE   7100         DW 113
-   \   0000B0   0800         DW 8
-   \   0000B2   ....         DW zgApsTrustCenterAddr
-   \   0000B4   6600         DW 102
-   \   0000B6   0100         DW 1
-   \   0000B8   ....         DW zgApsLinkKeyType
-   \   0000BA   4300         DW 67
+   \   0000AC   ....         DW zgSecurePermitJoin
+   \   0000AE   6D00         DW 109
+   \   0000B0   0100         DW 1
+   \   0000B2   ....         DW zgUseDefaultTCLK
+   \   0000B4   7100         DW 113
+   \   0000B6   0800         DW 8
+   \   0000B8   ....         DW zgApsTrustCenterAddr
+   \   0000BA   6600         DW 102
    \   0000BC   0100         DW 1
-   \   0000BE   ....         DW zgApscMaxFrameRetries
-   \   0000C0   4400         DW 68
-   \   0000C2   0200         DW 2
-   \   0000C4   ....         DW zgApscAckWaitDurationPolled
-   \   0000C6   4500         DW 69
-   \   0000C8   0100         DW 1
-   \   0000CA   ....         DW zgApsAckWaitMultiplier
-   \   0000CC   4600         DW 70
-   \   0000CE   0200         DW 2
-   \   0000D0   ....         DW zgApsDefaultMaxBindingTime
-   \   0000D2   4700         DW 71
-   \   0000D4   0800         DW 8
-   \   0000D6   ....         DW zgApsUseExtendedPANID
-   \   0000D8   4800         DW 72
-   \   0000DA   0100         DW 1
-   \   0000DC   ....         DW zgApsUseInsecureJoin
-   \   0000DE   4B00         DW 75
+   \   0000BE   ....         DW zgApsLinkKeyType
+   \   0000C0   4300         DW 67
+   \   0000C2   0100         DW 1
+   \   0000C4   ....         DW zgApscMaxFrameRetries
+   \   0000C6   4400         DW 68
+   \   0000C8   0200         DW 2
+   \   0000CA   ....         DW zgApscAckWaitDurationPolled
+   \   0000CC   4500         DW 69
+   \   0000CE   0100         DW 1
+   \   0000D0   ....         DW zgApsAckWaitMultiplier
+   \   0000D2   4600         DW 70
+   \   0000D4   0200         DW 2
+   \   0000D6   ....         DW zgApsDefaultMaxBindingTime
+   \   0000D8   4700         DW 71
+   \   0000DA   0800         DW 8
+   \   0000DC   ....         DW zgApsUseExtendedPANID
+   \   0000DE   4800         DW 72
    \   0000E0   0100         DW 1
-   \   0000E2   ....         DW zgApsNonMemberRadius
-   \   0000E4   0400         DW 4
+   \   0000E2   ....         DW zgApsUseInsecureJoin
+   \   0000E4   4B00         DW 75
    \   0000E6   0100         DW 1
-   \   0000E8   ....         DW zgStartDelay
-   \   0000EA   A100         DW 161
+   \   0000E8   ....         DW zgApsNonMemberRadius
+   \   0000EA   0400         DW 4
    \   0000EC   0100         DW 1
-   \   0000EE   ....         DW zgSapiEndpoint
-   \   0000F0   3700         DW 55
+   \   0000EE   ....         DW zgStartDelay
+   \   0000F0   A100         DW 161
    \   0000F2   0100         DW 1
-   \   0000F4   ....         DW zgNwkMgrMode
-   \   0000F6   8800         DW 136
+   \   0000F4   ....         DW zgSapiEndpoint
+   \   0000F6   3700         DW 55
    \   0000F8   0100         DW 1
-   \   0000FA   ....         DW zgNwkMgrMinTransmissions
-   \   0000FC   3C00         DW 60
+   \   0000FA   ....         DW zgNwkMgrMode
+   \   0000FC   8800         DW 136
    \   0000FE   0100         DW 1
-   \   000100   ....         DW zgRouterOffAssocCleanup
-   \   000102   3D00         DW 61
+   \   000100   ....         DW zgNwkMgrMinTransmissions
+   \   000102   3C00         DW 60
    \   000104   0100         DW 1
-   \   000106   ....         DW zgNwkLeaveRequestAllowed
-   \   000108   4900         DW 73
-   \   00010A   0200         DW 2
-   \   00010C   ....         DW zgNwkCommissionedNwkAddr
-   \   00010E   6700         DW 103
-   \   000110   0100         DW 1
-   \   000112   ....         DW zgApsAllowR19Sec
-   \   000114   4D00         DW 77
-   \   000116   0200         DW 2
-   \   000118   ....         DW zgApscDupRejTimeoutInc
-   \   00011A   4E00         DW 78
-   \   00011C   0100         DW 1
-   \   00011E   ....         DW zgApscDupRejTimeoutCount
-   \   000120   4F00         DW 79
-   \   000122   0200         DW 2
-   \   000124   ....         DW zgApsMinDupRejTableSize
-   \   000126   3E00         DW 62
-   \   000128   0100         DW 1
-   \   00012A   ....         DW zgChildAgingEnable
-   \   00012C   5100         DW 81
+   \   000106   ....         DW zgRouterOffAssocCleanup
+   \   000108   3D00         DW 61
+   \   00010A   0100         DW 1
+   \   00010C   ....         DW zgNwkLeaveRequestAllowed
+   \   00010E   4900         DW 73
+   \   000110   0200         DW 2
+   \   000112   ....         DW zgNwkCommissionedNwkAddr
+   \   000114   6700         DW 103
+   \   000116   0100         DW 1
+   \   000118   ....         DW zgApsAllowR19Sec
+   \   00011A   4D00         DW 77
+   \   00011C   0200         DW 2
+   \   00011E   ....         DW zgApscDupRejTimeoutInc
+   \   000120   4E00         DW 78
+   \   000122   0100         DW 1
+   \   000124   ....         DW zgApscDupRejTimeoutCount
+   \   000126   4F00         DW 79
+   \   000128   0200         DW 2
+   \   00012A   ....         DW zgApsMinDupRejTableSize
+   \   00012C   3E00         DW 62
    \   00012E   0100         DW 1
-   \   000130   ....         DW zgNwkParentInformation
-   \   000132   5200         DW 82
+   \   000130   ....         DW zgChildAgingEnable
+   \   000132   5100         DW 81
    \   000134   0100         DW 1
-   \   000136   ....         DW zgNwkEndDeviceTimeoutDefault
-   \   000138   5300         DW 83
+   \   000136   ....         DW zgNwkParentInformation
+   \   000138   5200         DW 82
    \   00013A   0100         DW 1
-   \   00013C   ....         DW zgEndDeviceTimeoutValue
-   \   00013E   5400         DW 84
+   \   00013C   ....         DW zgNwkEndDeviceTimeoutDefault
+   \   00013E   5300         DW 83
    \   000140   0100         DW 1
-   \   000142   ....         DW zgEndDeviceConfiguration
-   \   000144   0000         DW 0
-   \   000146   0000         DW 0
-   \   000148   0000         DW 0H
+   \   000142   ....         DW zgEndDeviceTimeoutValue
+   \   000144   5400         DW 84
+   \   000146   0100         DW 1
+   \   000148   ....         DW zgEndDeviceConfiguration
+   \   00014A   0000         DW 0
+   \   00014C   0000         DW 0
+   \   00014E   0000         DW 0H
     313          {
     314          #if defined ( NV_INIT )
     315          #if !defined MT_TASK
@@ -2097,10 +2105,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\sys\ZGlobals.c
    \   000000   01           DB 1
 
    \                                 In  segment XDATA_ID, align 1, keep-with-next
-   \                     `?<Initializer for zgNwkParentInformation>`:
-   \   000000   02           DB 2
-
-   \                                 In  segment XDATA_ID, align 1, keep-with-next
    \                     `?<Initializer for zgNwkEndDeviceTimeoutDefault`:
    \   000000   08           DB 8
 
@@ -2345,7 +2349,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\sys\ZGlobals.c
        1  ?<Initializer for zgNwkMgrMinTransmissions>
        1  ?<Initializer for zgNwkMgrMode>
        1  ?<Initializer for zgNwkMode>
-       1  ?<Initializer for zgNwkParentInformation>
        1  ?<Initializer for zgNwkSrcRtgExpiryTime>
        1  ?<Initializer for zgPassiveAckTimeout>
        4  ?<Initializer for zgPollRate>
@@ -2398,7 +2401,7 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\sys\ZGlobals.c
        6  zgInit::?relay
      200  zgInitItems
        6  zgInitItems::?relay
-     330  zgItemTable
+     336  zgItemTable
        1  zgMaxBcastRetires
        1  zgMaxDataRetries
        1  zgMaxPollFailureRetries
@@ -2431,17 +2434,18 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\sys\ZGlobals.c
        1  zgUseDefaultTCLK
      115  zgWriteStartupOptions
        6  zgWriteStartupOptions::?relay
+       1  zgZdoDirectCB
 
  
  995 bytes in segment BANKED_CODE
   30 bytes in segment BANK_RELAYS
- 330 bytes in segment CODE_C
-  63 bytes in segment XDATA_I
-  63 bytes in segment XDATA_ID
-  40 bytes in segment XDATA_Z
+ 336 bytes in segment CODE_C
+  62 bytes in segment XDATA_I
+  62 bytes in segment XDATA_ID
+  42 bytes in segment XDATA_Z
  
- 1 418 bytes of CODE  memory
-   103 bytes of XDATA memory
+ 1 423 bytes of CODE  memory
+   104 bytes of XDATA memory
 
 Errors: none
 Warnings: none

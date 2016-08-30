@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:00
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  10:30:52
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -40,8 +40,8 @@
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Components\mt\MT_VERSION.c" -D SECURE=1 -D
 //        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+//        ZTOOL_P1 -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC
+//        -D xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
 //        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
 //        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
 //        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas

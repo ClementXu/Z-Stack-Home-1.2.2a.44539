@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:20
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  20:48:48
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -39,13 +39,14 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Components\stack\zdo\ZDProfile.c" -D SECURE=1 -D
-//        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-//        Instruments\Z-Stack Home
+//        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+//        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+//        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+//        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
+//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+//        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+//        -lC "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 //        -I "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-//        -Ohz --require_prototypes
+//        -Ohz
 //    List file          =  
 //        C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\ZDProfile.s51
@@ -587,22 +588,18 @@ ZDApp_InMsgCB       SYMBOL "ZDApp_InMsgCB"
 `??ZDO_ProcessDeviceAnnce::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessDeviceAnn 18>`
 `?<Name ZDO_ProcessMatchDesc 20>` SYMBOL "ZDO_ProcessMatchDescReq"
 `??ZDO_ProcessMatchDescReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessMatchDesc 20>`
-`?<Name ZDO_ProcessNodeDescR 22>` SYMBOL "ZDO_ProcessNodeDescReq"
-`??ZDO_ProcessNodeDescReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessNodeDescR 22>`
-`?<Name ZDO_ProcessParentAnn 24>` SYMBOL "ZDO_ProcessParentAnnce"
-`??ZDO_ProcessParentAnnce::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessParentAnn 24>`
-`?<Name ZDO_ProcessParentAnn 26>` SYMBOL "ZDO_ProcessParentAnnceRsp"
-`??ZDO_ProcessParentAnnceRsp::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessParentAnn 26>`
-`?<Name ZDO_ProcessPowerDesc 28>` SYMBOL "ZDO_ProcessPowerDescReq"
-`??ZDO_ProcessPowerDescReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessPowerDesc 28>`
-`?<Name ZDO_ProcessServerDis 30>` SYMBOL "ZDO_ProcessServerDiscReq"
-`??ZDO_ProcessServerDiscReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessServerDis 30>`
+`?<Name ZDO_ProcessMgmtPermi 22>` SYMBOL "ZDO_ProcessMgmtPermitJoinReq"
+`??ZDO_ProcessMgmtPermitJoinReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessMgmtPermi 22>`
+`?<Name ZDO_ProcessNodeDescR 24>` SYMBOL "ZDO_ProcessNodeDescReq"
+`??ZDO_ProcessNodeDescReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessNodeDescR 24>`
+`?<Name ZDO_ProcessParentAnn 26>` SYMBOL "ZDO_ProcessParentAnnce"
+`??ZDO_ProcessParentAnnce::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessParentAnn 26>`
+`?<Name ZDO_ProcessParentAnn 28>` SYMBOL "ZDO_ProcessParentAnnceRsp"
+`??ZDO_ProcessParentAnnceRsp::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessParentAnn 28>`
+`?<Name ZDO_ProcessPowerDesc 30>` SYMBOL "ZDO_ProcessPowerDescReq"
+`??ZDO_ProcessPowerDescReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessPowerDesc 30>`
 `?<Name ZDO_ProcessSimpleDes 32>` SYMBOL "ZDO_ProcessSimpleDescReq"
 `??ZDO_ProcessSimpleDescReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessSimpleDes 32>`
-`?<Name ZDO_ProcessUserDescR 34>` SYMBOL "ZDO_ProcessUserDescReq"
-`??ZDO_ProcessUserDescReq::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessUserDescR 34>`
-`?<Name ZDO_ProcessUserDescS 36>` SYMBOL "ZDO_ProcessUserDescSet"
-`??ZDO_ProcessUserDescSet::?relay` SYMBOL "?relay", `?<Name ZDO_ProcessUserDescS 36>`
 osal_buffer_uint32  SYMBOL "osal_buffer_uint32"
 `??osal_buffer_uint32::?relay` SYMBOL "?relay", osal_buffer_uint32
 osal_mem_alloc      SYMBOL "osal_mem_alloc"
@@ -712,6 +709,8 @@ zdpProcessAddrReq   SYMBOL "zdpProcessAddrReq"
         FUNCTION `??ZDO_ProcessDeviceAnnce::?relay`,00H
         EXTERN `??ZDO_ProcessMatchDescReq::?relay`
         FUNCTION `??ZDO_ProcessMatchDescReq::?relay`,00H
+        EXTERN `??ZDO_ProcessMgmtPermitJoinReq::?relay`
+        FUNCTION `??ZDO_ProcessMgmtPermitJoinReq::?relay`,00H
         EXTERN `??ZDO_ProcessNodeDescReq::?relay`
         FUNCTION `??ZDO_ProcessNodeDescReq::?relay`,00H
         EXTERN `??ZDO_ProcessParentAnnce::?relay`
@@ -720,14 +719,8 @@ zdpProcessAddrReq   SYMBOL "zdpProcessAddrReq"
         FUNCTION `??ZDO_ProcessParentAnnceRsp::?relay`,00H
         EXTERN `??ZDO_ProcessPowerDescReq::?relay`
         FUNCTION `??ZDO_ProcessPowerDescReq::?relay`,00H
-        EXTERN `??ZDO_ProcessServerDiscReq::?relay`
-        FUNCTION `??ZDO_ProcessServerDiscReq::?relay`,00H
         EXTERN `??ZDO_ProcessSimpleDescReq::?relay`
         FUNCTION `??ZDO_ProcessSimpleDescReq::?relay`,00H
-        EXTERN `??ZDO_ProcessUserDescReq::?relay`
-        FUNCTION `??ZDO_ProcessUserDescReq::?relay`,00H
-        EXTERN `??ZDO_ProcessUserDescSet::?relay`
-        FUNCTION `??ZDO_ProcessUserDescSet::?relay`,00H
         EXTERN `??osal_buffer_uint32::?relay`
         FUNCTION `??osal_buffer_uint32::?relay`,00H
         EXTERN `??osal_mem_alloc::?relay`
@@ -868,6 +861,7 @@ zdpProcessAddrReq   SYMBOL "zdpProcessAddrReq"
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         EXTERN saveExtAddr
+        EXTERN zgDeviceLogicalType
 
 // C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zdo\ZDProfile.c
 //    1 /**************************************************************************************************
@@ -1106,12 +1100,8 @@ zdpMsgProcs:
         DW `??ZDO_ProcessActiveEPReq::?relay`
         DW 6
         DW `??ZDO_ProcessMatchDescReq::?relay`
-        DW 17
-        DW `??ZDO_ProcessUserDescReq::?relay`
-        DW 20
-        DW `??ZDO_ProcessUserDescSet::?relay`
-        DW 21
-        DW `??ZDO_ProcessServerDiscReq::?relay`
+        DW 54
+        DW `??ZDO_ProcessMgmtPermitJoinReq::?relay`
         DW 65535
         DW 0H
 //  176 {
@@ -4072,6 +4062,13 @@ zdpProcessAddrReq:
 //  674       && (((pAssoc = AssocGetWithExt( ieee )) != NULL)
 //  675              && (pAssoc->nodeRelation == CHILD_RFD)) )
 ??zdpProcessAddrReq_3:
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??zdpProcessAddrReq_5
+        XRL     A,#0x1
+        JZ      $+5
+        LJMP    ??zdpProcessAddrReq_6 & 0xFFFF
+??zdpProcessAddrReq_5:
         ; Setup parameters for call to function AssocGetWithExt
         MOV     A,R6
         MOV     R2,A
@@ -4085,7 +4082,7 @@ zdpProcessAddrReq:
         MOV     A,R0
         ORL     A,R1
         JNZ     $+5
-        LJMP    ??zdpProcessAddrReq_5 & 0xFFFF
+        LJMP    ??zdpProcessAddrReq_6 & 0xFFFF
         MOV     DPL,R0
         MOV     DPH,R1
         INC     DPTR
@@ -4095,7 +4092,7 @@ zdpProcessAddrReq:
         MOVX    A,@DPTR
         XRL     A,#0x1
         JZ      $+5
-        LJMP    ??zdpProcessAddrReq_5 & 0xFFFF
+        LJMP    ??zdpProcessAddrReq_6 & 0xFFFF
 //  676     {
 //  677       aoi = pAssoc->shortAddr;
         MOV     DPL,R0
@@ -4104,7 +4101,7 @@ zdpProcessAddrReq:
 //  678       if ( reqType != ZDP_ADDR_REQTYPE_SINGLE )
 ??CrossCallReturnLabel_166:
         MOV     A,?V3
-        JNZ     ??zdpProcessAddrReq_6
+        JNZ     ??zdpProcessAddrReq_7
         SJMP    ??zdpProcessAddrReq_4
 //  679         reqType = 0xFF; // Force Invalid
 //  680     }
@@ -4131,12 +4128,12 @@ zdpProcessAddrReq:
         MOV     DPTR,#ZDAppNwkAddr
         MOVX    A,@DPTR
         XRL     A,?V0
-        JNZ     ??zdpProcessAddrReq_7
+        JNZ     ??zdpProcessAddrReq_8
         INC     DPTR
         MOVX    A,@DPTR
         XRL     A,?V1
-??zdpProcessAddrReq_7:
-        JNZ     ??zdpProcessAddrReq_8
+??zdpProcessAddrReq_8:
+        JNZ     ??zdpProcessAddrReq_9
 //  687     {
 //  688       ieee = saveExtAddr;
         MOV     R6,#saveExtAddr & 0xff
@@ -4146,7 +4143,13 @@ zdpProcessAddrReq:
 //  690     else if ( (ZSTACK_ROUTER_BUILD)
 //  691       && (((pAssoc = AssocGetWithShort( aoi )) != NULL)
 //  692              && (pAssoc->nodeRelation == CHILD_RFD)) )
-??zdpProcessAddrReq_8:
+??zdpProcessAddrReq_9:
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??zdpProcessAddrReq_10
+        XRL     A,#0x1
+        JNZ     ??zdpProcessAddrReq_6
+??zdpProcessAddrReq_10:
         ; Setup parameters for call to function AssocGetWithShort
         MOV     R3,?V1
         LCALL   `??AssocGetWithShort::?relay`; Banked call to: AssocGetWithShort
@@ -4156,7 +4159,7 @@ zdpProcessAddrReq:
         MOV     R1,?V5
         MOV     A,R0
         ORL     A,R1
-        JZ      ??zdpProcessAddrReq_5
+        JZ      ??zdpProcessAddrReq_6
         MOV     DPL,R0
         MOV     DPH,R1
         INC     DPTR
@@ -4165,7 +4168,7 @@ zdpProcessAddrReq:
         INC     DPTR
         MOVX    A,@DPTR
         XRL     A,#0x1
-        JNZ     ??zdpProcessAddrReq_5
+        JNZ     ??zdpProcessAddrReq_6
 //  693     {
 //  694       AddrMgrEntry_t addrEntry;
 //  695       addrEntry.user = ADDRMGR_USER_DEFAULT;
@@ -4189,7 +4192,7 @@ zdpProcessAddrReq:
         LCALL   ?XSTACK_DISP101_8
         LCALL   `??AddrMgrEntryGet::?relay`; Banked call to: AddrMgrEntryGet
         MOV     A,R1
-        JZ      ??zdpProcessAddrReq_9
+        JZ      ??zdpProcessAddrReq_11
 //  698       {
 //  699         ieee = addrEntry.extAddr;
         MOV     A,#0x4
@@ -4199,11 +4202,11 @@ zdpProcessAddrReq:
 //  700       }
 //  701 
 //  702       if ( reqType != ZDP_ADDR_REQTYPE_SINGLE )
-??zdpProcessAddrReq_9:
+??zdpProcessAddrReq_11:
         MOV     A,?V3
         JZ      ??zdpProcessAddrReq_4
 //  703         reqType = 0xFF; // Force Invalid
-??zdpProcessAddrReq_6:
+??zdpProcessAddrReq_7:
         MOV     ?V3,#-0x1
 //  704     }
 //  705   }
@@ -4212,15 +4215,15 @@ zdpProcessAddrReq:
 ??zdpProcessAddrReq_4:
         MOV     A,#-0x2
         XRL     A,?V0
-        JNZ     ??zdpProcessAddrReq_10
+        JNZ     ??zdpProcessAddrReq_12
         MOV     A,#-0x1
         XRL     A,?V1
-??zdpProcessAddrReq_10:
-        JZ      ??zdpProcessAddrReq_5
+??zdpProcessAddrReq_12:
+        JZ      ??zdpProcessAddrReq_6
         MOV     A,R6
         ORL     A,R7
-        JNZ     ??zdpProcessAddrReq_11
-??zdpProcessAddrReq_5:
+        JNZ     ??zdpProcessAddrReq_13
+??zdpProcessAddrReq_6:
         MOV     A,?V6
         ADD     A,#0xb
         MOV     DPL,A
@@ -4229,11 +4232,11 @@ zdpProcessAddrReq:
         MOV     DPH,A
         MOVX    A,@DPTR
         JZ      $+5
-        LJMP    ??zdpProcessAddrReq_12 & 0xFFFF
+        LJMP    ??zdpProcessAddrReq_14 & 0xFFFF
 //  708   {
 //  709     uint8 stat;
 //  710     uint8 *pBuf = ZDP_TmpBuf;
-??zdpProcessAddrReq_11:
+??zdpProcessAddrReq_13:
         LCALL   ??Subroutine119_0 & 0xFFFF
 //  711     // Status + IEEE-Addr + Nwk-Addr.
 //  712     uint8 len = 1 + Z_EXTADDR_LEN + 2;
@@ -4244,59 +4247,59 @@ zdpProcessAddrReq:
 //  715     if ( (aoi != INVALID_NODE_ADDR) && (ieee != NULL) )
         MOV     A,#-0x2
         XRL     A,?V0
-        JNZ     ??zdpProcessAddrReq_13
+        JNZ     ??zdpProcessAddrReq_15
         MOV     A,#-0x1
         XRL     A,?V1
-??zdpProcessAddrReq_13:
-        JZ      ??zdpProcessAddrReq_14
+??zdpProcessAddrReq_15:
+        JZ      ??zdpProcessAddrReq_16
         MOV     A,R6
         ORL     A,R7
-        JZ      ??zdpProcessAddrReq_14
+        JZ      ??zdpProcessAddrReq_16
 //  716     {
 //  717       stat = ((reqType == ZDP_ADDR_REQTYPE_SINGLE) || (reqType == ZDP_ADDR_REQTYPE_EXTENDED))
 //  718                     ? ZDP_SUCCESS : ZDP_INVALID_REQTYPE;
         MOV     A,?V3
-        JZ      ??zdpProcessAddrReq_15
+        JZ      ??zdpProcessAddrReq_17
         MOV     A,#0x1
         XRL     A,?V3
-        JNZ     ??zdpProcessAddrReq_16
-??zdpProcessAddrReq_15:
+        JNZ     ??zdpProcessAddrReq_18
+??zdpProcessAddrReq_17:
         MOV     ?V4,#0x0
-        SJMP    ??zdpProcessAddrReq_17
-??zdpProcessAddrReq_16:
+        SJMP    ??zdpProcessAddrReq_19
+??zdpProcessAddrReq_18:
         MOV     ?V4,#-0x80
-        SJMP    ??zdpProcessAddrReq_17
+        SJMP    ??zdpProcessAddrReq_19
 //  719     }
 //  720     else
 //  721     {
 //  722       // not found and the req was unicast to this device
 //  723       stat = ZDP_DEVICE_NOT_FOUND;
-??zdpProcessAddrReq_14:
+??zdpProcessAddrReq_16:
         MOV     ?V4,#-0x7f
 //  724 
 //  725       // Fill in the missing field with this device's address
 //  726       if ( inMsg->clusterID == NWK_addr_req )
         LCALL   ?Subroutine54 & 0xFFFF
 ??CrossCallReturnLabel_174:
-        JNZ     ??zdpProcessAddrReq_18
+        JNZ     ??zdpProcessAddrReq_20
 //  727       {
 //  728         aoi = ZDAppNwkAddr.addr.shortAddr;
         MOV     DPTR,#ZDAppNwkAddr
         LCALL   ??Subroutine101_0 & 0xFFFF
 //  729       }
 ??CrossCallReturnLabel_167:
-        SJMP    ??zdpProcessAddrReq_17
+        SJMP    ??zdpProcessAddrReq_19
 //  730       else
 //  731       {
 //  732         ieee = saveExtAddr;
-??zdpProcessAddrReq_18:
+??zdpProcessAddrReq_20:
         MOV     R6,#saveExtAddr & 0xff
         MOV     R7,#(saveExtAddr >> 8) & 0xff
 //  733       }
 //  734     }
 //  735 
 //  736     *pBuf++ = stat;
-??zdpProcessAddrReq_17:
+??zdpProcessAddrReq_19:
         MOV     DPL,R2
         MOV     DPH,R3
         MOV     A,?V4
@@ -4326,26 +4329,33 @@ zdpProcessAddrReq:
         MOVX    @DPTR,A
 //  742 
 //  743     if ( ZSTACK_ROUTER_BUILD )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??zdpProcessAddrReq_21
+        XRL     A,#0x1
+        JZ      $+5
+        LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
 //  744     {
 //  745       if ( (reqType == ZDP_ADDR_REQTYPE_EXTENDED) && (aoi == ZDAppNwkAddr.addr.shortAddr)
 //  746            && (stat == ZDP_SUCCESS) )
+??zdpProcessAddrReq_21:
         MOV     A,#0x1
         XRL     A,?V3
         JZ      $+5
-        LJMP    ??zdpProcessAddrReq_19 & 0xFFFF
+        LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
         MOV     DPTR,#ZDAppNwkAddr
         MOVX    A,@DPTR
         XRL     A,?V0
-        JNZ     ??zdpProcessAddrReq_20
+        JNZ     ??zdpProcessAddrReq_23
         INC     DPTR
         MOVX    A,@DPTR
         XRL     A,?V1
-??zdpProcessAddrReq_20:
+??zdpProcessAddrReq_23:
         JZ      $+5
-        LJMP    ??zdpProcessAddrReq_19 & 0xFFFF
+        LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
         MOV     A,?V4
         JZ      $+5
-        LJMP    ??zdpProcessAddrReq_19 & 0xFFFF
+        LJMP    ??zdpProcessAddrReq_22 & 0xFFFF
 //  747       {
 //  748         uint8  cnt = 0;
         MOV     DPL,?XSP + 0
@@ -4376,17 +4386,17 @@ zdpProcessAddrReq:
         MOV     A,R4
         ORL     A,R5
         JNZ     $+5
-        LJMP    ??zdpProcessAddrReq_21 & 0xFFFF
+        LJMP    ??zdpProcessAddrReq_24 & 0xFFFF
 //  752         {
 //  753           byte idx = inMsg->asdu[(((inMsg->clusterID == NWK_addr_req) ? Z_EXTADDR_LEN : sizeof( uint16 )) + 1)];
         LCALL   ?Subroutine54 & 0xFFFF
 ??CrossCallReturnLabel_175:
-        JNZ     ??zdpProcessAddrReq_22
+        JNZ     ??zdpProcessAddrReq_25
         MOV     R0,#0x8
-        SJMP    ??zdpProcessAddrReq_23
-??zdpProcessAddrReq_22:
+        SJMP    ??zdpProcessAddrReq_26
+??zdpProcessAddrReq_25:
         MOV     R0,#0x2
-??zdpProcessAddrReq_23:
+??zdpProcessAddrReq_26:
         MOV     DPL,?V12
         MOV     DPH,?V13
         MOVX    A,@DPTR
@@ -4419,7 +4429,7 @@ zdpProcessAddrReq:
         MOV     A,?V0
         CLR     C
         SUBB    A,?V1
-        JNC     ??zdpProcessAddrReq_24
+        JNC     ??zdpProcessAddrReq_27
 //  758           {
 //  759             cnt -= idx;
         MOVX    A,@DPTR
@@ -4431,17 +4441,17 @@ zdpProcessAddrReq:
         RLC     A
         ADD     A,#0xb
         MOV     ?V2,A
-        SJMP    ??zdpProcessAddrReq_25
+        SJMP    ??zdpProcessAddrReq_28
 //  761           }
 //  762           else
 //  763           {
 //  764             cnt = 0;
-??zdpProcessAddrReq_24:
+??zdpProcessAddrReq_27:
         CLR     A
         MOVX    @DPTR,A
 //  765           }
 //  766           *pBuf++ = cnt;
-??zdpProcessAddrReq_25:
+??zdpProcessAddrReq_28:
         LCALL   ??Subroutine118_0 & 0xFFFF
 ??CrossCallReturnLabel_223:
         LCALL   ?Subroutine38 & 0xFFFF
@@ -4461,12 +4471,12 @@ zdpProcessAddrReq:
 //  771           len++;
         INC     ?V2
         INC     ?V2
-        SJMP    ??zdpProcessAddrReq_26
+        SJMP    ??zdpProcessAddrReq_29
 //  772 
 //  773           while ( cnt != 0 )
 //  774           {
 //  775             *pBuf++ = LO_UINT16( *pList );
-??zdpProcessAddrReq_27:
+??zdpProcessAddrReq_30:
         LCALL   ?Subroutine68 & 0xFFFF
 ??CrossCallReturnLabel_227:
         LCALL   ?Subroutine25 & 0xFFFF
@@ -4476,28 +4486,28 @@ zdpProcessAddrReq:
         MOV     A,R2
         ADD     A,#0x2
         MOV     R2,A
-        JNC     ??zdpProcessAddrReq_28
+        JNC     ??zdpProcessAddrReq_31
         INC     R3
 //  777             pList++;
-??zdpProcessAddrReq_28:
+??zdpProcessAddrReq_31:
         MOV     A,R0
         ADD     A,#0x2
         MOV     R0,A
-        JNC     ??zdpProcessAddrReq_29
+        JNC     ??zdpProcessAddrReq_32
         INC     R1
 //  778             cnt--;
-??zdpProcessAddrReq_29:
+??zdpProcessAddrReq_32:
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOVX    A,@DPTR
         DEC     A
         MOVX    @DPTR,A
 //  779           }
-??zdpProcessAddrReq_26:
+??zdpProcessAddrReq_29:
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOVX    A,@DPTR
-        JNZ     ??zdpProcessAddrReq_27
+        JNZ     ??zdpProcessAddrReq_30
 //  780 
 //  781           osal_mem_free( (uint8 *)list );
         ; Setup parameters for call to function osal_mem_free
@@ -4506,13 +4516,13 @@ zdpProcessAddrReq:
         MOV     A,R5
         MOV     R3,A
         LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
-        SJMP    ??zdpProcessAddrReq_19
+        SJMP    ??zdpProcessAddrReq_22
 //  782         }
 //  783         else
 //  784         {
 //  785           // NumAssocDev field is only present on success.
 //  786           *pBuf++ = 0;
-??zdpProcessAddrReq_21:
+??zdpProcessAddrReq_24:
         MOV     DPL,R2
         MOV     DPH,R3
         CLR     A
@@ -4524,7 +4534,7 @@ zdpProcessAddrReq:
 //  790     }
 //  791 
 //  792     ZDP_TxOptions = AF_MSG_ACK_REQUEST;
-??zdpProcessAddrReq_19:
+??zdpProcessAddrReq_22:
         MOV     DPTR,#ZDP_TxOptions
         MOV     A,#0x10
         LCALL   ?Subroutine27 & 0xFFFF
@@ -4562,7 +4572,7 @@ zdpProcessAddrReq:
         MOVX    @DPTR,A
 //  795   }
 //  796 }
-??zdpProcessAddrReq_12:
+??zdpProcessAddrReq_14:
         MOV     A,#0xe
         LJMP    ??Subroutine121_0 & 0xFFFF
           CFI EndBlock cfiBlock59
@@ -22225,14 +22235,14 @@ ZDP_IncomingData:
 // 2048 *********************************************************************/
 // 2049 
 // 
-// 7 266 bytes in segment BANKED_CODE
+// 7 302 bytes in segment BANKED_CODE
 //   210 bytes in segment BANK_RELAYS
-//    57 bytes in segment CODE_C
+//    49 bytes in segment CODE_C
 //     2 bytes in segment XDATA_I
 //     2 bytes in segment XDATA_ID
 //    84 bytes in segment XDATA_Z
 // 
-// 7 535 bytes of CODE  memory
+// 7 563 bytes of CODE  memory
 //    86 bytes of XDATA memory
 //
 //Errors: none

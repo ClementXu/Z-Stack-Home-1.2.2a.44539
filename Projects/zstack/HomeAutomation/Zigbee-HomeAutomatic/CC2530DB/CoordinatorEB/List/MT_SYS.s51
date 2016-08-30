@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:13:59
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  10:30:50
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -38,12 +38,13 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Components\mt\MT_SYS.c" -D SECURE=1 -D TC_LINKKEY_JOIN
-//        -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK
-//        -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
-//        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
-//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
-//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
-//        FEATURE_SYSTEM_STATS -lC "C:\Texas Instruments\Z-Stack Home
+//        -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D ZTOOL_P1 -D xMT_TASK
+//        -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
+//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
+//        Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -127,74 +128,19 @@
         EXTERN ?V0
         EXTERN ?V1
         EXTERN ?V2
-        EXTERN ?V3
-        EXTERN ?V4
-        EXTERN ?V5
-        EXTERN ?V6
-        EXTERN ?V7
-        EXTERN ?V8
-        EXTERN ?V9
-        EXTERN ?V10
-        EXTERN ?V11
         EXTERN ?ALLOC_XSTACK8
         EXTERN ?BANKED_ENTER_XDATA
         EXTERN ?BANKED_LEAVE_XDATA
         EXTERN ?BDISPATCH
         EXTERN ?DEALLOC_XSTACK8
-        EXTERN ?L_MOV_X
-        EXTERN ?MOVE_LONG8_XDATA_XDATA
-        EXTERN ?PUSH_XSTACK_I_FOUR
         EXTERN ?PUSH_XSTACK_I_THREE
-        EXTERN ?PUSH_XSTACK_I_TWO
-        EXTERN ?UC_SWITCH_DENSE
-        EXTERN ?UC_SWITCH_SPARSE
-        EXTERN ?US_DIV_MOD
         EXTERN ?XSP
         EXTERN ?XSTACK_DISP0_8
-        EXTERN ?XSTACK_DISP100_8
-        EXTERN ?XSTACK_DISP101_8
-        EXTERN ?XSTACK_DISP102_8
 
-        PUBLIC `??MT_SysCommandProcessing::?relay`
-        FUNCTION `??MT_SysCommandProcessing::?relay`,0203H
-        FUNCTION `??MT_SysGetUtcTime::?relay`,0203H
-        FUNCTION `??MT_SysOsalNVItemInit::?relay`,0203H
-        FUNCTION `??MT_SysOsalNVRead::?relay`,0203H
-        FUNCTION `??MT_SysOsalNVWrite::?relay`,0203H
         PUBLIC `??MT_SysOsalTimerExpired::?relay`
         FUNCTION `??MT_SysOsalTimerExpired::?relay`,0203H
         PUBLIC `??MT_SysResetInd::?relay`
         FUNCTION `??MT_SysResetInd::?relay`,0203H
-        FUNCTION `??MT_SysSetUtcTime::?relay`,0203H
-        PUBLIC MT_SysCommandProcessing
-        FUNCTION MT_SysCommandProcessing,0a1203H
-        ARGFRAME XSTACK, 0, STACK
-        LOCFRAME ISTACK, 1, STACK
-        LOCFRAME XSTACK, 36, STACK
-        FUNCTION MT_SysGetUtcTime,0a1203H
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        LOCFRAME ISTACK, 1, STACK
-        LOCFRAME XSTACK, 23, STACK
-        FUNCTION MT_SysOsalNVItemInit,0a1203H
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        LOCFRAME ISTACK, 1, STACK
-        LOCFRAME XSTACK, 21, STACK
-        FUNCTION MT_SysOsalNVRead,0a1203H
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        LOCFRAME ISTACK, 1, STACK
-        LOCFRAME XSTACK, 34, STACK
-        FUNCTION MT_SysOsalNVWrite,0a1203H
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        LOCFRAME ISTACK, 1, STACK
-        LOCFRAME XSTACK, 27, STACK
         PUBLIC MT_SysOsalTimerExpired
         FUNCTION MT_SysOsalTimerExpired,021203H
         ARGFRAME XSTACK, 0, STACK
@@ -205,15 +151,7 @@
         ARGFRAME XSTACK, 0, STACK
         LOCFRAME ISTACK, 1, STACK
         LOCFRAME XSTACK, 20, STACK
-        FUNCTION MT_SysSetUtcTime,0a1203H
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        LOCFRAME ISTACK, 1, STACK
-        LOCFRAME XSTACK, 20, STACK
         PUBWEAK SLEEPSTA
-        PUBWEAK WDCTL
-        PUBWEAK _A_IEN0
         
           CFI Names cfiNames0
           CFI StackFrame CFA_SP SP IDATA
@@ -303,351 +241,25 @@
           CFI ?RET_LOW Frame(CFA_SP, 1)
           CFI EndCommon cfiCommon0
         
-        
-          CFI Common cfiCommon1 Using cfiNames0
-          CFI CodeAlign 1
-          CFI DataAlign -1
-          CFI ReturnAddress ?RET CODE
-          CFI CFA_DOVERLAY Used
-          CFI CFA_IOVERLAY Used
-          CFI CFA_SP SP+-2
-          CFI CFA_PSP16 PSP16+0
-          CFI CFA_XSP16 XSP16+0
-          CFI `PSW.CY` SameValue
-          CFI `B.BR0` SameValue
-          CFI `B.BR1` SameValue
-          CFI `B.BR2` SameValue
-          CFI `B.BR3` SameValue
-          CFI `B.BR4` SameValue
-          CFI `B.BR5` SameValue
-          CFI `B.BR6` SameValue
-          CFI `B.BR7` SameValue
-          CFI `VB.BR8` SameValue
-          CFI `VB.BR9` SameValue
-          CFI `VB.BR10` SameValue
-          CFI `VB.BR11` SameValue
-          CFI `VB.BR12` SameValue
-          CFI `VB.BR13` SameValue
-          CFI `VB.BR14` SameValue
-          CFI `VB.BR15` SameValue
-          CFI VB SameValue
-          CFI B SameValue
-          CFI A SameValue
-          CFI PSW SameValue
-          CFI DPL0 SameValue
-          CFI DPH0 SameValue
-          CFI R0 SameValue
-          CFI R1 SameValue
-          CFI R2 SameValue
-          CFI R3 SameValue
-          CFI R4 SameValue
-          CFI R5 SameValue
-          CFI R6 SameValue
-          CFI R7 SameValue
-          CFI V0 SameValue
-          CFI V1 SameValue
-          CFI V2 SameValue
-          CFI V3 SameValue
-          CFI V4 SameValue
-          CFI V5 SameValue
-          CFI V6 SameValue
-          CFI V7 SameValue
-          CFI V8 SameValue
-          CFI V9 SameValue
-          CFI V10 SameValue
-          CFI V11 SameValue
-          CFI V12 SameValue
-          CFI V13 SameValue
-          CFI V14 SameValue
-          CFI V15 SameValue
-          CFI PSPH Undefined
-          CFI PSPL Undefined
-          CFI XSPH Undefined
-          CFI XSPL Undefined
-          CFI ?RET Concat
-          CFI ?BRET_EXT SameValue
-          CFI ?RET_HIGH Frame(CFA_SP, 2)
-          CFI ?RET_LOW Frame(CFA_SP, 1)
-          CFI EndCommon cfiCommon1
-        
-HalAdcRead          SYMBOL "HalAdcRead"
-`??HalAdcRead::?relay` SYMBOL "?relay", HalAdcRead
-MAC_MlmeSetReq      SYMBOL "MAC_MlmeSetReq"
-`??MAC_MlmeSetReq::?relay` SYMBOL "?relay", MAC_MlmeSetReq
 MT_BuildAndSendZToolResponse SYMBOL "MT_BuildAndSendZToolResponse"
 `??MT_BuildAndSendZToolResponse::?relay` SYMBOL "?relay", MT_BuildAndSendZToolResponse
-Onboard_rand        SYMBOL "Onboard_rand"
-`??Onboard_rand::?relay` SYMBOL "?relay", Onboard_rand
-ZDiagsClearStats    SYMBOL "ZDiagsClearStats"
-`??ZDiagsClearStats::?relay` SYMBOL "?relay", ZDiagsClearStats
-ZDiagsGetStatsAttr  SYMBOL "ZDiagsGetStatsAttr"
-`??ZDiagsGetStatsAttr::?relay` SYMBOL "?relay", ZDiagsGetStatsAttr
-ZDiagsInitStats     SYMBOL "ZDiagsInitStats"
-`??ZDiagsInitStats::?relay` SYMBOL "?relay", ZDiagsInitStats
-ZDiagsRestoreStatsFromNV SYMBOL "ZDiagsRestoreStatsFromNV"
-`??ZDiagsRestoreStatsFromNV::?relay` SYMBOL "?relay", ZDiagsRestoreStatsFromNV
-ZDiagsSaveStatsToNV SYMBOL "ZDiagsSaveStatsToNV"
-`??ZDiagsSaveStatsToNV::?relay` SYMBOL "?relay", ZDiagsSaveStatsToNV
-ZMacGetReq          SYMBOL "ZMacGetReq"
-`??ZMacGetReq::?relay` SYMBOL "?relay", ZMacGetReq
-ZMacSetReq          SYMBOL "ZMacSetReq"
-`??ZMacSetReq::?relay` SYMBOL "?relay", ZMacSetReq
-macRadioSetTxPower  SYMBOL "macRadioSetTxPower"
-`??macRadioSetTxPower::?relay` SYMBOL "?relay", macRadioSetTxPower
-osal_ConvertUTCSecs SYMBOL "osal_ConvertUTCSecs"
-`??osal_ConvertUTCSecs::?relay` SYMBOL "?relay", osal_ConvertUTCSecs
-osal_ConvertUTCTime SYMBOL "osal_ConvertUTCTime"
-`??osal_ConvertUTCTime::?relay` SYMBOL "?relay", osal_ConvertUTCTime
-osal_buffer_uint32  SYMBOL "osal_buffer_uint32"
-`??osal_buffer_uint32::?relay` SYMBOL "?relay", osal_buffer_uint32
-osal_build_uint16   SYMBOL "osal_build_uint16"
-`??osal_build_uint16::?relay` SYMBOL "?relay", osal_build_uint16
-osal_build_uint32   SYMBOL "osal_build_uint32"
-`??osal_build_uint32::?relay` SYMBOL "?relay", osal_build_uint32
-osal_getClock       SYMBOL "osal_getClock"
-`??osal_getClock::?relay` SYMBOL "?relay", osal_getClock
-osal_mem_alloc      SYMBOL "osal_mem_alloc"
-`??osal_mem_alloc::?relay` SYMBOL "?relay", osal_mem_alloc
-osal_mem_free       SYMBOL "osal_mem_free"
-`??osal_mem_free::?relay` SYMBOL "?relay", osal_mem_free
 osal_memcpy         SYMBOL "osal_memcpy"
 `??osal_memcpy::?relay` SYMBOL "?relay", osal_memcpy
-osal_memset         SYMBOL "osal_memset"
-`??osal_memset::?relay` SYMBOL "?relay", osal_memset
-osal_nv_delete      SYMBOL "osal_nv_delete"
-`??osal_nv_delete::?relay` SYMBOL "?relay", osal_nv_delete
-osal_nv_item_init   SYMBOL "osal_nv_item_init"
-`??osal_nv_item_init::?relay` SYMBOL "?relay", osal_nv_item_init
-osal_nv_item_len    SYMBOL "osal_nv_item_len"
-`??osal_nv_item_len::?relay` SYMBOL "?relay", osal_nv_item_len
-osal_nv_read        SYMBOL "osal_nv_read"
-`??osal_nv_read::?relay` SYMBOL "?relay", osal_nv_read
-osal_nv_write       SYMBOL "osal_nv_write"
-`??osal_nv_write::?relay` SYMBOL "?relay", osal_nv_write
-osal_setClock       SYMBOL "osal_setClock"
-`??osal_setClock::?relay` SYMBOL "?relay", osal_setClock
-osal_start_timerEx  SYMBOL "osal_start_timerEx"
-`??osal_start_timerEx::?relay` SYMBOL "?relay", osal_start_timerEx
-osal_stop_timerEx   SYMBOL "osal_stop_timerEx"
-`??osal_stop_timerEx::?relay` SYMBOL "?relay", osal_stop_timerEx
-zgSetItem           SYMBOL "zgSetItem"
-`??zgSetItem::?relay` SYMBOL "?relay", zgSetItem
-MT_SysCommandProcessing SYMBOL "MT_SysCommandProcessing"
-`??MT_SysCommandProcessing::?relay` SYMBOL "?relay", MT_SysCommandProcessing
 MT_SysOsalTimerExpired SYMBOL "MT_SysOsalTimerExpired"
 `??MT_SysOsalTimerExpired::?relay` SYMBOL "?relay", MT_SysOsalTimerExpired
 MT_SysResetInd      SYMBOL "MT_SysResetInd"
 `??MT_SysResetInd::?relay` SYMBOL "?relay", MT_SysResetInd
 
-        EXTERN `??HalAdcRead::?relay`
-        FUNCTION `??HalAdcRead::?relay`,00H
-        EXTERN `??MAC_MlmeSetReq::?relay`
-        FUNCTION `??MAC_MlmeSetReq::?relay`,00H
         EXTERN `??MT_BuildAndSendZToolResponse::?relay`
         FUNCTION `??MT_BuildAndSendZToolResponse::?relay`,00H
-        EXTERN `??Onboard_rand::?relay`
-        FUNCTION `??Onboard_rand::?relay`,00H
-        EXTERN `??ZDiagsClearStats::?relay`
-        FUNCTION `??ZDiagsClearStats::?relay`,00H
-        EXTERN `??ZDiagsGetStatsAttr::?relay`
-        FUNCTION `??ZDiagsGetStatsAttr::?relay`,00H
-        EXTERN `??ZDiagsInitStats::?relay`
-        FUNCTION `??ZDiagsInitStats::?relay`,00H
-        EXTERN `??ZDiagsRestoreStatsFromNV::?relay`
-        FUNCTION `??ZDiagsRestoreStatsFromNV::?relay`,00H
-        EXTERN `??ZDiagsSaveStatsToNV::?relay`
-        FUNCTION `??ZDiagsSaveStatsToNV::?relay`,00H
-        EXTERN `??ZMacGetReq::?relay`
-        FUNCTION `??ZMacGetReq::?relay`,00H
-        EXTERN `??ZMacSetReq::?relay`
-        FUNCTION `??ZMacSetReq::?relay`,00H
-        EXTERN `??macRadioSetTxPower::?relay`
-        FUNCTION `??macRadioSetTxPower::?relay`,00H
-        EXTERN `??osal_ConvertUTCSecs::?relay`
-        FUNCTION `??osal_ConvertUTCSecs::?relay`,00H
-        EXTERN `??osal_ConvertUTCTime::?relay`
-        FUNCTION `??osal_ConvertUTCTime::?relay`,00H
-        EXTERN `??osal_buffer_uint32::?relay`
-        FUNCTION `??osal_buffer_uint32::?relay`,00H
-        EXTERN `??osal_build_uint16::?relay`
-        FUNCTION `??osal_build_uint16::?relay`,00H
-        EXTERN `??osal_build_uint32::?relay`
-        FUNCTION `??osal_build_uint32::?relay`,00H
-        EXTERN `??osal_getClock::?relay`
-        FUNCTION `??osal_getClock::?relay`,00H
-        EXTERN `??osal_mem_alloc::?relay`
-        FUNCTION `??osal_mem_alloc::?relay`,00H
-        EXTERN `??osal_mem_free::?relay`
-        FUNCTION `??osal_mem_free::?relay`,00H
         EXTERN `??osal_memcpy::?relay`
         FUNCTION `??osal_memcpy::?relay`,00H
-        EXTERN `??osal_memset::?relay`
-        FUNCTION `??osal_memset::?relay`,00H
-        EXTERN `??osal_nv_delete::?relay`
-        FUNCTION `??osal_nv_delete::?relay`,00H
-        EXTERN `??osal_nv_item_init::?relay`
-        FUNCTION `??osal_nv_item_init::?relay`,00H
-        EXTERN `??osal_nv_item_len::?relay`
-        FUNCTION `??osal_nv_item_len::?relay`,00H
-        EXTERN `??osal_nv_read::?relay`
-        FUNCTION `??osal_nv_read::?relay`,00H
-        EXTERN `??osal_nv_write::?relay`
-        FUNCTION `??osal_nv_write::?relay`,00H
-        EXTERN `??osal_setClock::?relay`
-        FUNCTION `??osal_setClock::?relay`,00H
-        EXTERN `??osal_start_timerEx::?relay`
-        FUNCTION `??osal_start_timerEx::?relay`,00H
-        EXTERN `??osal_stop_timerEx::?relay`
-        FUNCTION `??osal_stop_timerEx::?relay`,00H
-        EXTERN `??zgSetItem::?relay`
-        FUNCTION `??zgSetItem::?relay`,00H
-        EXTERN HalAdcRead
-        FUNCTION HalAdcRead,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN MAC_MlmeSetReq
-        FUNCTION MAC_MlmeSetReq,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
         EXTERN MTVersionString
         EXTERN MT_BuildAndSendZToolResponse
         FUNCTION MT_BuildAndSendZToolResponse,0202H
         ARGFRAME ISTACK, 0, STACK
         ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN MT_TaskID
-        EXTERN Onboard_rand
-        FUNCTION Onboard_rand,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN Onboard_soft_reset
-        FUNCTION Onboard_soft_reset,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ZDiagsClearStats
-        FUNCTION ZDiagsClearStats,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ZDiagsGetStatsAttr
-        FUNCTION ZDiagsGetStatsAttr,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ZDiagsInitStats
-        FUNCTION ZDiagsInitStats,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ZDiagsRestoreStatsFromNV
-        FUNCTION ZDiagsRestoreStatsFromNV,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ZDiagsSaveStatsToNV
-        FUNCTION ZDiagsSaveStatsToNV,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ZMacGetReq
-        FUNCTION ZMacGetReq,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ZMacSetReq
-        FUNCTION ZMacSetReq,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN macRadioSetTxPower
-        FUNCTION macRadioSetTxPower,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_ConvertUTCSecs
-        FUNCTION osal_ConvertUTCSecs,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_ConvertUTCTime
-        FUNCTION osal_ConvertUTCTime,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_buffer_uint32
-        FUNCTION osal_buffer_uint32,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_build_uint16
-        FUNCTION osal_build_uint16,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_build_uint32
-        FUNCTION osal_build_uint32,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_getClock
-        FUNCTION osal_getClock,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_mem_alloc
-        FUNCTION osal_mem_alloc,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_mem_free
-        FUNCTION osal_mem_free,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
+        ARGFRAME XSTACK, 17, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         EXTERN osal_memcpy
@@ -655,76 +267,6 @@ MT_SysResetInd      SYMBOL "MT_SysResetInd"
         ARGFRAME ISTACK, 0, STACK
         ARGFRAME PSTACK, 0, STACK
         ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_memset
-        FUNCTION osal_memset,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_nv_delete
-        FUNCTION osal_nv_delete,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_nv_item_init
-        FUNCTION osal_nv_item_init,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_nv_item_len
-        FUNCTION osal_nv_item_len,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_nv_read
-        FUNCTION osal_nv_read,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 34, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_nv_write
-        FUNCTION osal_nv_write,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_setClock
-        FUNCTION osal_setClock,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_start_timerEx
-        FUNCTION osal_start_timerEx,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_stop_timerEx
-        FUNCTION osal_stop_timerEx,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN zgSetItem
-        FUNCTION zgSetItem,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 25, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
 
@@ -782,18 +324,6 @@ MT_SysResetInd      SYMBOL "MT_SysResetInd"
         ASEGN SFR_AN:DATA:NOROOT,09dH
 // unsigned char volatile __sfr SLEEPSTA
 SLEEPSTA:
-        DATA8
-        DS 1
-
-        ASEGN SFR_AN:DATA:NOROOT,0a8H
-// union <unnamed> volatile __sfr _A_IEN0
-_A_IEN0:
-        DATA8
-        DS 1
-
-        ASEGN SFR_AN:DATA:NOROOT,0c9H
-// unsigned char volatile __sfr WDCTL
-WDCTL:
         DATA8
         DS 1
 //   50 #include "OSAL_Clock.h"
@@ -895,16 +425,7 @@ WDCTL:
 //  146 #endif
 //  147 
 //  148 #if defined( MT_SYS_FUNC )
-
-        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
-        DATA8
 //  149 static const uint16 MT_SysOsalEventId[] =
-MT_SysOsalEventId:
-        DATA16
-        DW 2048
-        DW 1024
-        DW 512
-        DW 256
 //  150 {
 //  151   MT_SYS_OSAL_EVENT_0,
 //  152   MT_SYS_OSAL_EVENT_1,
@@ -1028,1351 +549,93 @@ MT_SysOsalEventId:
 //  270  *
 //  271  * @return  status
 //  272  *****************************************************************************/
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 //  273 uint8 MT_SysCommandProcessing(uint8 *pBuf)
-MT_SysCommandProcessing:
-          CFI Block cfiBlock0 Using cfiCommon0
-          CFI Function MT_SysCommandProcessing
-        CODE
 //  274 {
-        FUNCALL MT_SysCommandProcessing, Onboard_soft_reset
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZMacSetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_nv_write
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 36, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZMacGetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_start_timerEx
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 36, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_stop_timerEx
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, Onboard_rand
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, HalAdcRead
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZMacGetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZMacSetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZMacSetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_SysSetUtcTime
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_SysGetUtcTime
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, macRadioSetTxPower
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MAC_MlmeSetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_nv_delete
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_SysOsalNVItemInit
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_nv_item_len
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_SysOsalNVRead
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_SysOsalNVWrite
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZDiagsInitStats
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZDiagsClearStats
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_buffer_uint32
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 36, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZDiagsGetStatsAttr
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_buffer_uint32
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 36, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZDiagsRestoreStatsFromNV
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, ZDiagsSaveStatsToNV
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, osal_buffer_uint32
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 36, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 36, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysCommandProcessing, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 32, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 32, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        REQUIRE ?V0
-        REQUIRE ?V1
-        REQUIRE ?V2
-        REQUIRE ?V3
-        REQUIRE ?V4
-        REQUIRE ?V5
-        REQUIRE ?V6
-        REQUIRE ?V7
-        MOV     A,#-0x10
-        LCALL   ?BANKED_ENTER_XDATA
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 16)
-        ; Saved register size: 16
-        ; Auto size: 16
-        MOV     A,#-0x10
-        LCALL   ?ALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 32)
-        MOV     A,R2
-        MOV     R0,A
-        MOV     A,R3
-        MOV     R1,A
 //  275   uint8 status = MT_RPC_SUCCESS;
-        MOV     R6,#0x0
 //  276 
 //  277   switch (pBuf[MT_RPC_POS_CMD1])
-        MOV     A,R0
-        ADD     A,#0x4
-        MOV     R2,A
-        CLR     A
-        ADDC    A,R1
-        MOV     R3,A
-        MOV     A,R0
-        ADD     A,#0x3
-        MOV     ?V2,A
-        CLR     A
-        ADDC    A,R1
-        MOV     ?V3,A
-        MOV     DPL,R0
-        MOV     DPH,R1
-        INC     DPTR
-        INC     DPTR
-        MOVX    A,@DPTR
-        LCALL   ?UC_SWITCH_DENSE
-`?<Jumptable for MT_SysCommandProcessing>_0`:
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        0
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        29
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_0
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_1
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_2
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_3
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_4
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_5
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_0
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_0
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_6
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_7
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_8
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_9
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_10
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_11
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_12
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_13
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_14
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_15
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_16
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_17
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_18
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_19
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_0
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_0
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_20
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_21
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_22
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_23
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_24
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_7
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_8
-        CODE
 //  278   {
 //  279     case MT_SYS_RESET_REQ:
 //  280       MT_SysReset(pBuf);
-??MT_SysCommandProcessing_1:
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        JZ      ??MT_SysCommandProcessing_25
-        DEC     A
-        JZ      ??MT_SysCommandProcessing_26
-        LJMP    ??MT_SysCommandProcessing_27 & 0xFFFF
-??MT_SysCommandProcessing_25:
-        CLR     0xa8.7
-        CLR     0xa8.7
-        MOV     0xc9,#-0x55
-        MOV     0xc9,#0x5b
-??MT_SysCommandProcessing_28:
-        SJMP    ??MT_SysCommandProcessing_28
-??MT_SysCommandProcessing_26:
-        ; Setup parameters for call to function Onboard_soft_reset
-        LCALL   Onboard_soft_reset & 0xFFFF
-        LJMP    ??MT_SysCommandProcessing_27 & 0xFFFF
 //  281       break;
 //  282 
 //  283     case MT_SYS_PING:
 //  284       MT_SysPing();
-??MT_SysCommandProcessing_2:
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,#0x11
-        MOVX    @DPTR,A
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,#0x1
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x2
-        MOV     R2,#0x1
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  285       break;
 //  286 
 //  287     case MT_SYS_VERSION:
 //  288       MT_SysVersion();
-??MT_SysCommandProcessing_3:
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,#MTVersionString & 0xff
-        MOV     R5,#(MTVersionString >> 8) & 0xff
-        MOV     R3,#0x5
-        MOV     R2,#0x2
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  289       break;
 //  290 
 //  291     case MT_SYS_SET_EXTADDR:
 //  292       MT_SysSetExtAddr(pBuf);
-??MT_SysCommandProcessing_4:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0x1
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function ZMacSetReq
-        DEC     R2
-        MOV     R3,?V3
-        MOV     R1,#-0x1e
-        LCALL   `??ZMacSetReq::?relay`; Banked call to: ZMacSetReq
-        MOV     A,R1
-        JNZ     ??MT_SysCommandProcessing_30
-        ; Setup parameters for call to function osal_nv_write
-        MOV     R0,#?V2
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 34)
-        MOV     ?V0,#0x8
-        MOV     ?V1,R6
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 36)
-        MOV     R4,#0x0
-        MOV     R5,#0x0
-        MOV     R2,#0x1
-        MOV     R3,#0x0
-        LCALL   `??osal_nv_write::?relay`; Banked call to: osal_nv_write
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 32)
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOVX    @DPTR,A
-??MT_SysCommandProcessing_30:
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,?XSP + 0
-        MOV     R5,?XSP + 1
-        MOV     R3,#0x1
-        MOV     R2,#0x3
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  293       break;
 //  294 
 //  295     case MT_SYS_GET_EXTADDR:
 //  296       MT_SysGetExtAddr();
-??MT_SysCommandProcessing_5:
-        ; Setup parameters for call to function ZMacGetReq
-        MOV     A,#0x8
-        LCALL   ?XSTACK_DISP101_8
-        MOV     R1,#-0x1e
-        LCALL   `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x8
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x8
-        MOV     R2,#0x4
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  297       break;
 //  298 
 //  299     case MT_SYS_OSAL_START_TIMER:
 //  300       MT_SysOsalStartTimer(pBuf);
-??MT_SysCommandProcessing_9:
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        CLR     C
-        SUBB    A,#0x4
-        JNC     ??MT_SysCommandProcessing_31
-        ; Setup parameters for call to function osal_build_uint16
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V4,R2
-        MOV     ?V5,R3
-        ; Setup parameters for call to function osal_start_timerEx
-        CLR     A
-        MOV     ?V6,A
-        MOV     ?V7,A
-        MOV     R0,#?V4
-        LCALL   ?PUSH_XSTACK_I_FOUR
-          CFI CFA_XSP16 add(XSP16, 36)
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        ADD     A,0xE0 /* A   */
-        LCALL   ?Subroutine2 & 0xFFFF
-??CrossCallReturnLabel_0:
-        LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 32)
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        SJMP    ??MT_SysCommandProcessing_32
-??MT_SysCommandProcessing_31:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0x2
-??MT_SysCommandProcessing_32:
-        LCALL   ??Subroutine10_0 & 0xFFFF
-??CrossCallReturnLabel_18:
-        MOV     R2,#0xa
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  301       break;
 //  302 
 //  303     case MT_SYS_OSAL_STOP_TIMER:
 //  304       MT_SysOsalStopTimer(pBuf);
-??MT_SysCommandProcessing_10:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0x1
-        MOVX    @DPTR,A
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        MOV     R0,A
-        CLR     C
-        SUBB    A,#0x4
-        JNC     ??MT_SysCommandProcessing_33
-        ; Setup parameters for call to function osal_stop_timerEx
-        MOV     A,R0
-        ADD     A,R0
-        LCALL   ?Subroutine2 & 0xFFFF
-??CrossCallReturnLabel_1:
-        LCALL   `??osal_stop_timerEx::?relay`; Banked call to: osal_stop_timerEx
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        SJMP    ??MT_SysCommandProcessing_34
-??MT_SysCommandProcessing_33:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0x2
-??MT_SysCommandProcessing_34:
-        LCALL   ??Subroutine10_0 & 0xFFFF
-??CrossCallReturnLabel_19:
-        MOV     R2,#0xb
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  305       break;
 //  306 
 //  307     case MT_SYS_RANDOM:
 //  308       MT_SysRandom();
-??MT_SysCommandProcessing_11:
-        ; Setup parameters for call to function Onboard_rand
-        LCALL   `??Onboard_rand::?relay`; Banked call to: Onboard_rand
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R2
-        MOVX    @DPTR,A
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R3
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x2
-        MOV     R2,#0xc
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  309       break;
 //  310 
 //  311 #if !defined( CC26XX )
 //  312     case MT_SYS_ADC_READ:
 //  313       MT_SysAdcRead(pBuf);
-??MT_SysCommandProcessing_12:
-        MOV     R4,#0x0
-        MOV     R5,#0x0
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        MOV     R1,A
-        MOV     DPL,R2
-        MOV     DPH,R3
-        MOVX    A,@DPTR
-        MOV     R2,A
-        MOV     A,R1
-        LCALL   ?UC_SWITCH_SPARSE
-`?<Jumptable for MT_SysCommandProcessing>_1`:
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        2
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        0
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        7
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_35
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        14
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        15
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_36
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DATA
-        DATA8
-        DB        0
-        DATA
-        DATA16
-        DATA
-        DATA16
-        DW        ??MT_SysCommandProcessing_37
-        CODE
-??MT_SysCommandProcessing_36:
-        MOV     R2,#0x4
-??MT_SysCommandProcessing_35:
-        ; Setup parameters for call to function HalAdcRead
-        LCALL   `??HalAdcRead::?relay`; Banked call to: HalAdcRead
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     R4,?V0
-        MOV     R5,?V1
-??MT_SysCommandProcessing_37:
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R4
-        MOVX    @DPTR,A
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R5
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x2
-        MOV     R2,#0xd
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  314       break;
 //  315 #endif /* !CC26XX */
 //  316 
 //  317     case MT_SYS_GPIO:
 //  318       MT_SysGpio(pBuf);
-??MT_SysCommandProcessing_13:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        CLR     A
-        LCALL   ??Subroutine10_0 & 0xFFFF
-??CrossCallReturnLabel_20:
-        MOV     R2,#0xe
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  319       break;
 //  320 
 //  321     case MT_SYS_STACK_TUNE:
 //  322       MT_SysStackTune(pBuf);
-??MT_SysCommandProcessing_14:
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        JZ      ??MT_SysCommandProcessing_38
-        DEC     A
-        JNZ     ??MT_SysCommandProcessing_39
-        MOV     DPL,R2
-        MOV     DPH,R3
-        MOVX    A,@DPTR
-        MOV     R0,A
-        MOV     A,#0x1
-        XRL     A,R0
-        JZ      ??MT_SysCommandProcessing_40
-        MOV     A,R0
-        JZ      ??MT_SysCommandProcessing_40
-        ; Setup parameters for call to function ZMacGetReq
-        MOV     R2,?XSP + 0
-        MOV     R3,?XSP + 1
-        MOV     R1,#0x52
-        LCALL   `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
-        SJMP    ??MT_SysCommandProcessing_41
-??MT_SysCommandProcessing_40:
-        ; Setup parameters for call to function ZMacSetReq
-        MOV     R1,#0x52
-        SJMP    ??MT_SysCommandProcessing_42
-??MT_SysCommandProcessing_38:
-        ; Setup parameters for call to function ZMacSetReq
-        MOV     R1,#-0x20
-??MT_SysCommandProcessing_42:
-        LCALL   `??ZMacSetReq::?relay`; Banked call to: ZMacSetReq
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        SJMP    ??MT_SysCommandProcessing_43
-??MT_SysCommandProcessing_39:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0x2
-??MT_SysCommandProcessing_43:
-        MOVX    @DPTR,A
-??MT_SysCommandProcessing_41:
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,?XSP + 0
-        MOV     R5,?XSP + 1
-        MOV     R3,#0x1
-        MOV     R2,#0xf
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  323       break;
 //  324 
 //  325     case MT_SYS_SET_TIME:
 //  326       MT_SysSetUtcTime(pBuf);
-??MT_SysCommandProcessing_15:
-        ; Setup parameters for call to function MT_SysSetUtcTime
-        MOV     A,R0
-        MOV     R2,A
-        MOV     A,R1
-        MOV     R3,A
-        LCALL   `??MT_SysSetUtcTime::?relay`; Banked call to: MT_SysSetUtcTime
 //  327       break;
-        LJMP    ??MT_SysCommandProcessing_27 & 0xFFFF
 //  328 
 //  329     case MT_SYS_GET_TIME:
 //  330       MT_SysGetUtcTime();
-??MT_SysCommandProcessing_16:
-        ; Setup parameters for call to function MT_SysGetUtcTime
-        LCALL   `??MT_SysGetUtcTime::?relay`; Banked call to: MT_SysGetUtcTime
 //  331       break;
-        LJMP    ??MT_SysCommandProcessing_27 & 0xFFFF
 //  332 
 //  333     case MT_SYS_SET_TX_POWER:
 //  334       MT_SysSetTxPower(pBuf);
-??MT_SysCommandProcessing_19:
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function macRadioSetTxPower
-        MOV     R1,A
-        LCALL   `??macRadioSetTxPower::?relay`; Banked call to: macRadioSetTxPower
-        MOV     A,#0x3
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R1
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function MAC_MlmeSetReq
-        MOV     R2,?XSP + 0
-        MOV     R3,?XSP + 1
-        MOV     R1,#-0x20
-        LCALL   `??MAC_MlmeSetReq::?relay`; Banked call to: MAC_MlmeSetReq
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x3
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x1
-        MOV     R2,#0x14
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  335       break;
 //  336 
 //  337 // CC253X MAC Network Processor does not have NV support
 //  338 #if !defined( CC253X_MACNP )
 //  339     case MT_SYS_OSAL_NV_DELETE:
 //  340       MT_SysOsalNVDelete(pBuf);
-??MT_SysCommandProcessing_17:
-        ; Setup parameters for call to function osal_build_uint16
-        DEC     R2
-        MOV     R3,?V3
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        ; Setup parameters for call to function osal_build_uint16
-        MOV     A,?V2
-        ADD     A,#0x2
-        MOV     R2,A
-        CLR     A
-        ADDC    A,?V3
-        MOV     R3,A
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V2,R2
-        MOV     ?V3,R3
-        MOV     R4,?V2
-        MOV     R5,?V3
-        MOV     A,#0x24
-        XRL     A,?V0
-        ORL     A,?V1
-        JNZ     ??MT_SysCommandProcessing_44
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        CLR     A
-        SJMP    ??MT_SysCommandProcessing_45
-??MT_SysCommandProcessing_44:
-        ; Setup parameters for call to function osal_nv_delete
-        MOV     R2,?V0
-        MOV     R3,?V1
-        LCALL   `??osal_nv_delete::?relay`; Banked call to: osal_nv_delete
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-??MT_SysCommandProcessing_45:
-        LCALL   ??Subroutine10_0 & 0xFFFF
-??CrossCallReturnLabel_21:
-        MOV     R2,#0x12
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  341       break;
 //  342 
 //  343     case MT_SYS_OSAL_NV_ITEM_INIT:
 //  344       MT_SysOsalNVItemInit(pBuf);
-??MT_SysCommandProcessing_6:
-        ; Setup parameters for call to function MT_SysOsalNVItemInit
-        MOV     A,R0
-        MOV     R2,A
-        MOV     A,R1
-        MOV     R3,A
-        LCALL   `??MT_SysOsalNVItemInit::?relay`; Banked call to: MT_SysOsalNVItemInit
 //  345       break;
-        LJMP    ??MT_SysCommandProcessing_27 & 0xFFFF
 //  346 
 //  347     case MT_SYS_OSAL_NV_LENGTH:
 //  348       MT_SysOsalNVLength(pBuf);
-??MT_SysCommandProcessing_18:
-        ; Setup parameters for call to function osal_build_uint16
-        DEC     R2
-        MOV     R3,?V3
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     A,#0x24
-        XRL     A,R2
-        ORL     A,R3
-        JNZ     ??MT_SysCommandProcessing_46
-        MOV     R0,#0x0
-        MOV     R1,#0x0
-        SJMP    ??MT_SysCommandProcessing_47
-??MT_SysCommandProcessing_46:
-        ; Setup parameters for call to function osal_nv_item_len
-        LCALL   `??osal_nv_item_len::?relay`; Banked call to: osal_nv_item_len
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     R0,?V0
-        MOV     R1,?V1
-??MT_SysCommandProcessing_47:
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R0
-        MOVX    @DPTR,A
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R1
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x2
-        MOV     R2,#0x13
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  349       break;
 //  350 
 //  351     case MT_SYS_OSAL_NV_READ:
 //  352     case MT_SYS_OSAL_NV_READ_EXT:
 //  353       MT_SysOsalNVRead(pBuf);
-??MT_SysCommandProcessing_7:
-        ; Setup parameters for call to function MT_SysOsalNVRead
-        MOV     A,R0
-        MOV     R2,A
-        MOV     A,R1
-        MOV     R3,A
-        LCALL   `??MT_SysOsalNVRead::?relay`; Banked call to: MT_SysOsalNVRead
 //  354       break;
-        LJMP    ??MT_SysCommandProcessing_27 & 0xFFFF
 //  355 
 //  356     case MT_SYS_OSAL_NV_WRITE:
 //  357     case MT_SYS_OSAL_NV_WRITE_EXT:
 //  358       MT_SysOsalNVWrite(pBuf);
-??MT_SysCommandProcessing_8:
-        ; Setup parameters for call to function MT_SysOsalNVWrite
-        MOV     A,R0
-        MOV     R2,A
-        MOV     A,R1
-        MOV     R3,A
-        LCALL   `??MT_SysOsalNVWrite::?relay`; Banked call to: MT_SysOsalNVWrite
 //  359       break;
-        LJMP    ??MT_SysCommandProcessing_27 & 0xFFFF
 //  360 
 //  361 #if defined( FEATURE_NVEXID )
 //  362     case MT_SYS_NV_COMPACT:
@@ -2419,237 +682,32 @@ MT_SysCommandProcessing:
 //  403 #if defined( FEATURE_SYSTEM_STATS )
 //  404     case MT_SYS_ZDIAGS_INIT_STATS:
 //  405       MT_SysZDiagsInitStats();
-??MT_SysCommandProcessing_20:
-        ; Setup parameters for call to function ZDiagsInitStats
-        LCALL   `??ZDiagsInitStats::?relay`; Banked call to: ZDiagsInitStats
-        LCALL   ?Subroutine5 & 0xFFFF
-??CrossCallReturnLabel_15:
-        MOV     R2,#0x17
-        LJMP    ??MT_SysCommandProcessing_29 & 0xFFFF
 //  406       break;
 //  407 
 //  408     case MT_SYS_ZDIAGS_CLEAR_STATS:
 //  409       MT_SysZDiagsClearStats(pBuf);
-??MT_SysCommandProcessing_21:
-        ; Setup parameters for call to function ZDiagsClearStats
-        MOV     DPL,?V2
-        MOV     DPH,?V3
-        MOVX    A,@DPTR
-        MOV     R1,A
-        LCALL   `??ZDiagsClearStats::?relay`; Banked call to: ZDiagsClearStats
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     ?V2,R4
-        MOV     ?V3,R5
-        ; Setup parameters for call to function osal_buffer_uint32
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_FOUR
-          CFI CFA_XSP16 add(XSP16, 36)
-        MOV     A,#0x8
-        LCALL   ?XSTACK_DISP101_8
-        LCALL   `??osal_buffer_uint32::?relay`; Banked call to: osal_buffer_uint32
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 32)
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x4
-        MOV     R2,#0x18
-        SJMP    ??MT_SysCommandProcessing_29
 //  410       break;
 //  411 
 //  412     case MT_SYS_ZDIAGS_GET_STATS:
 //  413       MT_SysZDiagsGetStatsAttr(pBuf);
-??MT_SysCommandProcessing_22:
-        ; Setup parameters for call to function osal_build_uint16
-        DEC     R2
-        MOV     R3,?V3
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        ; Setup parameters for call to function ZDiagsGetStatsAttr
-        LCALL   `??ZDiagsGetStatsAttr::?relay`; Banked call to: ZDiagsGetStatsAttr
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     ?V2,R4
-        MOV     ?V3,R5
-        ; Setup parameters for call to function osal_buffer_uint32
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_FOUR
-          CFI CFA_XSP16 add(XSP16, 36)
-        MOV     A,#0x8
-        LCALL   ?XSTACK_DISP101_8
-        LCALL   `??osal_buffer_uint32::?relay`; Banked call to: osal_buffer_uint32
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 32)
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x4
-        MOV     R2,#0x19
-        SJMP    ??MT_SysCommandProcessing_29
 //  414        break;
 //  415 
 //  416     case MT_SYS_ZDIAGS_RESTORE_STATS_NV:
 //  417       MT_SysZDiagsRestoreStatsFromNV();
-??MT_SysCommandProcessing_23:
-        ; Setup parameters for call to function ZDiagsRestoreStatsFromNV
-        LCALL   `??ZDiagsRestoreStatsFromNV::?relay`; Banked call to: ZDiagsRestoreStatsFromNV
-        LCALL   ?Subroutine5 & 0xFFFF
-??CrossCallReturnLabel_16:
-        MOV     R2,#0x1a
-        SJMP    ??MT_SysCommandProcessing_29
 //  418       break;
 //  419 
 //  420     case MT_SYS_ZDIAGS_SAVE_STATS_TO_NV:
 //  421       MT_SysZDiagsSaveStatsToNV();
-??MT_SysCommandProcessing_24:
-        ; Setup parameters for call to function ZDiagsSaveStatsToNV
-        LCALL   `??ZDiagsSaveStatsToNV::?relay`; Banked call to: ZDiagsSaveStatsToNV
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     ?V2,R4
-        MOV     ?V3,R5
-        ; Setup parameters for call to function osal_buffer_uint32
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_FOUR
-          CFI CFA_XSP16 add(XSP16, 36)
-        MOV     A,#0x8
-        LCALL   ?XSTACK_DISP101_8
-        LCALL   `??osal_buffer_uint32::?relay`; Banked call to: osal_buffer_uint32
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 32)
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x4
-        MOV     R2,#0x1b
-??MT_SysCommandProcessing_29:
-        MOV     R1,#0x61
-        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
 //  422       break;
-        SJMP    ??MT_SysCommandProcessing_27
 //  423 #endif /* FEATURE_SYSTEM_STATS */
 //  424 
 //  425     default:
 //  426       status = MT_RPC_ERR_COMMAND_ID;
-??MT_SysCommandProcessing_0:
-        MOV     R6,#0x2
 //  427       break;
 //  428   }
 //  429 
 //  430   return status;
-??MT_SysCommandProcessing_27:
-        MOV     A,R6
-        MOV     R1,A
-        MOV     A,#0x10
-          CFI EndBlock cfiBlock0
-        REQUIRE ?Subroutine0
-        REQUIRE _A_IEN0
-        REQUIRE WDCTL
-        ; // Fall through to label ?Subroutine0
 //  431 }
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine0:
-          CFI Block cfiBlock1 Using cfiCommon0
-          CFI NoFunction
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 32)
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI Invalid
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 16)
-          CFI Valid
-        MOV     R7,#0x8
-        LJMP    ?BANKED_LEAVE_XDATA
-          CFI EndBlock cfiBlock1
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine2:
-          CFI Block cfiCond2 Using cfiCommon0
-          CFI Function MT_SysCommandProcessing
-          CFI Conditional ??CrossCallReturnLabel_0
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 36)
-          CFI Block cfiCond3 Using cfiCommon0
-          CFI (cfiCond3) Function MT_SysCommandProcessing
-          CFI (cfiCond3) Conditional ??CrossCallReturnLabel_1
-          CFI (cfiCond3) R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI (cfiCond3) VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI (cfiCond3) V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI (cfiCond3) V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI (cfiCond3) V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond3) V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond3) V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond3) V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond3) V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond3) V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond3) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond3) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond3) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond3) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond3) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond3) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond3) CFA_SP SP+-2
-          CFI (cfiCond3) CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiPicker4 Using cfiCommon1
-          CFI (cfiPicker4) NoFunction
-          CFI (cfiPicker4) Picker
-        MOV     R0,A
-        CLR     A
-        RLC     A
-        MOV     R1,A
-        MOV     A,#MT_SysOsalEventId & 0xff
-        ADD     A,R0
-        MOV     DPL,A
-        MOV     A,#(MT_SysOsalEventId >> 8) & 0xff
-        ADDC    A,R1
-        MOV     DPH,A
-        MOVX    A,@DPTR
-        MOV     R2,A
-        INC     DPTR
-        MOVX    A,@DPTR
-        MOV     R3,A
-        MOV     DPTR,#MT_TaskID
-        MOVX    A,@DPTR
-        MOV     R1,A
-        RET
-          CFI EndBlock cfiCond2
-          CFI EndBlock cfiCond3
-          CFI EndBlock cfiPicker4
 //  432 
 //  433 /******************************************************************************
 //  434  * @fn      MT_SysReset
@@ -2865,180 +923,8 @@ MT_SysCommandProcessing:
 //  644  *
 //  645  * @return  None
 //  646  *****************************************************************************/
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 //  647 static void MT_SysOsalNVRead(uint8 *pBuf)
-MT_SysOsalNVRead:
-          CFI Block cfiBlock5 Using cfiCommon0
-          CFI Function MT_SysOsalNVRead
-        CODE
 //  648 {
-        FUNCALL MT_SysOsalNVRead, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, osal_nv_read
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 34, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 34, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, osal_nv_item_len
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, osal_mem_alloc
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, osal_memset
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, osal_nv_read
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 34, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 34, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, osal_mem_free
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVRead, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 30, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 30, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        REQUIRE ?V0
-        REQUIRE ?V1
-        REQUIRE ?V2
-        REQUIRE ?V3
-        REQUIRE ?V4
-        REQUIRE ?V5
-        REQUIRE ?V6
-        REQUIRE ?V7
-        REQUIRE ?V8
-        REQUIRE ?V9
-        REQUIRE ?V10
-        REQUIRE ?V11
-        MOV     A,#-0x14
-        LCALL   ?BANKED_ENTER_XDATA
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 20)
-        ; Saved register size: 20
-        ; Auto size: 10
-        MOV     A,#-0xa
-        LCALL   ?ALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 30)
-        MOV     A,R2
-        MOV     R6,A
-        MOV     A,R3
-        MOV     R7,A
 //  649   uint8 error;
 //  650   uint8 cmdId;
 //  651   uint16 nvId;
@@ -3048,37 +934,14 @@ MT_SysOsalNVRead:
 //  655 
 //  656   /* MT command ID */
 //  657   cmdId = pBuf[MT_RPC_POS_CMD1];
-        MOV     DPL,R6
-        MOV     DPH,R7
-        INC     DPTR
-        INC     DPTR
-        MOVX    A,@DPTR
-        MOV     ?V3,A
 //  658   /* Skip over RPC header */
 //  659   pBuf += MT_RPC_FRAME_HDR_SZ;
-        MOV     A,R6
-        ADD     A,#0x3
-        MOV     R6,A
-        JNC     ??MT_SysOsalNVRead_0
-        INC     R7
 //  660 
 //  661   /* NV item ID */
 //  662   nvId = osal_build_uint16( pBuf );
-??MT_SysOsalNVRead_0:
-        ; Setup parameters for call to function osal_build_uint16
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V0,R2
-        MOV     ?V1,R3
 //  663 
 //  664 #if defined( ZCD_NV_POLL_RATE_OLD16 )
 //  665   if( nvId == ZCD_NV_POLL_RATE_OLD16 )
-        MOV     A,#0x24
-        XRL     A,?V0
-        ORL     A,R3
-        JNZ     ??MT_SysOsalNVRead_1
 //  666   {
 //  667     // This ID shouldn't exist anymore, it was converted to the new size and ID
 //  668     // then deleted during initialization. But, a read of this item will
@@ -3089,323 +952,78 @@ MT_SysOsalNVRead:
 //  673     uint8 respLen;
 //  674     // Convert from old uint16 NV item to the new uint32 NV item
 //  675     if ( osal_nv_read( ZCD_NV_POLL_RATE, 0, sizeof( uint32 ), &pollRate ) == ZSUCCESS )
-        ; Setup parameters for call to function osal_nv_read
-        MOV     A,#0x6
-        LCALL   ?XSTACK_DISP100_8
-        MOV     ?V0,R0
-        MOV     ?V1,R1
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 32)
-        MOV     ?V0,#0x4
-        MOV     ?V1,#0x0
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 34)
-        MOV     R4,#0x0
-        MOV     R5,#0x0
-        MOV     R2,#0x35
-        MOV     R3,#0x0
-        LCALL   `??osal_nv_read::?relay`; Banked call to: osal_nv_read
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 30)
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        JNZ     ??MT_SysOsalNVRead_2
 //  676     {
 //  677       respBuf[0] = ZSuccess;
-        CLR     A
-        MOVX    @DPTR,A
 //  678       respBuf[1] = sizeof( uint16 );
-        INC     A
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,#0x2
-        MOVX    @DPTR,A
 //  679       pOldPollRate = (uint16 *)&respBuf[2];
 //  680       *pOldPollRate = (uint16)pollRate;
-        MOV     A,#0x6
-        LCALL   ?XSTACK_DISP0_8
-        MOV     R0,#?V0
-        LCALL   ?L_MOV_X
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,?V0
-        MOVX    @DPTR,A
-        INC     DPTR
-        MOV     A,?V1
-        MOVX    @DPTR,A
 //  681       respLen = 4;
-        MOV     R3,#0x4
-        SJMP    ??MT_SysOsalNVRead_3
 //  682     }
 //  683     else
 //  684     {
 //  685       respBuf[0] = ZFailure;
-??MT_SysOsalNVRead_2:
-        MOV     A,#0x1
-        MOVX    @DPTR,A
 //  686       respBuf[1] = 0;
-        LCALL   ?XSTACK_DISP0_8
-        CLR     A
-        MOVX    @DPTR,A
 //  687       respLen = 2;
-        MOV     R3,#0x2
 //  688     }
 //  689     /* Build and send back the response */
 //  690     MT_BuildAndSendZToolResponse( MT_SRSP_SYS, MT_SYS_OSAL_NV_READ,
 //  691                                   respLen, respBuf );
-??MT_SysOsalNVRead_3:
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,?XSP + 0
-        MOV     R5,?XSP + 1
-        MOV     R2,#0x8
-        LJMP    ??MT_SysOsalNVRead_4 & 0xFFFF
 //  692     return;
 //  693   }
 //  694 #endif
 //  695 
 //  696   /* Check whether read-access to this item is allowed */
 //  697   error = MT_CheckNvId( nvId );
-??MT_SysOsalNVRead_1:
-        MOV     A,#0x69
-        XRL     A,?V0
-        JNZ     ??MT_SysOsalNVRead_5
-        MOV     A,R3
-??MT_SysOsalNVRead_5:
-        JZ      ??MT_SysOsalNVRead_6
-        MOV     A,#0x6b
-        XRL     A,?V0
-        JNZ     ??MT_SysOsalNVRead_7
-        MOV     A,R3
-??MT_SysOsalNVRead_7:
-        JZ      ??MT_SysOsalNVRead_6
-        MOV     A,#0x6a
-        XRL     A,?V0
-        JNZ     ??MT_SysOsalNVRead_8
-        MOV     A,R3
-??MT_SysOsalNVRead_8:
-        JZ      ??MT_SysOsalNVRead_6
-        MOV     A,#0x3a
-        XRL     A,?V0
-        JNZ     ??MT_SysOsalNVRead_9
-        MOV     A,R3
-??MT_SysOsalNVRead_9:
-        JZ      ??MT_SysOsalNVRead_6
-        MOV     A,#0x3b
-        XRL     A,?V0
-        JNZ     ??MT_SysOsalNVRead_10
-        MOV     A,R3
-??MT_SysOsalNVRead_10:
-        JZ      ??MT_SysOsalNVRead_6
-        MOV     A,R2
-        ADD     A,#-0x1
-        MOV     R0,A
-        MOV     A,R3
-        ADDC    A,#-0x2
-        MOV     R1,A
-        CLR     C
-        MOV     A,R0
-        SUBB    A,#-0x1
-        MOV     A,R1
-        SUBB    A,#0x0
-        JC      ??MT_SysOsalNVRead_6
-        DEC     R1
-        CLR     C
-        MOV     A,R0
-        SUBB    A,#-0x1
-        MOV     A,R1
-        SUBB    A,#0x0
-        JC      ??MT_SysOsalNVRead_6
-        MOV     A,#0x62
-        XRL     A,?V0
-        JNZ     ??MT_SysOsalNVRead_11
-        MOV     A,R3
-??MT_SysOsalNVRead_11:
-        JZ      ??MT_SysOsalNVRead_6
-        MOV     ?V2,#0x0
-        SJMP    ??MT_SysOsalNVRead_12
-??MT_SysOsalNVRead_6:
-        MOV     ?V2,#0x2
 //  698 
 //  699   /* Get NV data offset */
 //  700   if( cmdId == MT_SYS_OSAL_NV_READ )
-??MT_SysOsalNVRead_12:
-        MOV     A,R6
-        ADD     A,#0x2
-        MOV     R2,A
-        CLR     A
-        ADDC    A,R7
-        MOV     R3,A
-        MOV     A,#0x8
-        XRL     A,?V3
-        JNZ     ??MT_SysOsalNVRead_13
 //  701   {
 //  702     /* MT_SYS_OSAL_NV_READ has 1-byte offset */
 //  703     dataOfs = (uint16)pBuf[2];
-        MOV     DPL,R2
-        MOV     DPH,R3
-        MOVX    A,@DPTR
-        MOV     R6,A
-        MOV     R7,#0x0
-        SJMP    ??MT_SysOsalNVRead_14
 //  704   }
 //  705   else
 //  706   {
 //  707     /* MT_SYS_OSAL_NV_READ_EXT has 2-byte offset */
 //  708     dataOfs = osal_build_uint16( pBuf+2 );
-??MT_SysOsalNVRead_13:
-        ; Setup parameters for call to function osal_build_uint16
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V4,R2
-        MOV     ?V5,R3
-        MOV     R6,?V4
-        MOV     R7,?V5
 //  709   }
 //  710 
 //  711   /* Length of entire NV item data */
 //  712   nvItemLen = osal_nv_item_len( nvId );
-??MT_SysOsalNVRead_14:
-        ; Setup parameters for call to function osal_nv_item_len
-        MOV     R2,?V0
-        MOV     R3,?V1
-        LCALL   `??osal_nv_item_len::?relay`; Banked call to: osal_nv_item_len
-        MOV     ?V4,R2
-        MOV     ?V5,R3
-        MOV     R0,?V4
-        MOV     R1,?V5
 //  713   if( nvItemLen <= dataOfs )
-        CLR     C
-        MOV     A,R6
-        SUBB    A,R0
-        MOV     A,R7
-        SUBB    A,R1
-        JC      ??MT_SysOsalNVRead_15
 //  714   {
 //  715     /* Offset is past end of data */
 //  716     error = ZInvalidParameter;
-        MOV     ?V2,#0x2
-        LJMP    ??MT_SysOsalNVRead_16 & 0xFFFF
 //  717   }
 //  718 
 //  719   if( error == ZSuccess )
-??MT_SysOsalNVRead_15:
-        MOV     A,?V2
-        JZ      $+5
-        LJMP    ??MT_SysOsalNVRead_17 & 0xFFFF
 //  720   {
 //  721     uint8 *pRetBuf;
 //  722     uint8 respLen = 2;  /* Response header: [0]=status,[1]=length */
 //  723 
 //  724     dataLen = nvItemLen - dataOfs;
-        MOV     A,R0
-        CLR     C
-        SUBB    A,R6
-        MOV     ?V8,A
-        MOV     A,R1
-        SUBB    A,R7
-        MOV     ?V9,A
 //  725     if (dataLen > (uint16)(MT_MAX_RSP_DATA_LEN - respLen))
-        CLR     C
-        MOV     A,?V8
-        SUBB    A,#0x79
-        MOV     A,?V9
-        SUBB    A,#0x0
-        JC      ??MT_SysOsalNVRead_18
 //  726     {
 //  727       /* Data length is limited by TX buffer size and MT protocol */
 //  728       dataLen = (MT_MAX_RSP_DATA_LEN - respLen);
-        MOV     ?V8,#0x78
-        MOV     ?V9,#0x0
 //  729     }
 //  730     respLen += dataLen;
-??MT_SysOsalNVRead_18:
-        MOV     A,?V8
-        ADD     A,#0x2
-        MOV     ?V4,A
 //  731 
 //  732     pRetBuf = osal_mem_alloc(respLen);
-        ; Setup parameters for call to function osal_mem_alloc
-        MOV     R2,A
-        MOV     R3,#0x0
-        LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
-        MOV     ?V6,R2
-        MOV     ?V7,R3
 //  733     if( pRetBuf != NULL )
-        MOV     A,R2
-        ORL     A,?V7
-        JNZ     $+5
-        LJMP    ??MT_SysOsalNVRead_19 & 0xFFFF
 //  734     {
 //  735       osal_memset(&pRetBuf[2], 0, dataLen);
-        MOV     A,R2
-        ADD     A,#0x2
-        MOV     ?V10,A
-        CLR     A
-        ADDC    A,?V7
-        MOV     ?V11,A
-        ; Setup parameters for call to function osal_memset
-        MOV     R4,?V8
-        MOV     R5,?V9
-        MOV     R1,#0x0
-        INC     R2
-        INC     R2
-        MOV     R3,A
-        LCALL   `??osal_memset::?relay`; Banked call to: osal_memset
 //  736       if (((osal_nv_read( nvId, dataOfs, dataLen, &pRetBuf[2] )) == ZSUCCESS))
-        ; Setup parameters for call to function osal_nv_read
-        MOV     R0,#?V10
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 32)
-        MOV     R0,#?V8
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 34)
-        MOV     A,R6
-        MOV     R4,A
-        MOV     A,R7
-        MOV     R5,A
-        MOV     R2,?V0
-        MOV     R3,?V1
-        LCALL   `??osal_nv_read::?relay`; Banked call to: osal_nv_read
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 30)
-        MOV     A,R1
-        JNZ     ??MT_SysOsalNVRead_20
 //  737       {
 //  738         pRetBuf[0] = ZSuccess;
-        MOV     DPL,?V6
-        MOV     DPH,?V7
-        CLR     A
-        MOVX    @DPTR,A
 //  739         pRetBuf[1] = dataLen;
-        INC     DPTR
-        MOV     A,?V8
-        MOVX    @DPTR,A
 //  740         MT_BuildAndSendZToolResponse( MT_SRSP_SYS, cmdId,
 //  741                                       respLen, pRetBuf );
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,?V6
-        MOV     R5,?V7
-        MOV     R3,?V4
-        MOV     R2,?V3
-        MOV     R1,#0x61
-        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
-        SJMP    ??MT_SysOsalNVRead_21
 //  742       }
 //  743       else
 //  744       {
 //  745         error = NV_OPER_FAILED;
-??MT_SysOsalNVRead_20:
-        MOV     ?V2,#0xa
 //  746       }
 //  747       osal_mem_free(pRetBuf);
-??MT_SysOsalNVRead_21:
-        ; Setup parameters for call to function osal_mem_free
-        MOV     R2,?V6
-        MOV     R3,?V7
-        LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
 //  748     }
 //  749     else
 //  750     {
@@ -3415,51 +1033,12 @@ MT_SysOsalNVRead:
 //  754   }
 //  755 
 //  756   if( error != ZSuccess )
-??MT_SysOsalNVRead_17:
-        MOV     A,?V2
-        JZ      ??MT_SysOsalNVRead_22
 //  757   {
 //  758     uint8 tmp[2] = { error, 0 };
-??MT_SysOsalNVRead_16:
-        MOV     DPTR,#`?<Constant {0, 0}>`
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP102_8
-        MOV     A,#0x2
-        LCALL   ?MOVE_LONG8_XDATA_XDATA
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,?V2
-        MOVX    @DPTR,A
 //  759     MT_BuildAndSendZToolResponse( MT_SRSP_SYS, cmdId,
 //  760                                   sizeof(tmp), tmp);
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP102_8
-        MOV     R3,#0x2
-        MOV     R2,?V3
-??MT_SysOsalNVRead_4:
-        MOV     R1,#0x61
-        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
 //  761   }
 //  762 }
-??MT_SysOsalNVRead_22:
-        MOV     A,#0xa
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 20)
-        MOV     R7,#0xc
-        LJMP    ?BANKED_LEAVE_XDATA
-          CFI CFA_XSP16 add(XSP16, 30)
-??MT_SysOsalNVRead_19:
-        MOV     ?V2,#0x10
-        SJMP    ??MT_SysOsalNVRead_16
-          CFI EndBlock cfiBlock5
-
-        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
-        DATA16
-`?<Constant {0, 0}>`:
-        DATA8
-        DB 0
-        DB 0
 //  763 
 //  764 /******************************************************************************
 //  765  * @fn      MT_SysOsalNVWrite
@@ -3470,250 +1049,41 @@ MT_SysOsalNVRead:
 //  770  *
 //  771  * @return  None
 //  772  *****************************************************************************/
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 //  773 static void MT_SysOsalNVWrite(uint8 *pBuf)
-MT_SysOsalNVWrite:
-          CFI Block cfiBlock6 Using cfiCommon0
-          CFI Function MT_SysOsalNVWrite
-        CODE
 //  774 {
-        FUNCALL MT_SysOsalNVWrite, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVWrite, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVWrite, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVWrite, osal_nv_item_len
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVWrite, zgSetItem
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 25, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 25, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVWrite, osal_nv_write
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 27, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 27, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVWrite, ZMacSetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVWrite, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        REQUIRE ?V0
-        REQUIRE ?V1
-        REQUIRE ?V2
-        REQUIRE ?V3
-        REQUIRE ?V4
-        REQUIRE ?V6
-        REQUIRE ?V7
-        REQUIRE ?V8
-        REQUIRE ?V9
-        MOV     A,#-0x12
-        LCALL   ?BANKED_ENTER_XDATA
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-17)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-18)))
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 18)
-        ; Saved register size: 18
-        ; Auto size: 5
-        MOV     A,#-0x5
-        LCALL   ?ALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 23)
-        MOV     ?V7,R3
 //  775   uint8 cmdId;
 //  776   uint16 nvId;
 //  777   uint16 dataLen;
 //  778   uint16 dataOfs;
 //  779   uint16 nvItemLen;
 //  780   uint8 rtrn = ZSuccess;
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        CLR     A
-        MOVX    @DPTR,A
 //  781 
 //  782   /* MT command ID */
 //  783   cmdId = pBuf[MT_RPC_POS_CMD1];
-        MOV     DPL,R2
-        MOV     DPH,R3
-        INC     DPTR
-        INC     DPTR
-        MOVX    A,@DPTR
-        MOV     ?V4,A
 //  784   /* Skip over RPC header */
 //  785   pBuf += MT_RPC_FRAME_HDR_SZ;
-        MOV     A,R2
-        ADD     A,#0x3
-        MOV     ?V6,A
-        JNC     ??MT_SysOsalNVWrite_0
-        INC     ?V7
 //  786 
 //  787   /* NV item ID */
 //  788   nvId = osal_build_uint16( pBuf );
-??MT_SysOsalNVWrite_0:
-        ; Setup parameters for call to function osal_build_uint16
-        INC     R2
-        INC     R2
-        INC     R2
-        MOV     R3,?V7
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     R6,?V0
-        MOV     R7,?V1
 //  789 
 //  790   /* Get NV data offset & length */
 //  791   if ( cmdId == MT_SYS_OSAL_NV_WRITE )
-        MOV     A,?V6
-        ADD     A,#0x4
-        MOV     ?V2,A
-        CLR     A
-        ADDC    A,?V7
-        MOV     ?V3,A
-        MOV     A,?V6
-        ADD     A,#0x2
-        MOV     R2,A
-        CLR     A
-        ADDC    A,?V7
-        MOV     R3,A
-        MOV     A,#0x9
-        XRL     A,?V4
-        JNZ     ??MT_SysOsalNVWrite_1
 //  792   {
 //  793     /* MT_SYS_OSAL_NV_WRITE has 1-byte offset & length */
 //  794     dataOfs = (uint16)pBuf[2];
-        MOV     DPL,R2
-        MOV     DPH,R3
-        MOVX    A,@DPTR
-        MOV     ?V0,A
-        MOV     ?V1,#0x0
 //  795     dataLen = (uint16)pBuf[3];
-        MOV     DPL,?V6
-        MOV     DPH,?V7
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        MOVX    A,@DPTR
-        MOV     ?V8,A
-        MOV     ?V9,#0x0
 //  796     pBuf += 4;
-        MOV     ?V6,?V2
-        MOV     ?V7,?V3
-        SJMP    ??MT_SysOsalNVWrite_2
 //  797   }
 //  798   else
 //  799   {
 //  800     /* MT_SYS_OSAL_NV_WRITE_EXT has 2-byte offset & length */
 //  801     dataOfs = osal_build_uint16( pBuf+2 );
-??MT_SysOsalNVWrite_1:
-        ; Setup parameters for call to function osal_build_uint16
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V0,R2
-        MOV     ?V1,R3
 //  802     dataLen = osal_build_uint16( pBuf+4 );
-        ; Setup parameters for call to function osal_build_uint16
-        MOV     R2,?V2
-        MOV     R3,?V3
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V8,R2
-        MOV     ?V9,R3
 //  803     pBuf += 6;
-        MOV     A,?V6
-        ADD     A,#0x6
-        MOV     ?V6,A
-        JNC     ??MT_SysOsalNVWrite_2
-        INC     ?V7
 //  804   }
 //  805 
 //  806 #if defined ( ZCD_NV_POLL_RATE_OLD16 )
 //  807   if ( nvId == ZCD_NV_POLL_RATE_OLD16 )
-??MT_SysOsalNVWrite_2:
-        MOV     A,#0x24
-        XRL     A,R6
-        ORL     A,R7
-        JNZ     ??MT_SysOsalNVWrite_3
 //  808   {
 //  809     // This ID shouldn't exist anymore, it was converted to the new size and ID
 //  810     // then deleted during initialization.  But a write to this item will
@@ -3723,144 +1093,44 @@ MT_SysOsalNVWrite:
 //  814     uint16 *pOldPollRate = (uint16 *)pBuf;
 //  815     uint16 oldPollRate = *pOldPollRate;
 //  816     nvId = ZCD_NV_POLL_RATE;
-        MOV     R6,#0x35
-        MOV     R7,#0x0
 //  817     nvItemLen = sizeof ( uint32 );
 //  818     pollRate = (uint32)oldPollRate;
 //  819     pBuf = (uint8 *)&pollRate;
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP100_8
-        MOV     ?V6,R0
-        MOV     ?V7,R1
 //  820   }
 //  821 #endif
 //  822 
 //  823   /* Length of entire NV item data */
 //  824   nvItemLen = osal_nv_item_len(nvId);
 //  825   if ((dataOfs + dataLen) <= nvItemLen)
-??MT_SysOsalNVWrite_3:
-        ; Setup parameters for call to function osal_nv_item_len
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_nv_item_len::?relay`; Banked call to: osal_nv_item_len
-        MOV     A,?V0
-        ADD     A,?V8
-        MOV     R0,A
-        MOV     A,?V1
-        ADDC    A,?V9
-        MOV     R1,A
-        CLR     C
-        MOV     A,R2
-        SUBB    A,R0
-        MOV     A,R3
-        SUBB    A,R1
-        JC      ??MT_SysOsalNVWrite_4
 //  826   {
 //  827     if (dataOfs == 0)
-        MOV     A,?V0
-        ORL     A,?V1
-        JNZ     ??MT_SysOsalNVWrite_5
 //  828     {
 //  829       /* Set the Z-Globals value of this NV item */
 //  830       zgSetItem( nvId, dataLen, pBuf );
-        ; Setup parameters for call to function zgSetItem
-        MOV     R0,#?V6
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 25)
-        MOV     R4,?V8
-        MOV     R5,?V9
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??zgSetItem::?relay`; Banked call to: zgSetItem
-        MOV     A,#0x2
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 23)
 //  831     }
 //  832 
 //  833     if ((osal_nv_write(nvId, dataOfs, dataLen, pBuf)) == ZSUCCESS)
-??MT_SysOsalNVWrite_5:
-        ; Setup parameters for call to function osal_nv_write
-        MOV     R0,#?V6
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 25)
-        MOV     R0,#?V8
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 27)
-        MOV     R4,?V0
-        MOV     R5,?V1
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_nv_write::?relay`; Banked call to: osal_nv_write
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 23)
-        MOV     A,R1
-        JNZ     ??MT_SysOsalNVWrite_6
 //  834     {
 //  835       if (nvId == ZCD_NV_EXTADDR)
-        MOV     A,#0x1
-        XRL     A,R6
-        ORL     A,R7
-        JNZ     ??MT_SysOsalNVWrite_7
 //  836       {
 //  837         rtrn = ZMacSetReq(ZMacExtAddr, pBuf);
-        ; Setup parameters for call to function ZMacSetReq
-        MOV     R2,?V6
-        MOV     R3,?V7
-        MOV     R1,#-0x1e
-        LCALL   `??ZMacSetReq::?relay`; Banked call to: ZMacSetReq
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        SJMP    ??MT_SysOsalNVWrite_8
 //  838       }
 //  839     }
 //  840     else
 //  841     {
 //  842       rtrn = NV_OPER_FAILED;
-??MT_SysOsalNVWrite_6:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0xa
-        SJMP    ??MT_SysOsalNVWrite_8
 //  843     }
 //  844   }
 //  845   else
 //  846   {
 //  847     /* Bad length or/and offset */
 //  848     rtrn = ZInvalidParameter;
-??MT_SysOsalNVWrite_4:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0x2
-??MT_SysOsalNVWrite_8:
-        MOVX    @DPTR,A
 //  849   }
 //  850 
 //  851   /* Build and send back the response */
 //  852   MT_BuildAndSendZToolResponse( MT_SRSP_SYS, cmdId,
 //  853                                 sizeof(rtrn), &rtrn);
-??MT_SysOsalNVWrite_7:
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,?XSP + 0
-        MOV     R5,?XSP + 1
-        MOV     R3,#0x1
-        MOV     R2,?V4
-        MOV     R1,#0x61
-        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
 //  854 }
-        MOV     A,#0x5
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 18)
-        MOV     R7,#0xa
-        LJMP    ?BANKED_LEAVE_XDATA
-          CFI EndBlock cfiBlock6
 //  855 
 //  856 /******************************************************************************
 //  857  * @fn      MT_SysOsalNVItemInit
@@ -3871,113 +1141,8 @@ MT_SysOsalNVWrite:
 //  862  *
 //  863  * @return  None
 //  864  *****************************************************************************/
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 //  865 static void MT_SysOsalNVItemInit(uint8 *pBuf)
-MT_SysOsalNVItemInit:
-          CFI Block cfiBlock7 Using cfiCommon0
-          CFI Function MT_SysOsalNVItemInit
-        CODE
 //  866 {
-        FUNCALL MT_SysOsalNVItemInit, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 17, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 17, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVItemInit, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 17, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 17, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVItemInit, osal_nv_item_init
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 19, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVItemInit, osal_nv_write
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 21, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 21, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVItemInit, osal_nv_item_init
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 19, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysOsalNVItemInit, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 17, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 17, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        REQUIRE ?V0
-        REQUIRE ?V1
-        REQUIRE ?V2
-        REQUIRE ?V4
-        REQUIRE ?V5
-        REQUIRE ?V6
-        REQUIRE ?V7
-        MOV     A,#-0x10
-        LCALL   ?BANKED_ENTER_XDATA
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 16)
-        ; Saved register size: 16
-        ; Auto size: 1
-        MOV     A,#-0x1
-        LCALL   ?ALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 17)
-        MOV     ?V5,R3
 //  867   uint8 ret;
 //  868   uint8 idLen;
 //  869   uint16 nvId;
@@ -3985,176 +1150,47 @@ MT_SysOsalNVItemInit:
 //  871 
 //  872   /* Skip over RPC header */
 //  873   pBuf += MT_RPC_FRAME_HDR_SZ;
-        MOV     A,R2
-        ADD     A,#0x3
-        MOV     ?V4,A
-        JNC     ??MT_SysOsalNVItemInit_0
-        INC     ?V5
 //  874 
 //  875   /* NV item ID */
 //  876   nvId = osal_build_uint16( pBuf );
-??MT_SysOsalNVItemInit_0:
-        ; Setup parameters for call to function osal_build_uint16
-        INC     R2
-        INC     R2
-        INC     R2
-        MOV     R3,?V5
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     R6,?V0
-        MOV     R7,?V1
 //  877   /* NV item length */
 //  878   nvLen = osal_build_uint16( pBuf+2 );
-        ; Setup parameters for call to function osal_build_uint16
-        MOV     A,?V4
-        ADD     A,#0x2
-        MOV     R2,A
-        CLR     A
-        ADDC    A,?V5
-        MOV     R3,A
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     R4,?V0
-        MOV     R5,?V1
 //  879   /* Initialization data length */
 //  880   idLen = pBuf[4];
-        MOV     DPL,?V4
-        MOV     DPH,?V5
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        MOVX    A,@DPTR
-        MOV     ?V2,A
 //  881   pBuf += 5;
-        MOV     A,?V4
-        ADD     A,#0x5
-        MOV     ?V4,A
-        JNC     ??MT_SysOsalNVItemInit_1
-        INC     ?V5
 //  882 
 //  883 #if defined( ZCD_NV_POLL_RATE_OLD16 )
 //  884   if ( nvId == ZCD_NV_POLL_RATE_OLD16 )
-??MT_SysOsalNVItemInit_1:
-        MOV     A,#0x24
-        XRL     A,R6
-        ORL     A,R7
-        JNZ     ??MT_SysOsalNVItemInit_2
 //  885   {
 //  886     /* This item shouldn't exist anymore.  Read and write will convert
 //  887      * to the new NV item, so return Success.
 //  888      */
 //  889     ret = ZSuccess;
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        CLR     A
-        SJMP    ??MT_SysOsalNVItemInit_3
 //  890   }
 //  891   else
 //  892 #endif
 //  893   {
 //  894     if ( idLen < nvLen )
-??MT_SysOsalNVItemInit_2:
-        MOV     ?V0,?V2
-        MOV     ?V1,#0x0
-        CLR     C
-        MOV     A,?V0
-        SUBB    A,R4
-        CLR     A
-        SUBB    A,R5
-        JNC     ??MT_SysOsalNVItemInit_4
 //  895     {
 //  896       /* Attempt to create a new NV item */
 //  897       ret = osal_nv_item_init( nvId, nvLen, NULL );
-        ; Setup parameters for call to function osal_nv_item_init
-        CLR     A
-        MOV     ?V6,A
-        MOV     ?V7,A
-        MOV     R0,#?V6
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 19)
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
-        MOV     A,#0x2
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 17)
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOVX    @DPTR,A
 //  898       if ( (ret == NV_ITEM_UNINIT) && (idLen > 0) )
-        XRL     A,#0x9
-        JNZ     ??MT_SysOsalNVItemInit_5
-        MOV     A,?V2
-        JZ      ??MT_SysOsalNVItemInit_5
 //  899       {
 //  900         /* Write initialization data to first part of new item */
 //  901         (void) osal_nv_write( nvId, 0, (uint16)idLen, pBuf );
-        ; Setup parameters for call to function osal_nv_write
-        MOV     R0,#?V4
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 19)
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 21)
-        MOV     R4,#0x0
-        MOV     R5,#0x0
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_nv_write::?relay`; Banked call to: osal_nv_write
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 17)
-        SJMP    ??MT_SysOsalNVItemInit_5
 //  902       }
 //  903     }
 //  904     else
 //  905     {
 //  906       /* Attempt to create/initialize a new NV item */
 //  907       ret = osal_nv_item_init( nvId, nvLen, pBuf );
-??MT_SysOsalNVItemInit_4:
-        ; Setup parameters for call to function osal_nv_item_init
-        MOV     R0,#?V4
-        LCALL   ?PUSH_XSTACK_I_TWO
-          CFI CFA_XSP16 add(XSP16, 19)
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
-        MOV     A,#0x2
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 17)
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-??MT_SysOsalNVItemInit_3:
-        MOVX    @DPTR,A
 //  908     }
 //  909   }
 //  910 
 //  911   /* Build and send back the response */
 //  912   MT_BuildAndSendZToolResponse( MT_SRSP_SYS, MT_SYS_OSAL_NV_ITEM_INIT,
 //  913                                 sizeof(ret), &ret);
-??MT_SysOsalNVItemInit_5:
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,?XSP + 0
-        MOV     R5,?XSP + 1
-        MOV     R3,#0x1
-        MOV     R2,#0x7
-        MOV     R1,#0x61
-        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
 //  914 }
-        MOV     A,#0x1
-        LJMP    ?Subroutine0 & 0xFFFF
-          CFI EndBlock cfiBlock7
 //  915 
 //  916 /******************************************************************************
 //  917  * @fn      MT_SysOsalNVDelete
@@ -4853,128 +1889,16 @@ MT_SysOsalNVItemInit:
 // 1610  *
 // 1611  * @return  None
 // 1612  *****************************************************************************/
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 // 1613 static void MT_SysSetUtcTime(uint8 *pBuf)
-MT_SysSetUtcTime:
-          CFI Block cfiBlock8 Using cfiCommon0
-          CFI Function MT_SysSetUtcTime
-        CODE
 // 1614 {
-        FUNCALL MT_SysSetUtcTime, osal_build_uint32
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 20, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysSetUtcTime, osal_build_uint16
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 20, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysSetUtcTime, osal_ConvertUTCSecs
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 20, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysSetUtcTime, osal_setClock
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 20, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysSetUtcTime, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 20, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 20, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        REQUIRE ?V0
-        REQUIRE ?V1
-        REQUIRE ?V2
-        REQUIRE ?V3
-        MOV     A,#-0xc
-        LCALL   ?BANKED_ENTER_XDATA
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 12)
-        ; Saved register size: 12
-        ; Auto size: 8
-        MOV     A,#-0x8
-        LCALL   ?ALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 20)
-        MOV     A,R2
-        MOV     R6,A
-        MOV     A,R3
-        MOV     R7,A
 // 1615   uint8 retStat;
 // 1616   UTCTime utcSecs;
 // 1617 
 // 1618   /* Skip over RPC header */
 // 1619   pBuf += MT_RPC_FRAME_HDR_SZ;
-        MOV     A,R6
-        ADD     A,#0x3
-        MOV     R6,A
-        JNC     ??MT_SysSetUtcTime_0
-        INC     R7
 // 1620 
 // 1621   utcSecs = osal_build_uint32( pBuf, 4 );
-??MT_SysSetUtcTime_0:
-        ; Setup parameters for call to function osal_build_uint32
-        MOV     R1,#0x4
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_build_uint32::?relay`; Banked call to: osal_build_uint32
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     ?V2,R4
-        MOV     ?V3,R5
 // 1622   if ( utcSecs == 0 )
-        MOV     A,R2
-        ORL     A,?V1
-        ORL     A,?V2
-        ORL     A,?V3
-        JZ      $+5
-        LJMP    ??MT_SysSetUtcTime_1 & 0xFFFF
 // 1623   {
 // 1624     UTCTimeStruct utc;
 // 1625 
@@ -4983,705 +1907,40 @@ MT_SysSetUtcTime:
 // 1628 
 // 1629     /* Get time and date parameters */
 // 1630     utc.hour = *pBuf++;
-        MOV     DPL,R6
-        MOV     DPH,R7
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        MOVX    A,@DPTR
-        PUSH    A
-          CFI CFA_SP SP+-1
-        MOV     A,#0x3
-        LCALL   ?XSTACK_DISP0_8
-        POP     A
-          CFI CFA_SP SP+0
-        LCALL   ?Subroutine7 & 0xFFFF
 // 1631     utc.minutes = *pBuf++;
-??CrossCallReturnLabel_8:
-        MOVX    A,@DPTR
-        PUSH    A
-          CFI CFA_SP SP+-1
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        POP     A
-          CFI CFA_SP SP+0
-        LCALL   ?Subroutine7 & 0xFFFF
 // 1632     utc.seconds = *pBuf++;
-??CrossCallReturnLabel_9:
-        INC     DPTR
-        MOVX    A,@DPTR
-        PUSH    A
-          CFI CFA_SP SP+-1
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP0_8
-        POP     A
-          CFI CFA_SP SP+0
-        LCALL   ?Subroutine6 & 0xFFFF
 // 1633     utc.month = (*pBuf++) - 1;
-??CrossCallReturnLabel_6:
-        MOVX    A,@DPTR
-        DEC     A
-        PUSH    A
-          CFI CFA_SP SP+-1
-        MOV     A,#0x5
-        LCALL   ?XSTACK_DISP0_8
-        POP     A
-          CFI CFA_SP SP+0
-        LCALL   ?Subroutine6 & 0xFFFF
 // 1634     utc.day = (*pBuf++) - 1;
-??CrossCallReturnLabel_7:
-        INC     DPTR
-        MOVX    A,@DPTR
-        DEC     A
-        PUSH    A
-          CFI CFA_SP SP+-1
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP0_8
-        POP     A
-          CFI CFA_SP SP+0
-        MOVX    @DPTR,A
 // 1635     utc.year = osal_build_uint16 ( pBuf );
-        ; Setup parameters for call to function osal_build_uint16
-        MOV     A,R6
-        ADD     A,#0x9
-        MOV     R2,A
-        CLR     A
-        ADDC    A,R7
-        MOV     R3,A
-        LCALL   `??osal_build_uint16::?relay`; Banked call to: osal_build_uint16
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     R4,?V0
-        MOV     R5,?V1
-        MOV     A,#0x6
-        LCALL   ?XSTACK_DISP0_8
-        MOV     A,R4
-        MOVX    @DPTR,A
-        INC     DPTR
-        MOV     A,R5
-        MOVX    @DPTR,A
 // 1636 
 // 1637     if ((utc.hour < 24) && (utc.minutes < 60) && (utc.seconds < 60) &&
 // 1638         (utc.month < 12) && (utc.day < 31) && (utc.year > 1999) && (utc.year < 2136))
-        MOV     A,#0x3
-        LCALL   ?XSTACK_DISP0_8
-        MOVX    A,@DPTR
-        CLR     C
-        SUBB    A,#0x18
-        JC      $+5
-        LJMP    ??MT_SysSetUtcTime_2 & 0xFFFF
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        MOVX    A,@DPTR
-        CLR     C
-        SUBB    A,#0x3c
-        JC      $+5
-        LJMP    ??MT_SysSetUtcTime_2 & 0xFFFF
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP0_8
-        MOVX    A,@DPTR
-        CLR     C
-        SUBB    A,#0x3c
-        JC      $+5
-        LJMP    ??MT_SysSetUtcTime_2 & 0xFFFF
-        MOV     A,#0x5
-        LCALL   ?XSTACK_DISP0_8
-        MOVX    A,@DPTR
-        MOV     R2,A
-        CLR     C
-        SUBB    A,#0xc
-        JNC     ??MT_SysSetUtcTime_2
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP0_8
-        MOVX    A,@DPTR
-        MOV     R6,A
-        CLR     C
-        SUBB    A,#0x1f
-        JNC     ??MT_SysSetUtcTime_2
-        MOV     A,R4
-        ADD     A,#0x30
-        MOV     R0,A
-        MOV     A,R5
-        ADDC    A,#-0x8
-        MOV     R1,A
-        CLR     C
-        MOV     A,R0
-        SUBB    A,#-0x78
-        MOV     A,R1
-        SUBB    A,#0x0
-        JNC     ??MT_SysSetUtcTime_2
 // 1639     {
 // 1640       /* Got past the course filter, now check for leap year */
 // 1641       if ((utc.month != 1) || (utc.day < (IsLeapYear( utc.year ) ? 29 : 28)))
-        MOV     A,#0x1
-        XRL     A,R2
-        JNZ     ??MT_SysSetUtcTime_3
-        MOV     A,R4
-        MOV     R0,A
-        MOV     A,R5
-        MOV     R1,A
-        MOV     R2,#-0x70
-        MOV     R3,#0x1
-        LCALL   ?US_DIV_MOD
-        MOV     ?V1,R3
-        MOV     A,R2
-        ORL     A,?V1
-        JZ      ??MT_SysSetUtcTime_4
-        MOV     A,R4
-        MOV     R0,A
-        MOV     A,R5
-        MOV     R1,A
-        MOV     R2,#0x64
-        MOV     R3,#0x0
-        LCALL   ?US_DIV_MOD
-        MOV     ?V1,R3
-        MOV     A,R2
-        ORL     A,?V1
-        JZ      ??MT_SysSetUtcTime_5
-        MOV     A,R4
-        ANL     A,#0x3
-        JNZ     ??MT_SysSetUtcTime_5
-??MT_SysSetUtcTime_4:
-        MOV     R2,#0x1d
-        SJMP    ??MT_SysSetUtcTime_6
-??MT_SysSetUtcTime_5:
-        MOV     R2,#0x1c
-??MT_SysSetUtcTime_6:
-        MOV     A,R6
-        SUBB    A,R2
-        SUBB    A,0xE0 /* A   */
-        CLR     C
-        XRL     A,PSW
-        RLC     A
-        JNC     ??MT_SysSetUtcTime_2
 // 1642       {
 // 1643         /* Numbers look reasonable, convert to UTC */
 // 1644         utcSecs = osal_ConvertUTCSecs( &utc );
-??MT_SysSetUtcTime_3:
-        ; Setup parameters for call to function osal_ConvertUTCSecs
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP101_8
-        LCALL   `??osal_ConvertUTCSecs::?relay`; Banked call to: osal_ConvertUTCSecs
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     ?V2,R4
-        MOV     ?V3,R5
 // 1645       }
 // 1646     }
 // 1647   }
 // 1648 
 // 1649   if ( utcSecs == 0 )
-??MT_SysSetUtcTime_1:
-        MOV     A,?V0
-        ORL     A,?V1
-        ORL     A,?V2
-        ORL     A,?V3
-        JNZ     ??MT_SysSetUtcTime_7
 // 1650   {
 // 1651     /* Bad parameter(s) */
 // 1652     retStat = ZInvalidParameter;
-??MT_SysSetUtcTime_2:
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,#0x2
-        SJMP    ??MT_SysSetUtcTime_8
 // 1653   }
 // 1654   else
 // 1655   {
 // 1656     /* Parameters accepted, set the time */
 // 1657     osal_setClock( utcSecs );
-??MT_SysSetUtcTime_7:
-        ; Setup parameters for call to function osal_setClock
-        MOV     R2,?V0
-        MOV     R3,?V1
-        MOV     R4,?V2
-        MOV     R5,?V3
-        LCALL   `??osal_setClock::?relay`; Banked call to: osal_setClock
 // 1658     retStat = ZSuccess;
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        CLR     A
 // 1659   }
-??MT_SysSetUtcTime_8:
-        LCALL   ??Subroutine10_0 & 0xFFFF
 // 1660 
 // 1661   /* Build and send back the response */
 // 1662   MT_BuildAndSendZToolResponse( MT_SRSP_SYS, MT_SYS_SET_TIME,
 // 1663                                 sizeof(retStat), &retStat);
-??CrossCallReturnLabel_22:
-        MOV     R2,#0x10
-        MOV     R1,#0x61
-        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
 // 1664 }
-        MOV     A,#0x8
-          CFI EndBlock cfiBlock8
-        REQUIRE ?Subroutine1
-        ; // Fall through to label ?Subroutine1
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine1:
-          CFI Block cfiBlock9 Using cfiCommon0
-          CFI NoFunction
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 20)
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI Invalid
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 12)
-          CFI Valid
-        MOV     R7,#0x4
-        LJMP    ?BANKED_LEAVE_XDATA
-          CFI EndBlock cfiBlock9
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine7:
-          CFI Block cfiCond10 Using cfiCommon0
-          CFI Function MT_SysSetUtcTime
-          CFI Conditional ??CrossCallReturnLabel_8
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiCond11 Using cfiCommon0
-          CFI (cfiCond11) Function MT_SysSetUtcTime
-          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_9
-          CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond11) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond11) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond11) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond11) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond11) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond11) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond11) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond11) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond11) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond11) CFA_SP SP+-2
-          CFI (cfiCond11) CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiPicker12 Using cfiCommon1
-          CFI (cfiPicker12) NoFunction
-          CFI (cfiPicker12) Picker
-        LCALL   ?Subroutine8 & 0xFFFF
-??CrossCallReturnLabel_10:
-        RET
-          CFI EndBlock cfiCond10
-          CFI EndBlock cfiCond11
-          CFI EndBlock cfiPicker12
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine8:
-          CFI Block cfiCond13 Using cfiCommon0
-          CFI Function MT_SysSetUtcTime
-          CFI Conditional ??CrossCallReturnLabel_10, ??CrossCallReturnLabel_8
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-4
-          CFI CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiCond14 Using cfiCommon0
-          CFI (cfiCond14) Function MT_SysSetUtcTime
-          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_10, ??CrossCallReturnLabel_9
-          CFI (cfiCond14) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond14) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond14) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond14) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond14) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond14) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond14) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond14) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond14) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond14) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond14) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond14) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond14) CFA_SP SP+-4
-          CFI (cfiCond14) CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiCond15 Using cfiCommon0
-          CFI (cfiCond15) Function MT_SysSetUtcTime
-          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_11, ??CrossCallReturnLabel_6
-          CFI (cfiCond15) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond15) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond15) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond15) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond15) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond15) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond15) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond15) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond15) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond15) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond15) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond15) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond15) CFA_SP SP+-4
-          CFI (cfiCond15) CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiCond16 Using cfiCommon0
-          CFI (cfiCond16) Function MT_SysSetUtcTime
-          CFI (cfiCond16) Conditional ??CrossCallReturnLabel_11, ??CrossCallReturnLabel_7
-          CFI (cfiCond16) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond16) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond16) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond16) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond16) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond16) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond16) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond16) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond16) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond16) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond16) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond16) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond16) CFA_SP SP+-4
-          CFI (cfiCond16) CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiPicker17 Using cfiCommon1
-          CFI (cfiPicker17) NoFunction
-          CFI (cfiPicker17) Picker
-        MOVX    @DPTR,A
-        MOV     DPL,R6
-        MOV     DPH,R7
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        RET
-          CFI EndBlock cfiCond13
-          CFI EndBlock cfiCond14
-          CFI EndBlock cfiCond15
-          CFI EndBlock cfiCond16
-          CFI EndBlock cfiPicker17
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine6:
-          CFI Block cfiCond18 Using cfiCommon0
-          CFI Function MT_SysSetUtcTime
-          CFI Conditional ??CrossCallReturnLabel_6
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiCond19 Using cfiCommon0
-          CFI (cfiCond19) Function MT_SysSetUtcTime
-          CFI (cfiCond19) Conditional ??CrossCallReturnLabel_7
-          CFI (cfiCond19) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond19) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond19) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond19) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond19) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond19) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond19) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond19) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond19) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond19) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond19) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond19) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond19) CFA_SP SP+-2
-          CFI (cfiCond19) CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiPicker20 Using cfiCommon1
-          CFI (cfiPicker20) NoFunction
-          CFI (cfiPicker20) Picker
-        LCALL   ?Subroutine8 & 0xFFFF
-??CrossCallReturnLabel_11:
-        INC     DPTR
-        INC     DPTR
-        RET
-          CFI EndBlock cfiCond18
-          CFI EndBlock cfiCond19
-          CFI EndBlock cfiPicker20
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine5:
-          CFI Block cfiCond21 Using cfiCommon0
-          CFI Function MT_SysCommandProcessing
-          CFI Conditional ??CrossCallReturnLabel_15
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond22 Using cfiCommon0
-          CFI (cfiCond22) Function MT_SysCommandProcessing
-          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_16
-          CFI (cfiCond22) R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI (cfiCond22) VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI (cfiCond22) V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI (cfiCond22) V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI (cfiCond22) V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond22) V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond22) V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond22) V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond22) V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond22) V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond22) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond22) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond22) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond22) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond22) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond22) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond22) CFA_SP SP+-2
-          CFI (cfiCond22) CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond23 Using cfiCommon0
-          CFI (cfiCond23) Function MT_SysOsalTimerExpired
-          CFI (cfiCond23) Conditional ??CrossCallReturnLabel_17
-          CFI (cfiCond23) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond23) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond23) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond23) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond23) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond23) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond23) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond23) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond23) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond23) CFA_SP SP+-2
-          CFI (cfiCond23) CFA_XSP16 add(XSP16, 10)
-          CFI Block cfiPicker24 Using cfiCommon1
-          CFI (cfiPicker24) NoFunction
-          CFI (cfiPicker24) Picker
-        MOV     A,R1
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-          CFI EndBlock cfiCond21
-          CFI EndBlock cfiCond22
-          CFI EndBlock cfiCond23
-          CFI EndBlock cfiPicker24
-        REQUIRE ??Subroutine10_0
-        ; // Fall through to label ??Subroutine10_0
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine10_0:
-          CFI Block cfiCond25 Using cfiCommon0
-          CFI Function MT_SysCommandProcessing
-          CFI Conditional ??CrossCallReturnLabel_18
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond26 Using cfiCommon0
-          CFI (cfiCond26) Function MT_SysCommandProcessing
-          CFI (cfiCond26) Conditional ??CrossCallReturnLabel_19
-          CFI (cfiCond26) R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI (cfiCond26) VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI (cfiCond26) V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI (cfiCond26) V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI (cfiCond26) V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond26) V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond26) V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond26) V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond26) V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond26) V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond26) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond26) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond26) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond26) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond26) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond26) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond26) CFA_SP SP+-2
-          CFI (cfiCond26) CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond27 Using cfiCommon0
-          CFI (cfiCond27) Function MT_SysCommandProcessing
-          CFI (cfiCond27) Conditional ??CrossCallReturnLabel_20
-          CFI (cfiCond27) R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI (cfiCond27) VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI (cfiCond27) V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI (cfiCond27) V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI (cfiCond27) V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond27) V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond27) V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond27) V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond27) V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond27) V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond27) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond27) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond27) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond27) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond27) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond27) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond27) CFA_SP SP+-2
-          CFI (cfiCond27) CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond28 Using cfiCommon0
-          CFI (cfiCond28) Function MT_SysCommandProcessing
-          CFI (cfiCond28) Conditional ??CrossCallReturnLabel_21
-          CFI (cfiCond28) R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI (cfiCond28) VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI (cfiCond28) V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI (cfiCond28) V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI (cfiCond28) V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond28) V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond28) V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond28) V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond28) V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond28) V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond28) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond28) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond28) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond28) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond28) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond28) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond28) CFA_SP SP+-2
-          CFI (cfiCond28) CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond29 Using cfiCommon0
-          CFI (cfiCond29) Function MT_SysSetUtcTime
-          CFI (cfiCond29) Conditional ??CrossCallReturnLabel_22
-          CFI (cfiCond29) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond29) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond29) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond29) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond29) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond29) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond29) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond29) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond29) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond29) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond29) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond29) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond29) CFA_SP SP+-2
-          CFI (cfiCond29) CFA_XSP16 add(XSP16, 20)
-          CFI Block cfiCond30 Using cfiCommon0
-          CFI (cfiCond30) Function MT_SysCommandProcessing
-          CFI (cfiCond30) Conditional ??CrossCallReturnLabel_15
-          CFI (cfiCond30) R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI (cfiCond30) VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI (cfiCond30) V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI (cfiCond30) V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI (cfiCond30) V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond30) V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond30) V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond30) V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond30) V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond30) V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond30) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond30) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond30) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond30) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond30) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond30) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond30) CFA_SP SP+-2
-          CFI (cfiCond30) CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond31 Using cfiCommon0
-          CFI (cfiCond31) Function MT_SysCommandProcessing
-          CFI (cfiCond31) Conditional ??CrossCallReturnLabel_16
-          CFI (cfiCond31) R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
-          CFI (cfiCond31) VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
-          CFI (cfiCond31) V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
-          CFI (cfiCond31) V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
-          CFI (cfiCond31) V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond31) V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond31) V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond31) V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond31) V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond31) V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond31) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond31) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond31) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond31) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond31) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond31) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond31) CFA_SP SP+-2
-          CFI (cfiCond31) CFA_XSP16 add(XSP16, 32)
-          CFI Block cfiCond32 Using cfiCommon0
-          CFI (cfiCond32) Function MT_SysOsalTimerExpired
-          CFI (cfiCond32) Conditional ??CrossCallReturnLabel_17
-          CFI (cfiCond32) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond32) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond32) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond32) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond32) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond32) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond32) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond32) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond32) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond32) CFA_SP SP+-2
-          CFI (cfiCond32) CFA_XSP16 add(XSP16, 10)
-          CFI Block cfiPicker33 Using cfiCommon1
-          CFI (cfiPicker33) NoFunction
-          CFI (cfiPicker33) Picker
-        MOVX    @DPTR,A
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     R4,?XSP + 0
-        MOV     R5,?XSP + 1
-        MOV     R3,#0x1
-        RET
-          CFI EndBlock cfiCond25
-          CFI EndBlock cfiCond26
-          CFI EndBlock cfiCond27
-          CFI EndBlock cfiCond28
-          CFI EndBlock cfiCond29
-          CFI EndBlock cfiCond30
-          CFI EndBlock cfiCond31
-          CFI EndBlock cfiCond32
-          CFI EndBlock cfiPicker33
 // 1665 
 // 1666 /******************************************************************************
 // 1667  * @fn      MT_SysGetUtcTime
@@ -5692,124 +1951,15 @@ MT_SysSetUtcTime:
 // 1672  *
 // 1673  * @return  32-bit and Parsed UTC time
 // 1674  *****************************************************************************/
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 // 1675 static void MT_SysGetUtcTime(void)
-MT_SysGetUtcTime:
-          CFI Block cfiBlock34 Using cfiCommon0
-          CFI Function MT_SysGetUtcTime
-        CODE
 // 1676 {
-        FUNCALL MT_SysGetUtcTime, osal_mem_alloc
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 19, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysGetUtcTime, osal_getClock
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 19, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysGetUtcTime, osal_ConvertUTCTime
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysGetUtcTime, osal_buffer_uint32
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 23, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 23, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysGetUtcTime, MT_BuildAndSendZToolResponse
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 19, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL MT_SysGetUtcTime, osal_mem_free
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 19, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 19, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        REQUIRE ?V0
-        REQUIRE ?V1
-        REQUIRE ?V2
-        REQUIRE ?V3
-        MOV     A,#-0xc
-        LCALL   ?BANKED_ENTER_XDATA
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI CFA_SP SP+0
-          CFI CFA_XSP16 add(XSP16, 12)
-        ; Saved register size: 12
-        ; Auto size: 7
-        MOV     A,#-0x7
-        LCALL   ?ALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 19)
 // 1677   uint8 len;
 // 1678   uint8 *buf;
 // 1679 
 // 1680   len = sizeof( UTCTime ) + sizeof( UTCTimeStruct );
 // 1681 
 // 1682   buf = osal_mem_alloc( len );
-        ; Setup parameters for call to function osal_mem_alloc
-        MOV     R2,#0xb
-        MOV     R3,#0x0
-        LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     R6,?V0
-        MOV     R7,?V1
 // 1683   if ( buf )
-        MOV     A,R6
-        ORL     A,R7
-        JNZ     $+5
-        LJMP    ??MT_SysGetUtcTime_0 & 0xFFFF
 // 1684   {
 // 1685     uint8 *pBuf;
 // 1686     UTCTime utcSecs;
@@ -5817,305 +1967,27 @@ MT_SysGetUtcTime:
 // 1688 
 // 1689     // Get current 32-bit UTC time and parse it
 // 1690     utcSecs = osal_getClock();
-        ; Setup parameters for call to function osal_getClock
-        LCALL   `??osal_getClock::?relay`; Banked call to: osal_getClock
-        MOV     ?V0,R2
-        MOV     ?V1,R3
-        MOV     ?V2,R4
-        MOV     ?V3,R5
 // 1691     osal_ConvertUTCTime( &utcTime, utcSecs );
-        ; Setup parameters for call to function osal_ConvertUTCTime
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_FOUR
-          CFI CFA_XSP16 add(XSP16, 23)
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP101_8
-        LCALL   `??osal_ConvertUTCTime::?relay`; Banked call to: osal_ConvertUTCTime
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 19)
 // 1692 
 // 1693     // Start with 32-bit UTC time
 // 1694     pBuf = osal_buffer_uint32( buf, utcSecs );
-        ; Setup parameters for call to function osal_buffer_uint32
-        MOV     R0,#?V0
-        LCALL   ?PUSH_XSTACK_I_FOUR
-          CFI CFA_XSP16 add(XSP16, 23)
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_buffer_uint32::?relay`; Banked call to: osal_buffer_uint32
-        MOV     A,#0x4
-        LCALL   ?DEALLOC_XSTACK8
-          CFI CFA_XSP16 add(XSP16, 19)
 // 1695 
 // 1696     // Concatenate parsed UTC time fields
 // 1697     *pBuf++ = utcTime.hour;
-        MOV     A,#0x2
-        LCALL   ?XSTACK_DISP0_8
-        MOVX    A,@DPTR
-        MOV     DPL,R2
-        MOV     DPH,R3
-        MOVX    @DPTR,A
 // 1698     *pBuf++ = utcTime.minutes;
-        MOV     A,#0x1
-        LCALL   ?XSTACK_DISP0_8
-        LCALL   ?Subroutine9 & 0xFFFF
-??CrossCallReturnLabel_12:
-        MOVX    @DPTR,A
 // 1699     *pBuf++ = utcTime.seconds;
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        LCALL   ?Subroutine9 & 0xFFFF
-??CrossCallReturnLabel_13:
-        INC     DPTR
-        MOVX    @DPTR,A
 // 1700     *pBuf++ = utcTime.month + 1;  // Convert to human numbers
-        MOV     A,#0x4
-        LCALL   ?XSTACK_DISP0_8
-        LCALL   ?Subroutine4 & 0xFFFF
-??CrossCallReturnLabel_4:
-        MOVX    @DPTR,A
 // 1701     *pBuf++ = utcTime.day + 1;
-        MOV     A,#0x3
-        LCALL   ?XSTACK_DISP0_8
-        LCALL   ?Subroutine4 & 0xFFFF
-??CrossCallReturnLabel_5:
-        INC     DPTR
-        MOVX    @DPTR,A
 // 1702     *pBuf++ = LO_UINT16( utcTime.year );
-        MOV     A,#0x5
-        LCALL   ?XSTACK_DISP0_8
-        LCALL   ?Subroutine3 & 0xFFFF
-??CrossCallReturnLabel_2:
-        MOVX    @DPTR,A
 // 1703     *pBuf++ = HI_UINT16( utcTime.year );
-        MOV     A,#0x5
-        LCALL   ?XSTACK_DISP0_8
-        INC     DPTR
-        LCALL   ?Subroutine3 & 0xFFFF
-??CrossCallReturnLabel_3:
-        INC     DPTR
-        MOVX    @DPTR,A
 // 1704 
 // 1705     /* Build and send back the response */
 // 1706     MT_BuildAndSendZToolResponse( MT_SRSP_SYS, MT_SYS_GET_TIME,
 // 1707                                  (uint8)(pBuf-buf), buf);
-        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
-        MOV     A,R6
-        MOV     R4,A
-        MOV     A,R7
-        MOV     R5,A
-        MOV     A,R6
-        MOV     R0,A
-        MOV     A,R2
-        ADD     A,#0x7
-        CLR     C
-        SUBB    A,R0
-        MOV     R3,A
-        MOV     R2,#0x11
-        MOV     R1,#0x61
-        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
 // 1708 
 // 1709     osal_mem_free( buf );
-        ; Setup parameters for call to function osal_mem_free
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,R7
-        MOV     R3,A
-        LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
 // 1710   }
 // 1711 }
-??MT_SysGetUtcTime_0:
-        MOV     A,#0x7
-        LJMP    ?Subroutine1 & 0xFFFF
-          CFI EndBlock cfiBlock34
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine4:
-          CFI Block cfiCond35 Using cfiCommon0
-          CFI Function MT_SysGetUtcTime
-          CFI Conditional ??CrossCallReturnLabel_4
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiCond36 Using cfiCommon0
-          CFI (cfiCond36) Function MT_SysGetUtcTime
-          CFI (cfiCond36) Conditional ??CrossCallReturnLabel_5
-          CFI (cfiCond36) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond36) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond36) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond36) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond36) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond36) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond36) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond36) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond36) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond36) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond36) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond36) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond36) CFA_SP SP+-2
-          CFI (cfiCond36) CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiPicker37 Using cfiCommon1
-          CFI (cfiPicker37) NoFunction
-          CFI (cfiPicker37) Picker
-        MOVX    A,@DPTR
-        INC     A
-        MOV     DPL,R2
-        MOV     DPH,R3
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        RET
-          CFI EndBlock cfiCond35
-          CFI EndBlock cfiCond36
-          CFI EndBlock cfiPicker37
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine3:
-          CFI Block cfiCond38 Using cfiCommon0
-          CFI Function MT_SysGetUtcTime
-          CFI Conditional ??CrossCallReturnLabel_2
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiCond39 Using cfiCommon0
-          CFI (cfiCond39) Function MT_SysGetUtcTime
-          CFI (cfiCond39) Conditional ??CrossCallReturnLabel_3
-          CFI (cfiCond39) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond39) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond39) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond39) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond39) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond39) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond39) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond39) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond39) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond39) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond39) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond39) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond39) CFA_SP SP+-2
-          CFI (cfiCond39) CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiPicker40 Using cfiCommon1
-          CFI (cfiPicker40) NoFunction
-          CFI (cfiPicker40) Picker
-        LCALL   ?Subroutine9 & 0xFFFF
-??CrossCallReturnLabel_14:
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        INC     DPTR
-        RET
-          CFI EndBlock cfiCond38
-          CFI EndBlock cfiCond39
-          CFI EndBlock cfiPicker40
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine9:
-          CFI Block cfiCond41 Using cfiCommon0
-          CFI Function MT_SysGetUtcTime
-          CFI Conditional ??CrossCallReturnLabel_12
-          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI CFA_SP SP+-2
-          CFI CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiCond42 Using cfiCommon0
-          CFI (cfiCond42) Function MT_SysGetUtcTime
-          CFI (cfiCond42) Conditional ??CrossCallReturnLabel_13
-          CFI (cfiCond42) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond42) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond42) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond42) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond42) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond42) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond42) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond42) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond42) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond42) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond42) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond42) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond42) CFA_SP SP+-2
-          CFI (cfiCond42) CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiCond43 Using cfiCommon0
-          CFI (cfiCond43) Function MT_SysGetUtcTime
-          CFI (cfiCond43) Conditional ??CrossCallReturnLabel_14, ??CrossCallReturnLabel_2
-          CFI (cfiCond43) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond43) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond43) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond43) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond43) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond43) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond43) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond43) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond43) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond43) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond43) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond43) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond43) CFA_SP SP+-4
-          CFI (cfiCond43) CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiCond44 Using cfiCommon0
-          CFI (cfiCond44) Function MT_SysGetUtcTime
-          CFI (cfiCond44) Conditional ??CrossCallReturnLabel_14, ??CrossCallReturnLabel_3
-          CFI (cfiCond44) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
-          CFI (cfiCond44) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
-          CFI (cfiCond44) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-          CFI (cfiCond44) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-          CFI (cfiCond44) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-          CFI (cfiCond44) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-          CFI (cfiCond44) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-          CFI (cfiCond44) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-          CFI (cfiCond44) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-          CFI (cfiCond44) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-          CFI (cfiCond44) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-          CFI (cfiCond44) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-          CFI (cfiCond44) CFA_SP SP+-4
-          CFI (cfiCond44) CFA_XSP16 add(XSP16, 19)
-          CFI Block cfiPicker45 Using cfiCommon1
-          CFI (cfiPicker45) NoFunction
-          CFI (cfiPicker45) Picker
-        MOVX    A,@DPTR
-        MOV     DPL,R2
-        MOV     DPH,R3
-        INC     DPTR
-        RET
-          CFI EndBlock cfiCond41
-          CFI EndBlock cfiCond42
-          CFI EndBlock cfiCond43
-          CFI EndBlock cfiCond44
-          CFI EndBlock cfiPicker45
 // 1712 
 // 1713 /******************************************************************************
 // 1714  * @fn      MT_SysSetTxPower
@@ -6308,7 +2180,7 @@ MT_SysGetUtcTime:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 // 1900 void MT_SysResetInd(void)
 MT_SysResetInd:
-          CFI Block cfiBlock46 Using cfiCommon0
+          CFI Block cfiBlock0 Using cfiCommon0
           CFI Function MT_SysResetInd
         CODE
 // 1901 {
@@ -6404,7 +2276,7 @@ MT_SysResetInd:
           CFI CFA_XSP16 add(XSP16, 11)
         MOV     R7,#0x3
         LJMP    ?BANKED_LEAVE_XDATA
-          CFI EndBlock cfiBlock46
+          CFI EndBlock cfiBlock0
         REQUIRE SLEEPSTA
 // 1911 
 // 1912 /******************************************************************************
@@ -6421,7 +2293,7 @@ MT_SysResetInd:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 // 1922 void MT_SysOsalTimerExpired(uint8 Id)
 MT_SysOsalTimerExpired:
-          CFI Block cfiBlock47 Using cfiCommon0
+          CFI Block cfiBlock1 Using cfiCommon0
           CFI Function MT_SysOsalTimerExpired
         CODE
 // 1923 {
@@ -6454,12 +2326,18 @@ MT_SysOsalTimerExpired:
         MOV     A,#-0x1
         LCALL   ?ALLOC_XSTACK8
           CFI CFA_XSP16 add(XSP16, 10)
-        LCALL   ?Subroutine5 & 0xFFFF
+        MOV     A,R1
 // 1924   uint8 retValue = Id;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
 // 1925 
 // 1926   MT_BuildAndSendZToolResponse( MT_ARSP_SYS, MT_SYS_OSAL_TIMER_EXPIRED,
 // 1927                                 sizeof(retValue), &retValue);
-??CrossCallReturnLabel_17:
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     R3,#0x1
         MOV     R2,#-0x7f
         MOV     R1,#0x41
         LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
@@ -6469,49 +2347,7 @@ MT_SysOsalTimerExpired:
           CFI CFA_XSP16 add(XSP16, 9)
         MOV     R7,#0x1
         LJMP    ?BANKED_LEAVE_XDATA
-          CFI EndBlock cfiBlock47
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??MT_SysCommandProcessing::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    MT_SysCommandProcessing
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??MT_SysOsalNVRead::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    MT_SysOsalNVRead
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??MT_SysOsalNVWrite::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    MT_SysOsalNVWrite
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??MT_SysOsalNVItemInit::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    MT_SysOsalNVItemInit
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??MT_SysSetUtcTime::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    MT_SysSetUtcTime
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??MT_SysGetUtcTime::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    MT_SysGetUtcTime
+          CFI EndBlock cfiBlock1
 
         RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
 `??MT_SysResetInd::?relay`:
@@ -6789,14 +2625,12 @@ MT_SysOsalTimerExpired:
 // 2187 /******************************************************************************
 // 2188  *****************************************************************************/
 // 
-// 2 754 bytes in segment BANKED_CODE
-//    48 bytes in segment BANK_RELAYS
-//     3 bytes in segment SFR_AN
-//    10 bytes in segment XDATA_ROM_C
+// 125 bytes in segment BANKED_CODE
+//  12 bytes in segment BANK_RELAYS
+//   1 byte  in segment SFR_AN
 // 
-// 2 802 bytes of CODE  memory
-//    10 bytes of CONST memory
-//     0 bytes of DATA  memory (+ 3 bytes shared)
+// 137 bytes of CODE memory
+//   0 bytes of DATA memory (+ 1 byte shared)
 //
 //Errors: none
 //Warnings: none

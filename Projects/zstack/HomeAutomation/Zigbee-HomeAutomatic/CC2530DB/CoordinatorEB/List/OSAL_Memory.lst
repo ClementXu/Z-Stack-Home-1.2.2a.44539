@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V9.30.1.3056 for 8051                24/Aug/2016  23:14:04
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                28/Aug/2016  20:48:13
 # Copyright 2004-2015 IAR Systems AB.
 #
 #    Core               =  plain
@@ -39,13 +39,14 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 #        "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Components\osal\common\OSAL_Memory.c" -D SECURE=1 -D
-#        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-#        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-#        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-#        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-#        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-#        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-#        Instruments\Z-Stack Home
+#        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+#        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+#        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+#        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+#        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D
+#        ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+#        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+#        -lC "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 #        -lA "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 #        -I "C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-#        -Ohz --require_prototypes
+#        -Ohz
 #    List file          =  
 #        C:\Texas Instruments\Z-Stack Home
 #        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\OSAL_Memory.lst
@@ -1120,6 +1121,26 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\osal\common\OSAL_Memor
    \   000062   7F01         MOV     R7,#0x1
    \   000064   02....       LJMP    ?BANKED_LEAVE_XDATA
    \   000067                REQUIRE _A_IEN0
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_mem_init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_mem_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_mem_kick::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_mem_kick
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_mem_alloc::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_mem_alloc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_mem_free::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_mem_free
     562          
     563          #if OSALMEM_METRICS
     564          /*********************************************************************
@@ -1189,47 +1210,14 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\osal\common\OSAL_Memor
     628           *
     629           * @return  Highest number of bytes ever used by the stack.
     630           */
-
-   \                                 In  segment BANKED_CODE, align 1, keep-with-next
     631          uint16 osal_heap_high_water( void )
-   \                     osal_heap_high_water:
     632          {
-   \   000000                ; Saved register size: 0
-   \   000000                ; Auto size: 0
     633          #if ( OSALMEM_METRICS )
     634            return memMax;
     635          #else
     636            return MAXMEMHEAP;
-   \   000000   7A00         MOV     R2,#0x0
-   \   000002   7B08         MOV     R3,#0x8
-   \   000004   02....       LJMP    ?BRET
     637          #endif
     638          }
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     `??osal_mem_init::?relay`:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    osal_mem_init
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     `??osal_mem_kick::?relay`:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    osal_mem_kick
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     `??osal_mem_alloc::?relay`:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    osal_mem_alloc
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     `??osal_mem_free::?relay`:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    osal_mem_free
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     `??osal_heap_high_water::?relay`:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    osal_heap_high_water
     639          #endif
     640          
     641          /**************************************************************************************************
@@ -1239,7 +1227,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\osal\common\OSAL_Memor
 
    ISTACK XSTACK Function
    ------ ------ --------
-      0      0   osal_heap_high_water
       0     24   osal_mem_alloc
       0     19   osal_mem_free
         0      9   -> halAssertHandler
@@ -1257,8 +1244,6 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\osal\common\OSAL_Memor
        1  _A_IEN0
        2  ff1
        1  osalMemStat
-       7  osal_heap_high_water
-       6  osal_heap_high_water::?relay
      345  osal_mem_alloc
        6  osal_mem_alloc::?relay
      103  osal_mem_free
@@ -1270,12 +1255,12 @@ C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\osal\common\OSAL_Memor
     2048  theHeap
 
  
-   588 bytes in segment BANKED_CODE
-    30 bytes in segment BANK_RELAYS
+   581 bytes in segment BANKED_CODE
+    24 bytes in segment BANK_RELAYS
      1 byte  in segment SFR_AN
  2 051 bytes in segment XDATA_Z
  
-   618 bytes of CODE  memory
+   605 bytes of CODE  memory
      0 bytes of DATA  memory (+ 1 byte shared)
  2 051 bytes of XDATA memory
 

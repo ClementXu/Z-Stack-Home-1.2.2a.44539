@@ -79,11 +79,37 @@ extern "C"
 /*********************************************************************
  * TYPEDEFS
  */
+typedef struct
+{
+    uint8		aucMAC[8];
+    uint16		uiNwk_Addr;
+    uint8		ucAge;
+    uint8       batteryValue;
+    uint8       deviceType[16];
+    uint8       factoryName[17];
+    uint8       version;
+    uint8       ep[5];
+}NODE_INFO_t;
+typedef struct
+{
+    NODE_INFO_t device[5];
+}NODE_INFO_Group;
 
+typedef struct
+{
+    uint16 uiNwk_Addr;
+    uint16 supportOD;
+    uint8  deviceType[16];
+    uint16 status[3];
+    uint16 seq;
+}DEVICE_STATUS_t;
+   
 /*********************************************************************
  * VARIABLES
  */
 extern SimpleDescriptionFormat_t zha_project_SimpleDesc;
+
+extern byte zha_project_TaskID;
 
 extern CONST zclCommandRec_t zha_project_Cmds[];
 

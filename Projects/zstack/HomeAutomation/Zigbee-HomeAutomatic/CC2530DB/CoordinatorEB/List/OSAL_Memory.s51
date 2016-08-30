@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:04
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  20:48:13
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -39,13 +39,14 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Components\osal\common\OSAL_Memory.c" -D SECURE=1 -D
-//        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-//        Instruments\Z-Stack Home
+//        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+//        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+//        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+//        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
+//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+//        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+//        -lC "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 //        -I "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-//        -Ohz --require_prototypes
+//        -Ohz
 //    List file          =  
 //        C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\OSAL_Memory.s51
@@ -138,8 +139,6 @@
         EXTERN ?BRET
         EXTERN __INIT_XDATA_Z
 
-        PUBLIC `??osal_heap_high_water::?relay`
-        FUNCTION `??osal_heap_high_water::?relay`,0203H
         PUBLIC `??osal_mem_alloc::?relay`
         FUNCTION `??osal_mem_alloc::?relay`,0203H
         PUBLIC `??osal_mem_free::?relay`
@@ -149,9 +148,6 @@
         PUBLIC `??osal_mem_kick::?relay`
         FUNCTION `??osal_mem_kick::?relay`,0203H
         PUBWEAK _A_IEN0
-        PUBLIC osal_heap_high_water
-        FUNCTION osal_heap_high_water,0203H
-        ARGFRAME XSTACK, 0, STACK
         PUBLIC osal_mem_alloc
         FUNCTION osal_mem_alloc,080203H
         ARGFRAME XSTACK, 10, STACK
@@ -263,8 +259,6 @@
         
 halAssertHandler    SYMBOL "halAssertHandler"
 `??halAssertHandler::?relay` SYMBOL "?relay", halAssertHandler
-osal_heap_high_water SYMBOL "osal_heap_high_water"
-`??osal_heap_high_water::?relay` SYMBOL "?relay", osal_heap_high_water
 osal_mem_alloc      SYMBOL "osal_mem_alloc"
 `??osal_mem_alloc::?relay` SYMBOL "?relay", osal_mem_alloc
 osal_mem_free       SYMBOL "osal_mem_free"
@@ -1416,6 +1410,36 @@ osal_mem_free:
         LJMP    ?BANKED_LEAVE_XDATA
           CFI EndBlock cfiBlock3
         REQUIRE _A_IEN0
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??osal_mem_init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    osal_mem_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??osal_mem_kick::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    osal_mem_kick
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??osal_mem_alloc::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    osal_mem_alloc
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??osal_mem_free::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    osal_mem_free
+
+        END
 //  562 
 //  563 #if OSALMEM_METRICS
 //  564 /*********************************************************************
@@ -1485,74 +1509,25 @@ osal_mem_free:
 //  628  *
 //  629  * @return  Highest number of bytes ever used by the stack.
 //  630  */
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 //  631 uint16 osal_heap_high_water( void )
-osal_heap_high_water:
-          CFI Block cfiBlock4 Using cfiCommon0
-          CFI Function osal_heap_high_water
-        CODE
 //  632 {
-        ; Saved register size: 0
-        ; Auto size: 0
 //  633 #if ( OSALMEM_METRICS )
 //  634   return memMax;
 //  635 #else
 //  636   return MAXMEMHEAP;
-        MOV     R2,#0x0
-        MOV     R3,#0x8
-        LJMP    ?BRET
 //  637 #endif
 //  638 }
-          CFI EndBlock cfiBlock4
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??osal_mem_init::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    osal_mem_init
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??osal_mem_kick::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    osal_mem_kick
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??osal_mem_alloc::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    osal_mem_alloc
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??osal_mem_free::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    osal_mem_free
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-`??osal_heap_high_water::?relay`:
-        CODE
-        LCALL   ?BDISPATCH
-        DATA24
-        DC24    osal_heap_high_water
-
-        END
 //  639 #endif
 //  640 
 //  641 /**************************************************************************************************
 //  642 */
 // 
-//   588 bytes in segment BANKED_CODE
-//    30 bytes in segment BANK_RELAYS
+//   581 bytes in segment BANKED_CODE
+//    24 bytes in segment BANK_RELAYS
 //     1 byte  in segment SFR_AN
 // 2 051 bytes in segment XDATA_Z
 // 
-//   618 bytes of CODE  memory
+//   605 bytes of CODE  memory
 //     0 bytes of DATA  memory (+ 1 byte shared)
 // 2 051 bytes of XDATA memory
 //

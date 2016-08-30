@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:46:08
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  22:57:23
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -39,13 +39,15 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\Source\OSAL_zha_project.c"
-//        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D
-//        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
-//        -D MT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D
-//        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D
-//        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
-//        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC
-//        "C:\Texas Instruments\Z-Stack Home
+//        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+//        HOLD_AUTO_START -D BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D
+//        xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
+//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+//        DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR -lC "C:\Texas
+//        Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +102,7 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 //        -I "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-//        -Ohz --require_prototypes
+//        -Ohz
 //    List file          =  
 //        C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\OSAL_zha_project.s51
@@ -240,24 +242,20 @@ Hal_Init            SYMBOL "Hal_Init"
 `??Hal_Init::?relay` SYMBOL "?relay", Hal_Init
 `?<Name Hal_ProcessEvent 10>` SYMBOL "Hal_ProcessEvent"
 `??Hal_ProcessEvent::?relay` SYMBOL "?relay", `?<Name Hal_ProcessEvent 10>`
-`?<Name MT_ProcessEvent 12>` SYMBOL "MT_ProcessEvent"
-`??MT_ProcessEvent::?relay` SYMBOL "?relay", `?<Name MT_ProcessEvent 12>`
-MT_TaskInit         SYMBOL "MT_TaskInit"
-`??MT_TaskInit::?relay` SYMBOL "?relay", MT_TaskInit
 ZDApp_Init          SYMBOL "ZDApp_Init"
 `??ZDApp_Init::?relay` SYMBOL "?relay", ZDApp_Init
-`?<Name ZDApp_event_loop 18>` SYMBOL "ZDApp_event_loop"
-`??ZDApp_event_loop::?relay` SYMBOL "?relay", `?<Name ZDApp_event_loop 18>`
+`?<Name ZDApp_event_loop 14>` SYMBOL "ZDApp_event_loop"
+`??ZDApp_event_loop::?relay` SYMBOL "?relay", `?<Name ZDApp_event_loop 14>`
 ZDNwkMgr_Init       SYMBOL "ZDNwkMgr_Init"
 `??ZDNwkMgr_Init::?relay` SYMBOL "?relay", ZDNwkMgr_Init
-`?<Name ZDNwkMgr_event_loop 22>` SYMBOL "ZDNwkMgr_event_loop"
-`??ZDNwkMgr_event_loop::?relay` SYMBOL "?relay", `?<Name ZDNwkMgr_event_loop 22>`
-`?<Name macEventLoop 24>` SYMBOL "macEventLoop"
-`??macEventLoop::?relay` SYMBOL "?relay", `?<Name macEventLoop 24>`
+`?<Name ZDNwkMgr_event_loop 18>` SYMBOL "ZDNwkMgr_event_loop"
+`??ZDNwkMgr_event_loop::?relay` SYMBOL "?relay", `?<Name ZDNwkMgr_event_loop 18>`
+`?<Name macEventLoop 20>` SYMBOL "macEventLoop"
+`??macEventLoop::?relay` SYMBOL "?relay", `?<Name macEventLoop 20>`
 macTaskInit         SYMBOL "macTaskInit"
 `??macTaskInit::?relay` SYMBOL "?relay", macTaskInit
-`?<Name nwk_event_loop 28>` SYMBOL "nwk_event_loop"
-`??nwk_event_loop::?relay` SYMBOL "?relay", `?<Name nwk_event_loop 28>`
+`?<Name nwk_event_loop 24>` SYMBOL "nwk_event_loop"
+`??nwk_event_loop::?relay` SYMBOL "?relay", `?<Name nwk_event_loop 24>`
 nwk_init            SYMBOL "nwk_init"
 `??nwk_init::?relay` SYMBOL "?relay", nwk_init
 osal_mem_alloc      SYMBOL "osal_mem_alloc"
@@ -266,12 +264,12 @@ osal_memset         SYMBOL "osal_memset"
 `??osal_memset::?relay` SYMBOL "?relay", osal_memset
 zcl_Init            SYMBOL "zcl_Init"
 `??zcl_Init::?relay` SYMBOL "?relay", zcl_Init
-`?<Name zcl_event_loop 38>` SYMBOL "zcl_event_loop"
-`??zcl_event_loop::?relay` SYMBOL "?relay", `?<Name zcl_event_loop 38>`
+`?<Name zcl_event_loop 34>` SYMBOL "zcl_event_loop"
+`??zcl_event_loop::?relay` SYMBOL "?relay", `?<Name zcl_event_loop 34>`
 zha_project_Init    SYMBOL "zha_project_Init"
 `??zha_project_Init::?relay` SYMBOL "?relay", zha_project_Init
-`?<Name zha_project_event_lo 42>` SYMBOL "zha_project_event_loop"
-`??zha_project_event_loop::?relay` SYMBOL "?relay", `?<Name zha_project_event_lo 42>`
+`?<Name zha_project_event_lo 38>` SYMBOL "zha_project_event_loop"
+`??zha_project_event_loop::?relay` SYMBOL "?relay", `?<Name zha_project_event_lo 38>`
 osalInitTasks       SYMBOL "osalInitTasks"
 `??osalInitTasks::?relay` SYMBOL "?relay", osalInitTasks
 
@@ -287,10 +285,6 @@ osalInitTasks       SYMBOL "osalInitTasks"
         FUNCTION `??Hal_Init::?relay`,00H
         EXTERN `??Hal_ProcessEvent::?relay`
         FUNCTION `??Hal_ProcessEvent::?relay`,00H
-        EXTERN `??MT_ProcessEvent::?relay`
-        FUNCTION `??MT_ProcessEvent::?relay`,00H
-        EXTERN `??MT_TaskInit::?relay`
-        FUNCTION `??MT_TaskInit::?relay`,00H
         EXTERN `??ZDApp_Init::?relay`
         FUNCTION `??ZDApp_Init::?relay`,00H
         EXTERN `??ZDApp_event_loop::?relay`
@@ -335,13 +329,6 @@ osalInitTasks       SYMBOL "osalInitTasks"
         ARGFRAME DOVERLAY, 0, STATIC
         EXTERN Hal_Init
         FUNCTION Hal_Init,0202H
-        ARGFRAME ISTACK, 2, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN MT_TaskInit
-        FUNCTION MT_TaskInit,0202H
         ARGFRAME ISTACK, 2, STACK
         ARGFRAME PSTACK, 0, STACK
         ARGFRAME XSTACK, 0, STACK
@@ -485,7 +472,6 @@ tasksArr:
         DW `??macEventLoop::?relay`
         DW `??nwk_event_loop::?relay`
         DW `??Hal_ProcessEvent::?relay`
-        DW `??MT_ProcessEvent::?relay`
         DW `??APS_event_loop::?relay`
         DW `??APSF_ProcessEvent::?relay`
         DW `??ZDApp_event_loop::?relay`
@@ -515,7 +501,7 @@ tasksArr:
         DATA8
 //   91 const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
 tasksCnt:
-        DB 10
+        DB 9
 
         RSEG XDATA_Z:XDATA:NOROOT(0)
         DATA16
@@ -590,17 +576,6 @@ osalInitTasks:
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL osalInitTasks, Hal_Init
-        LOCFRAME ISTACK, 2, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 0, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 2, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL osalInitTasks, MT_TaskInit
         LOCFRAME ISTACK, 2, STACK
         LOCFRAME PSTACK, 0, STACK
         LOCFRAME XSTACK, 0, STACK
@@ -689,7 +664,7 @@ osalInitTasks:
 //  110 
 //  111   tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
         ; Setup parameters for call to function osal_mem_alloc
-        MOV     R2,#0x14
+        MOV     R2,#0x12
         MOV     R3,#0x0
         LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
         MOV     DPTR,#tasksEvents
@@ -700,7 +675,7 @@ osalInitTasks:
         MOVX    @DPTR,A
 //  112   osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
         ; Setup parameters for call to function osal_memset
-        MOV     R4,#0x14
+        MOV     R4,#0x12
         MOV     R5,#0x0
         MOV     R1,#0x0
         LCALL   `??osal_memset::?relay`; Banked call to: osal_memset
@@ -719,37 +694,34 @@ osalInitTasks:
         LCALL   `??Hal_Init::?relay` ; Banked call to: Hal_Init
 //  117 #if defined( MT_TASK )
 //  118   MT_TaskInit( taskID++ );
-        ; Setup parameters for call to function MT_TaskInit
-        MOV     R1,#0x3
-        LCALL   `??MT_TaskInit::?relay`; Banked call to: MT_TaskInit
 //  119 #endif
 //  120   APS_Init( taskID++ );
         ; Setup parameters for call to function APS_Init
-        MOV     R1,#0x4
+        MOV     R1,#0x3
         LCALL   `??APS_Init::?relay` ; Banked call to: APS_Init
 //  121 #if defined ( ZIGBEE_FRAGMENTATION )
 //  122   APSF_Init( taskID++ );
         ; Setup parameters for call to function APSF_Init
-        MOV     R1,#0x5
+        MOV     R1,#0x4
         LCALL   `??APSF_Init::?relay`; Banked call to: APSF_Init
 //  123 #endif
 //  124   ZDApp_Init( taskID++ );
         ; Setup parameters for call to function ZDApp_Init
-        MOV     R1,#0x6
+        MOV     R1,#0x5
         LCALL   `??ZDApp_Init::?relay`; Banked call to: ZDApp_Init
 //  125 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
 //  126   ZDNwkMgr_Init( taskID++ );
         ; Setup parameters for call to function ZDNwkMgr_Init
-        MOV     R1,#0x7
+        MOV     R1,#0x6
         LCALL   `??ZDNwkMgr_Init::?relay`; Banked call to: ZDNwkMgr_Init
 //  127 #endif
 //  128   zcl_Init( taskID++ );
         ; Setup parameters for call to function zcl_Init
-        MOV     R1,#0x8
+        MOV     R1,#0x7
         LCALL   `??zcl_Init::?relay` ; Banked call to: zcl_Init
 //  129   zha_project_Init( taskID );
         ; Setup parameters for call to function zha_project_Init
-        MOV     R1,#0x9
+        MOV     R1,#0x8
         LCALL   `??zha_project_Init::?relay`; Banked call to: zha_project_Init
 //  130 }
         POP     DPH
@@ -773,13 +745,13 @@ osalInitTasks:
 //  132 /*********************************************************************
 //  133 *********************************************************************/
 // 
-// 85 bytes in segment BANKED_CODE
+// 80 bytes in segment BANKED_CODE
 //  6 bytes in segment BANK_RELAYS
-// 21 bytes in segment XDATA_ROM_C
+// 19 bytes in segment XDATA_ROM_C
 //  2 bytes in segment XDATA_Z
 // 
-// 91 bytes of CODE  memory
-// 21 bytes of CONST memory
+// 86 bytes of CODE  memory
+// 19 bytes of CONST memory
 //  2 bytes of XDATA memory
 //
 //Errors: none

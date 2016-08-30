@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:26
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  20:48:58
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -39,13 +39,14 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Components\zmac\f8w\zmac_cb.c" -D SECURE=1 -D
-//        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-//        Instruments\Z-Stack Home
+//        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+//        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+//        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+//        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
+//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+//        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+//        -lC "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 //        -I "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-//        -Ohz --require_prototypes
+//        -Ohz
 //    List file          =  
 //        C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\zmac_cb.s51
@@ -443,6 +444,7 @@ ZMacLqiAdjustMode   SYMBOL "ZMacLqiAdjustMode"
         ARGFRAME XSTACK, 26, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zgDeviceLogicalType
 
 // C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\zmac\f8w\zmac_cb.c
 //    1 /**************************************************************************************************
@@ -3050,18 +3052,28 @@ MAC_CbackCheckPending:
         ; Auto size: 0
 //  567 #if !defined (NONWK)
 //  568   if ( ZSTACK_ROUTER_BUILD )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??MAC_CbackCheckPending_0
+        XRL     A,#0x1
+        JNZ     ??MAC_CbackCheckPending_1
 //  569   {
 //  570     return (nwkDB_ReturnIndirectHoldingCnt());
+??MAC_CbackCheckPending_0:
         ; Setup parameters for call to function nwkDB_ReturnIndirectHoldingCnt
         LCALL   `??nwkDB_ReturnIndirectHoldingCnt::?relay`; Banked call to: nwkDB_ReturnIndirectHoldingCnt
-          CFI EndBlock cfiBlock48
-        REQUIRE ?Subroutine0
-        ; // Fall through to label ?Subroutine0
+        SJMP    ??MAC_CbackCheckPending_2
 //  571   }
 //  572   else
 //  573   {
 //  574     return (0);
+??MAC_CbackCheckPending_1:
+        MOV     R1,#0x0
 //  575   }
+??MAC_CbackCheckPending_2:
+          CFI EndBlock cfiBlock48
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
 //  576 #else
 //  577   return (0);
 //  578 #endif
@@ -3361,13 +3373,13 @@ ZMacLqiAdjust:
         END
 //  691 #endif
 // 
-// 1 157 bytes in segment BANKED_CODE
+// 1 171 bytes in segment BANKED_CODE
 //    30 bytes in segment BANK_RELAYS
 //    17 bytes in segment CODE_C
 //     1 byte  in segment SFR_AN
 //     3 bytes in segment XDATA_Z
 // 
-// 1 204 bytes of CODE  memory
+// 1 218 bytes of CODE  memory
 //     0 bytes of DATA  memory (+ 1 byte shared)
 //     3 bytes of XDATA memory
 //

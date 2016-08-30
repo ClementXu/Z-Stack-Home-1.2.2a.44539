@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:15
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  20:48:34
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -39,13 +39,14 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Components\stack\zdo\ZDConfig.c" -D SECURE=1 -D
-//        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-//        Instruments\Z-Stack Home
+//        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+//        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+//        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+//        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
+//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+//        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+//        -lC "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 //        -I "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-//        -Ohz --require_prototypes
+//        -Ohz
 //    List file          =  
 //        C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\ZDConfig.s51
@@ -128,6 +129,7 @@
 
         EXTERN ?BDISPATCH
         EXTERN ?BRET
+        EXTERN ?XLOAD_R0123
         EXTERN __INIT_XDATA_Z
 
         PUBLIC `??ZDConfig_InitDescriptors::?relay`
@@ -149,6 +151,8 @@
         PUBLIC ZDConfig_UpdatePowerDescriptor
         FUNCTION ZDConfig_UpdatePowerDescriptor,0203H
         ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
         LOCFRAME ISTACK, 2, STACK
         PUBLIC ZDO_Config_Node_Descriptor
         PUBLIC ZDO_Config_Power_Descriptor
@@ -247,6 +251,9 @@ ZDConfig_UpdateNodeDescriptor SYMBOL "ZDConfig_UpdateNodeDescriptor"
 `??ZDConfig_UpdateNodeDescriptor::?relay` SYMBOL "?relay", ZDConfig_UpdateNodeDescriptor
 ZDConfig_UpdatePowerDescriptor SYMBOL "ZDConfig_UpdatePowerDescriptor"
 `??ZDConfig_UpdatePowerDescriptor::?relay` SYMBOL "?relay", ZDConfig_UpdatePowerDescriptor
+
+        EXTERN zgDeviceLogicalType
+        EXTERN zgPollRate
 
 // C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\stack\zdo\ZDConfig.c
 //    1 /**************************************************************************************************
@@ -374,6 +381,17 @@ ZDConfig_InitDescriptors:
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL ZDConfig_InitDescriptors, ZDConfig_UpdatePowerDescriptor
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
         PUSH    DPL
           CFI DPL0 Frame(CFA_SP, 4)
           CFI CFA_SP SP+-4
@@ -386,10 +404,12 @@ ZDConfig_InitDescriptors:
         ; Setup parameters for call to function ZDConfig_UpdateNodeDescriptor
         LCALL   `??ZDConfig_UpdateNodeDescriptor::?relay`; Banked call to: ZDConfig_UpdateNodeDescriptor
 //   98   ZDConfig_UpdatePowerDescriptor();
+        ; Setup parameters for call to function ZDConfig_UpdatePowerDescriptor
+        LCALL   `??ZDConfig_UpdatePowerDescriptor::?relay`; Banked call to: ZDConfig_UpdatePowerDescriptor
+//   99 }
           CFI EndBlock cfiBlock0
         REQUIRE ?Subroutine0
         ; // Fall through to label ?Subroutine0
-//   99 }
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
 ?Subroutine0:
@@ -398,23 +418,6 @@ ZDConfig_InitDescriptors:
           CFI CFA_SP SP+-5
           CFI DPL0 Frame(CFA_SP, 4)
           CFI DPH0 Frame(CFA_SP, 5)
-        MOV     DPTR,#ZDO_Config_Power_Descriptor
-        MOV     A,#0x10
-        MOVX    @DPTR,A
-        INC     DPTR
-        MOV     A,#-0x3f
-          CFI EndBlock cfiBlock1
-        REQUIRE ??Subroutine1_0
-        ; // Fall through to label ??Subroutine1_0
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine1_0:
-          CFI Block cfiBlock2 Using cfiCommon0
-          CFI NoFunction
-          CFI CFA_SP SP+-5
-          CFI DPL0 Frame(CFA_SP, 4)
-          CFI DPH0 Frame(CFA_SP, 5)
-        MOVX    @DPTR,A
         POP     DPH
           CFI CFA_SP SP+-4
           CFI DPH0 SameValue
@@ -422,7 +425,7 @@ ZDConfig_InitDescriptors:
           CFI CFA_SP SP+-3
           CFI DPL0 SameValue
         LJMP    ?BRET
-          CFI EndBlock cfiBlock2
+          CFI EndBlock cfiBlock1
 //  100 
 //  101 /*********************************************************************
 //  102  * @fn      ZDConfig_UpdateNodeDescriptor()
@@ -437,7 +440,7 @@ ZDConfig_InitDescriptors:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  110 void ZDConfig_UpdateNodeDescriptor( void )
 ZDConfig_UpdateNodeDescriptor:
-          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Block cfiBlock2 Using cfiCommon0
           CFI Function ZDConfig_UpdateNodeDescriptor
         CODE
 //  111 {
@@ -451,17 +454,46 @@ ZDConfig_UpdateNodeDescriptor:
         ; Auto size: 0
 //  112   // Build the Node Descriptor
 //  113   if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JNZ     ??ZDConfig_UpdateNodeDescriptor_0
 //  114     ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_COORDINATOR;
+        MOV     DPTR,#ZDO_Config_Node_Descriptor
+        MOVX    A,@DPTR
+        ANL     A,#0xf8
+        SJMP    ??ZDConfig_UpdateNodeDescriptor_1
 //  115   else if ( ZSTACK_ROUTER_BUILD )
+??ZDConfig_UpdateNodeDescriptor_0:
+        XRL     A,#0x1
+        JNZ     ??ZDConfig_UpdateNodeDescriptor_2
 //  116     ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_ROUTER;
+        MOV     DPTR,#ZDO_Config_Node_Descriptor
+        MOVX    A,@DPTR
+        ANL     A,#0xf8
+        MOVX    @DPTR,A
+        ORL     A,#0x1
+        SJMP    ??ZDConfig_UpdateNodeDescriptor_1
 //  117   else if ( ZSTACK_END_DEVICE_BUILD )
+??ZDConfig_UpdateNodeDescriptor_2:
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        JNZ     ??ZDConfig_UpdateNodeDescriptor_3
 //  118     ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_DEVICE;
+        MOV     DPTR,#ZDO_Config_Node_Descriptor
+        MOVX    A,@DPTR
+        ANL     A,#0xf8
+        MOVX    @DPTR,A
+        ORL     A,#0x2
+??ZDConfig_UpdateNodeDescriptor_1:
+        MOVX    @DPTR,A
 //  119 
 //  120   ZDO_Config_Node_Descriptor.ComplexDescAvail = FALSE;      // set elsewhere
 //  121   ZDO_Config_Node_Descriptor.UserDescAvail = FALSE;         // set elsewhere
 //  122   ZDO_Config_Node_Descriptor.Reserved = 0;                  // Reserved
+??ZDConfig_UpdateNodeDescriptor_3:
         MOV     DPTR,#ZDO_Config_Node_Descriptor
-        CLR     A
+        MOVX    A,@DPTR
+        ANL     A,#0x7
         MOVX    @DPTR,A
 //  123   ZDO_Config_Node_Descriptor.APSFlags = 0;                  // NO APS flags
 //  124   ZDO_Config_Node_Descriptor.FrequencyBand = NODEFREQ_2400; // Frequency Band
@@ -471,29 +503,50 @@ ZDConfig_UpdateNodeDescriptor:
 //  125 
 //  126   // MAC Capabilities
 //  127   if ( ZSTACK_ROUTER_BUILD )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??ZDConfig_UpdateNodeDescriptor_4
+        XRL     A,#0x1
+        JNZ     ??ZDConfig_UpdateNodeDescriptor_5
 //  128   {
 //  129     ZDO_Config_Node_Descriptor.CapabilityFlags
 //  130               = (CAPINFO_DEVICETYPE_FFD | CAPINFO_POWER_AC |
 //  131                  CAPINFO_RCVR_ON_IDLE | CAPINFO_ALLOC_ADDR);
+??ZDConfig_UpdateNodeDescriptor_4:
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 2
+        MOV     A,#-0x72
+        MOVX    @DPTR,A
 //  132 
 //  133     if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JNZ     ??ZDConfig_UpdateNodeDescriptor_6
 //  134       ZDO_Config_Node_Descriptor.CapabilityFlags |= CAPINFO_ALTPANCOORD;
-        INC     DPTR
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 2
         MOV     A,#-0x71
-        MOVX    @DPTR,A
+        SJMP    ??ZDConfig_UpdateNodeDescriptor_7
 //  135   }
 //  136   else if ( ZSTACK_END_DEVICE_BUILD )
+??ZDConfig_UpdateNodeDescriptor_5:
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        JNZ     ??ZDConfig_UpdateNodeDescriptor_6
 //  137   {
 //  138     ZDO_Config_Node_Descriptor.CapabilityFlags = (CAPINFO_DEVICETYPE_RFD
 //  139   #if ( RFD_RCVC_ALWAYS_ON == TRUE)
 //  140             | CAPINFO_RCVR_ON_IDLE
 //  141   #endif
 //  142         | CAPINFO_ALLOC_ADDR);
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 2
+        MOV     A,#-0x80
+??ZDConfig_UpdateNodeDescriptor_7:
+        MOVX    @DPTR,A
 //  143   }
 //  144 
 //  145   // Manufacturer Code - *YOU FILL IN*
 //  146   ZDO_Config_Node_Descriptor.ManufacturerCode[0] = 0;
-        INC     DPTR
+??ZDConfig_UpdateNodeDescriptor_6:
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 3
         CLR     A
         MOVX    @DPTR,A
 //  147   ZDO_Config_Node_Descriptor.ManufacturerCode[1] = 0;
@@ -537,9 +590,10 @@ ZDConfig_UpdateNodeDescriptor:
 //  164   // extended simple descriptor are not supported.
 //  165   ZDO_Config_Node_Descriptor.DescriptorCapability = 0;
         MOV     DPTR,#ZDO_Config_Node_Descriptor + 12
-        SJMP    ??Subroutine1_0
+        MOVX    @DPTR,A
 //  166 }
-          CFI EndBlock cfiBlock3
+        LJMP    ?Subroutine0 & 0xFFFF
+          CFI EndBlock cfiBlock2
 //  167 
 //  168 /*********************************************************************
 //  169  * @fn      ZDConfig_UpdatePowerDescriptor()
@@ -554,7 +608,7 @@ ZDConfig_UpdateNodeDescriptor:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  177 void ZDConfig_UpdatePowerDescriptor( void )
 ZDConfig_UpdatePowerDescriptor:
-          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Block cfiBlock3 Using cfiCommon0
           CFI Function ZDConfig_UpdatePowerDescriptor
         CODE
 //  178 {
@@ -568,26 +622,77 @@ ZDConfig_UpdatePowerDescriptor:
         ; Auto size: 0
 //  179   // Build the Power Descriptor
 //  180   if ( ZSTACK_ROUTER_BUILD )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??ZDConfig_UpdatePowerDescriptor_0
+        XRL     A,#0x1
+        JNZ     ??ZDConfig_UpdatePowerDescriptor_1
 //  181   {
 //  182     ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_ALWAYS_ON;
 //  183     ZDO_Config_Power_Descriptor.AvailablePowerSources = NODEAVAILPWR_MAINS;
 //  184     ZDO_Config_Power_Descriptor.CurrentPowerSource = NODEAVAILPWR_MAINS;
 //  185     ZDO_Config_Power_Descriptor.CurrentPowerSourceLevel = NODEPOWER_LEVEL_100;
-        SJMP    ?Subroutine0
+??ZDConfig_UpdatePowerDescriptor_0:
+        MOV     DPTR,#ZDO_Config_Power_Descriptor
+        MOV     A,#0x10
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#-0x3f
+        SJMP    ??ZDConfig_UpdatePowerDescriptor_2
 //  186   }
 //  187   else if ( ZSTACK_END_DEVICE_BUILD )
+??ZDConfig_UpdatePowerDescriptor_1:
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        JNZ     ??ZDConfig_UpdatePowerDescriptor_3
 //  188   {
 //  189     if ( zgPollRate )
+        MOV     DPTR,#zgPollRate
+        LCALL   ?XLOAD_R0123
+        MOV     A,R0
+        ORL     A,R1
+        ORL     A,R2
+        ORL     A,R3
+        MOV     DPTR,#ZDO_Config_Power_Descriptor
+        JZ      ??ZDConfig_UpdatePowerDescriptor_4
 //  190       ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_AUTO;
+        MOVX    A,@DPTR
+        ANL     A,#0xf0
+        MOVX    @DPTR,A
+        ORL     A,#0x1
+        SJMP    ??ZDConfig_UpdatePowerDescriptor_5
 //  191     else
 //  192       ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_STIM;
+??ZDConfig_UpdatePowerDescriptor_4:
+        MOVX    A,@DPTR
+        ANL     A,#0xf0
+        MOVX    @DPTR,A
+        ORL     A,#0x2
+??ZDConfig_UpdatePowerDescriptor_5:
+        MOVX    @DPTR,A
 //  193 
 //  194     ZDO_Config_Power_Descriptor.AvailablePowerSources = NODEAVAILPWR_RECHARGE;
 //  195     ZDO_Config_Power_Descriptor.CurrentPowerSource = NODEAVAILPWR_RECHARGE;
 //  196     ZDO_Config_Power_Descriptor.CurrentPowerSourceLevel = NODEPOWER_LEVEL_66;
+        MOVX    A,@DPTR
+        ANL     A,#0xf
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+        MOV     DPTR,#ZDO_Config_Power_Descriptor
+        MOVX    A,@DPTR
+        ORL     A,#0x20
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#-0x7e
+??ZDConfig_UpdatePowerDescriptor_2:
+        MOVX    @DPTR,A
 //  197   }
 //  198 }
-          CFI EndBlock cfiBlock4
+??ZDConfig_UpdatePowerDescriptor_3:
+        LJMP    ?Subroutine0 & 0xFFFF
+          CFI EndBlock cfiBlock3
 
         RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
 `??ZDConfig_InitDescriptors::?relay`:
@@ -617,11 +722,11 @@ ZDConfig_UpdatePowerDescriptor:
 //  202 
 //  203 
 // 
-// 83 bytes in segment BANKED_CODE
-// 18 bytes in segment BANK_RELAYS
-// 15 bytes in segment XDATA_Z
+// 237 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+//  15 bytes in segment XDATA_Z
 // 
-// 101 bytes of CODE  memory
+// 255 bytes of CODE  memory
 //  15 bytes of XDATA memory
 //
 //Errors: none

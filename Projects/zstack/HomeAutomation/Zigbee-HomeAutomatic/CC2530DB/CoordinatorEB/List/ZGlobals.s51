@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:24
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  20:48:55
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -39,13 +39,14 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Components\stack\sys\ZGlobals.c" -D SECURE=1 -D
-//        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-//        Instruments\Z-Stack Home
+//        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+//        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+//        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+//        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
+//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+//        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+//        -lC "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 //        -I "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-//        -Ohz --require_prototypes
+//        -Ohz
 //    List file          =  
 //        C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\ZGlobals.s51
@@ -240,6 +241,7 @@
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         LOCFRAME XSTACK, 15, STACK
+        PUBLIC zgZdoDirectCB
         
           CFI Names cfiNames0
           CFI StackFrame CFA_SP SP IDATA
@@ -866,16 +868,15 @@ zgNwkLeaveRequestAllowed:
 //  158 // End device built with Child Table Aging support both methods, the method is
 //  159 // determined by the parent and communicated at run-time.
 //  160 #if ( ZG_BUILD_ENDDEVICE_TYPE )
-//  161 uint8 zgNwkParentInformation = NWK_PARENT_INFO_UNDEFINED;
-//  162 #else
 
-        RSEG XDATA_I:XDATA:NOROOT(0)
-//  163 uint8 zgNwkParentInformation = NWK_PARENT_INFO_ORPHAN_NOTIFICATION;
-zgNwkParentInformation:
+        RSEG XDATA_Z:XDATA:NOROOT(0)
         DATA8
+//  161 uint8 zgNwkParentInformation = NWK_PARENT_INFO_UNDEFINED;
+zgNwkParentInformation:
         DS 1
-        REQUIRE `?<Initializer for zgNwkParentInformation>`
-        REQUIRE __INIT_XDATA_I
+        REQUIRE __INIT_XDATA_Z
+//  162 #else
+//  163 uint8 zgNwkParentInformation = NWK_PARENT_INFO_ORPHAN_NOTIFICATION;
 //  164 #endif
 //  165 
 //  166 // This is an index into table Requested Timeout Enumerated Values.
@@ -1162,7 +1163,13 @@ zgStartDelay:
 //  282 
 //  283 #if !defined MT_TASK
 //  284 // Flag to use verbose (i.e. "cc2480-style") direct MT callbacks in ZDProfile.c, ZDP_IncomingData().
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
 //  285 uint8 zgZdoDirectCB = FALSE;
+zgZdoDirectCB:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
 //  286 #endif
 //  287 
 //  288 // Min number of attempted transmissions for Channel Interference detection
@@ -1216,6 +1223,9 @@ zgSapiEndpoint:
 //  312 static CONST zgItem_t zgItemTable[] =
 zgItemTable:
         DATA16
+        DW 143
+        DW 1
+        DW zgZdoDirectCB
         DW 135
         DW 1
         DW zgDeviceLogicalType
@@ -3131,11 +3141,6 @@ zgSetItem:
         DB 1
 
         RSEG XDATA_ID:CODE:NOROOT(0)
-`?<Initializer for zgNwkParentInformation>`:
-        DATA8
-        DB 2
-
-        RSEG XDATA_ID:CODE:NOROOT(0)
 `?<Initializer for zgNwkEndDeviceTimeoutDefault`:
         DATA8
         DB 8
@@ -3349,13 +3354,13 @@ zgSetItem:
 // 
 // 995 bytes in segment BANKED_CODE
 //  30 bytes in segment BANK_RELAYS
-// 330 bytes in segment CODE_C
-//  63 bytes in segment XDATA_I
-//  63 bytes in segment XDATA_ID
-//  40 bytes in segment XDATA_Z
+// 336 bytes in segment CODE_C
+//  62 bytes in segment XDATA_I
+//  62 bytes in segment XDATA_ID
+//  42 bytes in segment XDATA_Z
 // 
-// 1 418 bytes of CODE  memory
-//   103 bytes of XDATA memory
+// 1 423 bytes of CODE  memory
+//   104 bytes of XDATA memory
 //
 //Errors: none
 //Warnings: none

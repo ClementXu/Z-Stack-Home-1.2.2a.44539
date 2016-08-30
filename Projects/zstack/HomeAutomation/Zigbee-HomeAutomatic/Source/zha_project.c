@@ -79,11 +79,13 @@
 #include "zcl_general.h"
 #include "zcl_ha.h"
 #include "zcl_ss.h"
+#include "zcl_ms.h"
 #include "zcl_ezmode.h"
 #include "zcl_diagnostic.h"
-
+#include "zcl_lighting.h"
 #include "zha_project.h"
-
+#include "SerialApp.h"
+#include "at_command.h"   
 #include "onboard.h"
 
 /* HAL */
@@ -139,6 +141,8 @@ endPointDesc_t zclZHAtest_epDesc;
 afAddrType_t zclZHAtest_DstAddr;
 static zAddrType_t simpleDescReqAddr;
 uint8 ep[5];
+uint8 netState = 0;
+zAddrType_t dstAddr;
 
 /*********************************************************************
  * GLOBAL FUNCTIONS
@@ -313,6 +317,12 @@ void zha_project_Init( byte task_id )
 
   // This app is part of the Home Automation Profile
   zclHA_Init( &zha_project_SimpleDesc );
+  SerialApp_Init();
+  AT_Init();
+#if ZG_BUILD_ENDDEVICE_TYPE
+
+    Device_type_Init();
+#endif
 
   // Register the ZCL General Cluster Library callback functions
   zclGeneral_RegisterCmdCallbacks( SAMPLELIGHT_ENDPOINT, &zha_project_CmdCallbacks );
@@ -411,17 +421,11 @@ uint16 zha_project_event_loop( uint8 task_id, uint16 events )
 
                 case ZDO_STATE_CHANGE:
                     zha_project_NwkState = (devStates_t)(MSGpkt->hdr.status);
-
-                    // now on the network
-                    if ( (zha_project_NwkState == DEV_ZB_COORD) ||
-                    (zha_project_NwkState == DEV_ROUTER)   ||
-                    (zha_project_NwkState == DEV_END_DEVICE) )
+         
+                    if(zha_project_NwkState == DEV_ZB_COORD)
                     {
-                    giLightScreenMode = LIGHT_MAINMODE;
-                    //zha_project_LcdDisplayUpdate();
-                    #ifdef ZCL_EZMODE
-                    zcl_EZModeAction( EZMODE_ACTION_NETWORK_STARTED, NULL );
-                    #endif // ZCL_EZMODE
+                        netState = 1;
+                        NLME_PermitJoiningRequest(0);
                     }
                 break;
 
@@ -941,11 +945,11 @@ static uint8 zha_project_ProcessInReadRspCmd( zclIncomingMsg_t *pInMsg )
                     case ATTRID_BASIC_MODEL_ID:
                         break;
                     case ATTRID_BASIC_MANUFACTURER_NAME:
-                        //SetTempDeviceManuName(pInMsg->srcAddr.addr.shortAddr,j);
+                        SetTempDeviceManuName(pInMsg->srcAddr.addr.shortAddr,j);
                         break;
                     case ATTRID_BASIC_HW_VERSION:
                         uint8 zclZHAtest_HWRevision = *j;
-                        //SetTempDeviceHW(pInMsg->srcAddr.addr.shortAddr,zclZHAtest_HWRevision);
+                        SetTempDeviceHW(pInMsg->srcAddr.addr.shortAddr,zclZHAtest_HWRevision);
                         break;                        
                     default:
                       break;
@@ -968,7 +972,7 @@ static uint8 zha_project_ProcessInReadRspCmd( zclIncomingMsg_t *pInMsg )
                 {
                     case ATTRID_POWER_CFG_BATTERY_VOLTAGE:
                         uint8 zclZHAtest_BatteryVoltage=*j;
-                        //SetTempDeviceBAT(pInMsg->srcAddr.addr.shortAddr,zclZHAtest_BatteryVoltage);
+                        SetTempDeviceBAT(pInMsg->srcAddr.addr.shortAddr,zclZHAtest_BatteryVoltage);
                         break;
                     default:
                       break;
@@ -982,274 +986,250 @@ static uint8 zha_project_ProcessInReadRspCmd( zclIncomingMsg_t *pInMsg )
         
         //osal_set_event( zclZHAtest_TaskID, ZHAtest_ACTIVE_EP_EVT );
         break;
-//      case ZCL_CLUSTER_ID_GEN_ON_OFF:
-//        {
-//          for (i = 0; i < readRspCmd->numAttr; i++)
-//          {
-//            zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//            j=statusRec->data;
-//            switch(statusRec->attrID)
-//            {
-//                case ATTRID_ON_OFF:
-//                    uint16 buf[3];
-//                    osal_memset(buf,0,sizeof(buf));
-//                    zclZHAtest_OnOff=*j;
-//                    NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0]=zclZHAtest_OnOff;
-//                    Return_Message(1);
-//                    buf[0] = zclZHAtest_OnOff;
-//                    UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
-//                  break;
-//                default:
-//                  break;
-//            
-//            }
-//
-//          }
-//      
-//        }
-//        break;
-//        case ZCL_CLUSTER_ID_LIGHTING_COLOR_CONTROL:
-//            {
-//                for (i = 0; i < readRspCmd->numAttr; i++)
-//                {
-//                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//                    p=(uint16 *)statusRec->data;
-//                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
-//                    switch(statusRec->attrID)
-//                    {
-//                        case ATTRID_LIGHTING_COLOR_CONTROL_COLOR_TEMPERATURE:
-//                            zclZHAtest_Light_Color_Status = *p;
-//                            uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                            buf[2] = zclZHAtest_Light_Color_Status;
-//                            UpdateDeviceStatus3(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0]=zclZHAtest_Light_Color_Status&0x00FF;
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[1]=(zclZHAtest_Light_Color_Status&0xFF00)>>8;
-//                            Return_Message(2);
-//                        break;
-//                        case ATTRID_LIGHTING_COLOR_CONTROL_CURRENT_HUE:
-//                            zclZHAtest_HUE_Status = *p;
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0]=zclZHAtest_HUE_Status&0x00FF;
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[1]=(zclZHAtest_HUE_Status&0xFF00)>>8;
-//                            Return_Message(2); 
-//                          break;
-//                        case ATTRID_LIGHTING_COLOR_CONTROL_CURRENT_SATURATION:
-//                            zclZHAtest_Saturation = *p;
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0]=zclZHAtest_Saturation;
-//                            Return_Message(1);                           
-//                          break;
-//                        default:
-//                        break;
-//
-//                    }
-//
-//                }
-//
-//             }
-//    
-//        break;
-//        case ZCL_CLUSTER_ID_SS_IAS_ZONE:
-//       {        uint16 supportOD = 0;
-//                uint8 sensorType = 0;
-//                for (i = 0; i < readRspCmd->numAttr; i++)
-//                {
-//                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//                    p=(uint16 *)statusRec->data;
-//                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
-//                    switch(statusRec->attrID)
-//                    {
-//                        case ATTRID_SS_IAS_ZONE_STATUS:
-//                            zclZHAtest_Alarm_Status = *p;
-//                            uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                            buf[0] = zclZHAtest_Alarm_Status;
-//                            UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0]=zclZHAtest_Alarm_Status&0x00FF;
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[1]=(zclZHAtest_Alarm_Status&0xFF00)>>8;
-//                            //NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0]=zclZHAtest_Alarm_Status;
-//                            //NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[1]=(zclZHAtest_Light_Color_Status&0xFF00)>>8;
-//                            Return_Message(2);
-//                        break;
-//                        case ATTRID_SS_IAS_ZONE_TYPE:
-//                            zAddrType_t addr;
-//                            uint8 address[8];
-//                            uint8 pValue[Z_EXTADDR_LEN];
-//                            addr.addrMode = Addr64Bit;
-//                            osal_nv_read(ZCD_NV_EXTADDR ,0, Z_EXTADDR_LEN, pValue);
-//                            //osal_memcpy(pValue,addr.addr.extAddr,8);
-//                            osal_memcpy(addr.addr.extAddr,pValue,8);
-//                            //addr.addr.shortAddr=pSimpleDescRsp->nwkAddr;
-//                            APSME_LookupExtAddr(pInMsg->srcAddr.addr.shortAddr,address);
-//                            ZDP_BindUnbindReq(Bind_req, &dstAddr, address,
-//                                                   1,
-//                                                   0x0020,
-//                                                   &addr,  pInMsg->endPoint,
-//                                                    FALSE );
-//                            zclZHAtest_Smoke_Type = *p;
-//                            //uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                            buf[1] = zclZHAtest_Smoke_Type;
-//                            UpdateDeviceStatus2(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            //zclSS_IAS_Send_ZoneStatusEnrollRequestCmd(0x01,&destAddr,zclZHAtest_Smoke_Type,0,false,0);
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0]=zclZHAtest_Smoke_Type&0x00FF;
-//                            NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[1]=(zclZHAtest_Smoke_Type&0xFF00)>>8;                                
-//                            //NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[0+i]=zclZHAtest_Smoke_Type;
-//                            //NWK_command.NWK_General_Frame.NWK_AppDev_Frame.NWKCA_Data[1]=(zclZHAtest_Light_Color_Status&0xFF00)>>8;
-//                            //Return_Message(2+i);  
-//                            SetTempDeviceOD(pInMsg->srcAddr.addr.shortAddr,zclZHAtest_Smoke_Type);
-//                         break;
-//                      
-//                        default:
-//                        break;
-//
-//                    }
-//
-//                }
-//
-//             }
-//      
-//      break;
-//      case ZCL_CLUSTER_ID_SS_IAS_WD:
-//            {
-//                for (i = 0; i < readRspCmd->numAttr; i++)
-//                {
-//                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//                    j=statusRec->data;
-//                    switch(statusRec->attrID)
-//                    {
-//                        case COMMAND_SS_IAS_WD_START_WARNING:
-//                            //zclZHAtest_Warning = *j;
-//                            uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                            //buf[0] = zclZHAtest_Warning;
-//                            //UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            break;
-//                        case COMMAND_SS_IAS_WD_SQUAWK:
-//                            //zclZHAtest_WD_SQUAWK = *j;
-//                            //uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                           // buf[1] = zclZHAtest_WD_SQUAWK;
-//                            //UpdateDeviceStatus2(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            break;
-//
-//                        default:
-//                            break;
-//
-//                    }
-//
-//                }
-//
-//             }        
-//        
-//        break;
-//      
-//      case ZCL_CLUSTER_ID_MS_TEMPERATURE_MEASUREMENT:
-//       {
-//                for (i = 0; i < readRspCmd->numAttr; i++)
-//                {
-//                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//                    p=(uint16 *)statusRec->data;
-//                    switch(statusRec->attrID)
-//                    {
-//                        case ATTRID_MS_TEMPERATURE_MEASURED_VALUE:
-//                            //zclZHAtest_Temperature_Value = *p;
-//                            uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                            //buf[0] = zclZHAtest_Temperature_Value;
-//                            //UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            
-//                        break;
-//                        default:
-//                        break;
-//
-//                    }
-//
-//                }
-//
-//             }
-//         break;
-//        case ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL:
-//           {
-//                for (i = 0; i < readRspCmd->numAttr; i++)
-//                {
-//                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//                    j=statusRec->data;
-//                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
-//                    switch(statusRec->attrID)
-//                    {
-//                        case ATTRID_MS_TEMPERATURE_MEASURED_VALUE:
-//                            uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                            //zclZHAtest_Level_to_Level = *j;
-//                            buf[1] = zclZHAtest_Level_to_Level;
-//                           // UpdateDeviceStatus2(pInMsg->srcAddr.addr.shortAddr,buf); 
-//                        break;
-//                        default:
-//                        break;
-//
-//                    }
-//
-//                }
-//
-//             }
-//    
-//        break;
-//      case ZCL_CLUSTER_ID_MS_RELATIVE_HUMIDITY:
-//           {
-//                for (i = 0; i < readRspCmd->numAttr; i++)
-//                {
-//                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//                    p=(uint16 *)statusRec->data;
-//                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
-//                    switch(statusRec->attrID)
-//                    {
-//                        case ATTRID_MS_RELATIVE_HUMIDITY_MEASURED_VALUE:
-//                            //zclZHAtest_Humidity_Value = *p;
-//                            uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                           // buf[0] = zclZHAtest_Humidity_Value;
-//                            //UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            
-//                        break;
-//                        default:
-//                        break;
-//
-//                    }
-//
-//                }
-//
-//             }     
-//        
-//        
-//        break;   
-//      case ZCL_CLUSTER_ID_MS_ILLUMINANCE_MEASUREMENT:
-//           {
-//                for (i = 0; i < readRspCmd->numAttr; i++)
-//                {
-//                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
-//                    p=(uint16 *)statusRec->data;
-//                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
-//                    switch(statusRec->attrID)
-//                    {
-//                        case ATTRID_MS_ILLUMINANCE_MEASURED_VALUE:
-//                            //zclZHAtest_Illumiance_Value = *p;
-//                            uint16 buf[3];
-//                            osal_memset(buf,0,sizeof(buf));
-//                            //buf[0] = zclZHAtest_Illumiance_Value;
-//                            //UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
-//                            
-//                        break;
-//                        default:
-//                        break;
-//
-//                    }
-//
-//                }
-//
-//             }          
-//        
-//        
-//        break;
+      case ZCL_CLUSTER_ID_GEN_ON_OFF:
+        {
+          for (i = 0; i < readRspCmd->numAttr; i++)
+          {
+            zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+            j=statusRec->data;
+            switch(statusRec->attrID)
+            {
+                case ATTRID_ON_OFF:
+                    uint16 buf[3];
+                    osal_memset(buf,0,sizeof(buf));
+                    buf[0] = *j;
+                    UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
+                  break;
+                default:
+                  break;
+            }
+
+          }
+      
+        }
+        break;
+        case ZCL_CLUSTER_ID_LIGHTING_COLOR_CONTROL:
+            {
+                for (i = 0; i < readRspCmd->numAttr; i++)
+                {
+                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+                    p=(uint16 *)statusRec->data;
+                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
+                    switch(statusRec->attrID)
+                    {
+                        case ATTRID_LIGHTING_COLOR_CONTROL_COLOR_TEMPERATURE:
+                            uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            buf[2] = *p;
+                            UpdateDeviceStatus3(pInMsg->srcAddr.addr.shortAddr,buf);
+                        break;
+                        case ATTRID_LIGHTING_COLOR_CONTROL_CURRENT_HUE:
+                            //zclZHAtest_HUE_Status = *p;
+                          break;
+                        case ATTRID_LIGHTING_COLOR_CONTROL_CURRENT_SATURATION:
+                            //zclZHAtest_Saturation = *p;                        
+                          break;
+                        default:
+                        break;
+
+                    }
+
+                }
+
+             }
+    
+        break;
+        case ZCL_CLUSTER_ID_SS_IAS_ZONE:
+       {        uint16 supportOD = 0;
+                uint8 sensorType = 0;
+                for (i = 0; i < readRspCmd->numAttr; i++)
+                {
+                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+                    p=(uint16 *)statusRec->data;
+                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
+                    switch(statusRec->attrID)
+                    {
+                        case ATTRID_SS_IAS_ZONE_STATUS:
+                            uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            buf[0] = *p;
+                            UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
+                        break;
+                        case ATTRID_SS_IAS_ZONE_TYPE:
+                            zAddrType_t addr;
+                            uint8 address[8];
+                            uint8 pValue[Z_EXTADDR_LEN];
+                            addr.addrMode = Addr64Bit;
+                            osal_nv_read(ZCD_NV_EXTADDR ,0, Z_EXTADDR_LEN, pValue);
+                            //osal_memcpy(pValue,addr.addr.extAddr,8);
+                            osal_memcpy(addr.addr.extAddr,pValue,8);
+                            //addr.addr.shortAddr=pSimpleDescRsp->nwkAddr;
+                            APSME_LookupExtAddr(pInMsg->srcAddr.addr.shortAddr,address);
+                            ZDP_BindUnbindReq(Bind_req, &dstAddr, address,
+                                                   1,
+                                                   0x0020,
+                                                   &addr,  pInMsg->endPoint,
+                                                    FALSE );
+                            //zclZHAtest_Smoke_Type = *p;
+                            //uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            buf[1] = *p;
+                            UpdateDeviceStatus2(pInMsg->srcAddr.addr.shortAddr,buf);
+                            //zclSS_IAS_Send_ZoneStatusEnrollRequestCmd(0x01,&destAddr,zclZHAtest_Smoke_Type,0,false,0);
+                            SetTempDeviceType(pInMsg->srcAddr.addr.shortAddr,*p);
+                         break;
+                      
+                        default:
+                        break;
+
+                    }
+
+                }
+
+             }
+      
+      break;
+      case ZCL_CLUSTER_ID_SS_IAS_WD:
+            {
+                for (i = 0; i < readRspCmd->numAttr; i++)
+                {
+                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+                    j=statusRec->data;
+                    switch(statusRec->attrID)
+                    {
+                        case COMMAND_SS_IAS_WD_START_WARNING:
+                            //zclZHAtest_Warning = *j;
+                            uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            //buf[0] = zclZHAtest_Warning;
+                            //UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
+                            break;
+                        case COMMAND_SS_IAS_WD_SQUAWK:
+                            //zclZHAtest_WD_SQUAWK = *j;
+                            //uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                           // buf[1] = zclZHAtest_WD_SQUAWK;
+                            //UpdateDeviceStatus2(pInMsg->srcAddr.addr.shortAddr,buf);
+                            break;
+
+                        default:
+                            break;
+
+                    }
+
+                }
+
+             }        
+        
+        break;
+      
+      case ZCL_CLUSTER_ID_MS_TEMPERATURE_MEASUREMENT:
+       {
+                for (i = 0; i < readRspCmd->numAttr; i++)
+                {
+                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+                    p=(uint16 *)statusRec->data;
+                    switch(statusRec->attrID)
+                    {
+                        case ATTRID_MS_TEMPERATURE_MEASURED_VALUE:
+                            //zclZHAtest_Temperature_Value = *p;
+                            uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            buf[0] = *p;
+                            UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
+                            
+                        break;
+                        default:
+                        break;
+
+                    }
+
+                }
+
+             }
+         break;
+        case ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL:
+           {
+                for (i = 0; i < readRspCmd->numAttr; i++)
+                {
+                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+                    j=statusRec->data;
+                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
+                    switch(statusRec->attrID)
+                    {
+                        case ATTRID_MS_TEMPERATURE_MEASURED_VALUE:
+                            uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            //zclZHAtest_Level_to_Level = *j;
+                            buf[1] = *j;
+                            UpdateDeviceStatus2(pInMsg->srcAddr.addr.shortAddr,buf); 
+                        break;
+                        default:
+                        break;
+
+                    }
+
+                }
+
+             }
+    
+        break;
+      case ZCL_CLUSTER_ID_MS_RELATIVE_HUMIDITY:
+           {
+                for (i = 0; i < readRspCmd->numAttr; i++)
+                {
+                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+                    p=(uint16 *)statusRec->data;
+                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
+                    switch(statusRec->attrID)
+                    {
+                        case ATTRID_MS_RELATIVE_HUMIDITY_MEASURED_VALUE:
+                            //zclZHAtest_Humidity_Value = *p;
+                            uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            buf[0] = *p;
+                            UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
+                            
+                        break;
+                        default:
+                        break;
+
+                    }
+
+                }
+
+             }     
+        
+        
+        break;   
+      case ZCL_CLUSTER_ID_MS_ILLUMINANCE_MEASUREMENT:
+           {
+                for (i = 0; i < readRspCmd->numAttr; i++)
+                {
+                    zclReadRspStatus_t *statusRec = &(readRspCmd->attrList[i]);
+                    p=(uint16 *)statusRec->data;
+                    //j = zclSerializeData( statusRec->dataType, statusRec->data, j );
+                    switch(statusRec->attrID)
+                    {
+                        case ATTRID_MS_ILLUMINANCE_MEASURED_VALUE:
+                            //zclZHAtest_Illumiance_Value = *p;
+                            uint16 buf[3];
+                            osal_memset(buf,0,sizeof(buf));
+                            buf[0] = *p;
+                            UpdateDeviceStatus1(pInMsg->srcAddr.addr.shortAddr,buf);
+                            
+                        break;
+                        default:
+                        break;
+
+                    }
+
+                }
+
+             }          
+        
+        
+        break;
       default:
         break;
     //ReadRspStatus.attrID = readRspCmd->attrList;
@@ -1454,7 +1434,7 @@ static void zha_project_ProcessZDOMsgs( zdoIncomingMsg_t *pMsg )
 
                 if(AssociatedDevList[i].shortAddr!=devAnnce.nwkAddr)
                 {
-                    //SetTempDeviceSA(devAnnce.nwkAddr,devAnnce.extAddr);
+                    SetTempDeviceSA(devAnnce.nwkAddr,devAnnce.extAddr);
                 }
             }
             // set simple descriptor query event
@@ -1484,7 +1464,7 @@ static void zha_project_ProcessZDOMsgs( zdoIncomingMsg_t *pMsg )
             //osal_memcpy(zclZHAtest_ActiveEP.epList,pRsp->epList,sizeof(uint8));
             //zclZHAtest_ActiveEP.epList[] = pRsp->epList[];
             //DelayMS(50);
-            //SetTempDeviceEP(pRsp->nwkAddr , ep );
+            SetTempDeviceEP(pRsp->nwkAddr , ep );
             //osal_set_event( zha_project_TaskID, SIMPLE_DESC_QUERY_EVT );
             osal_mem_free( pRsp ); 
             break;
@@ -1518,8 +1498,8 @@ static void zha_project_ProcessZDOMsgs( zdoIncomingMsg_t *pMsg )
                     //DelayMS(100);
                     //zclSampleCIE_WriteIAS_CIE_Address(&destAddr); 
                 }
-                //else
-                    //SetTempDeviceOD(pSimpleDescRsp->nwkAddr,pSimpleDescRsp->simpleDesc.AppDeviceId);
+                else
+                    SetTempDeviceType(pSimpleDescRsp->nwkAddr,pSimpleDescRsp->simpleDesc.AppDeviceId);
                 //osal_mem_free( pSimpleDescRsp );
                 // free memory for InClusterList
                 if (pSimpleDescRsp->simpleDesc.pAppInClusterList)

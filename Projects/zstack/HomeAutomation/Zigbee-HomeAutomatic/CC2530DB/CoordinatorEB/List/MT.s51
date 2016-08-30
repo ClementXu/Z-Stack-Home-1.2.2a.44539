@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:13:56
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  10:30:45
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -38,12 +38,12 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home 1.2.2a.44539\Components\mt\MT.c"
 //        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D
-//        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
-//        -D MT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D
-//        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D
-//        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
-//        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC
-//        "C:\Texas Instruments\Z-Stack Home
+//        xHOLD_AUTO_START -D ZTOOL_P1 -D xMT_TASK -D xMT_APP_FUNC -D
+//        xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D
+//        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
+//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+//        FEATURE_SYSTEM_STATS -lC "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -142,7 +142,6 @@
         EXTERN ?PUSH_XSTACK_I_THREE
         EXTERN ?XSP
         EXTERN ?XSTACK_DISP0_8
-        EXTERN __INIT_XDATA_I
         EXTERN __INIT_XDATA_Z
 
         PUBLIC `??MTProcessAppRspMsg::?relay`
@@ -353,20 +352,12 @@
           CFI ?RET_LOW Frame(CFA_SP, 1)
           CFI EndCommon cfiCommon1
         
-`?<Name MT_AppCommandProcess 0>` SYMBOL "MT_AppCommandProcessing"
-`??MT_AppCommandProcessing::?relay` SYMBOL "?relay", `?<Name MT_AppCommandProcess 0>`
-`?<Name MT_SysCommandProcess 2>` SYMBOL "MT_SysCommandProcessing"
-`??MT_SysCommandProcessing::?relay` SYMBOL "?relay", `?<Name MT_SysCommandProcess 2>`
 MT_SysResetInd      SYMBOL "MT_SysResetInd"
 `??MT_SysResetInd::?relay` SYMBOL "?relay", MT_SysResetInd
 MT_TransportAlloc   SYMBOL "MT_TransportAlloc"
 `??MT_TransportAlloc::?relay` SYMBOL "?relay", MT_TransportAlloc
 MT_TransportSend    SYMBOL "MT_TransportSend"
 `??MT_TransportSend::?relay` SYMBOL "?relay", MT_TransportSend
-`?<Name MT_ZdoCommandProcess 10>` SYMBOL "MT_ZdoCommandProcessing"
-`??MT_ZdoCommandProcessing::?relay` SYMBOL "?relay", `?<Name MT_ZdoCommandProcess 10>`
-MT_ZdoInit          SYMBOL "MT_ZdoInit"
-`??MT_ZdoInit::?relay` SYMBOL "?relay", MT_ZdoInit
 afFindEndPointDesc  SYMBOL "afFindEndPointDesc"
 `??afFindEndPointDesc::?relay` SYMBOL "?relay", afFindEndPointDesc
 osal_mem_alloc      SYMBOL "osal_mem_alloc"
@@ -390,20 +381,12 @@ MT_ReverseBytes     SYMBOL "MT_ReverseBytes"
 MT_Word2Buf         SYMBOL "MT_Word2Buf"
 `??MT_Word2Buf::?relay` SYMBOL "?relay", MT_Word2Buf
 
-        EXTERN `??MT_AppCommandProcessing::?relay`
-        FUNCTION `??MT_AppCommandProcessing::?relay`,00H
-        EXTERN `??MT_SysCommandProcessing::?relay`
-        FUNCTION `??MT_SysCommandProcessing::?relay`,00H
         EXTERN `??MT_SysResetInd::?relay`
         FUNCTION `??MT_SysResetInd::?relay`,00H
         EXTERN `??MT_TransportAlloc::?relay`
         FUNCTION `??MT_TransportAlloc::?relay`,00H
         EXTERN `??MT_TransportSend::?relay`
         FUNCTION `??MT_TransportSend::?relay`,00H
-        EXTERN `??MT_ZdoCommandProcessing::?relay`
-        FUNCTION `??MT_ZdoCommandProcessing::?relay`,00H
-        EXTERN `??MT_ZdoInit::?relay`
-        FUNCTION `??MT_ZdoInit::?relay`,00H
         EXTERN `??afFindEndPointDesc::?relay`
         FUNCTION `??afFindEndPointDesc::?relay`,00H
         EXTERN `??osal_mem_alloc::?relay`
@@ -432,13 +415,6 @@ MT_Word2Buf         SYMBOL "MT_Word2Buf"
         ARGFRAME ISTACK, 0, STACK
         ARGFRAME PSTACK, 0, STACK
         ARGFRAME XSTACK, 16, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN MT_ZdoInit
-        FUNCTION MT_ZdoInit,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 9, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         EXTERN afFindEndPointDesc
@@ -608,13 +584,12 @@ MT_Word2Buf         SYMBOL "MT_Word2Buf"
 //  135  **************************************************************************************************/
 //  136 
 
-        RSEG XDATA_I:XDATA:NOROOT(0)
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
 //  137 mtProcessMsg_t mtProcessIncoming[] =
 mtProcessIncoming:
-        DATA8
         DS 44
-        REQUIRE `?<Initializer for mtProcessIncoming>`
-        REQUIRE __INIT_XDATA_I
+        REQUIRE __INIT_XDATA_Z
 //  138 {
 //  139   NULL,                               // MT_RPC_SYS_RES0
 //  140 
@@ -772,17 +747,6 @@ MT_Init:
           CFI Function MT_Init
         CODE
 //  276 {
-        FUNCALL MT_Init, MT_ZdoInit
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 9, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 9, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL MT_Init, MT_SysResetInd
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -823,8 +787,6 @@ MT_Init:
 //  280 
 //  281 #if defined (MT_ZDO_FUNC)
 //  282   MT_ZdoInit();
-        ; Setup parameters for call to function MT_ZdoInit
-        LCALL   `??MT_ZdoInit::?relay`; Banked call to: MT_ZdoInit
 //  283 #endif
 //  284 #ifndef ZBIT
 //  285   MT_SysResetInd();
@@ -3155,32 +3117,6 @@ MT_BuildEndpointDesc:
           CFI EndBlock cfiCond68
           CFI EndBlock cfiPicker69
 
-        RSEG XDATA_ID:CODE:NOROOT(0)
-`?<Initializer for mtProcessIncoming>`:
-        DATA16
-        DW 0H
-        DW `??MT_SysCommandProcessing::?relay`
-        DW 0H
-        DW 0H
-        DW 0H
-        DW `??MT_ZdoCommandProcessing::?relay`
-        DW 0H
-        DW 0H
-        DW 0H
-        DW `??MT_AppCommandProcessing::?relay`
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-        DW 0H
-
         RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
 `??MT_Init::?relay`:
         CODE
@@ -3235,13 +3171,11 @@ MT_BuildEndpointDesc:
 //  557 /***************************************************************************************************
 //  558 ***************************************************************************************************/
 // 
-// 1 075 bytes in segment BANKED_CODE
+// 1 072 bytes in segment BANKED_CODE
 //    42 bytes in segment BANK_RELAYS
-//    44 bytes in segment XDATA_I
-//    44 bytes in segment XDATA_ID
-//     2 bytes in segment XDATA_Z
+//    46 bytes in segment XDATA_Z
 // 
-// 1 161 bytes of CODE  memory
+// 1 114 bytes of CODE  memory
 //    46 bytes of XDATA memory
 //
 //Errors: none

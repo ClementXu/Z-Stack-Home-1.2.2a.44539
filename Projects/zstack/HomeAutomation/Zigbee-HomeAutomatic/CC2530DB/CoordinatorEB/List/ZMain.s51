@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V9.30.1.3056 for 8051               24/Aug/2016  23:14:26
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               28/Aug/2016  20:48:59
 // Copyright 2004-2015 IAR Systems AB.
 //
 //    Core               =  plain
@@ -39,13 +39,14 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
 //        "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\ZMain\TI2530DB\ZMain.c" -D SECURE=1 -D
-//        TC_LINKKEY_JOIN -D NV_INIT -D xNV_RESTORE -D xHOLD_AUTO_START -D
-//        ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-//        xLCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
-//        ZCL_WRITE -D ZCL_REPORT -D ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D
-//        ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D
-//        ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -lC "C:\Texas
-//        Instruments\Z-Stack Home
+//        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D HOLD_AUTO_START -D
+//        BUILD_ALL_DEVICES -D HAL_UART=TRUE -D xZTOOL_P1 -D xMT_TASK -D
+//        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG
+//        -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D
+//        ZCL_EZMODE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES
+//        -D ZCL_GROUPS -D xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D
+//        FEATURE_SYSTEM_STATS -D DEVICE_LOGICAL_TYPE=ZG_DEVICETYPE_COORDINATOR
+//        -lC "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
 //        -lA "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List"
@@ -100,7 +101,7 @@
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\"
 //        -I "C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
-//        -Ohz --require_prototypes
+//        -Ohz
 //    List file          =  
 //        C:\Texas Instruments\Z-Stack Home
 //        1.2.2a.44539\Projects\zstack\HomeAutomation\Zigbee-HomeAutomatic\CC2530DB\CoordinatorEB\List\ZMain.s51
@@ -1115,6 +1116,17 @@ zmain_ext_addr:
         ARGFRAME XSTACK, 29, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zmain_ext_addr, osal_rand
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 26, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 26, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL zmain_ext_addr, osal_nv_write
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -1127,17 +1139,6 @@ zmain_ext_addr:
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL zmain_ext_addr, ZMacSetReq
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 26, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 26, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL zmain_ext_addr, osal_rand
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
         LOCFRAME XSTACK, 26, STACK
@@ -1326,6 +1327,7 @@ zmain_ext_addr:
         MOV     A,#0x3
         LCALL   ?DEALLOC_XSTACK8
           CFI CFA_XSP16 add(XSP16, 26)
+        SJMP    ??zmain_ext_addr_2
 //  196       }
 //  197       else  // No valid extended address was found.
 //  198       {
@@ -1340,11 +1342,39 @@ zmain_ext_addr:
 //  207          *       must never be used for a commercial product.
 //  208          */
 //  209         for (idx = 0; idx < (Z_EXTADDR_LEN - 2);)
+??zmain_ext_addr_3:
+        MOV     R6,#0x0
 //  210         {
 //  211           uint16 randy = osal_rand();
+??zmain_ext_addr_4:
+        ; Setup parameters for call to function osal_rand
+        LCALL   `??osal_rand::?relay`; Banked call to: osal_rand
+        MOV     ?V0,R2
 //  212           aExtendedAddress[idx++] = LO_UINT16(randy);
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,#aExtendedAddress & 0xff
+        ADD     A,R2
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,#(aExtendedAddress >> 8) & 0xff
+        MOV     DPH,A
+        MOV     A,?V0
+        MOVX    @DPTR,A
+        INC     R6
 //  213           aExtendedAddress[idx++] = HI_UINT16(randy);
+        MOV     A,R6
+        MOV     R0,A
+        LCALL   ?Subroutine0 & 0xFFFF
 //  214         }
+??CrossCallReturnLabel_0:
+        MOV     A,R3
+        MOVX    @DPTR,A
+        INC     R6
+        MOV     A,R6
+        CLR     C
+        SUBB    A,#0x6
+        JC      ??zmain_ext_addr_4
 //  215         // Next-to-MSB identifies ZigBee devicetype.
 //  216 #if ZG_BUILD_COORDINATOR_TYPE && !ZG_BUILD_JOINING_TYPE
 //  217         aExtendedAddress[idx++] = 0x10;
@@ -1352,9 +1382,23 @@ zmain_ext_addr:
 //  219         aExtendedAddress[idx++] = 0x20;
 //  220 #else
 //  221         aExtendedAddress[idx++] = 0x30;
+        INC     R0
+        LCALL   ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_1:
+        MOV     A,#0x30
+        MOVX    @DPTR,A
 //  222 #endif
 //  223         // MSB has historical signficance.
 //  224         aExtendedAddress[idx] = 0xF8;
+        INC     R0
+        MOV     A,#aExtendedAddress & 0xff
+        ADD     A,R0
+        MOV     DPL,A
+        CLR     A
+        ADDC    A,#(aExtendedAddress >> 8) & 0xff
+        MOV     DPH,A
+        MOV     A,#-0x8
+        MOVX    @DPTR,A
 //  225       }
 //  226     }
 //  227 
@@ -1398,50 +1442,6 @@ zmain_ext_addr:
           CFI CFA_XSP16 add(XSP16, 18)
         MOV     R7,#0xa
         LJMP    ?BANKED_LEAVE_XDATA
-          CFI CFA_XSP16 add(XSP16, 26)
-??zmain_ext_addr_3:
-        MOV     R6,#0x0
-??zmain_ext_addr_4:
-        ; Setup parameters for call to function osal_rand
-        LCALL   `??osal_rand::?relay`; Banked call to: osal_rand
-        MOV     ?V0,R2
-        MOV     A,R6
-        MOV     R2,A
-        MOV     A,#aExtendedAddress & 0xff
-        ADD     A,R2
-        MOV     DPL,A
-        CLR     A
-        ADDC    A,#(aExtendedAddress >> 8) & 0xff
-        MOV     DPH,A
-        MOV     A,?V0
-        MOVX    @DPTR,A
-        INC     R6
-        MOV     A,R6
-        MOV     R0,A
-        LCALL   ?Subroutine0 & 0xFFFF
-??CrossCallReturnLabel_0:
-        MOV     A,R3
-        MOVX    @DPTR,A
-        INC     R6
-        MOV     A,R6
-        CLR     C
-        SUBB    A,#0x6
-        JC      ??zmain_ext_addr_4
-        INC     R0
-        LCALL   ?Subroutine0 & 0xFFFF
-??CrossCallReturnLabel_1:
-        MOV     A,#0x10
-        MOVX    @DPTR,A
-        INC     R0
-        MOV     A,#aExtendedAddress & 0xff
-        ADD     A,R0
-        MOV     DPL,A
-        CLR     A
-        ADDC    A,#(aExtendedAddress >> 8) & 0xff
-        MOV     DPH,A
-        MOV     A,#-0x8
-        MOVX    @DPTR,A
-        SJMP    ??zmain_ext_addr_1
           CFI EndBlock cfiBlock1
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
